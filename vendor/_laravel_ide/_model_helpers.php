@@ -2713,10 +2713,10 @@ namespace App\Models {
 	 * @property \Illuminate\Support\Carbon|null $deleted_at
 	 * @property string|null $how_did_you_hear_about_us
 	 * @property string|null $message
-	 * @property string|null $company
 	 * @property string|null $notes
 	 * @property string|null $phone
 	 * @property string|null $email
+	 * @property string|null $company
 	 * @property string|null $last_name
 	 * @property string|null $first_name
 	 * @property \Illuminate\Support\Carbon|null $updated_at
@@ -2736,10 +2736,10 @@ namespace App\Models {
 	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact whereUpdatedAt($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact whereFirstName($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact whereLastName($value)
+	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact whereCompany($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact whereEmail($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact wherePhone($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact whereNotes($value)
-	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact whereCompany($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact whereMessage($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact whereHowDidYouHearAboutUs($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<Contact>|Contact whereDeletedAt($value)
@@ -6659,15 +6659,10 @@ namespace App\Models {
 	 * @property array|null $technical_drawings
 	 * @property array|null $gallery
 	 * @property array|null $images
-	 * @property \Illuminate\Support\Carbon|null $deleted_at
 	 * @property \Illuminate\Support\Carbon|null $updated_at
 	 * @property \Illuminate\Support\Carbon|null $created_at
-	 * @property array|null $meta_data
 	 * @property int $sort_order
 	 * @property boolean $is_active
-	 * @property array|null $dimensions
-	 * @property decimal:2|null $weight
-	 * @property int $low_stock_threshold
 	 * @property int $stock_quantity
 	 * @property string $price_modifier_type
 	 * @property decimal:2 $price_modifier
@@ -6700,15 +6695,10 @@ namespace App\Models {
 	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant wherePriceModifier($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant wherePriceModifierType($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereStockQuantity($value)
-	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereLowStockThreshold($value)
-	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereWeight($value)
-	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereDimensions($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereIsActive($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereSortOrder($value)
-	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereMetaData($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereCreatedAt($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereUpdatedAt($value)
-	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereDeletedAt($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereImages($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereGallery($value)
 	 * @method static \Illuminate\Database\Eloquent\Builder<ProductVariant>|ProductVariant whereTechnicalDrawings($value)
