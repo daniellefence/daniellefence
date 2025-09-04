@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body {
+    
+}
+
+header, footer {
+    background-image:url("../images/stripes.png"), linear-gradient(#efefef, #ffffff, #efefef);
+    background-attachment:fixed;
+    @apply shadow-lg;
+}
+
+.upper-header {
+    background:url("../images/egg-shell.png") #8e2a2a;
+    box-shadow:0 10px 10px #333333;
+}
+
+.nav-item {
+    @apply text-lg font-bold leading-6 text-white px-4 py-1 rounded-2xl;
+    box-shadow:inset 1px 1px 2px #333333;
+    @apply transition-all bg-danielle;
+}
+
+.nav-item:hover {
+    background-color: #595959;
+}
+
+.glass {
+    background-image: linear-gradient(rgba( 255, 255, 255, 0.7 ),rgba( 255, 255, 255, 0.9 ),rgba( 255, 255, 255, 0.7 ));
+    backdrop-filter: blur( 4px );
+}
+
+[x-cloak] {
+    display: none;
+}
+
+.item-holder {
+    @apply flex justify-between gap-x-6 py-5 p-2 rounded-lg border-2 border-gray-400 mb-2 border-opacity-50 bg-white;
+}
+
+.menu-image {
+    display: grid;
+    grid-template: "menu-image";
+    place-items: center;
+    place-content: center;
+    max-height: clamp(450px, 50vh, 600px);
+}
+
+.menu-image > * {
+    grid-area: menu-image;
+    max-width: 1000px;
+}
+
+.menu-image .image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.menu-image {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    color: white;
+}
+
+.menu-image-title {
+    position: relative;
+    z-index: 2;
+    @apply text-xl text-danielle font-bold mb-2;
+}
+
+.menu-image .image {
+    position: relative;
+    z-index: 1;
+}
+
+.slider-text {
+    @apply inline-block;
+    @apply text-danielle font-bold;
+}
+
+body {
+    background-color: #ffffff;
+    background-image: url("../images/asfalt-dark.webp");
+    background-attachment:fixed;
+}
+
+@keyframes marquee{
+    to{
+        transform:translateY(-50%);
+    }
+}
+
+.animate-marquee{
+    animation:marquee var(--marquee-duration) linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state:paused;
+}
+
+@keyframes fade-in{
+    0%{
+        opacity:0
+    }
+    to{
+        opacity:1
+    }
+}
+
+.animate-fade-in{
+    animation:fade-in 1s linear forwards
+}
+
+input[type='checkbox'] {
+    @apply h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-danielle;
+}
+
+label {
+    @apply text-base font-semibold text-gray-900;
+}
+
+hr {
+    @apply border-0 border-t-2 border-dashed border-danielle;
+}
+
+footer {
+    @apply border-0 border-t-2 border-dashed border-danielle;
+}
+
+.search-input {
+    border-bottom-right-radius:0px!important;
+    border-top-right-radius:0px!important;
+    border:none!important;
+    --tw-ring-shadow:0 0 #000 !important;
+}
+
+.search-input:focus {
+    @apply ring-0 ring-offset-0 shadow-none !important;
+    --tw-ring-shadow:0 0 #000 !important;
+}
+
+.search-input-without-button {
+    --tw-ring-shadow:0 0 #000 !important;
+}
+
+.search-input-without-button:focus {
+    @apply ring-0 ring-offset-0 shadow-none !important;
+    --tw-ring-shadow:0 0 #000 !important;
+}
+
+.custom-animated-text {
+    opacity: 0.25;
+    transform: scale(.25);
+    transition: opacity 1.5s ease-in-out, transform .95s ease-in-out;
+    transition-delay: .5s;
+    text-align: center;
+}
+
+.slide-visible .custom-animated-text {
+    opacity: 1;
+    transform: scale(1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.header-logo {
+    z-index:10;
+    position:relative;
+}
