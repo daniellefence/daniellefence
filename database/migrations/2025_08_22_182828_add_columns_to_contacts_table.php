@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::table('contacts', function (Blueprint $table) {
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('company')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->text('notes')->nullable();
+            $table->text('message')->nullable();
+            $table->string('how_did_you_hear_about_us')->nullable();
         });
     }
 
@@ -26,7 +29,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('contacts', function (Blueprint $table) {
-            $table->dropColumn(['first_name', 'last_name', 'email', 'phone', 'notes']);
+            $table->dropColumn(['first_name', 'last_name', 'company', 'email', 'phone', 'notes', 'message', 'how_did_you_hear_about_us']);
         });
     }
 };
