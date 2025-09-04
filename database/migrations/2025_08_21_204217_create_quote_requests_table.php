@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('quote_requests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('contact_id')->nullable()->constrained('contacts')->nullOnDelete();
+            $table->foreignId('contact_id')->nullable();
             $table->string('source')->nullable(); // web, phone, walk-in, etc.
             $table->string('status')->default('new')->index(); // new, in_review, quoted, won, lost
             $table->text('details')->nullable(); // free-form notes or JSON as text
