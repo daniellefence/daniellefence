@@ -18,12 +18,6 @@ return new class extends Migration
             });
         }
 
-        if (!Schema::hasColumn('product_variants', 'deleted_at')) {
-            Schema::table('product_variants', function (Blueprint $table) {
-                $table->softDeletes();
-            });
-        }
-
         if (!Schema::hasColumn('blogs', 'deleted_at')) {
             Schema::table('blogs', function (Blueprint $table) {
                 $table->softDeletes();
@@ -79,10 +73,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-        });
-
-        Schema::table('product_variants', function (Blueprint $table) {
             $table->dropSoftDeletes();
         });
 
