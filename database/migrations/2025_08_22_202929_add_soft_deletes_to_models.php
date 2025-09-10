@@ -24,17 +24,8 @@ return new class extends Migration
             });
         }
 
-        if (!Schema::hasColumn('pages', 'deleted_at')) {
-            Schema::table('pages', function (Blueprint $table) {
-                $table->softDeletes();
-            });
-        }
 
-        if (!Schema::hasColumn('documents', 'deleted_at')) {
-            Schema::table('documents', function (Blueprint $table) {
-                $table->softDeletes();
-            });
-        }
+
 
         if (!Schema::hasColumn('careers', 'deleted_at')) {
             Schema::table('careers', function (Blueprint $table) {

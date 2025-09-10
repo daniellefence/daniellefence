@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('title', 'Order Confirmation - Thank You!')
-
-@section('content')
+<x-app-layout>
 <div class="bg-gray-50 min-h-screen">
     <div class="container mx-auto px-4 py-12">
         <div class="max-w-3xl mx-auto">
@@ -122,7 +118,7 @@
             </div>
 
             {{-- Pickup Information --}}
-            <div class="bg-gradient-to-r from-red-800 to-red-900 text-white rounded-lg p-6 mb-8">
+            <div class="bg-gradient-to-r from-[#8e2a2a] to-[#7a2525] text-white rounded-lg p-6 mb-8">
                 <div class="flex items-start">
                     <i class="fas fa-map-marker-alt text-2xl mr-4 mt-1"></i>
                     <div class="flex-1">
@@ -219,9 +215,6 @@
         .text-white { color: white !important; }
     }
 </style>
-@endsection
-
-@push('scripts')
 <script>
     // Auto-scroll to top on load
     window.addEventListener('load', function() {
@@ -244,4 +237,4 @@
         });
     }
 </script>
-@endpush
+</x-app-layout>

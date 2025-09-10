@@ -35,4 +35,15 @@ return [
         ],
     ],
 
+    'google' => [
+        'places' => [
+            'api_key' => env('GOOGLE_PLACES_API_KEY'),
+            'place_id' => env('GOOGLE_PLACES_PLACE_ID'),
+        ],
+    ],
+
+    'openai' => [
+        'api_key' => env('OPENAI_API_KEY'),
+    ],
+
 ];

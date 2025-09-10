@@ -5,18 +5,17 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SEOResource\Pages;
 use App\Models\Blog;
 use App\Models\Product;
-use App\Models\Page;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use RalphJSmit\Laravel\SEO\Models\SEOData;
+use RalphJSmit\Laravel\SEO\Models\SEO;
 
 class SEOResource extends Resource
 {
-    protected static ?string $model = SEOData::class;
+    protected static ?string $model = SEO::class;
     protected static ?string $navigationIcon = 'heroicon-o-magnifying-glass';
     protected static ?string $navigationGroup = 'SEO & Marketing';
     protected static ?string $navigationLabel = 'SEO Management';
@@ -31,7 +30,6 @@ class SEOResource extends Resource
                 Forms\Components\Select::make('model_type')
                     ->label('Content Type')
                     ->options([
-                        'App\\Models\\Page' => 'Pages',
                         'App\\Models\\Blog' => 'Blog Posts',
                         'App\\Models\\Product' => 'Products',
                     ])
@@ -45,9 +43,7 @@ class SEOResource extends Resource
                         $modelType = $get('model_type');
                         if (!$modelType) return [];
                         
-                        if ($modelType === 'App\\Models\\Page') {
-                            return Page::pluck('title', 'id');
-                        } elseif ($modelType === 'App\\Models\\Blog') {
+                        if ($modelType === 'App\\Models\\Blog') {
                             return Blog::pluck('title', 'id');
                         } elseif ($modelType === 'App\\Models\\Product') {
                             return Product::pluck('name', 'id');
@@ -178,9 +174,7 @@ class SEOResource extends Resource
                 Tables\Columns\TextColumn::make('model_type')
                     ->label('Type')
                     ->getStateUsing(function ($record) {
-                        if ($record->model_type === 'App\\Models\\Page') {
-                            return 'Page';
-                        } elseif ($record->model_type === 'App\\Models\\Blog') {
+                        if ($record->model_type === 'App\\Models\\Blog') {
                             return 'Blog';
                         } elseif ($record->model_type === 'App\\Models\\Product') {
                             return 'Product';
@@ -189,7 +183,6 @@ class SEOResource extends Resource
                     })
                     ->badge()
                     ->color(function (string $state): string {
-                        if ($state === 'Page') return 'info';
                         if ($state === 'Blog') return 'success';
                         if ($state === 'Product') return 'warning';
                         return 'gray';
@@ -245,7 +238,6 @@ class SEOResource extends Resource
                 Tables\Filters\SelectFilter::make('model_type')
                     ->label('Content Type')
                     ->options([
-                        'App\\Models\\Page' => 'Pages',
                         'App\\Models\\Blog' => 'Blog Posts', 
                         'App\\Models\\Product' => 'Products',
                     ]),
@@ -274,9 +266,7 @@ class SEOResource extends Resource
                         $model = $record->model_type::find($record->model_id);
                         if (!$model) return null;
                         
-                        if ($record->model_type === 'App\\Models\\Page') {
-                            return route('filament.admin.resources.pages.edit', $model);
-                        } elseif ($record->model_type === 'App\\Models\\Blog') {
+                        if ($record->model_type === 'App\\Models\\Blog') {
                             return route('filament.admin.resources.blogs.edit', $model);
                         } elseif ($record->model_type === 'App\\Models\\Product') {
                             return route('filament.admin.resources.products.edit', $model);

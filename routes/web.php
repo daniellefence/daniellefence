@@ -5,9 +5,7 @@ use App\Http\Controllers\DIYController;
 use App\Http\Controllers\PublicPagesController;
 use App\Http\Controllers\QuoteRequestController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [PublicPagesController::class, 'home'])->name('welcome');
 
 Route::middleware([
     'auth:sanctum',
@@ -59,9 +57,7 @@ Route::prefix('diy')->name('diy.')->group(function () {
     Route::get('/product/{slug}', [DIYController::class, 'show'])->name('product');
     Route::get('/quote', [DIYController::class, 'quote'])->name('quote');
     Route::post('/quote', [DIYController::class, 'storeQuote'])->name('quote.store');
-    Route::get('/order', [DIYController::class, 'orderForm'])->name('order');
-    Route::post('/order', [DIYController::class, 'order'])->name('order.store');
-    Route::get('/thank-you/{order}', [DIYController::class, 'thankYou'])->name('thank-you');
+    Route::get('/thank-you', [DIYController::class, 'thankYou'])->name('thank-you');
     Route::get('/guide/{type?}', [DIYController::class, 'guide'])->name('guide');
     Route::get('/easy-fixes', [DIYController::class, 'easyFixes'])->name('easy-fixes');
 });
@@ -90,3 +86,33 @@ Route::get('/thanks', [PublicPagesController::class, 'thanks'])->name('thanks');
 
 // Search Route
 Route::get('/search', [PublicPagesController::class, 'search'])->name('search');
+
+// Services Routes
+Route::prefix('services')->name('services.')->group(function () {
+    Route::get('/', [PublicPagesController::class, 'servicesIndex'])->name('index');
+    Route::get('/residential', [PublicPagesController::class, 'residential'])->name('residential');
+    Route::get('/commercial', [PublicPagesController::class, 'commercial'])->name('commercial');
+    Route::get('/pool', [PublicPagesController::class, 'pool'])->name('pool');
+    Route::get('/gates', [PublicPagesController::class, 'gates'])->name('gates');
+    Route::get('/repair', [PublicPagesController::class, 'repair'])->name('repair');
+});
+
+// Gallery Route
+Route::get('/gallery', [PublicPagesController::class, 'gallery'])->name('gallery');
+
+// Blog Routes
+Route::prefix('blog')->name('blog.')->group(function () {
+    Route::get('/', [PublicPagesController::class, 'blogIndex'])->name('index');
+    Route::get('/{slug}', [PublicPagesController::class, 'blogPost'])->name('post');
+});
+
+// About Routes
+Route::prefix('about')->name('about.')->group(function () {
+    Route::get('/story', [PublicPagesController::class, 'story'])->name('story');
+    Route::get('/why-choose-us', [PublicPagesController::class, 'whyChooseUs'])->name('why');
+    Route::get('/service-areas', [PublicPagesController::class, 'serviceAreas'])->name('areas');
+    Route::get('/company-history', [PublicPagesController::class, 'companyHistory'])->name('history');
+});
+
+// Reviews Route
+Route::get('/reviews', [PublicPagesController::class, 'reviews'])->name('reviews');

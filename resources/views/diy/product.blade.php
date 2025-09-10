@@ -1,29 +1,28 @@
-@extends('layouts.app')
-
-@section('title', $product->name . ' - DIY Installation')
-
-@section('content')
-<div class="bg-gray-50">
-    {{-- Color Disclaimer Banner --}}
-    <div class="bg-yellow-500 text-gray-900 py-3">
-        <div class="container mx-auto px-4 text-center">
-            <p class="font-semibold">
-                <i class="fas fa-exclamation-triangle mr-2"></i>
-                Important: Color shown is not exact replication of actual product
-            </p>
-        </div>
-    </div>
+<x-app-layout>
 
     {{-- Product Header --}}
     <div class="bg-white shadow">
         <div class="container mx-auto px-4 py-6">
             <nav class="text-sm mb-4">
-                <a href="{{ route('diy.index') }}" class="text-red-800 hover:text-red-900">DIY Products</a>
+                <a href="{{ route('diy.index') }}" class="text-[#8e2a2a] hover:text-[#7a2424]">DIY Products</a>
+                <span class="mx-2">/</span>
+                <a href="{{ route('diy.products') }}" class="text-[#8e2a2a] hover:text-[#7a2424]">{{ $product->category->name ?? 'Products' }}</a>
                 <span class="mx-2">/</span>
                 <span class="text-gray-600">{{ $product->name }}</span>
             </nav>
             
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900">{{ $product->name }}</h1>
+            <div class="flex items-start justify-between">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">{{ $product->name }}</h1>
+                    <p class="text-lg text-gray-600 mt-2">{{ $product->category->name ?? 'Fencing' }} Panel System</p>
+                </div>
+                @if($product->base_price)
+                <div class="text-right">
+                    <div class="text-3xl font-bold text-[#8e2a2a]">${{ number_format($product->base_price, 2) }}</div>
+                    <div class="text-sm text-gray-600">per panel</div>
+                </div>
+                @endif
+            </div>
             
             {{-- Special 8' fence notice --}}
             @if($railPositioning == 'not-centered')
@@ -44,297 +43,273 @@
     </div>
 
     <div class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {{-- Product Images --}}
-            <div class="space-y-4">
-                @if($product->getFirstMediaUrl())
-                    <div class="aspect-square bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="{{ $product->getFirstMediaUrl() }}" 
-                             alt="{{ $product->name }}"
-                             class="w-full h-full object-cover">
-                    </div>
-                @else
-                    <div class="aspect-square bg-gray-200 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-image text-6xl text-gray-400"></i>
-                    </div>
-                @endif
-
-                {{-- Additional Images --}}
-                @if($product->getMedia()->count() > 1)
-                    <div class="grid grid-cols-4 gap-2">
-                        @foreach($product->getMedia()->skip(1) as $media)
-                            <div class="aspect-square bg-white rounded shadow overflow-hidden">
-                                <img src="{{ $media->getUrl() }}" 
-                                     alt="{{ $product->name }}"
-                                     class="w-full h-full object-cover cursor-pointer hover:opacity-75">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {{-- Left Column: Product Images & Description --}}
+            <div class="lg:col-span-2 space-y-8">
+                {{-- Product Images --}}
+                <div class="space-y-4">
+                    @if($product->getFirstMediaUrl())
+                        <div class="aspect-[4/3] bg-white rounded-lg shadow-lg overflow-hidden">
+                            <img src="{{ $product->getFirstMediaUrl() }}" 
+                                 alt="{{ $product->name }}"
+                                 class="w-full h-full object-cover">
+                        </div>
+                    @else
+                        <div class="aspect-[4/3] bg-gray-100 rounded-lg shadow-lg flex items-center justify-center">
+                            <div class="text-center text-gray-400">
+                                <i class="fas fa-image text-6xl mb-4"></i>
+                                <p class="text-lg">Product image coming soon</p>
                             </div>
-                        @endforeach
+                        </div>
+                    @endif
+                </div>
+
+                {{-- What's Included in Standard Panel --}}
+                <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                        What's Included in Each Panel
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        {{-- Example components for Vinyl fence --}}
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between py-2 border-b border-green-200">
+                                <span class="font-medium">Top Rail (1.5" x 5.5")</span>
+                                <span class="text-green-700 font-semibold">1 piece</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2 border-b border-green-200">
+                                <span class="font-medium">Bottom Rail (2" x 7")</span>
+                                <span class="text-green-700 font-semibold">1 piece</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2 border-b border-green-200">
+                                <span class="font-medium">Privacy Pickets</span>
+                                <span class="text-green-700 font-semibold">13 pieces</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between py-2 border-b border-green-200">
+                                <span class="font-medium">U-Channel</span>
+                                <span class="text-green-700 font-semibold">2 pieces</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2 border-b border-green-200">
+                                <span class="font-medium">Screws</span>
+                                <span class="text-green-700 font-semibold">26 pieces</span>
+                            </div>
+                            <div class="flex items-center justify-between py-2">
+                                <span class="font-medium">Installation Instructions</span>
+                                <span class="text-green-700 font-semibold">Included</span>
+                            </div>
+                        </div>
                     </div>
-                @endif
+                    
+                    <div class="mt-4 p-3 bg-white rounded border border-green-300">
+                        <p class="text-sm text-gray-700">
+                            <strong>Panel Dimensions:</strong> 6' W x {{ $product->available_heights ? implode(', ', $product->available_heights) : '6' }}' H (height varies by selection)
+                        </p>
+                    </div>
+                </div>
+
+                {{-- Product Description --}}
+                <div class="prose prose-lg max-w-none">
+                    <h2 class="text-2xl font-bold text-gray-900">Product Description</h2>
+                    <div class="text-gray-700">
+                        {{ $product->description }}
+                    </div>
+                </div>
+
+                {{-- Gates Available --}}
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-door-open text-blue-600 mr-3"></i>
+                        Matching Gates Available
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded border">
+                            <h4 class="font-semibold text-gray-900">Single Walk Gate</h4>
+                            <p class="text-sm text-gray-600 mt-1">3' or 4' wide opening</p>
+                            <p class="text-blue-700 font-semibold mt-2">Starting at $199</p>
+                        </div>
+                        <div class="bg-white p-4 rounded border">
+                            <h4 class="font-semibold text-gray-900">Double Drive Gate</h4>
+                            <p class="text-sm text-gray-600 mt-1">8', 10', or 12' wide opening</p>
+                            <p class="text-blue-700 font-semibold mt-2">Starting at $449</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-3">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Gates include hinges, latch hardware, and installation instructions
+                    </p>
+                </div>
             </div>
 
-            {{-- Product Info & Order Form --}}
+            {{-- Right Column: Ordering & Configuration --}}
             <div class="space-y-6">
-                {{-- Product Description --}}
-                @if($product->description)
-                    <div class="prose max-w-none">
-                        {!! nl2br(e($product->description)) !!}
-                    </div>
-                @endif
-
-                {{-- Pricing --}}
-                @if($product->base_price)
-                    <div class="bg-red-50 p-4 rounded-lg">
-                        <p class="text-3xl font-bold text-red-800">
-                            Starting at ${{ number_format($product->base_price, 2) }}
-                        </p>
-                        <p class="text-sm text-red-600">Pricing varies by specifications</p>
-                    </div>
-                @endif
-
-                {{-- Order Form --}}
-                <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-red-100">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Place Your DIY Order</h3>
+                {{-- Panel Configuration --}}
+                <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-[#8e2a2a]/20">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Configure Your Order</h3>
                     
-                    <form action="{{ route('diy.order') }}" method="POST" class="space-y-4">
+                    <form action="{{ route('diy.quote.store') }}" method="POST" class="space-y-6">
                         @csrf
                         <input type="hidden" name="product_id" value="{{ $product->id }}">
 
-                        {{-- Specifications --}}
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {{-- Panel Specifications --}}
+                        <div class="space-y-4">
+                            <h4 class="font-semibold text-gray-900 border-b pb-2">Panel Specifications</h4>
+                            
                             <div>
                                 <label class="block text-sm font-bold text-gray-700 mb-2">
                                     Height <span class="text-red-500">*</span>
                                 </label>
-                                <select name="height" required 
-                                        class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
+                                <select name="height" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
                                     <option value="">Select Height</option>
-                                    <option value="3'">3 feet</option>
                                     <option value="4'">4 feet</option>
                                     <option value="5'">5 feet</option>
-                                    <option value="6'">6 feet</option>
+                                    <option value="6'">6 feet (most common)</option>
                                     <option value="8'">8 feet</option>
                                 </select>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-gray-700 mb-2">
-                                    Width/Length <span class="text-red-500">*</span>
+                                    Number of Panels <span class="text-red-500">*</span>
                                 </label>
-                                <input type="text" name="width" required placeholder="e.g., 100 linear feet"
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">
-                                    Quantity <span class="text-red-500">*</span>
-                                </label>
-                                <input type="number" name="quantity" required min="1" value="1"
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
+                                <input type="number" name="panels" required min="1" value="1" 
+                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                <p class="text-xs text-gray-500 mt-1">Each panel covers 6 linear feet</p>
                             </div>
                         </div>
 
+                        {{-- Post Configuration --}}
+                        <div class="space-y-4">
+                            <h4 class="font-semibold text-gray-900 border-b pb-2">Post Requirements</h4>
+                            
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">Line Posts</label>
+                                    <input type="number" name="line_posts" min="0" value="0" 
+                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                    <p class="text-xs text-gray-500">Between panels</p>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">End Posts</label>
+                                    <input type="number" name="end_posts" min="0" value="2" 
+                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                    <p class="text-xs text-gray-500">Fence terminators</p>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">Corner Posts</label>
+                                    <input type="number" name="corner_posts" min="0" value="0" 
+                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                    <p class="text-xs text-gray-500">Direction changes</p>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">Gate Posts</label>
+                                    <input type="number" name="gate_posts" min="0" value="0" 
+                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                    <p class="text-xs text-gray-500">For gates</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Post Cap Style --}}
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">
-                                Color <span class="text-red-500">*</span>
-                            </label>
-                            <select name="color" required
-                                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
-                                <option value="">Select Color</option>
-                                <option value="White">White</option>
-                                <option value="Black">Black</option>
-                                <option value="Bronze">Bronze</option>
-                                <option value="Green">Green</option>
-                                <option value="Beige">Beige</option>
-                                <option value="Custom">Custom Color (specify in notes)</option>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Post Cap Style</label>
+                            <select name="cap_style" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                <option value="flat">Flat Cap</option>
+                                <option value="pyramid">Pyramid Cap</option>
+                                <option value="ball">Ball Cap</option>
+                                <option value="gothic">Gothic Cap</option>
                             </select>
                         </div>
 
-                        {{-- Customer Information --}}
-                        <hr class="my-6">
-                        <h4 class="text-lg font-bold text-gray-900 mb-4">Customer Information</h4>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {{-- Gates --}}
+                        <div class="space-y-4">
+                            <h4 class="font-semibold text-gray-900 border-b pb-2">Add Gates (Optional)</h4>
+                            
                             <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">
-                                    Full Name <span class="text-red-500">*</span>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="include_walk_gate" value="1" class="mr-2 text-[#8e2a2a]">
+                                    <span class="text-sm">Include Walk Gate (3' wide)</span>
                                 </label>
-                                <input type="text" name="customer_name" required
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
                             </div>
-
+                            
                             <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">
-                                    Email Address <span class="text-red-500">*</span>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="include_drive_gate" value="1" class="mr-2 text-[#8e2a2a]">
+                                    <span class="text-sm">Include Drive Gate</span>
                                 </label>
-                                <input type="email" name="customer_email" required
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">
-                                    Phone Number <span class="text-red-500">*</span>
-                                </label>
-                                <input type="tel" name="customer_phone" required
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">
-                                    Address <span class="text-red-500">*</span>
-                                </label>
-                                <input type="text" name="customer_address" required
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">
-                                    City <span class="text-red-500">*</span>
-                                </label>
-                                <input type="text" name="customer_city" required
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
-                            </div>
-
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">
-                                    State <span class="text-red-500">*</span>
-                                </label>
-                                <select name="customer_state" required
-                                        class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
-                                    <option value="">Select State</option>
-                                    <option value="FL">Florida</option>
-                                    <option value="AL">Alabama</option>
-                                    <option value="GA">Georgia</option>
-                                    <option value="SC">South Carolina</option>
-                                    <option value="Other">Other</option>
+                                <select name="drive_gate_width" class="w-full mt-2 border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                    <option value="">Select Width</option>
+                                    <option value="8'">8 feet</option>
+                                    <option value="10'">10 feet</option>
+                                    <option value="12'">12 feet</option>
                                 </select>
                             </div>
+                        </div>
 
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">
-                                    ZIP Code <span class="text-red-500">*</span>
-                                </label>
-                                <input type="text" name="customer_zip" required
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500">
+                        {{-- Contact Information --}}
+                        <div class="space-y-4">
+                            <h4 class="font-semibold text-gray-900 border-b pb-2">Contact Information</h4>
+                            
+                            <div class="grid grid-cols-1 gap-3">
+                                <input type="text" name="customer_name" required placeholder="Your Name *" 
+                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                <input type="email" name="customer_email" required placeholder="Email Address *" 
+                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                <input type="tel" name="customer_phone" required placeholder="Phone Number *" 
+                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                <input type="text" name="project_address" placeholder="Project Address" 
+                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
                             </div>
                         </div>
 
+                        {{-- Special Instructions --}}
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-2">
-                                Additional Notes
+                                Special Instructions / Custom Requirements
                             </label>
-                            <textarea name="notes" rows="3" placeholder="Any special requirements, questions, or custom color specifications..."
-                                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-red-500 focus:border-red-500"></textarea>
+                            <textarea name="notes" rows="4" placeholder="Describe any special requirements, measurements, or questions..." 
+                                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]"></textarea>
+                            <p class="text-xs text-gray-500 mt-1">Include route sheet info or specific measurements</p>
                         </div>
 
-                        {{-- Pickup Notice --}}
-                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                            <h5 class="font-bold text-yellow-800 mb-2">📍 Pickup Location</h5>
-                            <p class="text-yellow-700">
-                                <strong>4855 State Road 60 West, Mulberry, FL 33860</strong><br>
-                                Phone: (863) 425-3182<br>
-                                <small>Materials ready for pickup in 3-5 business days</small>
-                            </p>
-                        </div>
-
+                        {{-- Submit Button --}}
                         <button type="submit" 
-                                class="w-full bg-red-800 text-white py-4 px-6 rounded-lg font-bold text-lg hover:bg-red-900 transition">
-                            <i class="fas fa-shopping-cart mr-2"></i>
-                            Place DIY Order
+                                class="w-full bg-[#8e2a2a] text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-[#7a2424] transition-colors">
+                            Get My Custom Quote
                         </button>
                     </form>
                 </div>
-            </div>
-        </div>
 
-        {{-- Product Details & Installation Info --}}
-        <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {{-- Installation Difficulty --}}
-            <div class="bg-white p-6 rounded-lg shadow">
-                <h3 class="font-bold text-lg mb-4">Installation Info</h3>
-                <div class="space-y-3">
-                    <div class="flex justify-between">
-                        <span>Difficulty:</span>
-                        <span class="font-medium">Moderate</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Est. Time:</span>
-                        <span class="font-medium">1-2 days</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span>Tools Required:</span>
-                        <span class="font-medium">Basic hand tools</span>
-                    </div>
+                {{-- No Returns Policy --}}
+                <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                    <h4 class="font-bold text-red-800 flex items-center mb-2">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Important: No Returns Policy
+                    </h4>
+                    <p class="text-sm text-red-700">
+                        Due to the custom nature of DIY fence orders, <strong>all sales are final</strong>. 
+                        Please double-check measurements and specifications before ordering. 
+                        Our team is available to help ensure accuracy.
+                    </p>
                 </div>
-            </div>
 
-            {{-- What's Included --}}
-            <div class="bg-white p-6 rounded-lg shadow">
-                <h3 class="font-bold text-lg mb-4">What's Included</h3>
-                <ul class="space-y-2 text-sm">
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-600 mr-2"></i>
-                        Fence panels and posts
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-600 mr-2"></i>
-                        Hardware and brackets
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-check text-green-600 mr-2"></i>
-                        Installation instructions
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-times text-red-600 mr-2"></i>
-                        Concrete and tools not included
-                    </li>
-                </ul>
-            </div>
-
-            {{-- Support --}}
-            <div class="bg-white p-6 rounded-lg shadow">
-                <h3 class="font-bold text-lg mb-4">Need Help?</h3>
-                <div class="space-y-3">
-                    <a href="tel:8634253182" class="flex items-center text-red-800 hover:text-red-900">
-                        <i class="fas fa-phone mr-2"></i>
-                        (863) 425-3182
-                    </a>
-                    <a href="{{ route('diy.guide') }}" class="flex items-center text-red-800 hover:text-red-900">
-                        <i class="fas fa-file-pdf mr-2"></i>
-                        Installation Guides
-                    </a>
-                    <a href="{{ route('contact') }}" class="flex items-center text-red-800 hover:text-red-900">
-                        <i class="fas fa-envelope mr-2"></i>
-                        Contact Us
-                    </a>
+                {{-- Need Help Box --}}
+                <div class="bg-[#68bf21]/10 border border-[#68bf21]/30 rounded-lg p-4">
+                    <h4 class="font-bold text-[#68bf21] mb-2">Need Help?</h4>
+                    <p class="text-sm text-gray-700 mb-3">
+                        Our DIY experts can help calculate materials and provide guidance.
+                    </p>
+                    <div class="space-y-2">
+                        <a href="tel:863-425-3182" class="block text-center bg-[#68bf21] text-white px-4 py-2 rounded hover:bg-[#5da61e] transition-colors">
+                            Call (863) 425-3182
+                        </a>
+                        <a href="{{ route('diy.guide') }}" class="block text-center border border-[#68bf21] text-[#68bf21] px-4 py-2 rounded hover:bg-[#68bf21] hover:text-white transition-colors">
+                            View Installation Guide
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-{{-- Success/Error Messages --}}
-@if(session('success'))
-    <div class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50" 
-         x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000)">
-        <i class="fas fa-check-circle mr-2"></i>
-        {{ session('success') }}
-    </div>
-@endif
-
-@if(session('error'))
-    <div class="fixed bottom-4 right-4 bg-red-500 text-white p-4 rounded-lg shadow-lg z-50"
-         x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 8000)">
-        <i class="fas fa-exclamation-circle mr-2"></i>
-        {{ session('error') }}
-    </div>
-@endif
-
-@if($errors->any())
-    <div class="fixed bottom-4 right-4 bg-red-500 text-white p-4 rounded-lg shadow-lg z-50"
-         x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 10000)">
-        <i class="fas fa-exclamation-triangle mr-2"></i>
-        Please check the form for errors
-    </div>
-@endif
-@endsection
+</x-app-layout>

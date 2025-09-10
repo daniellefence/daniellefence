@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Cache;
 
 class GoogleTagManagerResource extends Resource
 {
+    protected static ?string $model = SiteSetting::class;
     protected static ?string $navigationIcon = 'heroicon-o-chart-bar-square';
     protected static ?string $navigationGroup = 'SEO & Marketing';
     protected static ?string $navigationLabel = 'Google Tag Manager';

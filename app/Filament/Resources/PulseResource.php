@@ -9,7 +9,7 @@ use Laravel\Pulse\Facades\Pulse;
 class PulseResource extends Resource
 {
     protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
-    protected static ?string $navigationGroup = 'System';
+    protected static ?string $navigationGroup = 'System Management';
     protected static ?string $navigationLabel = 'Performance Monitor';
     protected static ?string $pluralLabel = 'Performance Monitor';
     protected static ?int $navigationSort = 90;

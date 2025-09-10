@@ -5,14 +5,11 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\TrashBinResource\Pages;
 use App\Models\Blog;
 use App\Models\Product;
-use App\Models\Page;
 use App\Models\Special;
 use App\Models\ServiceArea;
 use App\Models\YouTubeVideo;
-use App\Models\Document;
 use App\Models\Career;
 use App\Models\Contact;
-use App\Models\ProductVariant;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,7 +23,7 @@ class TrashBinResource extends Resource
     protected static ?string $model = Blog::class; // Default model, will be overridden
 
     protected static ?string $navigationIcon = 'heroicon-o-trash';
-    protected static ?string $navigationGroup = 'System';
+    protected static ?string $navigationGroup = 'System Management';
     protected static ?string $navigationLabel = 'Trash Bin';
     protected static ?string $pluralLabel = 'Trash Bin';
     protected static ?int $navigationSort = 99;
@@ -62,14 +59,11 @@ class TrashBinResource extends Resource
                     ->color(fn (string $state): string => match ($state) {
                         'Blog' => 'info',
                         'Product' => 'success',
-                        'Page' => 'warning',
                         'Special' => 'danger',
                         'ServiceArea' => 'purple',
                         'YouTubeVideo' => 'red',
-                        'Document' => 'gray',
                         'Career' => 'orange',
                         'Contact' => 'blue',
-                        'ProductVariant' => 'green',
                         default => 'primary',
                     }),
                 Tables\Columns\TextColumn::make('deleted_at')
@@ -89,12 +83,9 @@ class TrashBinResource extends Resource
                     ->options([
                         'Blog' => 'Blogs',
                         'Product' => 'Products',
-                        'ProductVariant' => 'Product Variants',
-                        'Page' => 'Pages',
                         'Special' => 'Specials',
                         'ServiceArea' => 'Service Areas',
                         'YouTubeVideo' => 'YouTube Videos',
-                        'Document' => 'Documents',
                         'Career' => 'Careers',
                         'Contact' => 'Contacts',
                     ])

@@ -20,11 +20,17 @@ class Review extends Model
         'published',
         'reviewed_at',
         'google_review_id',
+        'review_date',
+        'is_published',
+        'is_featured',
     ];
 
     protected $casts = [
         'published' => 'boolean',
         'reviewed_at' => 'datetime',
+        'review_date' => 'datetime',
+        'is_published' => 'boolean',
+        'is_featured' => 'boolean',
         'rating' => 'integer',
     ];
 

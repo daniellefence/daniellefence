@@ -1,24 +1,14 @@
-@extends('layouts.app')
-
-@section('title', 'DIY Fence Installation - Do It Yourself')
-
-@section('content')
+<x-app-layout>
 <div class="bg-gray-50">
     {{-- Hero Section --}}
-    <div class="bg-gradient-to-br from-red-800 to-red-900 text-white py-16">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">DIY Fence Installation</h1>
-            <p class="text-xl mb-8">Professional-grade fencing materials for the do-it-yourself installer</p>
-            
-            {{-- Important Notice --}}
-            <div class="bg-yellow-500 text-gray-900 p-4 rounded-lg mb-8">
-                <p class="font-semibold">
-                    <i class="fas fa-exclamation-triangle mr-2"></i>
-                    Important: Color shown is not exact replication of actual product. 
-                    Please visit our showroom or request samples for accurate color representation.
-                </p>
+    <div class="bg-gradient-to-br from-[#8e2a2a] to-[#7a2525] text-white w-full p-10">
+        <div class="container mx-auto aspect-video flex items-center justify-center">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">DIY Fence Installation</h1>
+                <p class="text-xl mb-8">Professional-grade fencing materials for the do-it-yourself installer</p>
             </div>
         </div>
+        
     </div>
 
     {{-- Product Grid --}}
@@ -205,9 +195,6 @@
         </button>
     </div>
 </div>
-@endsection
-
-@push('scripts')
 <script>
     // Show color disclaimer on first visit
     if (!localStorage.getItem('colorDisclaimerShown')) {
@@ -217,4 +204,4 @@
         }, 2000);
     }
 </script>
-@endpush
+</x-app-layout>

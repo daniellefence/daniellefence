@@ -18,7 +18,7 @@ class SpecialResource extends Resource
 {
     protected static ?string $model = Special::class;
     protected static ?string $navigationIcon = 'heroicon-o-gift';
-    protected static ?string $navigationGroup = 'Marketing';
+    protected static ?string $navigationGroup = 'SEO & Marketing';
     protected static ?string $navigationLabel = 'Specials & Promotions';
     protected static ?string $pluralLabel = 'Specials & Promotions';
 

@@ -17,7 +17,7 @@ class QuoteRequestResource extends Resource
 {
     protected static ?string $model = QuoteRequest::class;
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
-    protected static ?string $navigationGroup = 'CRM';
+    protected static ?string $navigationGroup = 'Customer Management';
     protected static ?string $navigationLabel = 'Quote Requests';
     protected static ?string $pluralLabel = 'Quote Requests';
 

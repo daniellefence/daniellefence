@@ -1,5 +1,14 @@
-<footer class="bg-white border-t-2 border-dashed border-danielle">
-    <div class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+<footer class="relative" style="background: linear-gradient(to bottom, transparent 0%, transparent 40%, #87CEEB 40%, #87CEEB 70%, #90EE90 70%, #90EE90 100%); min-height: 200px;">
+    <!-- Fence Pattern -->
+    <div class="absolute inset-x-0 z-0" style="top: 20%; bottom: 30%; background-image: url('{{ asset('images/fence.webp') }}'); background-repeat: repeat-x; background-position: center; background-size: auto 100%;"></div>
+    
+    <!-- Grass decoration at bottom -->
+    <div class="absolute inset-x-0 bottom-0 z-0 h-24">
+        <div class="absolute inset-0" style="background-image: url('{{ asset('images/grass.svg') }}'); background-repeat: repeat-x; background-position: bottom; background-size: auto 80%;"></div>
+    </div>
+    
+    <!-- Footer Content -->
+    <div class="relative z-10 mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
         <div class="flex justify-center space-x-6 md:order-2">
             <div class="text-center">
                 <h3 class="text-sm font-semibold leading-6 text-gray-900">Contact Information</h3>

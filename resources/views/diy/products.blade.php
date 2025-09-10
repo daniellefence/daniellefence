@@ -1,26 +1,30 @@
 <x-app-layout>
+
     <div class="min-h-screen">
         <!-- Hero Section -->
-        <div class="menu-image relative">
-            <div class="absolute inset-0 bg-gradient-to-r from-danielle/90 to-daniellealt/90"></div>
-            <div class="relative z-10 mx-auto max-w-7xl px-6 py-24 text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                    DIY Fence Products
-                </h1>
-                <p class="mt-6 text-lg leading-8 text-white">
-                    Professional-grade fencing materials for the do-it-yourself enthusiast. 
-                    Save money while getting commercial-quality materials.
-                </p>
-                <div class="mt-10 flex items-center justify-center gap-x-6">
-                    <a href="{{ route('diy.quote') }}" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-danielle shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                        Get a Quote
-                    </a>
-                    <a href="{{ route('diy.order') }}" class="text-sm font-semibold leading-6 text-white border border-white rounded-md px-3.5 py-2.5 hover:bg-white hover:text-danielle transition-colors">
-                        Order Now <span aria-hidden="true">→</span>
-                    </a>
+        <div class="bg-gradient-to-r from-danielle to-daniellealt text-white w-full py-16">
+            <div class="container mx-auto px-4">
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                        Professional Fence Materials
+                    </h1>
+                    <p class="mt-6 text-lg leading-8 text-white max-w-3xl mx-auto">
+                        Professional-grade fencing materials with complete component lists. 
+                        Choose from Vinyl/PVC, Aluminum, or Wood - panels, gates, and all hardware included.
+                    </p>
+                    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="{{ route('diy.quote') }}" class="w-full sm:w-auto rounded-md bg-white px-6 py-3 text-lg font-semibold text-danielle shadow-sm hover:bg-gray-100">
+                            Get Custom Quote
+                        </a>
+                        <a href="tel:863-425-3182" class="w-full sm:w-auto text-lg font-semibold leading-6 text-white border border-white rounded-md px-6 py-3 hover:bg-white hover:text-danielle transition-colors">
+                            Call Expert: (863) 425-3182
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+
+
 
         <!-- Products Grid -->
         <div class="bg-white py-24 sm:py-32">

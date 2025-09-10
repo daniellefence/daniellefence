@@ -6,8 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('seo.site_name', 'Danielle Fence - Professional Fence Installation') }}</title>
     <meta name="description" content="{{ config('seo.default_description', 'Professional fence installation and DIY fence supplies. Aluminum, vinyl, wood fencing. 49 years serving Central Florida.') }}">
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet">
+    <link href="{{ asset('fonts/figtree.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet">
     <meta name="msapplication-TileColor" content="#8e2a2a">
     <meta name="theme-color" content="#ffffff">
     @livewireStyles

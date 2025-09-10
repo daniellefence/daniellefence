@@ -69,15 +69,6 @@ class Product extends Model implements HasMedia
         return $this->hasMany(QuoteRequest::class);
     }
 
-    public function variants(): HasMany
-    {
-        return $this->hasMany(ProductVariant::class);
-    }
-
-    public function activeVariants(): HasMany
-    {
-        return $this->hasMany(ProductVariant::class)->where('is_active', true);
-    }
 
     public function registerMediaCollections(): void
     {

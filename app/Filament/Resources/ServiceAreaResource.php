@@ -17,7 +17,7 @@ class ServiceAreaResource extends Resource
 {
     protected static ?string $model = ServiceArea::class;
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
-    protected static ?string $navigationGroup = 'Business';
+    protected static ?string $navigationGroup = 'Business Settings';
     protected static ?string $navigationLabel = 'Service Areas';
     protected static ?string $pluralLabel = 'Service Areas';
 

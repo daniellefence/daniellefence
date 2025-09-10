@@ -14,18 +14,25 @@ export default {
     theme: {
         extend: {
             colors:{
-                'danielle':'#8e2a2a',
-                'daniellealt':'#6b1e1e',
-                'primary':'#1B70FA',
-                'primary_alt':'#165cd4',
+                // Brand Colors
+                'danielle':'#8f2a2a',           // Primary brand red
+                'daniellealt':'#7a2626',        // Darker primary red
+                'brand-red':'#c1121F',          // Secondary brand red
+                'brand-cream':'#fdf0d5',        // Cream/beige
+                'brand-dark':'#003049',         // Dark blue
+                'brand-light':'#669bbc',        // Light blue
+                
+                // System Colors
+                'primary':'#8f2a2a',            // Using brand primary
+                'primary_alt':'#7a2626',
                 'success':'#1F8755',
                 'success_alt':'#186741',
                 'warning':'#FEC029',
                 'warning_alt':'#b9860a',
-                'info':'#24CBEE',
-                'info_alt':'#24CBEE',
-                'danger':'#8e2a2a',
-                'danger_alt':'#671f1f'
+                'info':'#669bbc',               // Using brand light blue
+                'info_alt':'#5588a3',
+                'danger':'#c1121F',             // Using brand secondary red
+                'danger_alt':'#a00f1a'
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],

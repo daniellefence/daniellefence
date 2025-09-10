@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan tinker:*)",
+      "Bash(php artisan migrate:fresh:*)",
+      "Bash(php artisan:*)",
+      "Bash(php artisan config:clear:*)",
+      "Bash(find:*)",
+      "Bash(npm run build:*)",
+      "Bash(composer:*)",
+      "WebFetch(domain:daniellefence.com)",
+      "Bash(open:*)",
+      "Bash(osascript:*)",
+      "Bash(curl:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

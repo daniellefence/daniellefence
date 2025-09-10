@@ -3,16 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\DIYOrder;
-use App\Mail\DIYOrderConfirmation;
-use App\Mail\DIYOrderNotification;
 use App\Services\NotificationService;
 use App\Services\CacheService;
-use App\Http\Requests\DIYOrderRequest;
 use App\Http\Requests\QuoteRequest;
-use App\Jobs\SendDIYOrderNotifications;
 use Illuminate\Support\Facades\Log;
 use RalphJSmit\Laravel\SEO\Support\SEOData;
+use RalphJSmit\Laravel\SEO\SchemaCollection;
 
 class DIYController extends Controller
 {
@@ -31,7 +27,7 @@ class DIYController extends Controller
             image: asset('images/diy-hero.jpg'),
         );
 
-        $seoData->schema = collect([[
+        $seoData->schema = new SchemaCollection([[
             '@context' => 'https://schema.org',
             '@type' => 'Product',
             'name' => 'DIY Fence Installation Supplies',
@@ -128,89 +124,13 @@ class DIYController extends Controller
         return app(QuoteRequestController::class)->store($request);
     }
 
-    /**
-     * Show order form
-     */
-    public function orderForm(CacheService $cacheService)
-    {
-        $products = $cacheService->getDIYProducts();
-
-        $seoData = new SEOData(
-            title: 'Order DIY Fence Supplies - Professional Materials | Danielle Fence',
-            description: 'Order professional-grade DIY fence supplies directly. Fast shipping and expert installation support.',
-            author: 'Danielle Fence',
-        );
-
-        return view('diy.order', compact('products'))->with('seoData', $seoData);
-    }
 
     /**
-     * Process DIY order
+     * Thank you page after quote submission
      */
-    public function order(DIYOrderRequest $request, NotificationService $notificationService)
+    public function thankYou()
     {
-        $validated = $request->validated();
-
-        try {
-            // Create DIY order
-            $order = DIYOrder::create([
-                'order_number' => 'DIY-' . date('Ymd') . '-' . strtoupper(uniqid()),
-                'product_id' => $validated['product_id'],
-                'quantity' => $validated['quantity'],
-                'specifications' => [
-                    'height' => $validated['height'],
-                    'width' => $validated['width'],
-                    'color' => $validated['color'],
-                ],
-                'customer_info' => [
-                    'name' => $validated['customer_name'],
-                    'email' => $validated['customer_email'],
-                    'phone' => $validated['customer_phone'],
-                    'address' => $validated['customer_address'],
-                    'city' => $validated['customer_city'],
-                    'state' => $validated['customer_state'],
-                    'zip' => $validated['customer_zip'],
-                ],
-                'notes' => $validated['notes'],
-                'status' => 'pending',
-            ]);
-
-            // Queue notification emails for better performance
-            SendDIYOrderNotifications::dispatch($order);
-            
-            Log::info('DIY Order notification job queued', [
-                'order_number' => $order->order_number,
-            ]);
-
-            // Log the order for monitoring
-            Log::info('DIY Order placed', [
-                'order_number' => $order->order_number,
-                'customer' => $validated['customer_name'],
-                'product' => $order->product->name,
-            ]);
-
-            return redirect()->route('diy.thank-you', ['order' => $order->order_number])
-                ->with('success', 'Your DIY order has been submitted successfully!');
-
-        } catch (\Exception $e) {
-            Log::error('DIY Order failed', [
-                'error' => $e->getMessage(),
-                'data' => $validated,
-            ]);
-
-            return back()->withInput()
-                ->with('error', 'There was an issue processing your order. Please try again or contact us directly.');
-        }
-    }
-
-    /**
-     * Thank you page after order submission
-     */
-    public function thankYou($orderNumber)
-    {
-        $order = DIYOrder::where('order_number', $orderNumber)->firstOrFail();
-        
-        return view('diy.thank-you', compact('order'));
+        return view('diy.thank-you');
     }
 
     /**

@@ -6,15 +6,12 @@ html,body {
     
 }
 
-header, footer {
-    background-image:url("../images/stripes.png"), linear-gradient(#efefef, #ffffff, #efefef);
-    background-attachment:fixed;
-    @apply shadow-lg;
-}
-
-.upper-header {
-    background:url("../images/egg-shell.png") #8e2a2a;
-    box-shadow:0 10px 10px #333333;
+header {
+    background-image:url("../images/stripes.png");
+    background-color: #87ceeb;
+    background-position:bottom left;
+    background-size:330px;
+    background-repeat:repeat-x;
 }
 
 .nav-item {
@@ -82,16 +79,10 @@ header, footer {
     @apply inline-block;
     @apply text-danielle font-bold;
 }
-
-body {
-    background-color: #ffffff;
-    background-image: url("../images/asfalt-dark.webp");
-    background-attachment:fixed;
-}
-
+ 
 @keyframes marquee{
     to{
-        transform:translateY(-50%);
+        transform:translateX(-50%);
     }
 }
 
@@ -173,4 +164,58 @@ html {
 .header-logo {
     z-index:10;
     position:relative;
+}
+
+/* Automotive Tag Style Navigation Buttons */
+.nav-tag-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-tag-button::before,
+.nav-tag-button::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.nav-tag-button::before {
+    top: 4px;
+    left: 4px;
+}
+
+.nav-tag-button::after {
+    top: 4px;
+    right: 4px;
+}
+
+.nav-tag-button .nav-tag-dot-bottom-left,
+.nav-tag-button .nav-tag-dot-bottom-right {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.nav-tag-button .nav-tag-dot-bottom-left {
+    bottom: 4px;
+    left: 4px;
+}
+
+.nav-tag-button .nav-tag-dot-bottom-right {
+    bottom: 4px;
+    right: 4px;
+}
+
+/* Red background for logo with white dots */
+.header-logo {
+    background: #8f2a2a !important;
+    border-radius: 6px;
+    padding: 8px;
 }

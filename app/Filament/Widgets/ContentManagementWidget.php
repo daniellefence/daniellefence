@@ -3,11 +3,8 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Blog;
-use App\Models\Document;
 use App\Models\FAQ;
-use App\Models\Page;
 use App\Models\Product;
-use App\Models\ProductVariant;
 use App\Models\Special;
 use App\Models\YouTubeVideo;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -30,15 +27,10 @@ class ContentManagementWidget extends BaseWidget
                     'class' => 'cursor-pointer',
                 ]),
 
-            Stat::make('Products & Variants', Product::count() . ' / ' . ProductVariant::count())
-                ->description('Products with ' . ProductVariant::count() . ' variants')
+            Stat::make('Products', Product::count())
+                ->description('Total products available')
                 ->descriptionIcon('heroicon-m-cube')
                 ->color('info'),
-
-            Stat::make('Pages & Documents', Page::count() . ' / ' . Document::count())
-                ->description('Static pages and documents')
-                ->descriptionIcon('heroicon-m-document-text')
-                ->color('primary'),
 
             Stat::make('Media Files', Media::count())
                 ->description($this->getMediaDescription())

@@ -5,14 +5,11 @@ namespace App\Filament\Resources\TrashBinResource\Pages;
 use App\Filament\Resources\TrashBinResource;
 use App\Models\Blog;
 use App\Models\Product;
-use App\Models\Page;
 use App\Models\Special;
 use App\Models\ServiceArea;
 use App\Models\YouTubeVideo;
-use App\Models\Document;
 use App\Models\Career;
 use App\Models\Contact;
-use App\Models\ProductVariant;
 use Filament\Actions;
 use Filament\Resources\Components\Tab;
 use Filament\Resources\Pages\ListRecords;
@@ -69,15 +66,7 @@ class ListTrashBin extends ListRecords
                 ->modifyQueryUsing(fn (Builder $query) => Product::query()->onlyTrashed())
                 ->badge(Product::onlyTrashed()->count()),
 
-            'product_variants' => Tab::make('Variants')
-                ->icon('heroicon-o-squares-2x2')
-                ->modifyQueryUsing(fn (Builder $query) => ProductVariant::query()->onlyTrashed())
-                ->badge(ProductVariant::onlyTrashed()->count()),
 
-            'pages' => Tab::make('Pages')
-                ->icon('heroicon-o-document')
-                ->modifyQueryUsing(fn (Builder $query) => Page::query()->onlyTrashed())
-                ->badge(Page::onlyTrashed()->count()),
 
             'specials' => Tab::make('Specials')
                 ->icon('heroicon-o-gift')
@@ -94,10 +83,6 @@ class ListTrashBin extends ListRecords
                 ->modifyQueryUsing(fn (Builder $query) => YouTubeVideo::query()->onlyTrashed())
                 ->badge(YouTubeVideo::onlyTrashed()->count()),
 
-            'documents' => Tab::make('Documents')
-                ->icon('heroicon-o-folder')
-                ->modifyQueryUsing(fn (Builder $query) => Document::query()->onlyTrashed())
-                ->badge(Document::onlyTrashed()->count()),
 
             'careers' => Tab::make('Careers')
                 ->icon('heroicon-o-briefcase')
@@ -126,12 +111,9 @@ class ListTrashBin extends ListRecords
         // Get all trashed items from different models and union them
         $blogs = Blog::onlyTrashed()->select('id', 'title as title', 'deleted_at', 'created_at')->selectRaw("'Blog' as model_type");
         $products = Product::onlyTrashed()->select('id', 'name as title', 'deleted_at', 'created_at')->selectRaw("'Product' as model_type");
-        $variants = ProductVariant::onlyTrashed()->select('id', 'name as title', 'deleted_at', 'created_at')->selectRaw("'ProductVariant' as model_type");
-        $pages = Page::onlyTrashed()->select('id', 'title as title', 'deleted_at', 'created_at')->selectRaw("'Page' as model_type");
         $specials = Special::onlyTrashed()->select('id', 'title as title', 'deleted_at', 'created_at')->selectRaw("'Special' as model_type");
         $serviceAreas = ServiceArea::onlyTrashed()->select('id', 'name as title', 'deleted_at', 'created_at')->selectRaw("'ServiceArea' as model_type");
         $videos = YouTubeVideo::onlyTrashed()->select('id', 'title as title', 'deleted_at', 'created_at')->selectRaw("'YouTubeVideo' as model_type");
-        $documents = Document::onlyTrashed()->select('id', 'title as title', 'deleted_at', 'created_at')->selectRaw("'Document' as model_type");
         $careers = Career::onlyTrashed()->select('id', 'title as title', 'deleted_at', 'created_at')->selectRaw("'Career' as model_type");
         $contacts = Contact::onlyTrashed()->select('id')->selectRaw("CONCAT(first_name, ' ', last_name) as title")->addSelect('deleted_at', 'created_at')->selectRaw("'Contact' as model_type");
 
@@ -143,12 +125,9 @@ class ListTrashBin extends ListRecords
     {
         return Blog::onlyTrashed()->count() +
                Product::onlyTrashed()->count() +
-               ProductVariant::onlyTrashed()->count() +
-               Page::onlyTrashed()->count() +
                Special::onlyTrashed()->count() +
                ServiceArea::onlyTrashed()->count() +
                YouTubeVideo::onlyTrashed()->count() +
-               Document::onlyTrashed()->count() +
                Career::onlyTrashed()->count() +
                Contact::onlyTrashed()->count();
     }
@@ -157,12 +136,9 @@ class ListTrashBin extends ListRecords
     {
         Blog::onlyTrashed()->forceDelete();
         Product::onlyTrashed()->forceDelete();
-        ProductVariant::onlyTrashed()->forceDelete();
-        Page::onlyTrashed()->forceDelete();
         Special::onlyTrashed()->forceDelete();
         ServiceArea::onlyTrashed()->forceDelete();
         YouTubeVideo::onlyTrashed()->forceDelete();
-        Document::onlyTrashed()->forceDelete();
         Career::onlyTrashed()->forceDelete();
         Contact::onlyTrashed()->forceDelete();
         
@@ -173,12 +149,9 @@ class ListTrashBin extends ListRecords
     {
         Blog::onlyTrashed()->restore();
         Product::onlyTrashed()->restore();
-        ProductVariant::onlyTrashed()->restore();
-        Page::onlyTrashed()->restore();
         Special::onlyTrashed()->restore();
         ServiceArea::onlyTrashed()->restore();
         YouTubeVideo::onlyTrashed()->restore();
-        Document::onlyTrashed()->restore();
         Career::onlyTrashed()->restore();
         Contact::onlyTrashed()->restore();
         

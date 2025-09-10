@@ -1,33 +1,31 @@
-@extends('layouts.app')
-
-@section('title', 'DIY Installation Guides')
-
-@section('content')
+<x-app-layout>
 <div class="bg-gray-50 min-h-screen">
     {{-- Header --}}
-    <div class="bg-gradient-to-r from-red-800 to-red-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <nav class="text-sm mb-4 opacity-90">
-                <a href="{{ route('diy.index') }}" class="hover:text-yellow-300">DIY Products</a>
-                <span class="mx-2">/</span>
-                <span>Installation Guides</span>
-            </nav>
-            
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                @if($type)
-                    {{ $guides[$type] }}
-                @else
-                    DIY Installation Guides
-                @endif
-            </h1>
-            
-            <p class="text-xl opacity-90">
-                Professional installation instructions for the do-it-yourself installer
-            </p>
+    <div class="bg-gradient-to-r from-danielle to-daniellealt text-white w-full py-8 px-4">
+        <div class="container mx-auto flex items-center justify-center">
+            <div class="text-center">
+                <nav class="text-sm mb-4 opacity-90">
+                    <a href="{{ route('diy.index') }}" class="hover:text-yellow-300">DIY Products</a>
+                    <span class="mx-2">/</span>
+                    <span>Installation Guides</span>
+                </nav>
+                
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    @if($type)
+                        {{ $guides[$type] }}
+                    @else
+                        DIY Installation Guides
+                    @endif
+                </h1>
+                
+                <p class="text-xl opacity-90">
+                    Professional installation instructions for the do-it-yourself installer
+                </p>
+            </div>
         </div>
     </div>
 
-    <div class="container mx-auto px-4 py-12">
+    <div class="container mx-auto px-4 py-6">
         @if(!$type)
             {{-- Guide Selection --}}
             <div class="max-w-4xl mx-auto">
@@ -86,7 +84,7 @@
                 </div>
 
                 {{-- General Tips Section --}}
-                <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
                     <h2 class="text-2xl font-bold mb-6">Before You Begin - Essential Tips</h2>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -149,7 +147,7 @@
             <div class="max-w-4xl mx-auto">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     {{-- Guide Header --}}
-                    <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-8 border-b">
+                    <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-6 border-b">
                         <div class="flex items-center justify-between">
                             <div>
                                 <h2 class="text-2xl font-bold mb-2">{{ $guides[$type] }}</h2>
@@ -167,7 +165,7 @@
                     </div>
 
                     {{-- Guide Content --}}
-                    <div class="p-8">
+                    <div class="p-6">
                         @switch($type)
                             @case('aluminum')
                                 <div class="space-y-8">
@@ -359,8 +357,8 @@
         @endif
 
         {{-- Contact Section --}}
-        <div class="max-w-4xl mx-auto mt-12">
-            <div class="bg-gradient-to-r from-red-800 to-red-900 text-white rounded-lg p-8 text-center">
+        <div class="max-w-4xl mx-auto mt-8">
+            <div class="bg-gradient-to-r from-danielle to-daniellealt text-white rounded-lg p-6 text-center">
                 <h2 class="text-2xl font-bold mb-4">Need Professional Installation?</h2>
                 <p class="text-lg mb-6">
                     Our experienced team can handle the entire installation process for you
@@ -381,9 +379,6 @@
         </div>
     </div>
 </div>
-@endsection
-
-@push('scripts')
 <script>
 function downloadPDF() {
     // In a real implementation, this would trigger a PDF download
@@ -391,4 +386,4 @@ function downloadPDF() {
     alert('PDF download feature coming soon! Please call (863) 425-3182 for detailed installation guides.');
 }
 </script>
-@endpush
+</x-app-layout>

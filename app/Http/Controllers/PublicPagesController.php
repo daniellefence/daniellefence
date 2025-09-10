@@ -7,6 +7,7 @@ use App\Models\BlogCategory;
 use App\Models\Career;
 use App\Models\Page;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Models\ServiceArea;
 use App\Models\Special;
 use App\Models\FAQ;
@@ -40,18 +41,23 @@ class PublicPagesController extends Controller
                 })
                 ->limit(3)
                 ->get(),
-            'reviews' => Review::where('is_published', true)
+            'reviews' => Review::where('published', true)
                 ->where('rating', '>=', 4)
                 ->latest()
-                ->limit(5)
+                ->limit(10) // Get more for marquee
+                ->get(),
+            'marquee_reviews' => Review::where('published', true)
+                ->where('rating', '>=', 4)
+                ->latest()
+                ->limit(15) // Get enough for seamless scrolling
                 ->get(),
             'service_areas' => ServiceArea::where('is_active', true)
-                ->where('show_on_homepage', true)
                 ->orderBy('sort_order')
+                ->limit(30)
                 ->get(),
         ];
 
-        return view('public.home', $data);
+        return view('welcome', $data);
     }
 
     /**
@@ -285,6 +291,14 @@ class PublicPagesController extends Controller
     }
 
     /**
+     * Display residential page
+     */
+    public function residential()
+    {
+        return view('pages.residential');
+    }
+
+    /**
      * Display commercial page
      */
     public function commercial()
@@ -402,5 +416,60 @@ class PublicPagesController extends Controller
     public function search()
     {
         return view('pages.search');
+    }
+
+    /**
+     * Display company history page
+     */
+    public function companyHistory()
+    {
+        $seoData = new SEOData(
+            title: 'Company History - Since 1976 | Danielle Fence',
+            description: 'Discover nearly 50 years of Danielle Fence history. From Disney World to your backyard - family-owned, American-made quality since 1976.',
+            author: 'Danielle Fence',
+        );
+
+        return view('pages.company-history')->with('seoData', $seoData);
+    }
+
+    /**
+     * Display company story page (alias for company history)
+     */
+    public function story()
+    {
+        return $this->companyHistory();
+    }
+
+    /**
+     * Display gallery page
+     */
+    public function gallery()
+    {
+        $seoData = new SEOData(
+            title: 'Gallery - Our Work Showcase | Danielle Fence',
+            description: 'View our portfolio of residential and commercial fence installations. Quality workmanship since 1976.',
+            author: 'Danielle Fence',
+        );
+
+        return view('pages.gallery')->with('seoData', $seoData);
+    }
+
+    /**
+     * Display reviews page
+     */
+    public function reviews()
+    {
+        $reviews = Review::where('published', true)
+            ->where('rating', '>=', 4)
+            ->latest()
+            ->paginate(20);
+
+        $seoData = new SEOData(
+            title: 'Customer Reviews | Danielle Fence',
+            description: 'Read what our customers say about our fence installation services. 49 years of satisfied customers in Central Florida.',
+            author: 'Danielle Fence',
+        );
+
+        return view('pages.reviews', compact('reviews'))->with('seoData', $seoData);
     }
 }

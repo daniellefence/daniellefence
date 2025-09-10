@@ -1,23 +1,11 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-DcQaz4dl.css",
+    "file": "assets/app-BIa9x5No.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "names": [
       "app.css"
     ]
-  },
-  "resources/images/asfalt-dark.webp": {
-    "file": "assets/asfalt-dark-CXRVKvG-.webp",
-    "src": "resources/images/asfalt-dark.webp"
-  },
-  "resources/images/egg-shell.png": {
-    "file": "assets/egg-shell-O4IcpRXB.png",
-    "src": "resources/images/egg-shell.png"
-  },
-  "resources/images/stripes.png": {
-    "file": "assets/stripes-C2YPg95H.png",
-    "src": "resources/images/stripes.png"
   },
   "resources/js/app.js": {
     "file": "assets/app-C0G0cght.js",

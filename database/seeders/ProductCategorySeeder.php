@@ -11,9 +11,17 @@ class ProductCategorySeeder extends Seeder
     {
         if (ProductCategory::query()->exists()) return;
 
-        $names = ['Vinyl Fencing', 'Wood Fencing', 'Aluminum Fencing', 'Chain Link', 'Outdoor Living'];
-        foreach ($names as $name) {
-            ProductCategory::factory()->create(['name' => $name]);
+        $categories = [
+            ['name' => 'Fence & Gates', 'description' => 'Premium fencing and gate solutions'],
+            ['name' => 'Kitchens & Grills', 'description' => 'Outdoor kitchen and grilling accessories'],
+            ['name' => 'Fire Features', 'description' => 'Fire pits, fireplaces, and accessories'],
+            ['name' => 'Railings', 'description' => 'Deck and stair railing systems'],
+            ['name' => 'Outdoor Living Spaces', 'description' => 'Complete outdoor living solutions'],
+            ['name' => 'Specialty Products', 'description' => 'Custom and specialty outdoor products']
+        ];
+        
+        foreach ($categories as $category) {
+            ProductCategory::create($category);
         }
     }
 }

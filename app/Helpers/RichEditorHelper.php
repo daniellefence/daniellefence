@@ -10,9 +10,9 @@ class RichEditorHelper
     /**
      * Create a standard rich text editor with media integration
      */
-    public static function make(string $name): MediaPickerRichEditor
+    public static function make(string $name): RichEditor
     {
-        return MediaPickerRichEditor::make($name)
+        return RichEditor::make($name)
             ->toolbarButtons([
                 'attachFiles',
                 'blockquote',
@@ -28,76 +28,61 @@ class RichEditorHelper
                 'strike',
                 'underline',
                 'undo',
-            ])
-            ->mediaPickerModalTitle('Select Media from Library')
-            ->mediaPickerEmptyStateHeading('No media files found')
-            ->mediaPickerEmptyStateDescription('Upload some files to your media library to insert them into your content.');
+            ]);
     }
 
     /**
      * Create a blog content editor with specific media collection
      */
-    public static function makeBlogEditor(string $name): MediaPickerRichEditor
+    public static function makeBlogEditor(string $name): RichEditor
     {
         return static::make($name)
-            ->mediaCollection('blog-content')
-            ->mediaPickerModalTitle('Select Media for Blog Post')
-            ->helperText('Create rich content for your blog post. Use the media button to insert images and files from your library.');
+            ->helperText('Create rich content for your blog post. Use the toolbar buttons to format text and add links.');
     }
 
     /**
      * Create a product description editor
      */
-    public static function makeProductEditor(string $name): MediaPickerRichEditor
+    public static function makeProductEditor(string $name): RichEditor
     {
         return static::make($name)
-            ->mediaCollection('product-content')
-            ->mediaPickerModalTitle('Select Media for Product')
-            ->helperText('Describe your product with rich content. Add images and files to enhance the description.');
+            ->helperText('Describe your product with rich content. Use formatting tools to highlight key features.');
     }
 
     /**
      * Create an FAQ answer editor
      */
-    public static function makeFaqEditor(string $name): MediaPickerRichEditor
+    public static function makeFaqEditor(string $name): RichEditor
     {
         return static::make($name)
-            ->mediaCollection('faq-content')
-            ->mediaPickerModalTitle('Select Media for FAQ Answer')
-            ->helperText('Provide a detailed answer to the FAQ. You can include images and links to files for more information.');
+            ->helperText('Provide a detailed answer to the FAQ. You can format text and add links for more information.');
     }
 
     /**
      * Create a career description editor
      */
-    public static function makeCareerEditor(string $name): MediaPickerRichEditor
+    public static function makeCareerEditor(string $name): RichEditor
     {
         return static::make($name)
-            ->mediaCollection('career-content')
-            ->mediaPickerModalTitle('Select Media for Career Post')
-            ->helperText('Create compelling job descriptions. Add images or documents to showcase your company culture.');
+            ->helperText('Create compelling job descriptions. Use formatting to highlight requirements and benefits.');
     }
 
     /**
      * Create a document content editor
      */
-    public static function makeDocumentEditor(string $name): MediaPickerRichEditor
+    public static function makeDocumentEditor(string $name): RichEditor
     {
         return static::make($name)
-            ->mediaCollection('document-content')
-            ->mediaPickerModalTitle('Select Media for Document')
-            ->helperText('Create rich document content with embedded media from your library.');
+            ->helperText('Create rich document content with proper formatting and structure.');
     }
 
     /**
      * Create a page content editor
      */
-    public static function makePageEditor(string $name): MediaPickerRichEditor
+    public static function makePageEditor(string $name): RichEditor
     {
         return static::make($name)
-            ->mediaCollection('page-content')
-            ->mediaPickerModalTitle('Select Media for Page')
-            ->helperText('Create rich page content. Use the media button to insert images and files from your library.');
+            ->helperText('Create rich page content. Use the toolbar to format text and create engaging layouts.');
     }
 
     /**

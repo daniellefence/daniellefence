@@ -50,21 +50,21 @@ class MediaPickerRichEditor extends RichEditor
 
     public function mediaPickerModalTitle(string | Closure $title): static
     {
-        $this->mediaPickerModalTitle = $this->evaluate($title) ?: $title;
+        $this->mediaPickerModalTitle = $title instanceof Closure ? $title : fn() => $title;
 
         return $this;
     }
 
     public function mediaPickerEmptyStateHeading(string | Closure $heading): static
     {
-        $this->mediaPickerEmptyStateHeading = $this->evaluate($heading) ?: $heading;
+        $this->mediaPickerEmptyStateHeading = $heading instanceof Closure ? $heading : fn() => $heading;
 
         return $this;
     }
 
     public function mediaPickerEmptyStateDescription(string | Closure $description): static
     {
-        $this->mediaPickerEmptyStateDescription = $this->evaluate($description) ?: $description;
+        $this->mediaPickerEmptyStateDescription = $description instanceof Closure ? $description : fn() => $description;
 
         return $this;
     }

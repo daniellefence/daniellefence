@@ -3,7 +3,6 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Blog;
-use App\Models\Page;
 use App\Models\Product;
 use Filament\Widgets\Widget;
 use Illuminate\Support\Facades\Cache;
@@ -28,10 +27,9 @@ class SEOAnalyticsWidget extends Widget
 
     private function getSEOCoverage(): array
     {
-        $totalPages = Page::count();
         $totalBlogs = Blog::count();
         $totalProducts = Product::count();
-        $totalContent = $totalPages + $totalBlogs + $totalProducts;
+        $totalContent = $totalBlogs + $totalProducts;
 
         $seoRecords = SEO::count();
         $coverage = $totalContent > 0 ? round(($seoRecords / $totalContent) * 100) : 0;
@@ -53,10 +51,6 @@ class SEOAnalyticsWidget extends Widget
                 'drafts' => Blog::where('status', 'draft')->count(),
                 'scheduled' => Blog::where('status', 'scheduled')->count(),
             ],
-            'pages' => [
-                'total' => Page::count(),
-                'recent' => Page::where('created_at', '>=', now()->subDays(30))->count(),
-            ],
             'products' => [
                 'total' => Product::count(),
                 'with_descriptions' => Product::whereNotNull('description')->count(),
@@ -69,7 +63,7 @@ class SEOAnalyticsWidget extends Widget
         $suggestions = [];
 
         // Check for missing SEO data
-        $totalContent = Page::count() + Blog::count() + Product::count();
+        $totalContent = Blog::count() + Product::count();
         $seoRecords = SEO::count();
         if ($seoRecords < $totalContent) {
             $suggestions[] = [

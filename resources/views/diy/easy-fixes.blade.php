@@ -1,22 +1,20 @@
-@extends('layouts.app')
-
-@section('title', 'Easy Fence Fixes - DIY Repairs')
-
-@section('content')
+<x-app-layout>
 <div class="bg-gray-50 min-h-screen">
     {{-- Header --}}
-    <div class="bg-gradient-to-r from-green-700 to-green-800 text-white py-12">
-        <div class="container mx-auto px-4">
-            <nav class="text-sm mb-4 opacity-90">
-                <a href="{{ route('diy.index') }}" class="hover:text-yellow-300">DIY Products</a>
-                <span class="mx-2">/</span>
-                <span>Easy Fixes</span>
-            </nav>
-            
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Easy Fence Fixes</h1>
-            <p class="text-xl opacity-90">
-                Simple DIY solutions for common fence problems
-            </p>
+    <div class="bg-gradient-to-r from-[#8e2a2a] to-[#7a2525] text-white w-full p-10">
+        <div class="container mx-auto aspect-video flex items-center justify-center">
+            <div class="text-center">
+                <nav class="text-sm mb-4 opacity-90">
+                    <a href="{{ route('diy.index') }}" class="hover:text-yellow-300">DIY Products</a>
+                    <span class="mx-2">/</span>
+                    <span>Easy Fixes</span>
+                </nav>
+                
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Easy Fence Fixes</h1>
+                <p class="text-xl opacity-90">
+                    Simple DIY solutions for common fence problems
+                </p>
+            </div>
         </div>
     </div>
 
@@ -323,4 +321,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-app-layout>
