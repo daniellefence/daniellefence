@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 Company
                                 <i class="fas fa-chevron-down text-sm"></i>
                             </button>
-                            <div class="absolute left-0 z-50 -mt-1 pt-3 flex w-screen max-w-max opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none group-hover:pointer-events-auto">
+                            <div class="absolute right-0 z-50 -mt-1 pt-3 flex w-screen max-w-max opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none group-hover:pointer-events-auto">
                                 <div class="w-screen max-w-sm flex-auto overflow-hidden rounded-3xl text-sm leading-6 shadow-xl backdrop-blur-xl bg-white/70 border border-white/20">
                                     <div class="p-4">
                                         <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-white/30 transition-colors duration-200">
