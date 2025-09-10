@@ -126,6 +126,73 @@ document.addEventListener('DOMContentLoaded', function() {
 <div x-data="{
         showMobile:false
     }">
+    <!-- 5 Star Reviews Marquee - Top of Site -->
+    <div class="marquee-container bg-[#68bf21] py-3 border-b border-white/20">
+        <div class="marquee-content">
+            @if(isset($marquee_reviews) && $marquee_reviews->isNotEmpty())
+                @foreach($marquee_reviews as $review)
+                <div class="inline-flex items-center mx-8">
+                    <div class="flex text-yellow-400 mr-3">
+                        @for($i = 1; $i <= 5; $i++)
+                            @if($i <= $review->rating)
+                                <i class="fas fa-star text-sm"></i>
+                            @else
+                                <i class="far fa-star text-sm text-gray-300"></i>
+                            @endif
+                        @endfor
+                    </div>
+                    <span class="text-white text-sm font-medium">"{{ Str::limit($review->content ?: 'Great service and quality work!', 80) }}"</span>
+                    <span class="text-white/80 text-sm ml-2">- {{ $review->author }}</span>
+                </div>
+                @endforeach
+                @foreach($marquee_reviews as $review)
+                <div class="inline-flex items-center mx-8">
+                    <div class="flex text-yellow-400 mr-3">
+                        @for($i = 1; $i <= 5; $i++)
+                            @if($i <= $review->rating)
+                                <i class="fas fa-star text-sm"></i>
+                            @else
+                                <i class="far fa-star text-sm text-gray-300"></i>
+                            @endif
+                        @endfor
+                    </div>
+                    <span class="text-white text-sm font-medium">"{{ Str::limit($review->content ?: 'Great service and quality work!', 80) }}"</span>
+                    <span class="text-white/80 text-sm ml-2">- {{ $review->author }}</span>
+                </div>
+                @endforeach
+            @else
+                {{-- Fallback content when no reviews --}}
+                <div class="inline-flex items-center mx-8">
+                    <div class="flex text-yellow-400 mr-3">
+                        @for($i = 1; $i <= 5; $i++)
+                            <i class="fas fa-star text-sm"></i>
+                        @endfor
+                    </div>
+                    <span class="text-white text-sm font-medium">"Excellent service and professional installation. Highly recommend!"</span>
+                    <span class="text-white/80 text-sm ml-2">- Verified Customer</span>
+                </div>
+                <div class="inline-flex items-center mx-8">
+                    <div class="flex text-yellow-400 mr-3">
+                        @for($i = 1; $i <= 5; $i++)
+                            <i class="fas fa-star text-sm"></i>
+                        @endfor
+                    </div>
+                    <span class="text-white text-sm font-medium">"Quality materials and expert workmanship. Very satisfied!"</span>
+                    <span class="text-white/80 text-sm ml-2">- Happy Customer</span>
+                </div>
+                <div class="inline-flex items-center mx-8">
+                    <div class="flex text-yellow-400 mr-3">
+                        @for($i = 1; $i <= 5; $i++)
+                            <i class="fas fa-star text-sm"></i>
+                        @endfor
+                    </div>
+                    <span class="text-white text-sm font-medium">"49 years of experience shows in every fence they install."</span>
+                    <span class="text-white/80 text-sm ml-2">- Local Homeowner</span>
+                </div>
+            @endif
+        </div>
+    </div>
+
     <!-- Header with Hero Background -->
     <header class="relative z-40 parallax-header" style="background-image: url('{{ asset('images/home_hero.webp') }}');">
         <!-- Gradient Overlay for Text Readability -->
@@ -178,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Logo and Mobile Toggle -->
             <div class="mx-auto flex max-w-7xl items-center justify-between py-3 px-4">
                 <div class="flex lg:flex-1 relative flex-shrink-0 mt-3.5" id="logo-holder">
-                    <a aria-label="Danielle Fence Logo" href="{{ route('welcome') }}" class="relative inline-block flex-shrink-0 rounded-lg shadow-lg border-4 border-white px-8 py-6" style="background-color: #8f2a2a; box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.3);">
+                    <a aria-label="Danielle Fence Logo" href="{{ route('welcome') }}" class="relative inline-block flex-shrink-0 rounded-lg shadow-lg border-4 border-white px-6 py-4" style="background-color: #8f2a2a; box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.3);">
                         <span class="sr-only">{{ config('app.name') }}</span>
                         <!-- License plate corner holes -->
                         <div class="absolute top-2 left-2 w-3 h-3 bg-white rounded-full z-20" style="box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);"></div>
@@ -186,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="absolute bottom-2 left-2 w-3 h-3 bg-white rounded-full z-20" style="box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);"></div>
                         <div class="absolute bottom-2 right-2 w-3 h-3 bg-white rounded-full z-20" style="box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);"></div>
                         <img
-                            class="h-16 sm:h-20 lg:h-24 xl:h-28 w-auto flex-shrink-0 relative z-10"
+                            class="h-10 sm:h-14 lg:h-16 xl:h-20 w-auto flex-shrink-0 relative z-10"
                             src="{{ asset('images/logo.webp') }}"
                             alt="Danielle Fence Logo">
                     </a>
@@ -388,101 +455,36 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </nav>
         
-        <!-- 5 Star Reviews Marquee -->
-        <div class="marquee-container bg-[#68bf21] py-3 border-b border-white/20">
-            <div class="marquee-content">
-                @if(isset($marquee_reviews) && $marquee_reviews->isNotEmpty())
-                    @foreach($marquee_reviews as $review)
-                    <div class="inline-flex items-center mx-8">
-                        <div class="flex text-yellow-400 mr-3">
-                            @for($i = 1; $i <= 5; $i++)
-                                @if($i <= $review->rating)
-                                    <i class="fas fa-star text-sm"></i>
-                                @else
-                                    <i class="far fa-star text-sm text-gray-300"></i>
-                                @endif
-                            @endfor
+        @if(Route::currentRouteName() === 'welcome')
+            <!-- Hero Content Section (Home Page Only) -->
+            <div class="relative z-10 py-16 sm:py-20 lg:py-24">
+                <div class="container mx-auto px-6 lg:px-8">
+                    <div class="max-w-3xl animate-fade-in-up animate-delay-200">
+                        <div class="mb-4">
+                            <span class="inline-block px-4 py-2 bg-[#68bf21] text-white text-sm font-semibold rounded-full animate-slide-in-left animate-delay-300">
+                                Since 1976 • Family-Owned & Operated
+                            </span>
                         </div>
-                        <span class="text-white text-sm font-medium">"{{ Str::limit($review->content ?: 'Great service and quality work!', 80) }}"</span>
-                        <span class="text-white/80 text-sm ml-2">- {{ $review->author }}</span>
-                    </div>
-                    @endforeach
-                    @foreach($marquee_reviews as $review)
-                    <div class="inline-flex items-center mx-8">
-                        <div class="flex text-yellow-400 mr-3">
-                            @for($i = 1; $i <= 5; $i++)
-                                @if($i <= $review->rating)
-                                    <i class="fas fa-star text-sm"></i>
-                                @else
-                                    <i class="far fa-star text-sm text-gray-300"></i>
-                                @endif
-                            @endfor
+                        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl animate-fade-in-up animate-delay-400" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);">
+                            Central Florida's Premier Fence Company
+                        </h1>
+                        <div class="mt-6 bg-black/30 backdrop-blur-sm rounded-lg p-4 animate-fade-in-up animate-delay-500">
+                            <p class="text-xl leading-8 text-white">
+                                Nearly 50 years of quality craftsmanship. From Disney World to your backyard - professional installation and premium DIY supplies with American-made materials.
+                            </p>
                         </div>
-                        <span class="text-white text-sm font-medium">"{{ Str::limit($review->content ?: 'Great service and quality work!', 80) }}"</span>
-                        <span class="text-white/80 text-sm ml-2">- {{ $review->author }}</span>
-                    </div>
-                    @endforeach
-                @else
-                    {{-- Fallback content when no reviews --}}
-                    <div class="inline-flex items-center mx-8">
-                        <div class="flex text-yellow-400 mr-3">
-                            @for($i = 1; $i <= 5; $i++)
-                                <i class="fas fa-star text-sm"></i>
-                            @endfor
+                        <div class="mt-10 flex items-center gap-x-6 animate-fade-in-up animate-delay-600">
+                            <a href="{{ route('diy.quote') }}" class="rounded-md bg-[#8e2a2a] px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-[#7a2424] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8e2a2a]">
+                                Get Free Quote
+                            </a>
+                            <a href="tel:863-425-3182" class="text-lg font-semibold leading-6 text-white hover:text-gray-200">
+                                Call (863) 425-3182 <span aria-hidden="true">→</span>
+                            </a>
                         </div>
-                        <span class="text-white text-sm font-medium">"Excellent service and professional installation. Highly recommend!"</span>
-                        <span class="text-white/80 text-sm ml-2">- Verified Customer</span>
-                    </div>
-                    <div class="inline-flex items-center mx-8">
-                        <div class="flex text-yellow-400 mr-3">
-                            @for($i = 1; $i <= 5; $i++)
-                                <i class="fas fa-star text-sm"></i>
-                            @endfor
-                        </div>
-                        <span class="text-white text-sm font-medium">"Quality materials and expert workmanship. Very satisfied!"</span>
-                        <span class="text-white/80 text-sm ml-2">- Happy Customer</span>
-                    </div>
-                    <div class="inline-flex items-center mx-8">
-                        <div class="flex text-yellow-400 mr-3">
-                            @for($i = 1; $i <= 5; $i++)
-                                <i class="fas fa-star text-sm"></i>
-                            @endfor
-                        </div>
-                        <span class="text-white text-sm font-medium">"49 years of experience shows in every fence they install."</span>
-                        <span class="text-white/80 text-sm ml-2">- Local Homeowner</span>
-                    </div>
-                @endif
-            </div>
-        </div>
-        
-        <!-- Hero Content Section -->
-        <div class="relative z-10 py-16 sm:py-20 lg:py-24">
-            <div class="container mx-auto px-6 lg:px-8">
-                <div class="max-w-3xl animate-fade-in-up animate-delay-200">
-                    <div class="mb-4">
-                        <span class="inline-block px-4 py-2 bg-[#68bf21] text-white text-sm font-semibold rounded-full animate-slide-in-left animate-delay-300">
-                            Since 1976 • Family-Owned & Operated
-                        </span>
-                    </div>
-                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl animate-fade-in-up animate-delay-400" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);">
-                        Central Florida's Premier Fence Company
-                    </h1>
-                    <div class="mt-6 bg-black/30 backdrop-blur-sm rounded-lg p-4 animate-fade-in-up animate-delay-500">
-                        <p class="text-xl leading-8 text-white">
-                            Nearly 50 years of quality craftsmanship. From Disney World to your backyard - professional installation and premium DIY supplies with American-made materials.
-                        </p>
-                    </div>
-                    <div class="mt-10 flex items-center gap-x-6 animate-fade-in-up animate-delay-600">
-                        <a href="{{ route('diy.quote') }}" class="rounded-md bg-[#8e2a2a] px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-[#7a2424] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8e2a2a]">
-                            Get Free Quote
-                        </a>
-                        <a href="tel:863-425-3182" class="text-lg font-semibold leading-6 text-white hover:text-gray-200">
-                            Call (863) 425-3182 <span aria-hidden="true">→</span>
-                        </a>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
     </header>
     
     <!-- Mobile Menu -->
