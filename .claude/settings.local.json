@@ -12,7 +12,12 @@
       "Bash(open:*)",
       "Bash(osascript:*)",
       "Bash(curl:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git rm:*)",
+      "WebFetch(domain:www.lowes.com)"
     ],
     "deny": [],
     "ask": []
