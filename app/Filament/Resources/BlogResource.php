@@ -18,6 +18,7 @@ class BlogResource extends Resource
     protected static ?string $model = Blog::class;
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
     protected static ?string $navigationGroup = 'Content';
+    protected static ?int $navigationSort = 2;
     protected static ?string $navigationLabel = 'Blogs';
     protected static ?string $pluralLabel = 'Blogs';
 
@@ -50,7 +51,7 @@ class BlogResource extends Resource
                     ->createOptionForm([
                         Forms\Components\TextInput::make('name')->required()->helperText('Category display name'),
                         Forms\Components\TextInput::make('slug')->required()->helperText('URL-friendly category identifier'),
-                        Forms\Components\Textarea::make('description')->rows(3)->helperText('Brief description of this category'),
+                        Forms\Components\RichEditor::make('description')->helperText('Brief description of this category'),
                         Forms\Components\Toggle::make('published')->default(true)->helperText('Make this category visible on the website'),
                     ]),
                 Forms\Components\Select::make('author_id')
@@ -65,8 +66,7 @@ class BlogResource extends Resource
             Forms\Components\Section::make('Content')
                 ->description('The main content of your blog post including excerpt for previews and full rich-text content.')
                 ->schema([
-                Forms\Components\Textarea::make('excerpt')
-                    ->rows(3)
+                Forms\Components\RichEditor::make('excerpt')
                     ->maxLength(500)
                     ->hint('Brief description of the blog post')
                     ->helperText('A short summary (under 500 characters) that appears in blog listings and social media previews. Think of it as your blog post teaser.')

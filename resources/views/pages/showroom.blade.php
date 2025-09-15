@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="min-h-screen bg-gray-50">
+    <div class="min-h-screen bg-gradient-to-r from-gray-50 to-brand-cream/20">
         <!-- Hero Section -->
-        <div class="relative bg-gradient-to-r from-[#8e2a2a] to-[#7a2525] py-20">
+        <div class="relative bg-gradient-to-r from-danielle to-daniellealt py-20 ">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl">
                     <h1 class="text-4xl font-bold text-white mb-4">Visit Our Showroom</h1>
@@ -9,7 +9,7 @@
                         See our quality fence materials and displays in person. Experience the difference of American-made products.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="tel:863-425-3182" class="inline-flex justify-center items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-[#8e2a2a]">
+                        <a href="tel:863-425-3182" class="inline-flex justify-center items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-danielle">
                             <i class="fas fa-phone mr-2"></i> Call (863) 425-3182
                         </a>
                     </div>
@@ -18,17 +18,17 @@
         </div>
 
         <!-- Showroom Information -->
-        <div class="py-16">
+        <div class="py-16 bg-gradient-to-br from-white to-brand-cream/30 ">
             <div class="container mx-auto px-4">
                 <div class="grid lg:grid-cols-2 gap-12">
                     <!-- Location & Hours -->
                     <div>
                         <h2 class="text-3xl font-bold text-gray-900 mb-8">Showroom Location</h2>
                         
-                        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                        <div class="bg-white rounded-lg  p-6 mb-8">
                             <div class="flex items-start mb-6">
                                 <div class="flex-shrink-0">
-                                    <div class="bg-[#8e2a2a] rounded-full p-3">
+                                    <div class="bg-danielle rounded-full p-3">
                                         <i class="fas fa-map-marker-alt text-white text-xl"></i>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
 
                             <div class="flex items-start mb-6">
                                 <div class="flex-shrink-0">
-                                    <div class="bg-[#8e2a2a] rounded-full p-3">
+                                    <div class="bg-danielle rounded-full p-3">
                                         <i class="fas fa-clock text-white text-xl"></i>
                                     </div>
                                 </div>
@@ -59,27 +59,27 @@
 
                             <div class="flex items-start">
                                 <div class="flex-shrink-0">
-                                    <div class="bg-[#8e2a2a] rounded-full p-3">
+                                    <div class="bg-danielle rounded-full p-3">
                                         <i class="fas fa-phone text-white text-xl"></i>
                                     </div>
                                 </div>
                                 <div class="ml-4">
                                     <h3 class="text-lg font-semibold mb-2">Contact</h3>
                                     <p class="text-gray-600">
-                                        <a href="tel:863-425-3182" class="text-[#8e2a2a] hover:underline font-semibold">(863) 425-3182</a><br>
-                                        <a href="tel:813-681-6181" class="text-[#8e2a2a] hover:underline font-semibold">(813) 681-6181</a>
+                                        <a href="tel:863-425-3182" class="text-danielle hover:underline font-semibold">(863) 425-3182</a><br>
+                                        <a href="tel:813-681-6181" class="text-danielle hover:underline font-semibold">(813) 681-6181</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Directions -->
-                        <div class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="bg-white rounded-lg  p-6">
                             <h3 class="text-xl font-bold text-gray-900 mb-4">Getting Here</h3>
                             <p class="text-gray-600 mb-4">
                                 Our showroom is conveniently located on State Road 60 West in Mulberry, easily accessible from Lakeland, Winter Haven, and surrounding areas.
                             </p>
-                            <a href="https://maps.google.com/?q=4855+State+Road+60+West,+Mulberry,+FL+33860" target="_blank" class="inline-flex items-center text-[#8e2a2a] hover:underline">
+                            <a href="https://maps.google.com/?q=4855+State+Road+60+West,+Mulberry,+FL+33860" target="_blank" class="inline-flex items-center text-danielle hover:underline">
                                 <i class="fas fa-external-link-alt mr-2"></i>
                                 Get Directions
                             </a>
@@ -92,10 +92,10 @@
                         
                         <div class="space-y-6">
                             <!-- Fence Displays -->
-                            <div class="bg-white rounded-lg shadow-lg p-6">
+                            <div class="bg-white rounded-lg  p-6">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0">
-                                        <div class="bg-[#8e2a2a] rounded-full p-3">
+                                        <div class="bg-danielle rounded-full p-3">
                                             <i class="fas fa-home text-white text-xl"></i>
                                         </div>
                                     </div>
@@ -107,10 +107,10 @@
                             </div>
 
                             <!-- Material Samples -->
-                            <div class="bg-white rounded-lg shadow-lg p-6">
+                            <div class="bg-white rounded-lg  p-6">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0">
-                                        <div class="bg-[#8e2a2a] rounded-full p-3">
+                                        <div class="bg-danielle rounded-full p-3">
                                             <i class="fas fa-palette text-white text-xl"></i>
                                         </div>
                                     </div>
@@ -122,10 +122,10 @@
                             </div>
 
                             <!-- Gate Hardware -->
-                            <div class="bg-white rounded-lg shadow-lg p-6">
+                            <div class="bg-white rounded-lg  p-6">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0">
-                                        <div class="bg-[#8e2a2a] rounded-full p-3">
+                                        <div class="bg-danielle rounded-full p-3">
                                             <i class="fas fa-cog text-white text-xl"></i>
                                         </div>
                                     </div>
@@ -137,10 +137,10 @@
                             </div>
 
                             <!-- Expert Consultation -->
-                            <div class="bg-white rounded-lg shadow-lg p-6">
+                            <div class="bg-white rounded-lg  p-6">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0">
-                                        <div class="bg-[#8e2a2a] rounded-full p-3">
+                                        <div class="bg-danielle rounded-full p-3">
                                             <i class="fas fa-users text-white text-xl"></i>
                                         </div>
                                     </div>
@@ -166,7 +166,7 @@
                 
                 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <div class="text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-4">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-4">
                             <i class="fas fa-eye text-white text-2xl"></i>
                         </div>
                         <h3 class="text-lg font-semibold mb-2">See Before You Buy</h3>
@@ -174,7 +174,7 @@
                     </div>
                     
                     <div class="text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-4">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-4">
                             <i class="fas fa-hands text-white text-2xl"></i>
                         </div>
                         <h3 class="text-lg font-semibold mb-2">Touch & Feel Quality</h3>
@@ -182,7 +182,7 @@
                     </div>
                     
                     <div class="text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-4">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-4">
                             <i class="fas fa-lightbulb text-white text-2xl"></i>
                         </div>
                         <h3 class="text-lg font-semibold mb-2">Get Expert Advice</h3>
@@ -193,15 +193,15 @@
         </div>
 
         <!-- CTA Section -->
-        <div class="bg-[#8e2a2a] py-16">
+        <div class="bg-danielle py-16">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl font-bold text-white mb-4">Ready to Visit Our Showroom?</h2>
                 <p class="text-xl text-white mb-8">Come see why we've been Central Florida's trusted fence company since 1976</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="tel:863-425-3182" class="inline-flex justify-center items-center px-8 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-[#8e2a2a]">
+                    <a href="tel:863-425-3182" class="inline-flex justify-center items-center px-8 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-danielle">
                         <i class="fas fa-phone mr-2"></i> Call (863) 425-3182
                     </a>
-                    <a href="{{ route('diy.quote') }}" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#8e2a2a] bg-white hover:bg-gray-100">
+                    <a href="{{ route('diy.quote') }}" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-danielle bg-white hover:bg-gray-100">
                         Get Free Quote
                     </a>
                 </div>

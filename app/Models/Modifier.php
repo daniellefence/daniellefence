@@ -13,7 +13,7 @@ class Modifier extends Model
     use HasFactory, LogsActivity;
 
     protected $fillable = [
-        'product_id','type','attribute','value','operation'
+        'product_id','type','attribute','value','operation','amount'
     ];
 
     public function getActivitylogOptions(): LogOptions

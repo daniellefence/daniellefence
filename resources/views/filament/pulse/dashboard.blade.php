@@ -3,7 +3,7 @@
     <div class="pulse-dashboard space-y-6">
         {{-- Performance Overview Cards --}}
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div class="bg-white rounded-lg shadow p-6 border border-gray-200">
+            <div class="bg-white rounded-lg p-6 border border-gray-200">
                 <div class="flex items-center">
                     <div class="p-2 bg-blue-100 rounded-lg">
                         <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -17,7 +17,7 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow p-6 border border-gray-200">
+            <div class="bg-white rounded-lg p-6 border border-gray-200">
                 <div class="flex items-center">
                     <div class="p-2 bg-green-100 rounded-lg">
                         <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow p-6 border border-gray-200">
+            <div class="bg-white rounded-lg p-6 border border-gray-200">
                 <div class="flex items-center">
                     <div class="p-2 bg-yellow-100 rounded-lg">
                         <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow p-6 border border-gray-200">
+            <div class="bg-white rounded-lg p-6 border border-gray-200">
                 <div class="flex items-center">
                     <div class="p-2 bg-red-100 rounded-lg">
                         <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,14 +61,14 @@
         </div>
 
         {{-- Pulse Dashboard iframe --}}
-        <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden">
+        <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
             <div class="px-6 py-4 border-b border-gray-200">
                 <div class="flex items-center justify-between">
                     <h3 class="text-lg font-medium text-gray-900">Laravel Pulse Dashboard</h3>
                     <div class="flex items-center space-x-2">
                         <button 
                             onclick="refreshPulseDashboard()" 
-                            class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            class="inline-flex items-center px-3 py-2 border border-gray-300  text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>

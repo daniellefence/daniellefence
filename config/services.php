@@ -46,4 +46,21 @@ return [
         'api_key' => env('OPENAI_API_KEY'),
     ],
 
+    'zapier' => [
+        'webhook_url' => env('ZAPIER_WEBHOOK_URL', 'https://grillbert.zapier.app'),
+    ],
+
+    'remote_users' => [
+        'api_url' => env('REMOTE_USERS_API_URL', 'https://it.daniellehub.com'),
+        'auth_key' => env('REMOTE_USERS_AUTH_KEY', 'uD3rA9XqLp6YzbNf'),
+        'shared_key' => env('REMOTE_USERS_SHARED_KEY', 'cJ7nEpn8S3eCzXpiBqvNvmLd7ntrz8RZSGbtL9iQgIM='),
+    ],
+
+    'youtube' => [
+        'api_key' => env('YOUTUBE_API_KEY', ''),
+        'channel_id' => env('YOUTUBE_CHANNEL_ID', ''),
+        // Your channel handle: @daniellefenceoutdoorliving8500
+        // Channel URL: https://www.youtube.com/@daniellefenceoutdoorliving8500
+    ],
+
 ];

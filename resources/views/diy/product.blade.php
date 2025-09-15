@@ -1,12 +1,12 @@
 <x-app-layout>
 
     {{-- Product Header --}}
-    <div class="bg-white shadow">
+    <div class="bg-gradient-to-r from-white to-brand-cream/30 ">
         <div class="container mx-auto px-4 py-6">
             <nav class="text-sm mb-4">
-                <a href="{{ route('diy.index') }}" class="text-[#8e2a2a] hover:text-[#7a2424]">DIY Products</a>
+                <a href="{{ route('diy.index') }}" class="text-danielle hover:text-daniellealt">DIY Products</a>
                 <span class="mx-2">/</span>
-                <a href="{{ route('diy.products') }}" class="text-[#8e2a2a] hover:text-[#7a2424]">{{ $product->category->name ?? 'Products' }}</a>
+                <a href="{{ route('diy.index') }}" class="text-danielle hover:text-daniellealt">{{ $product->category->name ?? 'Products' }}</a>
                 <span class="mx-2">/</span>
                 <span class="text-gray-600">{{ $product->name }}</span>
             </nav>
@@ -18,7 +18,7 @@
                 </div>
                 @if($product->base_price)
                 <div class="text-right">
-                    <div class="text-3xl font-bold text-[#8e2a2a]">${{ number_format($product->base_price, 2) }}</div>
+                    <div class="text-3xl font-bold text-danielle">${{ number_format($product->base_price, 2) }}</div>
                     <div class="text-sm text-gray-600">per panel</div>
                 </div>
                 @endif
@@ -26,7 +26,7 @@
             
             {{-- Special 8' fence notice --}}
             @if($railPositioning == 'not-centered')
-                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
+                <div class="bg-gradient-to-r from-blue-50 to-brand-light/30 border border-blue-200 rounded-lg p-4 mt-4 ">
                     <div class="flex items-start">
                         <i class="fas fa-info-circle text-blue-600 text-xl mr-3 mt-1"></i>
                         <div>
@@ -49,13 +49,13 @@
                 {{-- Product Images --}}
                 <div class="space-y-4">
                     @if($product->getFirstMediaUrl())
-                        <div class="aspect-[4/3] bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="aspect-[4/3] bg-gradient-to-br from-white to-brand-cream/30 rounded-lg  overflow-hidden">
                             <img src="{{ $product->getFirstMediaUrl() }}" 
                                  alt="{{ $product->name }}"
                                  class="w-full h-full object-cover">
                         </div>
                     @else
-                        <div class="aspect-[4/3] bg-gray-100 rounded-lg shadow-lg flex items-center justify-center">
+                        <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-brand-cream/20 rounded-lg  flex items-center justify-center">
                             <div class="text-center text-gray-400">
                                 <i class="fas fa-image text-6xl mb-4"></i>
                                 <p class="text-lg">Product image coming soon</p>
@@ -65,7 +65,7 @@
                 </div>
 
                 {{-- What's Included in Standard Panel --}}
-                <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                <div class="bg-gradient-to-br from-green-50 to-white rounded-lg p-6  border border-green-200">
                     <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
                         <i class="fas fa-check-circle text-green-600 mr-3"></i>
                         What's Included in Each Panel
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     
-                    <div class="mt-4 p-3 bg-white rounded border border-green-300">
+                    <div class="mt-4 p-3 bg-gradient-to-r from-white to-brand-cream/20 rounded border border-green-300 ">
                         <p class="text-sm text-gray-700">
                             <strong>Panel Dimensions:</strong> 6' W x {{ $product->available_heights ? implode(', ', $product->available_heights) : '6' }}' H (height varies by selection)
                         </p>
@@ -118,18 +118,18 @@
                 </div>
 
                 {{-- Gates Available --}}
-                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-lg p-6  border border-blue-200">
                     <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
                         <i class="fas fa-door-open text-blue-600 mr-3"></i>
                         Matching Gates Available
                     </h3>
                     <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-white p-4 rounded border">
+                        <div class="bg-gradient-to-br from-white to-brand-cream/20 p-4 rounded border ">
                             <h4 class="font-semibold text-gray-900">Single Walk Gate</h4>
                             <p class="text-sm text-gray-600 mt-1">3' or 4' wide opening</p>
                             <p class="text-blue-700 font-semibold mt-2">Starting at $199</p>
                         </div>
-                        <div class="bg-white p-4 rounded border">
+                        <div class="bg-gradient-to-br from-white to-brand-cream/20 p-4 rounded border ">
                             <h4 class="font-semibold text-gray-900">Double Drive Gate</h4>
                             <p class="text-sm text-gray-600 mt-1">8', 10', or 12' wide opening</p>
                             <p class="text-blue-700 font-semibold mt-2">Starting at $449</p>
@@ -145,7 +145,7 @@
             {{-- Right Column: Ordering & Configuration --}}
             <div class="space-y-6">
                 {{-- Panel Configuration --}}
-                <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-[#8e2a2a]/20">
+                <div class="bg-gradient-to-br from-white to-brand-cream/30 p-6 rounded-lg  border-2 border-danielle/20">
                     <h3 class="text-2xl font-bold mb-6 text-gray-900">Configure Your Order</h3>
                     
                     <form action="{{ route('diy.quote.store') }}" method="POST" class="space-y-6">
@@ -160,7 +160,7 @@
                                 <label class="block text-sm font-bold text-gray-700 mb-2">
                                     Height <span class="text-red-500">*</span>
                                 </label>
-                                <select name="height" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                <select name="height" required class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                     <option value="">Select Height</option>
                                     <option value="4'">4 feet</option>
                                     <option value="5'">5 feet</option>
@@ -174,7 +174,7 @@
                                     Number of Panels <span class="text-red-500">*</span>
                                 </label>
                                 <input type="number" name="panels" required min="1" value="1" 
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                 <p class="text-xs text-gray-500 mt-1">Each panel covers 6 linear feet</p>
                             </div>
                         </div>
@@ -187,25 +187,25 @@
                                 <div>
                                     <label class="block text-sm font-bold text-gray-700 mb-2">Line Posts</label>
                                     <input type="number" name="line_posts" min="0" value="0" 
-                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                     <p class="text-xs text-gray-500">Between panels</p>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-700 mb-2">End Posts</label>
                                     <input type="number" name="end_posts" min="0" value="2" 
-                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                     <p class="text-xs text-gray-500">Fence terminators</p>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-700 mb-2">Corner Posts</label>
                                     <input type="number" name="corner_posts" min="0" value="0" 
-                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                     <p class="text-xs text-gray-500">Direction changes</p>
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-gray-700 mb-2">Gate Posts</label>
                                     <input type="number" name="gate_posts" min="0" value="0" 
-                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                           class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                     <p class="text-xs text-gray-500">For gates</p>
                                 </div>
                             </div>
@@ -214,7 +214,7 @@
                         {{-- Post Cap Style --}}
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-2">Post Cap Style</label>
-                            <select name="cap_style" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                            <select name="cap_style" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                 <option value="flat">Flat Cap</option>
                                 <option value="pyramid">Pyramid Cap</option>
                                 <option value="ball">Ball Cap</option>
@@ -228,17 +228,17 @@
                             
                             <div>
                                 <label class="flex items-center">
-                                    <input type="checkbox" name="include_walk_gate" value="1" class="mr-2 text-[#8e2a2a]">
+                                    <input type="checkbox" name="include_walk_gate" value="1" class="mr-2 text-danielle">
                                     <span class="text-sm">Include Walk Gate (3' wide)</span>
                                 </label>
                             </div>
                             
                             <div>
                                 <label class="flex items-center">
-                                    <input type="checkbox" name="include_drive_gate" value="1" class="mr-2 text-[#8e2a2a]">
+                                    <input type="checkbox" name="include_drive_gate" value="1" class="mr-2 text-danielle">
                                     <span class="text-sm">Include Drive Gate</span>
                                 </label>
-                                <select name="drive_gate_width" class="w-full mt-2 border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                <select name="drive_gate_width" class="w-full mt-2 border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                     <option value="">Select Width</option>
                                     <option value="8'">8 feet</option>
                                     <option value="10'">10 feet</option>
@@ -253,13 +253,13 @@
                             
                             <div class="grid grid-cols-1 gap-3">
                                 <input type="text" name="customer_name" required placeholder="Your Name *" 
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                 <input type="email" name="customer_email" required placeholder="Email Address *" 
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                 <input type="tel" name="customer_phone" required placeholder="Phone Number *" 
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                                 <input type="text" name="project_address" placeholder="Project Address" 
-                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]">
+                                       class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle">
                             </div>
                         </div>
 
@@ -269,20 +269,20 @@
                                 Special Instructions / Custom Requirements
                             </label>
                             <textarea name="notes" rows="4" placeholder="Describe any special requirements, measurements, or questions..." 
-                                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-[#8e2a2a] focus:border-[#8e2a2a]"></textarea>
+                                      class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-danielle focus:border-danielle"></textarea>
                             <p class="text-xs text-gray-500 mt-1">Include route sheet info or specific measurements</p>
                         </div>
 
                         {{-- Submit Button --}}
                         <button type="submit" 
-                                class="w-full bg-[#8e2a2a] text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-[#7a2424] transition-colors">
+                                class="w-full bg-danielle text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-daniellealt transition-colors">
                             Get My Custom Quote
                         </button>
                     </form>
                 </div>
 
                 {{-- No Returns Policy --}}
-                <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                <div class="bg-gradient-to-br from-red-50 to-white rounded-lg p-4  border border-red-200">
                     <h4 class="font-bold text-red-800 flex items-center mb-2">
                         <i class="fas fa-exclamation-triangle mr-2"></i>
                         Important: No Returns Policy
@@ -295,16 +295,16 @@
                 </div>
 
                 {{-- Need Help Box --}}
-                <div class="bg-[#68bf21]/10 border border-[#68bf21]/30 rounded-lg p-4">
-                    <h4 class="font-bold text-[#68bf21] mb-2">Need Help?</h4>
+                <div class="bg-gradient-to-r from-success/10 to-brand-cream/20 border border-success/30 rounded-lg p-4 ">
+                    <h4 class="font-bold text-success mb-2">Need Help?</h4>
                     <p class="text-sm text-gray-700 mb-3">
                         Our DIY experts can help calculate materials and provide guidance.
                     </p>
                     <div class="space-y-2">
-                        <a href="tel:863-425-3182" class="block text-center bg-[#68bf21] text-white px-4 py-2 rounded hover:bg-[#5da61e] transition-colors">
+                        <a href="tel:863-425-3182" class="block text-center bg-success text-white px-4 py-2 rounded hover:bg-[#5da61e] transition-colors">
                             Call (863) 425-3182
                         </a>
-                        <a href="{{ route('diy.guide') }}" class="block text-center border border-[#68bf21] text-[#68bf21] px-4 py-2 rounded hover:bg-[#68bf21] hover:text-white transition-colors">
+                        <a href="{{ route('diy.guide') }}" class="block text-center border border-success text-success px-4 py-2 rounded hover:bg-success hover:text-white transition-colors">
                             View Installation Guide
                         </a>
                     </div>

@@ -15,7 +15,8 @@ class FAQResource extends Resource
 {
     protected static ?string $model = FAQ::class;
     protected static ?string $navigationIcon = 'heroicon-o-question-mark-circle';
-    protected static ?string $navigationGroup = 'Content';
+    // protected static ?string $navigationGroup = 'Content';
+    protected static ?int $navigationSort = 9;
     protected static ?string $navigationLabel = 'FAQs';
     protected static ?string $pluralLabel = 'FAQs';
 

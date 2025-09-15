@@ -23,10 +23,10 @@ class TrashBinResource extends Resource
     protected static ?string $model = Blog::class; // Default model, will be overridden
 
     protected static ?string $navigationIcon = 'heroicon-o-trash';
-    protected static ?string $navigationGroup = 'System Management';
+    // protected static ?string $navigationGroup = 'System Management';
     protected static ?string $navigationLabel = 'Trash Bin';
     protected static ?string $pluralLabel = 'Trash Bin';
-    protected static ?int $navigationSort = 99;
+    protected static ?int $navigationSort = 24;
 
     public static function form(Form $form): Form
     {

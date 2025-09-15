@@ -17,13 +17,14 @@ class DemoDataSeeder extends Seeder
         $prod = Product::firstOrCreate(
             ['slug' => 'vinyl-privacy'],
             [
-                'category_id' => $cat->id,
+                'product_category_id' => 1, // Use product_category_id instead
                 'name' => 'Vinyl Privacy Panel',
                 'base_price' => 100.00,
-                'is_diy_enabled' => true,
+                'is_diy' => true,
                 'available_colors' => ['white','tan','gray'],
                 'available_heights' => ['4ft','6ft','8ft'],
-                'available_picket_widths' => ['3in','4in']
+                'available_picket_widths' => ['3in','4in'],
+                'published' => true,
             ]
         );
 

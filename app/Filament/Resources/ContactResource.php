@@ -14,7 +14,8 @@ class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
     protected static ?string $navigationIcon = 'heroicon-o-user';
-    protected static ?string $navigationGroup = 'Customer Management';
+    // protected static ?string $navigationGroup = 'Customer Management';
+    protected static ?int $navigationSort = 8;
 
     public static function form(Form $form): Form
     {
@@ -54,8 +55,7 @@ class ContactResource extends Resource
             ]),
             
             Forms\Components\Section::make('Internal Notes')->schema([
-                Forms\Components\Textarea::make('notes')
-                    ->rows(4)
+                Forms\Components\RichEditor::make('notes')
                     ->maxLength(1000)
                     ->columnSpanFull(),
             ]),

@@ -1,14 +1,16 @@
 <x-app-layout>
-<div class="bg-gray-50">
+<div class="min-h-screen bg-gradient-to-r from-gray-50 to-brand-cream/20">
     {{-- Hero Section --}}
-    <div class="bg-gradient-to-br from-[#8e2a2a] to-[#7a2525] text-white w-full p-10">
-        <div class="container mx-auto aspect-video flex items-center justify-center">
-            <div class="text-center">
+    <div class="bg-gradient-to-br from-danielle to-daniellealt text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl text-center">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">DIY Fence Installation</h1>
                 <p class="text-xl mb-8">Professional-grade fencing materials for the do-it-yourself installer</p>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 inline-block">
+                    <span class="text-white text-lg font-semibold">Quality Materials • Expert Support • 49 Years Experience</span>
+                </div>
             </div>
         </div>
-        
     </div>
 
     {{-- Product Grid --}}
@@ -16,7 +18,7 @@
         <h2 class="text-3xl font-bold mb-8">Available DIY Products</h2>
         
         @if($products->isEmpty())
-            <div class="bg-white rounded-lg shadow p-8 text-center">
+            <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg p-8 text-center">
                 <i class="fas fa-tools text-6xl text-gray-400 mb-4"></i>
                 <p class="text-xl text-gray-600 mb-4">
                     We're currently updating our DIY product catalog.
@@ -28,7 +30,7 @@
         @else
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach($products as $product)
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg overflow-hidden">
                         @if($product->featured_image)
                             <img src="{{ $product->featured_image }}" 
                                  alt="{{ $product->name }}"
@@ -50,7 +52,7 @@
                             
                             {{-- Special 8' fence note --}}
                             @if(str_contains(strtolower($product->name), '8') || str_contains(strtolower($product->name), 'eight'))
-                                <div class="bg-blue-50 p-3 rounded mb-4">
+                                <div class="bg-gradient-to-r from-blue-50 to-brand-light/20 p-3 rounded mb-4">
                                     <p class="text-sm text-blue-800">
                                         <i class="fas fa-info-circle mr-1"></i>
                                         Note: For 8' tall fences, middle rail is not centered
@@ -76,34 +78,34 @@
     </div>
 
     {{-- DIY Resources Section --}}
-    <div class="bg-white py-12">
+    <div class="bg-gradient-to-tr from-white to-brand-cream py-12">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold mb-8">DIY Resources</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <a href="{{ route('diy.guide', 'aluminum') }}" 
-                   class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition">
+                   class="bg-gradient-to-br from-gray-50 to-brand-cream/20 p-6 rounded-lg transition">
                     <i class="fas fa-file-pdf text-3xl text-red-800 mb-4"></i>
                     <h3 class="font-bold mb-2">Aluminum Fence Guide</h3>
                     <p class="text-sm text-gray-600">Step-by-step installation instructions</p>
                 </a>
                 
                 <a href="{{ route('diy.guide', 'vinyl') }}" 
-                   class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition">
+                   class="bg-gradient-to-br from-gray-50 to-brand-cream/20 p-6 rounded-lg transition">
                     <i class="fas fa-file-pdf text-3xl text-red-800 mb-4"></i>
                     <h3 class="font-bold mb-2">Vinyl Fence Guide</h3>
                     <p class="text-sm text-gray-600">Complete DIY installation manual</p>
                 </a>
                 
                 <a href="{{ route('diy.guide', 'gate') }}" 
-                   class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition">
+                   class="bg-gradient-to-br from-gray-50 to-brand-cream/20 p-6 rounded-lg transition">
                     <i class="fas fa-door-open text-3xl text-red-800 mb-4"></i>
                     <h3 class="font-bold mb-2">Gate Installation</h3>
                     <p class="text-sm text-gray-600">How to install gates properly</p>
                 </a>
                 
                 <a href="{{ route('diy.easy-fixes') }}" 
-                   class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition">
+                   class="bg-gradient-to-br from-gray-50 to-brand-cream/20 p-6 rounded-lg transition">
                     <i class="fas fa-tools text-3xl text-red-800 mb-4"></i>
                     <h3 class="font-bold mb-2">Easy Fixes</h3>
                     <p class="text-sm text-gray-600">Common fence repairs made simple</p>
@@ -113,7 +115,7 @@
     </div>
 
     {{-- Process Section --}}
-    <div class="bg-gray-50 py-12">
+    <div class="bg-gradient-to-r from-gray-50 to-brand-cream/20 py-12">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold mb-8 text-center">How DIY Ordering Works</h2>
             
@@ -154,7 +156,7 @@
     </div>
 
     {{-- Contact Section --}}
-    <div class="bg-white py-12">
+    <div class="bg-gradient-to-br from-white to-brand-cream/30 py-12">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-4">Need Help?</h2>
             <p class="text-xl text-gray-600 mb-8">
@@ -180,7 +182,7 @@
 
 {{-- Color Disclaimer Modal (optional) --}}
 <div id="colorDisclaimer" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-    <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+    <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg p-8 max-w-md mx-4">
         <h3 class="text-xl font-bold mb-4">Important Color Notice</h3>
         <p class="text-gray-600 mb-6">
             The colors shown on this website are for reference only and may not accurately represent the actual product colors. 

@@ -32,3 +32,9 @@
 - Enhanced hero section padding
 - Implemented vibrant hero image with gradient overlay for text readability
 - Updated logo to license plate style with proper corner hole positioning
+
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.

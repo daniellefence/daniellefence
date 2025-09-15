@@ -16,12 +16,12 @@ class PermissionResource extends Resource
     protected static ?string $model = Permission::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-key';
-    
+
     protected static ?string $navigationGroup = 'User Management';
-    
+
     protected static ?string $navigationLabel = 'Permissions';
-    
-    protected static ?int $navigationSort = 11;
+
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
@@ -38,8 +38,7 @@ class PermissionResource extends Resource
                             ->helperText('Permission name must be unique and use underscores (e.g., "edit_posts", "manage_users"). Use lowercase letters, numbers, and underscores only.')
                             ->placeholder('e.g. view_products'),
 
-                        Forms\Components\Textarea::make('description')
-                            ->rows(3)
+                        Forms\Components\RichEditor::make('description')
                             ->maxLength(500)
                             ->helperText('Optional description explaining what this permission allows users to do.')
                             ->placeholder('Describe what this permission grants access to...'),

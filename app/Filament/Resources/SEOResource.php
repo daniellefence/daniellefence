@@ -17,7 +17,8 @@ class SEOResource extends Resource
 {
     protected static ?string $model = SEO::class;
     protected static ?string $navigationIcon = 'heroicon-o-magnifying-glass';
-    protected static ?string $navigationGroup = 'SEO & Marketing';
+    // protected static ?string $navigationGroup = 'SEO & Marketing';
+    protected static ?int $navigationSort = 19;
     protected static ?string $navigationLabel = 'SEO Management';
     protected static ?string $pluralLabel = 'SEO Management';
 
@@ -72,9 +73,8 @@ class SEOResource extends Resource
                     ->label('Title Length')
                     ->content(fn ($get) => ($get('title_length') ?? 0) . ' characters')
                     ->visible(fn ($get) => filled($get('title'))),
-                Forms\Components\Textarea::make('description')
+                Forms\Components\RichEditor::make('description')
                     ->label('Meta Description')
-                    ->rows(3)
                     ->maxLength(160)
                     ->live(onBlur: true)
                     ->afterStateUpdated(function ($state, callable $set) {
@@ -120,9 +120,8 @@ class SEOResource extends Resource
                     ->maxLength(95)
                     ->helperText('Title for social media sharing (Facebook, Twitter, etc.). Leave blank to use SEO title.')
                     ->placeholder('Engaging title for social sharing...'),
-                Forms\Components\Textarea::make('og_description')
+                Forms\Components\RichEditor::make('og_description')
                     ->label('Social Media Description')
-                    ->rows(3)
                     ->maxLength(200)
                     ->helperText('Description for social media sharing. Leave blank to use meta description.')
                     ->placeholder('Compelling description for social media...'),

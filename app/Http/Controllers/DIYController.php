@@ -13,55 +13,9 @@ use RalphJSmit\Laravel\SEO\SchemaCollection;
 class DIYController extends Controller
 {
     /**
-     * Display DIY section landing page
+     * Display DIY products page (main DIY section)
      */
     public function index(CacheService $cacheService)
-    {
-        $products = $cacheService->getDIYProducts();
-
-        // SEO data for DIY landing page
-        $seoData = new SEOData(
-            title: 'DIY Fence Installation - Do It Yourself Fencing Supplies | Danielle Fence',
-            description: 'Professional-grade DIY fence materials and supplies. Get everything you need for aluminum, vinyl, and wood fence installation. 49 years serving Central Florida.',
-            author: 'Danielle Fence',
-            image: asset('images/diy-hero.jpg'),
-        );
-
-        $seoData->schema = new SchemaCollection([[
-            '@context' => 'https://schema.org',
-            '@type' => 'Product',
-            'name' => 'DIY Fence Installation Supplies',
-            'description' => 'Complete DIY fence installation materials and supplies',
-            'brand' => [
-                '@type' => 'Organization',
-                'name' => 'Danielle Fence',
-                'url' => url('/'),
-                'logo' => asset('images/logo.png'),
-                'address' => [
-                    '@type' => 'PostalAddress',
-                    'streetAddress' => '4855 State Road 60 West',
-                    'addressLocality' => 'Mulberry',
-                    'addressRegion' => 'FL',
-                    'postalCode' => '33860',
-                ],
-                'telephone' => '(863) 425-3182',
-            ],
-            'offers' => [
-                '@type' => 'AggregateOffer',
-                'priceCurrency' => 'USD',
-                'lowPrice' => $products->min('base_price') ?? 99,
-                'highPrice' => $products->max('base_price') ?? 999,
-                'offerCount' => $products->count(),
-            ]
-        ]]);
-
-        return view('diy.index', compact('products'))->with('seoData', $seoData);
-    }
-
-    /**
-     * Display DIY products page
-     */
-    public function products(CacheService $cacheService)
     {
         $products = $cacheService->getDIYProducts();
 
@@ -74,6 +28,7 @@ class DIYController extends Controller
 
         return view('diy.products', compact('products'))->with('seoData', $seoData);
     }
+
 
     /**
      * Show specific DIY product

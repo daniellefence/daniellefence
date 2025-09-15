@@ -17,7 +17,8 @@ class YouTubeVideoResource extends Resource
 {
     protected static ?string $model = YouTubeVideo::class;
     protected static ?string $navigationIcon = 'heroicon-o-video-camera';
-    protected static ?string $navigationGroup = 'Content';
+    // protected static ?string $navigationGroup = 'Content';
+    protected static ?int $navigationSort = 27;
     protected static ?string $navigationLabel = 'YouTube Videos';
     protected static ?string $pluralLabel = 'YouTube Videos';
 
@@ -53,8 +54,7 @@ class YouTubeVideoResource extends Resource
                     ->maxLength(50)
                     ->helperText('This will be auto-extracted from the URL, but you can edit it if needed.')
                     ->placeholder('dQw4w9WgXcQ'),
-                Forms\Components\Textarea::make('description')
-                    ->rows(3)
+                Forms\Components\RichEditor::make('description')
                     ->maxLength(1000)
                     ->helperText('Description of the video content.')
                     ->placeholder('Describe what this video is about...')

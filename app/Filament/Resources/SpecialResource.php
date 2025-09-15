@@ -18,7 +18,8 @@ class SpecialResource extends Resource
 {
     protected static ?string $model = Special::class;
     protected static ?string $navigationIcon = 'heroicon-o-gift';
-    protected static ?string $navigationGroup = 'SEO & Marketing';
+    // protected static ?string $navigationGroup = 'SEO & Marketing';
+    protected static ?int $navigationSort = 22;
     protected static ?string $navigationLabel = 'Specials & Promotions';
     protected static ?string $pluralLabel = 'Specials & Promotions';
 
@@ -42,8 +43,7 @@ class SpecialResource extends Resource
                     ->rules(['alpha_dash'])
                     ->helperText('URL-friendly version of the title. Only letters, numbers, and dashes allowed.')
                     ->placeholder('auto-generated-from-title'),
-                Forms\Components\Textarea::make('description')
-                    ->rows(3)
+                Forms\Components\RichEditor::make('description')
                     ->maxLength(1000)
                     ->helperText('Detailed description of the special offer. Explain the value and terms to your customers.')
                     ->placeholder('Describe your special offer, terms, and conditions...')

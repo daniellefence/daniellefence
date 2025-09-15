@@ -1,5 +1,5 @@
 <x-app-layout>
-<div class="bg-white py-16">
+<div class="bg-gradient-to-br from-white to-brand-cream/30 py-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold text-gray-900 mb-8">Privacy Policy</h1>
         <div class="prose max-w-none">

@@ -1,5 +1,5 @@
 <x-app-layout>
-<div class="bg-white">
+<div class="bg-gradient-to-r from-white to-brand-cream/20">
     <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-bold text-gray-900">Financing Options</h1>
         
@@ -7,7 +7,7 @@
             <p class="text-lg text-gray-600">We offer flexible financing options to help you get the fence you need today.</p>
             
             <div class="mt-12 grid gap-8 md:grid-cols-2">
-                <div class="rounded-lg bg-gray-50 p-8">
+                <div class="rounded-lg bg-gradient-to-br from-gray-50 to-brand-cream/30 p-8 ">
                     <h3 class="text-xl font-semibold text-gray-900">0% Interest for 12 Months</h3>
                     <p class="mt-2 text-gray-600">Qualified buyers can enjoy 0% interest for 12 months on purchases over $1,000.</p>
                     <ul class="mt-4 space-y-2 text-gray-600">
@@ -17,7 +17,7 @@
                     </ul>
                 </div>
                 
-                <div class="rounded-lg bg-gray-50 p-8">
+                <div class="rounded-lg bg-gradient-to-br from-gray-50 to-brand-cream/30 p-8 ">
                     <h3 class="text-xl font-semibold text-gray-900">Extended Terms Available</h3>
                     <p class="mt-2 text-gray-600">Longer-term financing options for larger projects with competitive rates.</p>
                     <ul class="mt-4 space-y-2 text-gray-600">

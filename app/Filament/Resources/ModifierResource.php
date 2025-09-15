@@ -16,7 +16,8 @@ class ModifierResource extends Resource
 {
     protected static ?string $model = Modifier::class;
     protected static ?string $navigationIcon = 'heroicon-o-adjustments-vertical';
-    protected static ?string $navigationGroup = 'DIY Configurator';
+    // protected static ?string $navigationGroup = 'DIY Configurator';
+    protected static ?int $navigationSort = 12;
     protected static ?string $navigationLabel = 'Price Modifiers';
     protected static ?string $pluralLabel = 'Price Modifiers';
 
@@ -72,8 +73,7 @@ class ModifierResource extends Resource
             ])->columns(3),
 
             Forms\Components\Section::make('Description')->schema([
-                Forms\Components\Textarea::make('description')
-                    ->rows(3)
+                Forms\Components\RichEditor::make('description')
                     ->maxLength(500)
                     ->columnSpanFull()
                     ->placeholder('Optional description for this modifier'),

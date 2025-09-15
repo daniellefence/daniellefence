@@ -1,5 +1,5 @@
 <x-app-layout>
-<div class="bg-gray-50 min-h-screen">
+<div class="bg-gradient-to-r from-gray-50 to-brand-cream/20 min-h-screen">
     <div class="container mx-auto px-4 py-12">
         <div class="max-w-3xl mx-auto">
             {{-- Success Header --}}
@@ -12,14 +12,14 @@
             </div>
 
             {{-- Order Details Card --}}
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
-                <div class="bg-red-800 text-white px-6 py-4">
+            <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg  overflow-hidden mb-8">
+                <div class="bg-gradient-to-r from-red-800 to-danielle text-white px-6 py-4 ">
                     <h2 class="text-2xl font-bold">Order Confirmation</h2>
                 </div>
                 
                 <div class="px-6 py-6">
                     {{-- Order Number --}}
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <div class="bg-gradient-to-r from-blue-50 to-brand-light/30 border border-blue-200 rounded-lg p-4 mb-6 ">
                         <div class="text-center">
                             <p class="text-sm text-blue-600 font-medium">Order Number</p>
                             <p class="text-2xl font-bold text-blue-800 tracking-wider">{{ $order->order_number }}</p>
@@ -79,7 +79,7 @@
             </div>
 
             {{-- What Happens Next --}}
-            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div class="bg-white rounded-lg  p-6 mb-8">
                 <h2 class="text-2xl font-bold text-gray-900 mb-6">What Happens Next?</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -118,7 +118,7 @@
             </div>
 
             {{-- Pickup Information --}}
-            <div class="bg-gradient-to-r from-[#8e2a2a] to-[#7a2525] text-white rounded-lg p-6 mb-8">
+            <div class="bg-gradient-to-r from-danielle to-daniellealt text-white rounded-lg p-6 mb-8">
                 <div class="flex items-start">
                     <i class="fas fa-map-marker-alt text-2xl mr-4 mt-1"></i>
                     <div class="flex-1">
@@ -154,7 +154,7 @@
             </div>
 
             {{-- DIY Resources --}}
-            <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="bg-white rounded-lg  p-6">
                 <h2 class="text-2xl font-bold text-gray-900 mb-6">While You Wait - DIY Resources</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -26,7 +26,7 @@
             {{ $getExtraAlpineAttributeBag() }}
         >
             <div
-                class="fi-input-wrp flex rounded-lg shadow-sm ring-1 transition duration-75 bg-white ring-gray-950/10 focus-within:ring-2 focus-within:ring-primary-600"
+                class="fi-input-wrp flex rounded-lg  ring-1 transition duration-75 bg-white ring-gray-950/10 focus-within:ring-2 focus-within:ring-primary-600"
                 x-bind:class="{
                     'fi-disabled pointer-events-none opacity-70': isDisabled,
                 }"
@@ -58,7 +58,7 @@
             ></div>
 
             <!-- Modal Panel -->
-            <div class="relative bg-white rounded-lg shadow-xl max-w-7xl mx-4 w-full max-h-[90vh] overflow-hidden">
+            <div class="relative bg-white rounded-lg  max-w-7xl mx-4 w-full max-h-[90vh] overflow-hidden">
                 <!-- Header -->
                 <div class="flex items-center justify-between p-6 border-b border-gray-200">
                     <h3 class="text-lg font-semibold text-gray-900" x-text="modalTitle"></h3>
@@ -83,18 +83,18 @@
                                 placeholder="Search media..."
                                 x-model="searchQuery"
                                 x-on:input.debounce.300ms="searchMedia"
-                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                                class="block w-full rounded-md border-gray-300  focus:border-primary-500 focus:ring-primary-500"
                             >
                         </div>
                         <div class="flex gap-2">
-                            <select x-model="selectedType" x-on:change="filterMedia" class="rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500">
+                            <select x-model="selectedType" x-on:change="filterMedia" class="rounded-md border-gray-300  focus:border-primary-500 focus:ring-primary-500">
                                 <option value="">All Types</option>
                                 <option value="image">Images</option>
                                 <option value="video">Videos</option>
                                 <option value="audio">Audio</option>
                                 <option value="document">Documents</option>
                             </select>
-                            <select x-model="selectedCollection" x-on:change="filterMedia" class="rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500">
+                            <select x-model="selectedCollection" x-on:change="filterMedia" class="rounded-md border-gray-300  focus:border-primary-500 focus:ring-primary-500">
                                 <option value="">All Collections</option>
                                 <template x-for="collection in collections" :key="collection">
                                     <option :value="collection" x-text="collection"></option>

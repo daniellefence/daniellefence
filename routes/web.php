@@ -50,10 +50,14 @@ Route::get('/media/{media}/download', function (\Spatie\MediaLibrary\MediaCollec
     ]);
 })->middleware(['auth', 'throttle:60,1'])->name('media.download');
 
+// DIY Product Category Routes
+Route::prefix('diyproductcategories')->name('diyproductcategories.')->group(function () {
+    Route::get('/{slug}', [PublicPagesController::class, 'productCategory'])->name('category');
+});
+
 // DIY Section Routes
 Route::prefix('diy')->name('diy.')->group(function () {
     Route::get('/', [DIYController::class, 'index'])->name('index');
-    Route::get('/products', [DIYController::class, 'products'])->name('products');
     Route::get('/product/{slug}', [DIYController::class, 'show'])->name('product');
     Route::get('/quote', [DIYController::class, 'quote'])->name('quote');
     Route::post('/quote', [DIYController::class, 'storeQuote'])->name('quote.store');
@@ -97,8 +101,6 @@ Route::prefix('services')->name('services.')->group(function () {
     Route::get('/repair', [PublicPagesController::class, 'repair'])->name('repair');
 });
 
-// Gallery Route
-Route::get('/gallery', [PublicPagesController::class, 'gallery'])->name('gallery');
 
 // Blog Routes
 Route::prefix('blog')->name('blog.')->group(function () {
@@ -116,3 +118,13 @@ Route::prefix('about')->name('about.')->group(function () {
 
 // Reviews Route
 Route::get('/reviews', [PublicPagesController::class, 'reviews'])->name('reviews');
+
+// Careers Route
+Route::get('/careers', [PublicPagesController::class, 'careers'])->name('careers');
+
+// Specials Route
+Route::get('/specials', [PublicPagesController::class, 'specials'])->name('specials');
+
+// Chat Routes
+Route::get('/chat', [App\Http\Controllers\ChatController::class, 'index'])->name('chat');
+Route::post('/chat/message', [App\Http\Controllers\ChatController::class, 'sendMessage'])->name('chat.message');

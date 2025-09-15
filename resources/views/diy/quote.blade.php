@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="min-h-screen bg-gray-50">
+    <div class="min-h-screen bg-gradient-to-r from-gray-50 to-brand-cream/20">
         <!-- Header -->
-        <div class="bg-white shadow">
+        <div class="bg-gradient-to-r from-white to-brand-cream/30 ">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="py-6">
                     <h1 class="text-3xl font-bold text-gray-900">Request a DIY Fence Quote</h1>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="bg-white shadow sm:rounded-lg">
+            <div class="bg-gradient-to-br from-white to-brand-cream/30  sm:rounded-lg">
                 <form action="{{ route('diy.quote.store') }}" method="POST" class="space-y-6 p-6">
                     @csrf
                     
@@ -23,7 +23,7 @@
                         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                             <div>
                                 <label for="fence_type" class="block text-sm font-medium text-gray-700">Fence Type</label>
-                                <select id="fence_type" name="fence_type" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm" required>
+                                <select id="fence_type" name="fence_type" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm" required>
                                     <option value="">Select fence type</option>
                                     <option value="aluminum">Aluminum</option>
                                     <option value="vinyl">Vinyl</option>
@@ -37,7 +37,7 @@
 
                             <div>
                                 <label for="fence_height" class="block text-sm font-medium text-gray-700">Fence Height</label>
-                                <select id="fence_height" name="fence_height" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm" required>
+                                <select id="fence_height" name="fence_height" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm" required>
                                     <option value="">Select height</option>
                                     <option value="3ft">3 feet</option>
                                     <option value="4ft">4 feet</option>
@@ -52,7 +52,7 @@
 
                             <div>
                                 <label for="linear_feet" class="block text-sm font-medium text-gray-700">Approximate Linear Feet</label>
-                                <input type="number" id="linear_feet" name="linear_feet" min="1" max="10000" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm" placeholder="e.g., 100" required>
+                                <input type="number" id="linear_feet" name="linear_feet" min="1" max="10000" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm" placeholder="e.g., 100" required>
                                 @error('linear_feet')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -60,7 +60,7 @@
 
                             <div>
                                 <label for="gates_needed" class="block text-sm font-medium text-gray-700">Gates Needed</label>
-                                <select id="gates_needed" name="gates_needed" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm">
+                                <select id="gates_needed" name="gates_needed" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm">
                                     <option value="0">No gates</option>
                                     <option value="1">1 gate</option>
                                     <option value="2">2 gates</option>
@@ -75,7 +75,7 @@
 
                         <div class="mt-6">
                             <label for="project_description" class="block text-sm font-medium text-gray-700">Project Description</label>
-                            <textarea id="project_description" name="project_description" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm" placeholder="Tell us about your project, including any special requirements or questions..."></textarea>
+                            <textarea id="project_description" name="project_description" rows="3" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm" placeholder="Tell us about your project, including any special requirements or questions..."></textarea>
                             @error('project_description')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -88,7 +88,7 @@
                         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                             <div>
                                 <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
-                                <input type="text" id="first_name" name="first_name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm" required>
+                                <input type="text" id="first_name" name="first_name" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm" required>
                                 @error('first_name')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -96,7 +96,7 @@
 
                             <div>
                                 <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name</label>
-                                <input type="text" id="last_name" name="last_name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm" required>
+                                <input type="text" id="last_name" name="last_name" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm" required>
                                 @error('last_name')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -104,7 +104,7 @@
 
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                                <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm" required>
+                                <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm" required>
                                 @error('email')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -112,7 +112,7 @@
 
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm" required>
+                                <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm" required>
                                 @error('phone')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -121,7 +121,7 @@
 
                         <div class="mt-6">
                             <label for="address" class="block text-sm font-medium text-gray-700">Project Address</label>
-                            <input type="text" id="address" name="address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm" placeholder="Street address">
+                            <input type="text" id="address" name="address" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm" placeholder="Street address">
                             @error('address')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -130,7 +130,7 @@
                         <div class="grid grid-cols-1 gap-6 sm:grid-cols-3 mt-4">
                             <div>
                                 <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                                <input type="text" id="city" name="city" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm">
+                                <input type="text" id="city" name="city" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm">
                                 @error('city')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -138,7 +138,7 @@
 
                             <div>
                                 <label for="state" class="block text-sm font-medium text-gray-700">State</label>
-                                <select id="state" name="state" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm">
+                                <select id="state" name="state" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm">
                                     <option value="">Select state</option>
                                     <option value="FL" selected>Florida</option>
                                     <!-- Add other states as needed -->
@@ -150,7 +150,7 @@
 
                             <div>
                                 <label for="zip" class="block text-sm font-medium text-gray-700">ZIP Code</label>
-                                <input type="text" id="zip" name="zip" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-danielle focus:ring-danielle sm:text-sm">
+                                <input type="text" id="zip" name="zip" class="mt-1 block w-full rounded-md border-gray-300  focus:border-danielle focus:ring-danielle sm:text-sm">
                                 @error('zip')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -160,7 +160,7 @@
 
                     <!-- Submit Button -->
                     <div class="flex justify-end">
-                        <button type="submit" class="bg-danielle hover:bg-daniellealt text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <button type="submit" class="bg-danielle hover:bg-daniellealt text-white font-bold py-2 px-4 rounded focus:outline-none">
                             Request Free Quote
                         </button>
                     </div>

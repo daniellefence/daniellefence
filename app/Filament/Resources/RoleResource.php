@@ -17,12 +17,12 @@ class RoleResource extends Resource
     protected static ?string $model = Role::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-shield-check';
-    
+
     protected static ?string $navigationGroup = 'User Management';
-    
+
     protected static ?string $navigationLabel = 'Roles';
-    
-    protected static ?int $navigationSort = 10;
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
@@ -38,8 +38,7 @@ class RoleResource extends Resource
                             ->helperText('Role name must be unique. Use descriptive names like "Editor" or "Content Manager".')
                             ->placeholder('e.g. Content Editor'),
 
-                        Forms\Components\Textarea::make('description')
-                            ->rows(3)
+                        Forms\Components\RichEditor::make('description')
                             ->maxLength(500)
                             ->helperText('Optional description explaining what this role is for and what access it provides.')
                             ->placeholder('Describe the purpose and scope of this role...'),

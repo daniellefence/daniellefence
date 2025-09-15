@@ -1,7 +1,7 @@
 <x-app-layout>
-<div class="bg-gray-50 min-h-screen">
+<div class="bg-gradient-to-r from-gray-50 to-brand-cream/20 min-h-screen">
     {{-- Header --}}
-    <div class="bg-gradient-to-r from-[#8e2a2a] to-[#7a2525] text-white w-full p-10">
+    <div class="bg-gradient-to-r from-danielle to-daniellealt text-white w-full p-10 ">
         <div class="container mx-auto aspect-video flex items-center justify-center">
             <div class="text-center">
                 <nav class="text-sm mb-4 opacity-90">
@@ -20,7 +20,7 @@
 
     <div class="container mx-auto px-4 py-12">
         {{-- Quick Tips Banner --}}
-        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-12">
+        <div class="bg-gradient-to-r from-blue-50 to-brand-light/30 border border-blue-200 rounded-lg p-6 mb-12 ">
             <div class="flex items-start">
                 <i class="fas fa-lightbulb text-blue-600 text-2xl mr-4 mt-1"></i>
                 <div>
@@ -36,7 +36,7 @@
         {{-- Fixes Grid --}}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             @foreach($fixes as $index => $fix)
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-white rounded-lg  overflow-hidden">
                     {{-- Fix Header --}}
                     <div class="bg-gradient-to-r from-green-100 to-green-50 p-6 border-b">
                         <div class="flex items-start justify-between">
@@ -298,21 +298,21 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <a href="{{ route('diy.guide') }}" 
-                   class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-center group">
+                   class="bg-white p-6 rounded-lg hover:transition text-center group">
                     <i class="fas fa-file-pdf text-3xl text-green-600 mb-4 group-hover:text-green-700"></i>
                     <h3 class="font-bold mb-2">Installation Guides</h3>
                     <p class="text-sm text-gray-600">Complete step-by-step installation instructions</p>
                 </a>
                 
                 <a href="{{ route('diy.index') }}" 
-                   class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-center group">
+                   class="bg-white p-6 rounded-lg hover:transition text-center group">
                     <i class="fas fa-shopping-cart text-3xl text-green-600 mb-4 group-hover:text-green-700"></i>
                     <h3 class="font-bold mb-2">DIY Products</h3>
                     <p class="text-sm text-gray-600">Browse our selection of DIY-friendly materials</p>
                 </a>
                 
                 <a href="tel:8634253182" 
-                   class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-center group">
+                   class="bg-white p-6 rounded-lg hover:transition text-center group">
                     <i class="fas fa-question-circle text-3xl text-green-600 mb-4 group-hover:text-green-700"></i>
                     <h3 class="font-bold mb-2">Expert Advice</h3>
                     <p class="text-sm text-gray-600">Call our experts for personalized guidance</p>

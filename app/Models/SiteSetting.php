@@ -48,6 +48,17 @@ class SiteSetting extends Model
 
     public static function get(string $key, $default = null)
     {
+        $requiredKeys = static::getRequiredKeys();
+        
+        // If this is a required key and it doesn't exist, create it
+        if (array_key_exists($key, $requiredKeys)) {
+            $setting = static::where('key', $key)->first();
+            if (!$setting) {
+                static::create(array_merge(['key' => $key], $requiredKeys[$key]));
+                Cache::forget('site_settings');
+            }
+        }
+        
         $settings = Cache::rememberForever('site_settings', function () {
             return static::pluck('value', 'key')->toArray();
         });
@@ -96,4 +107,59 @@ class SiteSetting extends Model
     {
         return $query->orderBy('group')->orderBy('sort_order')->orderBy('label');
     }
+
+    /**
+     * Required site setting keys that must always exist
+     */
+    public static function getRequiredKeys(): array
+    {
+        return [
+            'site_title' => [
+                'value' => 'Danielle Fence Company',
+                'type' => 'text',
+                'group' => 'seo',
+                'label' => 'Default Site Title',
+                'description' => 'The default title for your website. Used when no specific page title is set.',
+                'is_public' => true,
+                'sort_order' => 1,
+            ],
+            'site_description' => [
+                'value' => 'Professional fence installation and DIY supplies. Nearly 50 years of excellence serving Central Florida with quality American-made materials.',
+                'type' => 'textarea',
+                'group' => 'seo',
+                'label' => 'Default Site Description',
+                'description' => 'The default meta description for your website. Keep it under 160 characters.',
+                'is_public' => true,
+                'sort_order' => 2,
+            ],
+            'site_keywords' => [
+                'value' => 'fence installation, DIY fence kits, fence repair, residential fencing, commercial fencing, fence contractor, Central Florida, Lakeland',
+                'type' => 'textarea',
+                'group' => 'seo',
+                'label' => 'Default Site Keywords',
+                'description' => 'Default meta keywords for your website. Separate with commas.',
+                'is_public' => true,
+                'sort_order' => 3,
+            ],
+        ];
+    }
+
+    /**
+     * Ensure all required settings exist with default values
+     */
+    public static function ensureRequiredKeysExist(): void
+    {
+        $requiredKeys = static::getRequiredKeys();
+        
+        foreach ($requiredKeys as $key => $defaults) {
+            static::updateOrCreate(
+                ['key' => $key],
+                $defaults
+            );
+        }
+        
+        // Clear cache after ensuring keys exist
+        Cache::forget('site_settings');
+    }
+
 }

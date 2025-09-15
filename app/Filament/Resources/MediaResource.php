@@ -26,11 +26,11 @@ class MediaResource extends Resource
 {
     protected static ?string $model = Media::class;
     protected static ?string $navigationIcon = 'heroicon-o-photo';
-    protected static ?string $navigationGroup = 'Content';
+    // protected static ?string $navigationGroup = 'Content';
+    protected static ?int $navigationSort = 11;
     protected static ?string $navigationLabel = 'Media Library';
     protected static ?string $modelLabel = 'Media File';
     protected static ?string $pluralModelLabel = 'Media Files';
-    protected static ?int $navigationSort = 30;
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
@@ -66,15 +66,13 @@ class MediaResource extends Resource
                             ->helperText('Describe the image for screen readers and SEO')
                             ->maxLength(255),
                         
-                        Forms\Components\Textarea::make('custom_properties.description')
+                        Forms\Components\RichEditor::make('custom_properties.description')
                             ->label('Description/Caption')
-                            ->helperText('Detailed description or caption for the media')
-                            ->rows(3),
+                            ->helperText('Detailed description or caption for the media'),
                         
-                        Forms\Components\Textarea::make('custom_properties.caption')
+                        Forms\Components\RichEditor::make('custom_properties.caption')
                             ->label('Caption')
-                            ->helperText('Short caption to display with the media')
-                            ->rows(2),
+                            ->helperText('Short caption to display with the media'),
                     ]),
                 
                 Forms\Components\Section::make('File Details')

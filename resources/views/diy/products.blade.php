@@ -1,6 +1,6 @@
 <x-app-layout>
     <!-- Breadcrumb Navigation -->
-    <nav class="bg-gray-50 border-b border-gray-200">
+    <nav class="bg-gradient-to-r from-gray-50 to-brand-cream/20 border-b border-gray-200 ">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex py-4">
                 <ol class="flex items-center space-x-2 text-sm text-gray-500">
@@ -14,9 +14,9 @@
         </div>
     </nav>
 
-    <div class="min-h-screen bg-gray-50">
+    <div class="min-h-screen bg-gradient-to-br from-gray-50 to-brand-cream/20">
         <!-- Header Section -->
-        <div class="bg-white shadow-sm">
+        <div class="bg-gradient-to-r from-white to-brand-cream/30 ">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div class="text-center">
                     <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -37,7 +37,7 @@
                 
                 <!-- Sidebar Filters -->
                 <div class="hidden lg:block">
-                    <div class="bg-white rounded-lg shadow-sm p-6 sticky top-4">
+                    <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg  p-6 sticky top-4">
                         <!-- Search -->
                         <div class="mb-6">
                             <label for="search" class="block text-sm font-medium text-gray-700 mb-2">Search Products</label>
@@ -134,14 +134,14 @@
                 <div class="lg:col-span-3">
                     <!-- Mobile Filters Button -->
                     <div class="lg:hidden mb-4">
-                        <button type="button" class="w-full flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                        <button type="button" class="w-full flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md  bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
                             <i class="fas fa-filter mr-2"></i>
                             Filters
                         </button>
                     </div>
 
                     <!-- Sort and View Options -->
-                    <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+                    <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg  p-4 mb-6">
                         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                             <div class="text-sm text-gray-700">
                                 Showing <span class="font-medium">{{ count($products ?? []) }}</span> products
@@ -172,7 +172,7 @@
                     <!-- Products Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     @forelse($products ?? [] as $product)
-                        <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden" 
+                        <article class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg  hover:transition-shadow duration-200 overflow-hidden" 
                                  x-data="{
                                      selectedImage: '{{ $product->getFirstMediaUrl('products') }}',
                                      selectedColor: null,
@@ -243,7 +243,7 @@
                                                     'ring-1 ring-gray-300': selectedColor !== color
                                                 }"
                                                 :style="{ backgroundColor: color.value }"
-                                                class="w-6 h-6 rounded-full border-2 border-white shadow-sm transition-all duration-200 hover:scale-110"
+                                                class="w-6 h-6 rounded-full border-2 border-white  transition-all duration-200 hover:scale-110"
                                                 :title="color.name">
                                             </button>
                                         </template>
@@ -303,7 +303,7 @@
                     </div>
                     
                     <!-- Pagination -->
-                    <div class="mt-8 flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6 rounded-lg">
+                    <div class="mt-8 flex items-center justify-between border-t border-gray-200 bg-gradient-to-r from-white to-brand-cream/30 px-4 py-3 sm:px-6 rounded-lg ">
                         <div class="flex flex-1 justify-between sm:hidden">
                             <a href="#" class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
                                 Previous
@@ -319,7 +319,7 @@
                                 </p>
                             </div>
                             <div>
-                                <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                                <nav class="isolate inline-flex -space-x-px rounded-md " aria-label="Pagination">
                                     <a href="#" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
                                         <span class="sr-only">Previous</span>
                                         <i class="fas fa-chevron-left text-xs"></i>
@@ -340,9 +340,9 @@
         </div>
         
         <!-- Bottom CTA Section -->
-        <div class="bg-white py-16">
+        <div class="bg-gradient-to-br from-white to-brand-cream py-16 ">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-danielle rounded-2xl px-6 py-16 sm:p-16">
+                <div class="bg-gradient-to-br from-danielle to-brand-red rounded-2xl px-6 py-16 sm:p-16 ">
                     <div class="text-center">
                         <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                             Need Help Planning Your Project?
@@ -351,7 +351,7 @@
                             Our DIY experts can help you choose the right materials and calculate exactly what you need for your fence project.
                         </p>
                         <div class="mt-10 flex items-center justify-center gap-x-6">
-                            <a href="{{ route('diy.quote') }}" class="rounded-md bg-white px-6 py-3 text-base font-semibold text-danielle shadow-sm hover:bg-gray-100">
+                            <a href="{{ route('diy.quote') }}" class="rounded-md bg-white px-6 py-3 text-base font-semibold text-danielle  hover:bg-gray-100">
                                 Get Custom Quote
                             </a>
                             <a href="tel:863-425-3182" class="text-base font-semibold leading-6 text-white hover:text-gray-200">

@@ -15,7 +15,8 @@ class ReviewResource extends Resource
 {
     protected static ?string $model = Review::class;
     protected static ?string $navigationIcon = 'heroicon-o-star';
-    protected static ?string $navigationGroup = 'Customer Management';
+    // protected static ?string $navigationGroup = 'Customer Management';
+    protected static ?int $navigationSort = 17;
     protected static ?string $navigationLabel = 'Reviews';
     protected static ?string $pluralLabel = 'Reviews';
 

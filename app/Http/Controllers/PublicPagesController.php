@@ -227,22 +227,6 @@ class PublicPagesController extends Controller
         return view('public.service-areas.show', compact('serviceArea'));
     }
 
-    /**
-     * Display specials page
-     */
-    public function specials()
-    {
-        $specials = Special::where('is_active', true)
-            ->where('start_date', '<=', now())
-            ->where(function($query) {
-                $query->whereNull('end_date')
-                    ->orWhere('end_date', '>=', now());
-            })
-            ->orderBy('sort_order')
-            ->get();
-
-        return view('public.specials', compact('specials'));
-    }
 
     /**
      * Display FAQ page
@@ -471,5 +455,64 @@ class PublicPagesController extends Controller
         );
 
         return view('pages.reviews', compact('reviews'))->with('seoData', $seoData);
+    }
+
+    /**
+     * Display the careers page
+     */
+    public function careers()
+    {
+        $careers = Career::published()
+            ->latest('published_at')
+            ->paginate(10);
+
+        $seoData = new SEOData(
+            title: 'Careers | Join Our Team at Danielle Fence',
+            description: 'Explore career opportunities at Danielle Fence. Join our team and help build Florida\'s fencing future. Apply today for available positions.',
+            author: 'Danielle Fence',
+        );
+
+        return view('pages.careers', compact('careers'))->with('seoData', $seoData);
+    }
+
+    /**
+     * Display the specials page
+     */
+    public function specials()
+    {
+        $specials = Special::active()
+            ->orderBy('is_featured', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        $seoData = new SEOData(
+            title: 'Current Specials & Promotions | Danielle Fence',
+            description: 'Save money on quality fencing with our current specials and promotional offers. Limited time deals on residential and commercial fencing.',
+            author: 'Danielle Fence',
+        );
+
+        return view('pages.specials', compact('specials'))->with('seoData', $seoData);
+    }
+
+    /**
+     * Display products for a specific category
+     */
+    public function productCategory($slug)
+    {
+        $category = ProductCategory::where('slug', $slug)->firstOrFail();
+
+        $products = Product::where('product_category_id', $category->id)
+            ->where('published', true)
+            ->with(['media', 'category'])
+            ->orderBy('name', 'asc')
+            ->get();
+
+        $seoData = new SEOData(
+            title: $category->name . ' | Danielle Fence',
+            description: $category->description ?: "Browse our selection of {$category->name} products. Quality materials and professional installation services available.",
+            author: 'Danielle Fence',
+        );
+
+        return view('pages.product-category', compact('category', 'products'))->with('seoData', $seoData);
     }
 }

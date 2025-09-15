@@ -108,9 +108,8 @@ class CreateMediaResource extends CreateRecord
                             ->maxLength(255)
                             ->helperText('Default alt text for images (important for accessibility and SEO)'),
                         
-                        Forms\Components\Textarea::make('default_description')
+                        Forms\Components\RichEditor::make('default_description')
                             ->label('Default Description')
-                            ->rows(3)
                             ->helperText('Default description for all uploaded files'),
                             
                         Forms\Components\KeyValue::make('default_properties')

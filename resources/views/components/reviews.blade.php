@@ -9,7 +9,7 @@
                 <div class="animate-marquee space-y-8 py-4" style="--marquee-duration: 128320ms;">
                     @foreach($reviews[0] as $review)
                         <figure
-                            class="animate-fade-in rounded-3xl bg-white p-6 opacity-0 shadow-md shadow-gray-900/5"
+                            class="animate-fade-in rounded-3xl bg-white p-6 opacity-0  "
                             aria-hidden="false" style="animation-delay: 0.1s;">
                             @if(isset($review['photos'][0]))
                                 <img src="{{url($review['photos'][0]['path'])}}" alt="{{$review->content}}"/>
@@ -30,7 +30,7 @@
                 <div class="animate-marquee space-y-8 py-4 hidden md:block" style="--marquee-duration: 168320ms;">
                     @foreach($reviews[1] as $review)
                         <figure
-                            class="animate-fade-in rounded-3xl bg-white p-6 opacity-0 shadow-md shadow-gray-900/5"
+                            class="animate-fade-in rounded-3xl bg-white p-6 opacity-0  "
                             aria-hidden="false" style="animation-delay: 0.1s;">
                             @if(isset($review['photos'][0]))
                                 <img src="{{url($review['photos'][0]['path'])}}" alt="{{$review['content']}}"/>
@@ -51,7 +51,7 @@
                 <div class="animate-marquee space-y-8 py-4 hidden lg:block" style="--marquee-duration: 108320ms;">
                     @foreach($reviews[2] as $review)
                         <figure
-                            class="animate-fade-in rounded-3xl bg-white p-6 opacity-0 shadow-md shadow-gray-900/5"
+                            class="animate-fade-in rounded-3xl bg-white p-6 opacity-0  "
                             aria-hidden="false" style="animation-delay: 0.5s;">
                             @if(isset($review['photos'][0]))
                                 <img src="{{url($review['photos'][0]['path'])}}" alt="{{$review['content']}}"/>

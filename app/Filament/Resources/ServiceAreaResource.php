@@ -18,6 +18,7 @@ class ServiceAreaResource extends Resource
     protected static ?string $model = ServiceArea::class;
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
     protected static ?string $navigationGroup = 'Business Settings';
+    protected static ?int $navigationSort = 1;
     protected static ?string $navigationLabel = 'Service Areas';
     protected static ?string $pluralLabel = 'Service Areas';
 
@@ -75,8 +76,7 @@ class ServiceAreaResource extends Resource
             Forms\Components\Section::make('Description & Status')
                 ->description('Describe this service area and control its visibility.')
                 ->schema([
-                Forms\Components\Textarea::make('description')
-                    ->rows(3)
+                Forms\Components\RichEditor::make('description')
                     ->maxLength(1000)
                     ->helperText('Describe the service area, special notes, or coverage details.')
                     ->placeholder('Describe what makes this service area special or any coverage notes...')

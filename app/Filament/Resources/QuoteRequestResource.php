@@ -17,7 +17,8 @@ class QuoteRequestResource extends Resource
 {
     protected static ?string $model = QuoteRequest::class;
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
-    protected static ?string $navigationGroup = 'Customer Management';
+    // protected static ?string $navigationGroup = 'Customer Management';
+    protected static ?int $navigationSort = 16;
     protected static ?string $navigationLabel = 'Quote Requests';
     protected static ?string $pluralLabel = 'Quote Requests';
 
@@ -67,9 +68,8 @@ class QuoteRequestResource extends Resource
             ])->columns(3),
 
             Forms\Components\Section::make('Quote Details')->schema([
-                Forms\Components\Textarea::make('details')
+                Forms\Components\RichEditor::make('details')
                     ->label('Additional Details')
-                    ->rows(4)
                     ->maxLength(2000)
                     ->columnSpanFull(),
             ]),
@@ -100,9 +100,8 @@ class QuoteRequestResource extends Resource
                     ->prefix('$')
                     ->step(0.01)
                     ->minValue(0),
-                Forms\Components\Textarea::make('pricing_notes')
+                Forms\Components\RichEditor::make('pricing_notes')
                     ->label('Pricing Notes')
-                    ->rows(3)
                     ->maxLength(500)
                     ->placeholder('Internal notes about pricing calculations'),
             ])->columns(2),
@@ -113,9 +112,8 @@ class QuoteRequestResource extends Resource
                     ->max(5)
                     ->helperText('Rate the overall customer satisfaction for this quote request (1-5 stars)')
                     ->visible(fn ($context, $record) => $context === 'edit' && $record?->status === 'completed'),
-                Forms\Components\Textarea::make('service_notes')
+                Forms\Components\RichEditor::make('service_notes')
                     ->label('Service Notes')
-                    ->rows(3)
                     ->maxLength(1000)
                     ->helperText('Internal notes about the service quality and customer feedback')
                     ->visible(fn ($context, $record) => $context === 'edit' && $record?->status === 'completed')

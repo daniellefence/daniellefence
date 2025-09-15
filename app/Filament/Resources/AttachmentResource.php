@@ -18,7 +18,8 @@ class AttachmentResource extends Resource
 {
     protected static ?string $model = Attachment::class;
     protected static ?string $navigationIcon = 'heroicon-o-paper-clip';
-    protected static ?string $navigationGroup = 'Customer Management';
+    // protected static ?string $navigationGroup = 'Customer Management';
+    protected static ?int $navigationSort = 3;
     protected static ?string $navigationLabel = 'Attachments';
     protected static ?string $pluralLabel = 'Attachments';
 

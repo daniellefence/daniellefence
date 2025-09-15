@@ -47,9 +47,11 @@ class AreaSeeder extends Seeder
     {
         $areas = array_unique($this->areas_we_serve);
         foreach($areas as $area) {
-            ServiceArea::create([
-                'name'=>$area,
-                'slug'=>Str::slug($area)
+            ServiceArea::firstOrCreate([
+                'slug' => Str::slug($area)
+            ], [
+                'name' => $area,
+                'slug' => Str::slug($area)
             ]);
         }
     }

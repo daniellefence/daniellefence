@@ -15,7 +15,8 @@ class CareerResource extends Resource
 {
     protected static ?string $model = Career::class;
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
-    protected static ?string $navigationGroup = 'HR';
+    // protected static ?string $navigationGroup = 'HR';
+    protected static ?int $navigationSort = 6;
     protected static ?string $navigationLabel = 'Careers';
     protected static ?string $pluralLabel = 'Careers';
 

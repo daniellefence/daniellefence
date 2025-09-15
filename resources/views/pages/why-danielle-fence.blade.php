@@ -1,11 +1,11 @@
 <x-app-layout>
-    <div class="min-h-screen bg-gray-50">
+    <div class="min-h-screen bg-gradient-to-r from-gray-50 to-brand-cream/20">
         <!-- Hero Section -->
-        <div class="relative bg-gradient-to-r from-[#8e2a2a] to-[#7a2525] py-20">
+        <div class="relative bg-gradient-to-r from-danielle to-daniellealt py-20 ">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl">
                     <div class="mb-4">
-                        <span class="inline-block px-4 py-2 bg-[#68bf21] text-white text-sm font-semibold rounded-full">
+                        <span class="inline-block px-4 py-2 bg-success text-white text-sm font-semibold rounded-full">
                             Since 1976 • Family-Owned & Operated
                         </span>
                     </div>
@@ -18,7 +18,7 @@
         </div>
 
         <!-- Key Differentiators -->
-        <div class="py-16">
+        <div class="py-16 bg-gradient-to-br from-white to-brand-cream/30 ">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold text-gray-900 mb-4">What Sets Us Apart</h2>
@@ -27,8 +27,8 @@
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <!-- Family Legacy -->
-                    <div class="bg-white rounded-lg shadow-lg p-8 text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-6">
+                    <div class="bg-white rounded-lg  p-8 text-center">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-6">
                             <i class="fas fa-heart text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-4">Family Legacy</h3>
@@ -38,8 +38,8 @@
                     </div>
 
                     <!-- American Made -->
-                    <div class="bg-white rounded-lg shadow-lg p-8 text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-6">
+                    <div class="bg-white rounded-lg  p-8 text-center">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-6">
                             <i class="fas fa-flag-usa text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-4">American-Made Quality</h3>
@@ -49,8 +49,8 @@
                     </div>
 
                     <!-- Expert Installation -->
-                    <div class="bg-white rounded-lg shadow-lg p-8 text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-6">
+                    <div class="bg-white rounded-lg  p-8 text-center">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-6">
                             <i class="fas fa-tools text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-4">Expert Installation</h3>
@@ -60,8 +60,8 @@
                     </div>
 
                     <!-- Marquee Projects -->
-                    <div class="bg-white rounded-lg shadow-lg p-8 text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-6">
+                    <div class="bg-white rounded-lg  p-8 text-center">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-6">
                             <i class="fas fa-star text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-4">Marquee Projects</h3>
@@ -71,8 +71,8 @@
                     </div>
 
                     <!-- Local Expertise -->
-                    <div class="bg-white rounded-lg shadow-lg p-8 text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-6">
+                    <div class="bg-white rounded-lg  p-8 text-center">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-6">
                             <i class="fas fa-map-marker-alt text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-4">Local Expertise</h3>
@@ -82,8 +82,8 @@
                     </div>
 
                     <!-- Comprehensive Warranty -->
-                    <div class="bg-white rounded-lg shadow-lg p-8 text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-6">
+                    <div class="bg-white rounded-lg  p-8 text-center">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-6">
                             <i class="fas fa-shield-alt text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-4">Comprehensive Warranty</h3>
@@ -105,25 +105,25 @@
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                     <div class="bg-gray-50 rounded-lg p-6 text-center">
-                        <i class="fas fa-castle text-4xl text-[#8e2a2a] mb-4"></i>
+                        <i class="fas fa-castle text-4xl text-danielle mb-4"></i>
                         <h4 class="font-bold text-gray-900 mb-2">Disney World</h4>
                         <p class="text-sm text-gray-600">Magic Kingdom installations</p>
                     </div>
                     
                     <div class="bg-gray-50 rounded-lg p-6 text-center">
-                        <i class="fas fa-fish text-4xl text-[#8e2a2a] mb-4"></i>
+                        <i class="fas fa-fish text-4xl text-danielle mb-4"></i>
                         <h4 class="font-bold text-gray-900 mb-2">SeaWorld</h4>
                         <p class="text-sm text-gray-600">Marine park safety barriers</p>
                     </div>
                     
                     <div class="bg-gray-50 rounded-lg p-6 text-center">
-                        <i class="fas fa-film text-4xl text-[#8e2a2a] mb-4"></i>
+                        <i class="fas fa-film text-4xl text-danielle mb-4"></i>
                         <h4 class="font-bold text-gray-900 mb-2">Movie Sets</h4>
                         <p class="text-sm text-gray-600">Hollywood productions</p>
                     </div>
                     
                     <div class="bg-gray-50 rounded-lg p-6 text-center">
-                        <i class="fas fa-puzzle-piece text-4xl text-[#8e2a2a] mb-4"></i>
+                        <i class="fas fa-puzzle-piece text-4xl text-danielle mb-4"></i>
                         <h4 class="font-bold text-gray-900 mb-2">Maze Rebuild</h4>
                         <p class="text-sm text-gray-600">Complex installation projects</p>
                     </div>
@@ -141,7 +141,7 @@
                 
                 <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
                     <div class="text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                             <span class="text-white font-bold text-xl">1</span>
                         </div>
                         <h4 class="font-bold text-gray-900 mb-2">Free Consultation</h4>
@@ -149,7 +149,7 @@
                     </div>
                     
                     <div class="text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                             <span class="text-white font-bold text-xl">2</span>
                         </div>
                         <h4 class="font-bold text-gray-900 mb-2">Custom Quote</h4>
@@ -157,7 +157,7 @@
                     </div>
                     
                     <div class="text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                             <span class="text-white font-bold text-xl">3</span>
                         </div>
                         <h4 class="font-bold text-gray-900 mb-2">Professional Install</h4>
@@ -165,7 +165,7 @@
                     </div>
                     
                     <div class="text-center">
-                        <div class="bg-[#8e2a2a] rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <div class="bg-danielle rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                             <span class="text-white font-bold text-xl">4</span>
                         </div>
                         <h4 class="font-bold text-gray-900 mb-2">Ongoing Support</h4>
@@ -228,7 +228,7 @@
                 </div>
                 
                 <div class="text-center mt-8">
-                    <a href="{{ route('reviews') }}" class="inline-flex items-center text-[#8e2a2a] hover:underline font-semibold">
+                    <a href="{{ route('reviews') }}" class="inline-flex items-center text-danielle hover:underline font-semibold">
                         Read All Reviews
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -237,15 +237,15 @@
         </div>
 
         <!-- CTA Section -->
-        <div class="bg-[#8e2a2a] py-16">
+        <div class="bg-danielle py-16">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl font-bold text-white mb-4">Experience the Danielle Fence Difference</h2>
                 <p class="text-xl text-white mb-8">Join thousands of satisfied customers across Central Florida</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="{{ route('diy.quote') }}" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#8e2a2a] bg-white hover:bg-gray-100">
+                    <a href="{{ route('diy.quote') }}" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-danielle bg-white hover:bg-gray-100">
                         Get Free Quote
                     </a>
-                    <a href="tel:863-425-3182" class="inline-flex justify-center items-center px-8 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-[#8e2a2a]">
+                    <a href="tel:863-425-3182" class="inline-flex justify-center items-center px-8 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-danielle">
                         <i class="fas fa-phone mr-2"></i> Call (863) 425-3182
                     </a>
                 </div>

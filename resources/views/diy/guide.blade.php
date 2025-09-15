@@ -1,7 +1,7 @@
 <x-app-layout>
-<div class="bg-gray-50 min-h-screen">
+<div class="bg-gradient-to-r from-gray-50 to-brand-cream/20 min-h-screen">
     {{-- Header --}}
-    <div class="bg-gradient-to-r from-danielle to-daniellealt text-white w-full py-8 px-4">
+    <div class="bg-gradient-to-r from-danielle to-daniellealt text-white w-full py-8 px-4 ">
         <div class="container mx-auto flex items-center justify-center">
             <div class="text-center">
                 <nav class="text-sm mb-4 opacity-90">
@@ -34,7 +34,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                     @foreach($guides as $key => $title)
                         <a href="{{ route('diy.guide', $key) }}" 
-                           class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow group">
+                           class="bg-gradient-to-br from-white to-brand-cream/30 p-8 rounded-lg  hover:transition-shadow group">
                             <div class="flex items-start">
                                 <div class="bg-red-100 p-4 rounded-lg mr-6 group-hover:bg-red-200 transition">
                                     @switch($key)
@@ -84,7 +84,7 @@
                 </div>
 
                 {{-- General Tips Section --}}
-                <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="bg-white rounded-lg  p-6">
                     <h2 class="text-2xl font-bold mb-6">Before You Begin - Essential Tips</h2>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -145,7 +145,7 @@
         @else
             {{-- Specific Guide Content --}}
             <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-white rounded-lg  overflow-hidden">
                     {{-- Guide Header --}}
                     <div class="bg-gradient-to-r from-gray-50 to-gray-100 p-6 border-b">
                         <div class="flex items-center justify-between">

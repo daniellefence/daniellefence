@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="min-h-screen bg-gray-50">
+    <div class="min-h-screen bg-gradient-to-r from-gray-50 to-brand-cream/20">
         <!-- Hero Section -->
-        <div class="relative bg-gradient-to-r from-[#8e2a2a] to-[#7a2525] py-20">
+        <div class="relative bg-gradient-to-r from-danielle to-daniellealt py-20 ">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl">
                     <h1 class="text-4xl font-bold text-white mb-4">Our Work Showcase</h1>
@@ -9,10 +9,10 @@
                         See the quality and craftsmanship that has made us Central Florida's trusted fence company since 1976.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="{{ route('diy.quote') }}" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-[#8e2a2a] bg-white hover:bg-gray-100">
+                        <a href="{{ route('diy.quote') }}" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-danielle bg-white hover:bg-gray-100">
                             Get Free Quote
                         </a>
-                        <a href="tel:863-425-3182" class="inline-flex justify-center items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-[#8e2a2a]">
+                        <a href="tel:863-425-3182" class="inline-flex justify-center items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-danielle">
                             <i class="fas fa-phone mr-2"></i> (863) 425-3182
                         </a>
                     </div>
@@ -21,10 +21,10 @@
         </div>
 
         <!-- Filter Categories -->
-        <div class="py-8 bg-white shadow-sm">
+        <div class="py-8 bg-gradient-to-r from-white to-brand-cream/30 ">
             <div class="container mx-auto px-4">
                 <div class="flex flex-wrap justify-center gap-4">
-                    <button class="px-6 py-2 bg-[#8e2a2a] text-white rounded-full font-semibold">All Projects</button>
+                    <button class="px-6 py-2 bg-danielle text-white rounded-full font-semibold">All Projects</button>
                     <button class="px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-semibold transition-colors">Residential</button>
                     <button class="px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-semibold transition-colors">Commercial</button>
                     <button class="px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-semibold transition-colors">Vinyl/PVC</button>
@@ -43,7 +43,7 @@
                     <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Featured Marquee Projects</h2>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                         <!-- Disney World -->
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer">
+                        <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg  overflow-hidden group cursor-pointer">
                             <div class="aspect-square bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                                 <i class="fas fa-castle text-6xl text-white group-hover:scale-110 transition-transform"></i>
                             </div>
@@ -54,7 +54,7 @@
                         </div>
 
                         <!-- SeaWorld -->
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer">
+                        <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg  overflow-hidden group cursor-pointer">
                             <div class="aspect-square bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center">
                                 <i class="fas fa-fish text-6xl text-white group-hover:scale-110 transition-transform"></i>
                             </div>
@@ -65,7 +65,7 @@
                         </div>
 
                         <!-- Movie Sets -->
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer">
+                        <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg  overflow-hidden group cursor-pointer">
                             <div class="aspect-square bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
                                 <i class="fas fa-film text-6xl text-white group-hover:scale-110 transition-transform"></i>
                             </div>
@@ -76,7 +76,7 @@
                         </div>
 
                         <!-- Complex Projects -->
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer">
+                        <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg  overflow-hidden group cursor-pointer">
                             <div class="aspect-square bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
                                 <i class="fas fa-puzzle-piece text-6xl text-white group-hover:scale-110 transition-transform"></i>
                             </div>
@@ -95,7 +95,7 @@
                     <!-- Placeholder for actual project images -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         @for($i = 1; $i <= 12; $i++)
-                            <div class="bg-white rounded-lg shadow-lg overflow-hidden group cursor-pointer">
+                            <div class="bg-gradient-to-br from-white to-brand-cream/30 rounded-lg  overflow-hidden group cursor-pointer">
                                 <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
                                     <div class="text-center">
                                         <i class="fas fa-image text-4xl text-gray-400 mb-2"></i>
@@ -122,7 +122,7 @@
                                         @endswitch
                                     </p>
                                     <div class="flex items-center justify-between">
-                                        <span class="text-xs bg-[#8e2a2a] text-white px-2 py-1 rounded">
+                                        <span class="text-xs bg-danielle text-white px-2 py-1 rounded">
                                             @switch($i % 3)
                                                 @case(1) Residential @break
                                                 @case(2) Commercial @break
@@ -139,7 +139,7 @@
 
                 <!-- Load More Button -->
                 <div class="text-center">
-                    <button class="bg-[#8e2a2a] hover:bg-[#9c3030] text-white font-semibold py-3 px-8 rounded-md transition-colors">
+                    <button class="bg-danielle hover:bg-daniellealt text-white font-semibold py-3 px-8 rounded-md transition-colors">
                         Load More Projects
                     </button>
                 </div>
@@ -150,7 +150,7 @@
         <div class="bg-white py-16">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
-                    <div class="inline-block bg-[#8e2a2a] text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    <div class="inline-block bg-danielle text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
                         #InstallOfTheWeek
                     </div>
                     <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured This Week</h2>
@@ -158,7 +158,7 @@
                 </div>
                 
                 <div class="max-w-4xl mx-auto">
-                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gray-50 rounded-lg  overflow-hidden">
                         <div class="aspect-video bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
                             <div class="text-center text-white">
                                 <i class="fas fa-home text-6xl mb-4"></i>
@@ -175,10 +175,10 @@
                                 with premium hardware.
                             </p>
                             <div class="flex flex-wrap gap-4 text-sm">
-                                <span class="bg-[#8e2a2a] text-white px-3 py-1 rounded">6ft Height</span>
-                                <span class="bg-[#8e2a2a] text-white px-3 py-1 rounded">200 Linear Feet</span>
-                                <span class="bg-[#8e2a2a] text-white px-3 py-1 rounded">Matching Gate</span>
-                                <span class="bg-[#8e2a2a] text-white px-3 py-1 rounded">2-Day Install</span>
+                                <span class="bg-danielle text-white px-3 py-1 rounded">6ft Height</span>
+                                <span class="bg-danielle text-white px-3 py-1 rounded">200 Linear Feet</span>
+                                <span class="bg-danielle text-white px-3 py-1 rounded">Matching Gate</span>
+                                <span class="bg-danielle text-white px-3 py-1 rounded">2-Day Install</span>
                             </div>
                         </div>
                     </div>
@@ -187,15 +187,15 @@
         </div>
 
         <!-- CTA Section -->
-        <div class="bg-[#8e2a2a] py-16">
+        <div class="bg-danielle py-16">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
                 <p class="text-xl text-white mb-8">Let us create something beautiful for your property</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="{{ route('diy.quote') }}" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#8e2a2a] bg-white hover:bg-gray-100">
+                    <a href="{{ route('diy.quote') }}" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-danielle bg-white hover:bg-gray-100">
                         Get Free Quote
                     </a>
-                    <a href="{{ route('showroom') }}" class="inline-flex justify-center items-center px-8 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-[#8e2a2a]">
+                    <a href="{{ route('showroom') }}" class="inline-flex justify-center items-center px-8 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-danielle">
                         Visit Our Showroom
                     </a>
                 </div>

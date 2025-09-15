@@ -12,7 +12,8 @@ class ActivityLogResource extends Resource
 {
     protected static ?string $model = Activity::class;
     protected static ?string $navigationIcon = 'heroicon-o-clock';
-    protected static ?string $navigationGroup = 'System Management';
+    // protected static ?string $navigationGroup = 'System Management';
+    protected static ?int $navigationSort = 1;
 
     public static function table(Table $table): Table
     {

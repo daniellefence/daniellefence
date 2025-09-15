@@ -16,7 +16,8 @@ class ApplicationResource extends Resource
 {
     protected static ?string $model = Application::class;
     protected static ?string $navigationIcon = 'heroicon-o-document-check';
-    protected static ?string $navigationGroup = 'HR';
+    // protected static ?string $navigationGroup = 'HR';
+    protected static ?int $navigationSort = 2;
     protected static ?string $navigationLabel = 'Applications';
     protected static ?string $pluralLabel = 'Applications';
 

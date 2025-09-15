@@ -16,7 +16,8 @@ class GoogleTagManagerResource extends Resource
 {
     protected static ?string $model = SiteSetting::class;
     protected static ?string $navigationIcon = 'heroicon-o-chart-bar-square';
-    protected static ?string $navigationGroup = 'SEO & Marketing';
+    // protected static ?string $navigationGroup = 'SEO & Marketing';
+    protected static ?int $navigationSort = 10;
     protected static ?string $navigationLabel = 'Google Tag Manager';
     protected static ?string $pluralLabel = 'Google Tag Manager';
 
@@ -91,9 +92,8 @@ class GoogleTagManagerResource extends Resource
                         Forms\Components\TextInput::make('trigger')
                             ->label('Trigger Element')
                             ->placeholder('#quote-form-submit'),
-                        Forms\Components\Textarea::make('description')
+                        Forms\Components\RichEditor::make('description')
                             ->label('Description')
-                            ->rows(2)
                             ->placeholder('Tracks when users submit quote request forms'),
                     ])
                     ->columns(2)

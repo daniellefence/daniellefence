@@ -18,7 +18,7 @@
         
         <a href="{{ $url }}" 
            target="_blank" 
-           class="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+           class="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md  text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
             </svg>
@@ -39,11 +39,11 @@
             <div class="max-w-full">
                 <img src="{{ $url }}" 
                      alt="{{ $alt ?? $name }}" 
-                     class="max-w-full max-h-96 rounded-lg shadow-lg {{ isset($fullPreview) && $fullPreview ? 'max-h-none' : '' }}" />
+                     class="max-w-full max-h-96 rounded-lg  {{ isset($fullPreview) && $fullPreview ? 'max-h-none' : '' }}" />
             </div>
         @elseif($isVideo)
             <div class="max-w-full">
-                <video controls class="max-w-full max-h-96 rounded-lg shadow-lg {{ isset($fullPreview) && $fullPreview ? 'max-h-none' : '' }}">
+                <video controls class="max-w-full max-h-96 rounded-lg  {{ isset($fullPreview) && $fullPreview ? 'max-h-none' : '' }}">
                     <source src="{{ $url }}" type="{{ $type }}">
                     Your browser does not support the video tag.
                 </video>
