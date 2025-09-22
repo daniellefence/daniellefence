@@ -207,9 +207,6 @@ main {
 }
 body {
     background-color: #ffffff;
-    background-image: url("/images/60-lines.png");
-    background-attachment: fixed;
-    background-repeat: repeat;
 }
 @keyframes marquee{
     to{
