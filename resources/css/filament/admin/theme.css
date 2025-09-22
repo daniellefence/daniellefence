@@ -1,0 +1,57 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+
+@config '../../../../tailwind.config.js';
+
+/* Custom styles for navigation groups */
+/* Fix for white login button text */
+.fi-btn-primary {
+    background-color: rgb(142, 42, 42) !important; /* Your primary-500 color */
+    color: white !important;
+}
+
+.fi-btn-primary:hover {
+    background-color: rgb(185, 28, 28) !important; /* Your primary-700 color */
+}
+
+/* Ensure login button specifically has proper contrast */
+.fi-login-panel .fi-btn {
+    background-color: rgb(142, 42, 42) !important;
+    color: white !important;
+    border: 1px solid rgb(142, 42, 42) !important;
+}
+
+.fi-login-panel .fi-btn:hover {
+    background-color: rgb(185, 28, 28) !important;
+    border-color: rgb(185, 28, 28) !important;
+}
+
+/* Fix any potential white text on white background issues */
+.fi-login-panel input[type="submit"],
+.fi-login-panel button[type="submit"] {
+    background-color: rgb(142, 42, 42) !important;
+    color: white !important;
+}
+
+/* Fix header action buttons */
+.fi-header-actions .fi-btn-primary {
+    background-color: rgb(142, 42, 42) !important;
+    color: white !important;
+    border: 1px solid rgb(142, 42, 42) !important;
+}
+
+.fi-header-actions .fi-btn-primary:hover {
+    background-color: rgb(185, 28, 28) !important;
+    border-color: rgb(185, 28, 28) !important;
+}
+
+/* Debug: Ensure widgets are visible */
+.fi-wi-stats-overview-stat {
+    border: 1px solid #e5e7eb !important;
+    background-color: white !important;
+}
+
+.fi-wi-chart {
+    min-height: 400px !important;
+    background-color: white !important;
+    border: 1px solid #e5e7eb !important;
+}

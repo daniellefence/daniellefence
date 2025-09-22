@@ -1,0 +1,6 @@
+Logged in user can view each page.
+Logged out user can view each page.
+Logged out user can't view admin page.
+Verify logged in or out user can use contact form.
+Verify logged in or out user can request a quote.
+

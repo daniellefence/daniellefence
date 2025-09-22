@@ -1,0 +1,16 @@
+
+.hand-icon {
+    position: absolute;
+    background-image: url('../../resources/images/hand.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    animation:swipe-hand 2s infinite;
+}
+
+@keyframes swipe-hand {
+    25% { transform: translate(20px) rotate(30deg); }
+    50% { transform: translate(-20px) rotate(-15deg); }
+    100% { transform: translate(0px) rotate(0); }
+}

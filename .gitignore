@@ -1,0 +1,61 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Dependencies
+/node_modules
+/vendor
+composer.phar
+
+# IDE files
+/.idea
+/.vscode
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Laravel specific
+/bootstrap/cache/*.php
+/storage/*.key
+/storage/app/public/*
+!/storage/app/public/.gitignore
+/storage/framework/cache/data/*
+!/storage/framework/cache/data/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/testing/*
+!/storage/framework/testing/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
+
+# Build files
+/public/hot
+/public/storage
+/public/build
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test files
+/.phpunit.cache
+/tests/Browser/console/*.log
+/tests/Browser/screenshots/*
+!/tests/Browser/screenshots/.gitignore
+
+# Cache
+.vite
+
+# Backup files
+*.backup
+*.bak

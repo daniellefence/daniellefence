@@ -1,0 +1,86 @@
+Index: resources/views/components/carousel-holder.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/components/carousel-holder.blade.php b/resources/views/components/carousel-holder.blade.php
+new file mode 100644
+--- /dev/null	(date 1712807779594)
++++ b/resources/views/components/carousel-holder.blade.php	(date 1712807779594)
+@@ -0,0 +1,6 @@
++@once
++    @push('head')
++
++    @endpush
++@endonce
++{{$slot}}
+\ No newline at end of file
+Index: resources/views/components/carousel.blade.php
+===================================================================
+diff --git a/resources/views/components/carousel.blade.php b/resources/views/components/carousel.blade.php
+deleted file mode 100644
+--- a/resources/views/components/carousel.blade.php	
++++ /dev/null	
+@@ -1,62 +0,0 @@
+-@props([
+-    'page'
+-])
+-@php
+-    $carousel = \App\Models\Carousel::where([
+-        ['key','=',$page]
+-    ])->first();
+-    if($carousel && $carousel->photos()->count() >0) {
+-    $photos =  $carousel->photos()->orderBy('order','asc')->get();
+-@endphp
+-@once
+-    @push('head')
+-        <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+-        <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+-        <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider-extensions.min.js" crossorigin="anonymous" defer></script>
+-    @endpush
+-@endonce
+-
+-<div {{$attributes->class(['swiffy-slider bg-danielle slider-nav-autoplay slider-nav-autopause slider-nav-animation slider-nav-animation-slow slider-nav-mousedrag'])}}>
+-
+-    <ul class="slider-container ">
+-        @foreach($photos as $photo)
+-            <li class="relative @if($loop->first) slide-visible @endif">
+-                <div class="block sm:hidden swipe">
+-                    <div class="path"></div>
+-                    <div class="hand-icon"></div>
+-                </div>
+-                @if($photo->carousel->key != 'home')
+-                    <a class="flex items-center justify-center  "  href="{{url($photo->path)}}">
+-                        <img class="relative" src="{{url($photo->path)}}"  alt="{{$photo->title}}">
+-                        @if($carousel->show_title != 0 && $photo->title)
+-                            <div class="glass custom-animated-text p-8 border-2 border-danielle rounded-3xl text-center absolute slider-text text-sm leading-none xl:text-6xl lg:leading-10">
+-                                {!! $photo->title !!}
+-                            </div>
+-                        @endif
+-                    </a>
+-                @else
+-                    <div class="flex items-center justify-center  "  href="{{url($photo->path)}}">
+-                        <img class="relative" src="{{url($photo->path)}}"  alt="{{$photo->title}}">
+-                        @if($carousel->show_title != 0 && $photo->title)
+-                            <div class="glass custom-animated-text  p-8 border-2 border-danielle rounded-3xl text-center absolute slider-text text-sm leading-none xl:text-6xl lg:leading-10">
+-                                {!! $photo->title !!}
+-                            </div>
+-                        @endif
+-                    </div>
+-                @endif
+-            </li>
+-        @endforeach
+-    </ul>
+-
+-    <button type="button" class="slider-nav"></button>
+-    <button type="button" class="slider-nav slider-nav-next"></button>
+-
+-    <div class="slider-indicators">
+-        @foreach($photos as $photo)
+-            <button class="active"></button>
+-        @endforeach
+-    </div>
+-</div>
+-@php
+-}
+-@endphp

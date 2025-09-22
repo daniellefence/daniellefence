@@ -1,0 +1,32 @@
+{
+  "fixes": [
+    {
+      "date": "2025-01-30",
+      "issue": "Trix editor not working on edit/update pages",
+      "files_modified": [
+        "/resources/views/components/input/trix.blade.php",
+        "/resources/views/pages/admin/blog/update.blade.php"
+      ],
+      "changes": [
+        {
+          "file": "/resources/views/components/input/trix.blade.php",
+          "change": "Removed @once and @endonce directives to fix asset loading with Livewire navigation"
+        },
+        {
+          "file": "/resources/views/pages/admin/blog/update.blade.php",
+          "change": "Removed 'lazy' attribute from livewire:admin-blog-update component"
+        }
+      ],
+      "testing_checklist": [
+        "Blog create page - Trix loads correctly",
+        "Blog edit page - Trix loads with existing content",
+        "Livewire navigation - Trix continues working",
+        "Hard refresh - Assets load properly"
+      ],
+      "commands_to_run": [
+        "php artisan view:clear",
+        "php artisan cache:clear"
+      ]
+    }
+  ]
+}
