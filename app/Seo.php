@@ -81,25 +81,46 @@ class Seo
 
     public function defaultTitle()
     {
-        $setting = GeneralSetting::where([
-            ['key', '=', 'default_site_title'],
-        ])->first();
-        return $setting ? $setting->value : 'Danielle Fence & Outdoor Living';
+        try {
+            if (!\Schema::hasTable('general_settings')) {
+                return 'Danielle Fence & Outdoor Living';
+            }
+            $setting = GeneralSetting::where([
+                ['key', '=', 'default_site_title'],
+            ])->first();
+            return $setting ? $setting->value : 'Danielle Fence & Outdoor Living';
+        } catch (\Exception $e) {
+            return 'Danielle Fence & Outdoor Living';
+        }
     }
 
     public function defaultDescription()
     {
-        $setting = GeneralSetting::where([
-            ['key', '=', 'default_site_description'],
-        ])->first();
-        return $setting ? $setting->value : 'Quality fencing and outdoor living solutions since 1976';
+        try {
+            if (!\Schema::hasTable('general_settings')) {
+                return 'Quality fencing and outdoor living solutions since 1976';
+            }
+            $setting = GeneralSetting::where([
+                ['key', '=', 'default_site_description'],
+            ])->first();
+            return $setting ? $setting->value : 'Quality fencing and outdoor living solutions since 1976';
+        } catch (\Exception $e) {
+            return 'Quality fencing and outdoor living solutions since 1976';
+        }
     }
 
     public function defaultKeywords()
     {
-        $setting = GeneralSetting::where([
-            ['key', '=', 'default_site_keywords'],
-        ])->first();
-        return $setting ? $setting->value : 'fence, fencing, outdoor living, vinyl fence, aluminum fence';
+        try {
+            if (!\Schema::hasTable('general_settings')) {
+                return 'fence, fencing, outdoor living, vinyl fence, aluminum fence';
+            }
+            $setting = GeneralSetting::where([
+                ['key', '=', 'default_site_keywords'],
+            ])->first();
+            return $setting ? $setting->value : 'fence, fencing, outdoor living, vinyl fence, aluminum fence';
+        } catch (\Exception $e) {
+            return 'fence, fencing, outdoor living, vinyl fence, aluminum fence';
+        }
     }
 }
