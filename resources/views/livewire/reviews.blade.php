@@ -1,4 +1,4 @@
-<div class="bg-gradient-to-br from-brand-light to-white" data-aos="fade-up">
+<div class="bg-white" data-aos="fade-up">
     <!-- Content -->
     <div class="relative">
         <!-- Header section -->
