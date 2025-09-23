@@ -11,7 +11,7 @@
     <meta name="keywords" content="{{ $pageKeywords ?? seo()->meta('keywords') }}">
     <meta name="author" content="Danielle Fence & Outdoor Living">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="canonical" href="{{ config('app.url') }}">
 
     <!-- Geographic Meta Tags -->
     <meta name="geo.region" content="US-FL">
