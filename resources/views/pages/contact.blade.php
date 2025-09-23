@@ -4,24 +4,9 @@
     @endpush
 @endonce
 <x-app-layout>
-    <!-- Header Section (No Hero Image) -->
-    <section class="bg-gradient-to-br from-outdoor-light via-white to-outdoor-mist pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center">
-                <div class="mb-4">
-                    <span class="inline-block px-4 py-2 bg-outdoor-primary text-white text-sm font-semibold rounded-full">
-                        Get Started Today
-                    </span>
-                </div>
-                <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                    Contact <span class="text-outdoor-primary">Danielle Fence</span>
-                </h1>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                    Ready to transform your outdoor space? Our expert team is here to help with personalized consultations and detailed project quotes.
-                </p>
-            </div>
-        </div>
-    </section>
+    <x-page-heading subheading="Ready to transform your outdoor space? Our expert team is here to help with personalized consultations and detailed project quotes.">
+        Contact Danielle Fence
+    </x-page-heading>
 
     <!-- Quick Contact Section -->
     <section class="py-12 bg-white border-b border-gray-100">
@@ -30,7 +15,7 @@
                 <!-- Phone -->
                 <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 bg-outdoor-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <i class="fad fa-phone w-8 h-8"></i>
+                        <i class="fa-solid fa-phone-volume w-8 h-8"></i>
                     </div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">Call Now</h3>
                     <a href="tel:863-425-3182" class="text-2xl font-bold text-outdoor-primary hover:text-outdoor-primary/80 transition-colors">
@@ -42,7 +27,7 @@
                 <!-- Quote -->
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-16 h-16 bg-outdoor-cedar rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <i class="fad fa-file-invoice w-8 h-8"></i>
+                        <i class="fa-solid fa-file-invoice w-8 h-8"></i>
                     </div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">Free Quote</h3>
                     <a href="{{route('request-a-quote')}}" class="text-lg font-semibold text-outdoor-cedar hover:text-outdoor-cedar/80 transition-colors">
@@ -54,7 +39,7 @@
                 <!-- Visit -->
                 <div class="text-center" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-16 h-16 bg-outdoor-gold rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <i class="fad fa-map-marker-alt w-8 h-8"></i>
+                        <i class="fa-solid fa-location-dot w-8 h-8"></i>
                     </div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">Visit Us</h3>
                     <p class="text-lg font-semibold text-outdoor-gold">Design Center</p>
@@ -91,7 +76,7 @@
                         <!-- Phone -->
                         <div class="flex items-start">
                             <div class="w-10 h-10 bg-outdoor-primary rounded-lg flex items-center justify-center mr-4 mt-1">
-                                <i class="fad fa-phone w-5 h-5"></i>
+                                <i class="fa-solid fa-phone-volume w-5 h-5"></i>
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 mb-1">Phone</h4>
@@ -105,7 +90,7 @@
                         <!-- Email -->
                         <div class="flex items-start">
                             <div class="w-10 h-10 bg-outdoor-cedar rounded-lg flex items-center justify-center mr-4 mt-1">
-                                <i class="fad fa-envelope w-5 h-5"></i>
+                                <i class="fa-solid fa-envelope w-5 h-5"></i>
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
@@ -119,7 +104,7 @@
                         <!-- Address -->
                         <div class="flex items-start">
                             <div class="w-10 h-10 bg-outdoor-gold rounded-lg flex items-center justify-center mr-4 mt-1">
-                                <i class="fad fa-map-marker-alt w-5 h-5"></i>
+                                <i class="fa-solid fa-location-dot w-5 h-5"></i>
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 mb-1">Visit Our Showroom</h4>

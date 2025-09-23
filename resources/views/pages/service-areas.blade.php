@@ -1,28 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="relative isolate overflow-hidden bg-white">
-    <!-- Hero Section -->
-    <div class="relative bg-gradient-to-br from-brand-primary-900 to-brand-primary-800 py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                    Central Florida <span class="text-yellow-400">Service Areas</span>
-                </h1>
-                <p class="mt-6 text-lg leading-8 text-gray-300">
-                    Danielle Fence proudly serves over 130 cities across Central Florida. Find your city below for local fence installation services.
-                </p>
-                <div class="mt-10 flex items-center justify-center gap-x-6">
-                    <a href="{{ route('contact') }}" class="rounded-md bg-yellow-500 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-500">
-                        Get Free Estimate
-                    </a>
-                    <a href="tel:{{ config('app.phone', '863-665-1447') }}" class="text-sm font-semibold leading-6 text-white">
-                        Call Now <span aria-hidden="true">→</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+<x-app-layout>
+    <x-page-heading subheading="Danielle Fence proudly serves over 130 cities across Central Florida. Find your city below for local fence installation services.">
+        Central Florida Service Areas
+    </x-page-heading>
 
     <!-- Counties Section -->
     <div class="py-24 sm:py-32">
@@ -83,5 +62,4 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+</x-app-layout>

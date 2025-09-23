@@ -3,12 +3,10 @@
     <div class="relative pt-6 pb-4 overflow-hidden bg-outdoor-primary">
         <!-- Transparent leaf texture -->
         <div class="absolute inset-0 opacity-20">
-            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="leaves" width="100" height="100" patternUnits="userSpaceOnUse"%3E%3Cellipse cx="25" cy="30" rx="8" ry="15" fill="none" stroke="%23ffffff" stroke-width="1.5" transform="rotate(45 25 30)"/%3E%3Cellipse cx="75" cy="70" rx="6" ry="12" fill="none" stroke="%23ffffff" stroke-width="1.5" transform="rotate(-30 75 70)"/%3E%3Ccircle cx="50" cy="20" r="3" fill="%23ffffff" opacity="0.4"/%3E%3Ccircle cx="20" cy="80" r="2" fill="%23ffffff" opacity="0.4"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23leaves)" /%3E%3C/svg%3E');"></div>
         </div>
 
         <!-- Transparent tree ring texture -->
         <div class="absolute inset-0 opacity-10">
-            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="150" height="150" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="rings" width="150" height="150" patternUnits="userSpaceOnUse"%3E%3Ccircle cx="75" cy="75" r="30" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.3"/%3E%3Ccircle cx="75" cy="75" r="20" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.4"/%3E%3Ccircle cx="75" cy="75" r="10" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.5"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23rings)" /%3E%3C/svg%3E');"></div>
         </div>
 
         <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -30,17 +28,11 @@
                                          loading="lazy"/>
                                 </div>
 
-                                <!-- Enhanced badge/label on hover -->
-                                <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                                    <div class="bg-outdoor-primary text-white p-2 rounded-lg shadow-lg">
-                                        <i class="fad fa-arrow-right w-4 h-4"></i>
-                                    </div>
-                                </div>
                             </div>
 
                             <!-- Enhanced title with better typography -->
                             <div class="mt-3 text-center">
-                                <p class="text-sm font-semibold text-white group-hover:text-outdoor-gold transition-colors duration-200">
+                                <p class="text-sm font-semibold text-white group-hover:text-white transition-colors duration-200">
                                     {{$category->title}}
                                 </p>
                                 <!-- Animated underline on hover -->
@@ -63,12 +55,12 @@
                     <!-- Left column -->
                     <div class="w-1/2 flex items-center justify-center p-8 lg:p-12 2xl:p-16">
                         <div class="mx-auto max-w-2xl 2xl:max-w-3xl text-center bg-black/30 backdrop-blur-sm rounded-3xl p-8 lg:p-10 2xl:p-12" data-aos="fade-up" data-aos-delay="200">
-                            <div class="mb-4" data-aos="fade-right" data-aos-delay="400">
+                            <div class="mb-2" data-aos="fade-right" data-aos-delay="400">
                                 <span class="inline-block px-4 py-2 bg-outdoor-primary text-white text-sm lg:text-base font-semibold rounded-full">
                                     Since 1976 • Family-Owned &amp; Operated
                                 </span>
                             </div>
-                            <h1 class="mx-auto font-display text-5xl font-bold tracking-tight text-white sm:text-7xl lg:text-7xl 2xl:text-8xl" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5); letter-spacing: -0.02em;" data-aos="fade-up" data-aos-delay="600">
+                            <h1 class="mx-auto font-display text-5xl font-bold tracking-tight text-white sm:text-7xl lg:text-7xl 2xl:text-8xl hero-title-shadow" data-aos="fade-up" data-aos-delay="600">
                                 <span class="text-2xl sm:text-3xl lg:text-3xl 2xl:text-4xl">Central Florida's</span>
                                 <span class="relative whitespace-nowrap text-outdoor-gold block text-6xl sm:text-8xl lg:text-8xl 2xl:text-9xl">
                                     <svg aria-hidden="true" viewBox="0 0 418 42" class="absolute top-2/3 left-0 h-[0.58em] w-full fill-white/80" preserveAspectRatio="none">
@@ -77,19 +69,19 @@
                                     <span class="relative">Five Star</span>
                                 </span>
                                 <div class="flex items-center justify-center gap-4 mt-2" data-aos="zoom-in" data-aos-delay="800">
-                                    <i class="fad fa-star w-8 h-8 sm:w-12 sm:h-12 lg:w-12 lg:h-12 2xl:w-14 2xl:h-14 text-outdoor-gold drop-shadow-lg" style="--fa-primary-color: #d97706; --fa-secondary-color: #d97706; --fa-secondary-opacity: 1.0;"></i>
-                                    <i class="fad fa-star w-8 h-8 sm:w-12 sm:h-12 lg:w-12 lg:h-12 2xl:w-14 2xl:h-14 text-outdoor-gold drop-shadow-lg" style="--fa-primary-color: #d97706; --fa-secondary-color: #d97706; --fa-secondary-opacity: 1.0;"></i>
-                                    <i class="fad fa-star w-8 h-8 sm:w-12 sm:h-12 lg:w-12 lg:h-12 2xl:w-14 2xl:h-14 text-outdoor-gold drop-shadow-lg" style="--fa-primary-color: #d97706; --fa-secondary-color: #d97706; --fa-secondary-opacity: 1.0;"></i>
-                                    <i class="fad fa-star w-8 h-8 sm:w-12 sm:h-12 lg:w-12 lg:h-12 2xl:w-14 2xl:h-14 text-outdoor-gold drop-shadow-lg" style="--fa-primary-color: #d97706; --fa-secondary-color: #d97706; --fa-secondary-opacity: 1.0;"></i>
-                                    <i class="fad fa-star w-8 h-8 sm:w-12 sm:h-12 lg:w-12 lg:h-12 2xl:w-14 2xl:h-14 text-outdoor-gold drop-shadow-lg" style="--fa-primary-color: #d97706; --fa-secondary-color: #d97706; --fa-secondary-opacity: 1.0;"></i>
+                                    <i class="fas fa-star w-8 h-8 sm:w-12 sm:h-12 lg:w-12 lg:h-12 2xl:w-14 2xl:h-14 text-outdoor-gold drop-shadow-lg"></i>
+                                    <i class="fas fa-star w-8 h-8 sm:w-12 sm:h-12 lg:w-12 lg:h-12 2xl:w-14 2xl:h-14 text-outdoor-gold drop-shadow-lg"></i>
+                                    <i class="fas fa-star w-8 h-8 sm:w-12 sm:h-12 lg:w-12 lg:h-12 2xl:w-14 2xl:h-14 text-outdoor-gold drop-shadow-lg"></i>
+                                    <i class="fas fa-star w-8 h-8 sm:w-12 sm:h-12 lg:w-12 lg:h-12 2xl:w-14 2xl:h-14 text-outdoor-gold drop-shadow-lg"></i>
+                                    <i class="fas fa-star w-8 h-8 sm:w-12 sm:h-12 lg:w-12 lg:h-12 2xl:w-14 2xl:h-14 text-outdoor-gold drop-shadow-lg"></i>
                                 </div>
                                 <span class="text-2xl sm:text-3xl lg:text-3xl 2xl:text-4xl -mt-4">Fence Company</span>
                             </h1>
-                            <p class="mx-auto mt-6 max-w-lg lg:max-w-xl 2xl:max-w-2xl text-lg lg:text-xl 2xl:text-2xl tracking-tight text-white font-medium animate-fade-in-up animate-delay-500" style="text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7);">
+                            <p class="mx-auto mt-6 max-w-lg lg:max-w-xl 2xl:max-w-2xl text-lg lg:text-xl 2xl:text-2xl tracking-tight text-white font-medium animate-fade-in-up animate-delay-500 hero-text-shadow">
                                 Nearly 50 years of quality craftsmanship. From Disney World to your backyard - professional installation with premium American-made materials.
                             </p>
-                            <div class="mt-10 flex justify-center animate-fade-in-up animate-delay-600">
-                                <a href="{{route('request-a-quote')}}" class="group inline-flex items-center justify-center rounded-full py-4 px-12 lg:py-5 lg:px-14 2xl:py-6 2xl:px-16 text-lg lg:text-xl 2xl:text-2xl font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 bg-outdoor-primary text-white hover:bg-outdoor-primary/80 focus-visible:outline-outdoor-primary transform hover:scale-105 transition-transform duration-200">
+                            <div class="mt-10 animate-fade-in-up animate-delay-600">
+                                <a href="{{route('request-a-quote')}}" class="group block w-full text-center rounded-3xl py-4 px-12 lg:py-5 lg:px-14 2xl:py-6 2xl:px-16 text-lg lg:text-xl 2xl:text-2xl font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 bg-outdoor-primary text-white hover:bg-outdoor-primary/80 focus-visible:outline-outdoor-primary transform hover:scale-105 transition-transform duration-200">
                                     Get Free Quote
                                 </a>
                             </div>
@@ -110,7 +102,7 @@
 
                         <!-- Video -->
                         <a href="{{ route('chat') }}" class="block w-5/6 lg:w-2/3 2xl:w-3/5 max-w-[500px] 2xl:max-w-[580px]">
-                            <video autoplay="" loop="" muted="" playsinline="" class="w-full h-auto rounded-2xl alpha-video hover:scale-105 transition-transform duration-300 cursor-pointer" style="background: transparent !important; display: block;">
+                            <video autoplay="" loop="" muted="" playsinline="" class="w-full h-auto rounded-2xl alpha-video hover:scale-105 transition-transform duration-300 cursor-pointer">
                                 <source src="{{Vite::asset('resources/videos/grillbert.webm')}}" type="video/webm">
                                 <source src="{{Vite::asset('resources/videos/grillbert.webm')}}" type="video/webm">
                             </video>
@@ -128,11 +120,7 @@
         <x-mission-statement></x-mission-statement>
 
         <!-- Trusted By Section -->
-        <div class="relative py-16 bg-white">
-            <!-- Transparent subtle pattern -->
-            <div class="absolute inset-0 opacity-5">
-                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="corporateGrid" width="100" height="100" patternUnits="userSpaceOnUse"%3E%3Cpath d="M20,20 L80,20 L80,80 L20,80 Z" fill="none" stroke="%23000000" stroke-width="1"/%3E%3Ccircle cx="20" cy="20" r="2" fill="%23000000" opacity="0.3"/%3E%3Ccircle cx="80" cy="20" r="2" fill="%23000000" opacity="0.3"/%3E%3Ccircle cx="80" cy="80" r="2" fill="%23000000" opacity="0.3"/%3E%3Ccircle cx="20" cy="80" r="2" fill="%23000000" opacity="0.3"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23corporateGrid)" /%3E%3C/svg%3E');"></div>
-            </div>
+        <div class="relative py-16 bg-slate-50">
 
             <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="text-center mb-10">
@@ -210,15 +198,11 @@
         </div>
 
         <!-- Why Choose Danielle Fence Section -->
-        <div class="relative py-20 overflow-hidden bg-outdoor-light">
-            <!-- Transparent grass pattern -->
-            <div class="absolute inset-0 opacity-25">
-                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="80" height="80" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="grass" width="80" height="80" patternUnits="userSpaceOnUse"%3E%3Cpath d="M10,70 Q15,30 10,10 M15,70 Q20,25 15,5 M25,70 Q30,35 25,15" stroke="%23ffffff" stroke-width="1.5" fill="none" opacity="0.4"/%3E%3Cpath d="M35,70 Q40,30 35,10 M45,70 Q50,25 45,5 M55,70 Q60,35 55,15" stroke="%23ffffff" stroke-width="1.5" fill="none" opacity="0.3"/%3E%3Cpath d="M65,70 Q70,30 65,10 M70,70 Q75,25 70,5" stroke="%23ffffff" stroke-width="1.5" fill="none" opacity="0.4"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23grass)" /%3E%3C/svg%3E');"></div>
-            </div>
-
-            <!-- Transparent garden pattern -->
-            <div class="absolute inset-0 opacity-15">
-                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="120" height="120" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="garden" width="120" height="120" patternUnits="userSpaceOnUse"%3E%3Ccircle cx="30" cy="30" r="8" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.3"/%3E%3Cpath d="M30,22 Q25,15 20,22 Q25,29 30,22" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.4"/%3E%3Ccircle cx="90" cy="60" r="6" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.3"/%3E%3Cpath d="M90,54 Q85,49 80,54 Q85,59 90,54" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.4"/%3E%3Ccircle cx="60" cy="90" r="7" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.3"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23garden)" /%3E%3C/svg%3E');"></div>
+        <div class="relative py-20 overflow-hidden bg-gray-200">
+            <!-- Subtle pattern overlay -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.1"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');">
+                </div>
             </div>
 
             <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -230,35 +214,41 @@
                 </div>
 
                 <div class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-8 lg:grid-cols-3">
-                    <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                        <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-outdoor-primary">
-                            <i class="fad fa-check-circle h-6 w-6 text-white"></i>
+                    <div class="perspective-card">
+                        <div class="perspective-card-inner bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-outdoor-primary">
+                                <i class="fa-solid fa-shield-check h-6 w-6 text-white"></i>
+                            </div>
+                            <h3 class="mt-4 text-lg font-semibold text-gray-900">Proven Experience</h3>
+                            <p class="mt-2 text-sm text-gray-600">Over 5 million linear feet manufactured since 1976. Family-owned and operated with fences still standing after 35+ years.</p>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Proven Experience</h3>
-                        <p class="mt-2 text-sm text-gray-600">Over 5 million linear feet manufactured since 1976. Family-owned and operated with fences still standing after 35+ years.</p>
                     </div>
 
-                    <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                        <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-outdoor-primary">
-                            <i class="fad fa-users h-6 w-6 text-white"></i>
+                    <div class="perspective-card">
+                        <div class="perspective-card-inner bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-outdoor-primary">
+                                <i class="fa-solid fa-users h-6 w-6 text-white"></i>
+                            </div>
+                            <h3 class="mt-4 text-lg font-semibold text-gray-900">Dedicated Team</h3>
+                            <p class="mt-2 text-sm text-gray-600">60+ full-time professionals with 300+ years of collective experience. No subcontractors - only our trained experts.</p>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Dedicated Team</h3>
-                        <p class="mt-2 text-sm text-gray-600">60+ full-time professionals with 300+ years of collective experience. No subcontractors - only our trained experts.</p>
                     </div>
 
-                    <div class="bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
-                        <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-outdoor-primary">
-                            <i class="fad fa-star h-6 w-6 text-white"></i>
+                    <div class="perspective-card">
+                        <div class="perspective-card-inner bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100">
+                            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-outdoor-primary">
+                                <i class="fa-solid fa-award h-6 w-6 text-white"></i>
+                            </div>
+                            <h3 class="mt-4 text-lg font-semibold text-gray-900">American Quality</h3>
+                            <p class="mt-2 text-sm text-gray-600">Made in USA materials that are lead-free, child/pet-friendly, and recyclable. Industry's best warranty with 97% customer satisfaction.</p>
                         </div>
-                        <h3 class="mt-4 text-lg font-semibold text-gray-900">American Quality</h3>
-                        <p class="mt-2 text-sm text-gray-600">Made in USA materials that are lead-free, child/pet-friendly, and recyclable. Industry's best warranty with 97% customer satisfaction.</p>
                     </div>
                 </div>
 
                 <div class="mt-10 text-center">
                     <a href="{{route('why-danielle-fence')}}" class="inline-flex items-center px-6 py-3 bg-outdoor-primary text-white font-medium rounded-lg hover:bg-outdoor-primary/90 transition-colors duration-200">
                         Learn More About Our Story
-                        <i class="fad fa-arrow-right ml-2 h-4 w-4"></i>
+                        <i class="fa-solid fa-arrow-right ml-2 h-4 w-4"></i>
                     </a>
                 </div>
             </div>
@@ -267,4 +257,26 @@
         <livewire:areas-we-serve lazy="on-load" wire:key="areas-we-serve{{rand(0,10000)}}"/>
         <livewire:reviews lazy="on-load" wire:key="reviews{{rand(0,10000)}}"/>
     </div>
+
+    <!-- Perspective Card CSS -->
+    <style>
+    .perspective-card {
+        perspective: 1000px;
+    }
+
+    .perspective-card-inner {
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+    }
+
+    .perspective-card:hover .perspective-card-inner {
+        transform: rotateY(10deg) rotateX(10deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .perspective-card:hover .perspective-card-inner {
+            transform: none;
+        }
+    }
+    </style>
 </x-app-layout>

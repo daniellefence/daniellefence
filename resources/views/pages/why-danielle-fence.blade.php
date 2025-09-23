@@ -4,7 +4,7 @@
         title="Why Choose Danielle Fence?"
         subtitle="The Difference is YOU • Since 1976"
         description="Discover what makes us Central Florida's most trusted fencing company. Nearly 50 years of proven excellence, family values, and unmatched quality."
-        :background-image="Vite::asset('resources/images/why-hero.webp')"
+        :background-image="asset('images/whychoose.webp')"
         cta="Get Your Free Quote"
         :cta-url="route('request-a-quote')"
         />

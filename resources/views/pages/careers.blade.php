@@ -1,73 +1,246 @@
 <x-app-layout>
+    <x-slot name="title">Careers - Join Our Team | Danielle Fence & Outdoor Living</x-slot>
+    <x-slot name="description">Join Central Florida's premier fencing company. Explore career opportunities with competitive benefits, growth potential, and a family-owned company with nearly 50 years of success.</x-slot>
+
     <!-- Hero Section -->
-    <x-modern-hero
-        title="Join Our Team"
-        subtitle="Grow Your Career • Build Something Great"
-        description="Join Central Florida's premier fencing company. We're looking for dedicated professionals who share our commitment to quality and customer service."
-        :background-image="Vite::asset('resources/images/careers-hero.webp')"
-        cta="View Open Positions"
-        :cta-url="'#open-positions'"
-        />
-
-    <!-- Careers Content -->
-    <x-modern-section spacing="py-20 md:py-28">
-        <livewire:careers/>
-    </x-modern-section>
-
-    <!-- Benefits Section -->
-    <x-modern-section background="bg-brand-light-100" spacing="py-20 md:py-28">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-brand-neutral-900 mb-6">
-                Why Work at Danielle Fence?
-            </h2>
-            <p class="text-xl text-brand-neutral-700 max-w-3xl mx-auto">
-                Join a family-owned company with nearly 50 years of success and growth opportunities.
-            </p>
+    <section class="relative bg-outdoor-primary pt-16 pb-20 sm:pt-24 sm:pb-28">
+        <!-- Decorative Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-32 w-80 h-80 bg-white/5 rounded-full"></div>
+            <div class="absolute top-1/2 -left-32 w-64 h-64 bg-outdoor-secondary/10 rounded-full"></div>
+            <div class="absolute -bottom-20 right-1/4 w-48 h-48 bg-white/3 rounded-full"></div>
         </div>
 
-        <x-modern-grid columns="3">
-            <x-modern-card
-                title="Competitive Benefits"
-                description="Health insurance, retirement plans, paid time off, and performance-based bonuses. We invest in our team members' success."
-                aos="fade-up" delay="100">
-                <div class="w-12 h-12 bg-brand-primary-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-brand-primary-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                    </svg>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-6">
+                    <span class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold rounded-full shadow-lg">
+                        <i class="fa-solid fa-users mr-2"></i>
+                        Career Opportunities
+                    </span>
                 </div>
-            </x-modern-card>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+                    Join Our Growing <span class="text-outdoor-secondary">Team</span>
+                </h1>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-8">
+                    Build your career with Central Florida's premier fencing company. We're looking for dedicated professionals who share our commitment to quality and exceptional service.
+                </p>
+                <div class="flex justify-center">
+                    <a href="{{ route('apply') }}" class="inline-flex items-center justify-center px-8 py-4 bg-white/15 backdrop-blur-md border border-white/30 text-white font-semibold text-lg rounded-xl hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <i class="fa-solid fa-file-user mr-2"></i>
+                        Apply Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <x-modern-card
-                title="Career Growth"
-                description="Professional development opportunities, skills training, and clear advancement paths within our growing organization."
-                aos="fade-up" delay="200">
-                <div class="w-12 h-12 bg-brand-secondary-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-brand-secondary-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                    </svg>
-                </div>
-            </x-modern-card>
+    <!-- Why Work Here Section -->
+    <section class="py-16 lg:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+                    Why Choose <span class="text-outdoor-primary">Danielle Fence?</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Join a family-owned company with nearly 50 years of success, growth opportunities, and a commitment to excellence.
+                </p>
+            </div>
 
-            <x-modern-card
-                title="Stable Employment"
-                description="Work for an established, family-owned company with consistent growth and job security in an essential industry."
-                aos="fade-up" delay="300">
-                <div class="w-12 h-12 bg-brand-accent-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-brand-accent-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                    </svg>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Competitive Benefits -->
+                <div class="perspective-card">
+                    <div class="perspective-card-inner bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="w-16 h-16 bg-outdoor-primary/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-hand-holding-dollar text-2xl text-outdoor-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Competitive Benefits</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Health insurance, retirement plans, paid time off, and performance-based bonuses. We invest in our team members' success.
+                        </p>
+                    </div>
                 </div>
-            </x-modern-card>
-        </x-modern-grid>
-    </x-modern-section>
+
+                <!-- Career Growth -->
+                <div class="perspective-card">
+                    <div class="perspective-card-inner bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="w-16 h-16 bg-outdoor-secondary/10 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-chart-line text-2xl text-outdoor-secondary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Career Growth</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Professional development opportunities, skills training, and clear advancement paths within our growing organization.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stable Employment -->
+                <div class="perspective-card">
+                    <div class="perspective-card-inner bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-shield-check text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Job Security</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Work for an established, family-owned company with consistent growth and job security in an essential industry.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Great Culture -->
+                <div class="perspective-card">
+                    <div class="perspective-card-inner bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-people-group text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Great Culture</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Join a family-oriented team that values collaboration, respect, and making a positive impact in our community.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Local Impact -->
+                <div class="perspective-card">
+                    <div class="perspective-card-inner bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-heart text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Local Impact</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Help Central Florida families create beautiful, secure outdoor spaces while building lasting relationships in your community.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Professional Tools -->
+                <div class="perspective-card">
+                    <div class="perspective-card-inner bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-tools text-2xl text-orange-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Professional Tools</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Work with quality materials, modern equipment, and the latest industry tools to deliver exceptional results.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Positions Section -->
+    <section id="open-positions" class="py-16 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <livewire:careers/>
+        </div>
+    </section>
+
+    <!-- Company Culture Section -->
+    <section class="py-16 lg:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
+                        Life at <span class="text-outdoor-primary">Danielle Fence</span>
+                    </h2>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        We're more than just a fencing company – we're a family. Our team members enjoy a supportive work environment where everyone's contributions are valued and recognized.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 bg-outdoor-primary/10 rounded-lg flex items-center justify-center">
+                                    <i class="fa-solid fa-clock text-outdoor-primary"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-slate-900">Work-Life Balance</h3>
+                                <p class="text-slate-600">Competitive schedules that respect your personal time and family commitments.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 bg-outdoor-secondary/10 rounded-lg flex items-center justify-center">
+                                    <i class="fa-solid fa-graduation-cap text-outdoor-secondary"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-slate-900">Continuous Learning</h3>
+                                <p class="text-slate-600">Ongoing training and development to help you grow your skills and advance your career.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <i class="fa-solid fa-handshake text-green-600"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-slate-900">Team Support</h3>
+                                <p class="text-slate-600">Collaborative environment where team members support each other's success.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 lg:mt-0">
+                    <img src="{{ Vite::asset('resources/images/careers.jpg') }}" alt="Danielle Fence team at work" class="w-full h-auto rounded-2xl shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Application CTA -->
-    <x-modern-cta
-        title="Ready to Start Your Career?"
-        description="Take the first step toward joining Central Florida's premier fencing company. We're always looking for talented individuals to join our growing team."
-        button-text="Apply Now"
-        :button-url="route('apply')"
-        secondary-text="Call (863) 425-3182"
-        secondary-url="tel:863-425-3182"
-        :pattern="true" />
+    <section class="py-16 lg:py-24 bg-outdoor-primary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+                Ready to Join Our Team?
+            </h2>
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Take the first step toward building your career with Central Florida's premier fencing company. We're always looking for talented individuals to join our growing family.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{{ route('apply') }}" class="inline-flex items-center justify-center px-8 py-4 bg-outdoor-secondary text-white font-semibold text-lg rounded-xl hover:bg-outdoor-secondary/90 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <i class="fa-solid fa-file-user mr-2"></i>
+                    Apply Now
+                </a>
+                <a href="tel:863-425-3182" class="inline-flex items-center justify-center px-8 py-4 bg-white text-outdoor-primary font-semibold text-lg rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <i class="fa-solid fa-phone mr-2"></i>
+                    Call (863) 425-3182
+                </a>
+            </div>
+
+            <p class="text-white/70 text-sm mt-6">
+                Questions? Contact our HR Department at ext. 1215 or HR@daniellefence.net
+            </p>
+        </div>
+    </section>
+
+    <!-- Perspective Card CSS -->
+    <style>
+    .perspective-card {
+        perspective: 1000px;
+    }
+
+    .perspective-card-inner {
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+    }
+
+    .perspective-card:hover .perspective-card-inner {
+        transform: rotateY(10deg) rotateX(10deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .perspective-card:hover .perspective-card-inner {
+            transform: none;
+        }
+    }
+    </style>
+
 </x-app-layout>

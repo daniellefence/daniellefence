@@ -16,11 +16,18 @@
         <!-- Background Image -->
         <div class="absolute inset-0">
             <img src="{{ $backgroundImage }}" alt="{{ $title }}" class="w-full h-full object-cover">
-            <div class="absolute inset-0 {{ $overlay }}"></div>
+            <div class="absolute inset-0 bg-black/20"></div>
         </div>
     @else
-        <!-- Gradient Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-brand-primary-900 via-brand-primary-800 to-brand-secondary-900"></div>
+        <!-- Solid Background with Orbs -->
+        <div class="absolute inset-0 bg-outdoor-primary">
+            <!-- Decorative Background Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute -top-40 -right-32 w-80 h-80 bg-white/5 rounded-full"></div>
+                <div class="absolute top-1/2 -left-32 w-64 h-64 bg-outdoor-secondary/10 rounded-full"></div>
+                <div class="absolute -bottom-20 right-1/4 w-48 h-48 bg-white/3 rounded-full"></div>
+            </div>
+        </div>
     @endif
 
     <!-- Content -->
@@ -40,14 +47,14 @@
             <div class="{{ $centered ? 'text-center' : '' }}">
                 @if($subtitle)
                     <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <span class="inline-block px-4 py-2 bg-brand-accent-900/90 text-brand-light-100 text-sm font-semibold rounded-full backdrop-blur-sm">
+                        <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold rounded-full shadow-lg">
                             {{ $subtitle }}
                         </span>
                     </div>
                 @endif
 
-                <h1 class="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight {{ $textColor }} mb-6"
-                    style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8)" data-aos="fade-up" data-aos-delay="400">
+                <h1 class="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight {{ $textColor }} mb-6 hero-text-shadow"
+                    data-aos="fade-up" data-aos-delay="400">
                     {{ $title }}
                 </h1>
 
@@ -61,7 +68,7 @@
                 @if($cta && $ctaUrl)
                     <div data-aos="fade-up" data-aos-delay="800">
                         <a href="{{ $ctaUrl }}"
-                           class="inline-flex items-center px-8 py-4 bg-brand-accent-900 text-brand-light-100 font-semibold text-lg rounded-xl hover:bg-brand-accent-800 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105 backdrop-blur-sm">
+                           class="inline-flex items-center px-8 py-4 bg-white/15 backdrop-blur-md border border-white/30 text-white font-semibold text-lg rounded-xl hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                             </svg>

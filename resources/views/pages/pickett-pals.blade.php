@@ -5,23 +5,9 @@
 
     <div class="bg-slate-100/50">
 
-        <!-- Hero Section -->
-        <div class="relative overflow-hidden bg-brand-primary">
-            <div class="absolute inset-0 bg-black/10"></div>
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-                <div class="text-center">
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-                        Meet The
-                        <span class="text-yellow-200">
-                            Pickett Pals!
-                        </span>
-                    </h1>
-                    <p class="mt-6 max-w-3xl mx-auto text-xl lg:text-2xl text-white/90 font-medium">
-                        The beloved mascot family of Danielle Fence & Outdoor Living
-                    </p>
-                </div>
-            </div>
-        </div>
+        <x-page-heading subheading="The beloved mascot family of Danielle Fence & Outdoor Living">
+            Meet The Pickett Pals!
+        </x-page-heading>
 
         <!-- All Characters Section -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
@@ -43,7 +29,7 @@
                     <div class="bg-white h-64 flex items-center justify-center pt-4">
                         <img src="{{Vite::asset('resources/images/profile-photos/grillbertwebp.webp')}}"
                              alt="Grillbert"
-                             class="h-48 w-auto object-contain drop-shadow-2xl">
+                             class="h-48 w-auto object-contain">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Grillbert</h3>
@@ -57,7 +43,7 @@
                     <div class="bg-white h-64 flex items-center justify-center pt-4">
                         <img src="{{Vite::asset('resources/images/profile-photos/flip.webp')}}"
                              alt="Flip Grillson"
-                             class="h-48 w-auto object-contain drop-shadow-2xl">
+                             class="h-48 w-auto object-contain">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Flip Grillson</h3>
@@ -71,7 +57,7 @@
                     <div class="bg-white h-64 flex items-center justify-center pt-4">
                         <img src="{{Vite::asset('resources/images/profile-photos/jimmy.webp')}}"
                              alt="Jimmy"
-                             class="h-48 w-auto object-contain drop-shadow-2xl">
+                             class="h-48 w-auto object-contain">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Jimmy D. Pickett</h3>
@@ -88,7 +74,7 @@
                     <div class="bg-white h-64 flex items-center justify-center pt-4">
                         <img src="{{Vite::asset('resources/images/profile-photos/fencestopher.webp')}}"
                              alt="Dr. Fencestopher"
-                             class="h-48 w-auto object-contain drop-shadow-2xl">
+                             class="h-48 w-auto object-contain">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Dr. Fencestopher</h3>
@@ -102,7 +88,7 @@
                     <div class="bg-white h-64 flex items-center justify-center pt-4">
                         <img src="{{Vite::asset('resources/images/profile-photos/noah.webp')}}"
                              alt="Noah Fence"
-                             class="h-48 w-auto object-contain drop-shadow-2xl">
+                             class="h-48 w-auto object-contain">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Noah Fence</h3>
