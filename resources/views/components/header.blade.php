@@ -39,6 +39,7 @@
             </div>
         </div>
     </div>
+
     <header class="relative z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
         <nav class="mx-auto max-w-7xl px-6 lg:px-8 py-6 flex items-center justify-between">
             <!-- Logo on Left -->
@@ -423,6 +424,6 @@
             </div>
         </nav>
     </header>
-
-    <x-reviews-marquee />
 </div>
+
+<x-reviews-marquee />

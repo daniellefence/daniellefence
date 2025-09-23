@@ -126,7 +126,7 @@ class Seeds
         return [
             [
                 'title' => 'Fence & Gates',
-                'description' => '<h3>SELECTING YOUR FENCE STYLE</h3><p>At Danielle Fence &  Outdoor Living, we offer a variety of vinyl (PVC) fence styles. Depending on the amount of privacy you need or the type of look you would like to achieve, we know you will find the perfect solution for your outdoor space with us. </p>',
+                'description' => '<p>SELECTING YOUR FENCE STYLE</p><p>At Danielle Fence &  Outdoor Living, we offer a variety of vinyl (PVC) fence styles. Depending on the amount of privacy you need or the type of look you would like to achieve, we know you will find the perfect solution for your outdoor space with us. </p>',
                 'subcategories' => [
                     [
                         'title' => 'Vinyl Fence',

@@ -27,7 +27,7 @@
                     {{ $heading ?? $slot }}
                 </h1>
                 @if(isset($subheading) && $subheading)
-                    <p class="mt-6 text-lg text-white/90 font-medium max-w-3xl mx-auto leading-relaxed">{{ $subheading }}</p>
+                    <div class="mt-6 text-lg text-white/90 font-medium max-w-3xl mx-auto leading-relaxed [&_p]:text-white/90 [&_p]:mb-4 [&_p]:leading-relaxed">{!! $subheading !!}</div>
                 @endif
             </div>
         </div>
