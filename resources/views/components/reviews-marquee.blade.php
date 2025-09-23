@@ -23,7 +23,7 @@
         width: 100% !important;
         overflow: hidden !important;
         position: relative !important;
-        z-index: 40 !important;
+        z-index: 10 !important;
     }
 
     div[style*="height: 48px"] > div {
