@@ -1,0 +1,78 @@
+/* Minimal AOS (Animate On Scroll) CSS - Only includes styles actually used in this app */
+
+/* Core AOS functionality */
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+/* Only the specific delays actually used: 100ms, 200ms, 300ms, 400ms, 600ms */
+[data-aos][data-aos-delay="100"] {
+  transition-delay: 0;
+}
+[data-aos][data-aos-delay="100"].aos-animate {
+  transition-delay: 100ms;
+}
+
+[data-aos][data-aos-delay="200"] {
+  transition-delay: 0;
+}
+[data-aos][data-aos-delay="200"].aos-animate {
+  transition-delay: 200ms;
+}
+
+[data-aos][data-aos-delay="300"] {
+  transition-delay: 0;
+}
+[data-aos][data-aos-delay="300"].aos-animate {
+  transition-delay: 300ms;
+}
+
+[data-aos][data-aos-delay="400"] {
+  transition-delay: 0;
+}
+[data-aos][data-aos-delay="400"].aos-animate {
+  transition-delay: 400ms;
+}
+
+[data-aos][data-aos-delay="600"] {
+  transition-delay: 0;
+}
+[data-aos][data-aos-delay="600"].aos-animate {
+  transition-delay: 600ms;
+}
+
+/* Only the specific animations actually used: fade-up, fade-right, fade-left */
+[data-aos="fade-up"] {
+  transform: translate3d(0, 100px, 0);
+}
+
+[data-aos="fade-up"].aos-animate {
+  transform: translateZ(0);
+}
+
+[data-aos="fade-right"] {
+  transform: translate3d(-100px, 0, 0);
+}
+
+[data-aos="fade-right"].aos-animate {
+  transform: translateZ(0);
+}
+
+[data-aos="fade-left"] {
+  transform: translate3d(100px, 0, 0);
+}
+
+[data-aos="fade-left"].aos-animate {
+  transform: translateZ(0);
+}
+
+/* Default transition timing - optimized for performance */
+[data-aos] {
+  transition-duration: 600ms;
+  transition-timing-function: ease-out;
+}

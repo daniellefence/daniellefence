@@ -5,23 +5,23 @@ import AOS from 'aos';
 
 import 'livewire-sortable'
 
-// Initialize AOS with enhanced settings
+// Initialize AOS with performance-optimized settings
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
-        duration: 1000,         // Slower, more dramatic animations
-        easing: 'ease-out-cubic', // Smoother easing
-        once: false,            // Allow re-animation on scroll up
-        offset: 100,            // Trigger earlier
-        delay: 50,              // Faster initial delay
+        duration: 600,          // Faster animations for better performance
+        easing: 'ease-out',     // Simpler easing
+        once: true,             // Animate only once for better performance
+        offset: 50,             // Smaller offset
+        delay: 0,               // No delay
         anchorPlacement: 'top-bottom',
-        disable: false,         // Never disable
+        disable: 'mobile',      // Disable on mobile for better performance
         startEvent: 'DOMContentLoaded',
         initClassName: 'aos-init',
         animatedClassName: 'aos-animate',
         useClassNames: false,
-        disableMutationObserver: false,
+        disableMutationObserver: true,  // Disable for better performance
         debounceDelay: 50,
-        throttleDelay: 99,
+        throttleDelay: 100,
     });
 
     // Add some custom CSS for extra cool effects

@@ -49,8 +49,14 @@
 
 
     <div class="relative">
-        <div class="hidden sm:block relative min-h-[600px] lg:min-h-[700px] bg-cover bg-center bg-no-repeat" style="background-image: url('{{ Vite::asset('resources/images/home_hero.webp') }}')">
-            <div class="relative z-0 min-h-[600px] lg:min-h-[700px]">
+        <div class="hidden sm:block relative min-h-[600px] lg:min-h-[700px] overflow-hidden">
+            <!-- Hero image as img element for faster LCP -->
+            <img src="{{ Vite::asset('resources/images/home_hero.webp') }}"
+                 alt="Danielle Fence & Outdoor Living - Central Florida's Premier Fence Company"
+                 class="absolute inset-0 w-full h-full object-cover"
+                 fetchpriority="high"
+                 decoding="async">
+            <div class="relative z-10 min-h-[600px] lg:min-h-[700px]">
                 <div class="max-w-[1920px] mx-auto flex">
                     <!-- Left column -->
                     <div class="w-1/2 flex items-center justify-center p-8 lg:p-12 2xl:p-16">

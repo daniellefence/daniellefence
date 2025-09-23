@@ -50,6 +50,7 @@
 
     <!-- Preload critical images -->
     <link rel="preload" href="{{Vite::asset('resources/images/logo.webp')}}" as="image" type="image/webp">
+    <link rel="preload" href="{{Vite::asset('resources/images/home_hero.webp')}}" as="image" type="image/webp">
     <link rel="apple-touch-icon" sizes="144x144" href="{{ url('apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{url('favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{url('favicon-16x16.png')}}">
@@ -68,10 +69,24 @@
     <!-- FontAwesome Kit - Defer loading -->
     <script src="https://kit.fontawesome.com/560f7d512e.js" crossorigin="anonymous" async></script>
 
+    <!-- Critical CSS inlined for performance -->
+    <style>
+        {!! file_get_contents(resource_path('css/critical.css')) !!}
+    </style>
+
     @livewireStyles
     @stack('head')
     @stack('styles')
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Defer non-critical CSS -->
+    @php
+        $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+        $cssFile = $manifest['resources/css/app.css']['file'] ?? 'css/app.css';
+    @endphp
+    <link rel="preload" href="{{ asset('build/' . $cssFile) }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('build/' . $cssFile) }}"></noscript>
+
+    @vite(['resources/js/app.js'])
 
     <!-- Removed critical CSS component that was overriding brand styles -->
 

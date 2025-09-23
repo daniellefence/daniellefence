@@ -1,0 +1,112 @@
+/* Critical CSS - Above the fold styles only */
+
+/* Essential base styles */
+html, body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    padding: 0;
+    color: #5a5a5a;
+    line-height: 1.5;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+
+/* Essential utility classes for above-the-fold content */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.text-center { text-align: center; }
+.text-white { color: #ffffff; }
+.bg-white { background-color: #ffffff; }
+.rounded-lg { border-radius: 0.5rem; }
+.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mt-8 { margin-top: 2rem; }
+
+/* Hero section specific styles */
+.hero-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+    /* Remove background-image from critical CSS to avoid loading */
+}
+
+.hero-overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+    position: absolute;
+    inset: 0;
+}
+
+/* Navigation styles */
+header {
+    position: relative;
+    z-index: 50;
+    background: #0ea5e9;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.nav-item {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #ffffff;
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    box-shadow: inset 1px 1px 2px #333333;
+    background-color: #16a34a;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-item:hover {
+    background-color: #595959;
+}
+
+/* Typography */
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 0.5rem 0;
+    color: #16a34a;
+}
+
+/* Brand colors - only essential ones */
+.text-brand-primary-900 { color: #8e2a2a; }
+.bg-brand-primary-900 { background-color: #8e2a2a; }
+.text-outdoor-primary { color: #16a34a; }
+.bg-outdoor-primary { background-color: #16a34a; }
+
+/* Animation optimization */
+.transition-all { transition: all 0.2s ease-in-out; }
+
+/* Hide until JS loads */
+[x-cloak] { display: none !important; }
+
+/* Essential responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    .container { padding: 0 0.5rem; }
+}

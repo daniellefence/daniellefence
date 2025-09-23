@@ -1,6 +1,6 @@
 @import 'typography.css';
 @import 'swipe.css';
-@import 'aos/dist/aos.css';
+@import 'aos-minimal.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

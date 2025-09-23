@@ -10,6 +10,19 @@ export default {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './resources/js/**/*.js',
+        './app/Livewire/**/*.php',
+    ],
+
+    // Aggressive CSS purging for production
+    safelist: [
+        // Keep essential utility classes that might be added dynamically
+        'text-red-500',
+        'text-green-500',
+        'bg-red-100',
+        'bg-green-100',
+        'border-red-400',
+        'border-green-400',
     ],
 
     theme: {
