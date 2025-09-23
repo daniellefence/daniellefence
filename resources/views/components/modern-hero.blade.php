@@ -16,7 +16,7 @@
         <!-- Background Image -->
         <div class="absolute inset-0">
             <img src="{{ $backgroundImage }}" alt="{{ $title }}" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/20"></div>
+            <!-- No overlay on image - let it show clearly -->
         </div>
     @else
         <!-- Solid Background with Orbs -->
@@ -45,37 +45,40 @@
             @endif
 
             <div class="{{ $centered ? 'text-center' : '' }}">
-                @if($subtitle)
-                    <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold rounded-full shadow-lg">
-                            {{ $subtitle }}
-                        </span>
-                    </div>
-                @endif
+                <!-- Glassmorphism container for hero content -->
+                <div class="bg-black/40 backdrop-blur-md border border-white/20 rounded-2xl p-8 lg:p-12 shadow-2xl max-w-4xl {{ $centered ? 'mx-auto' : '' }}" data-aos="fade-up" data-aos-delay="200">
+                    @if($subtitle)
+                        <div class="mb-6">
+                            <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold rounded-full shadow-lg">
+                                {{ $subtitle }}
+                            </span>
+                        </div>
+                    @endif
 
-                <h1 class="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight {{ $textColor }} mb-6 hero-text-shadow"
-                    data-aos="fade-up" data-aos-delay="400">
-                    {{ $title }}
-                </h1>
+                    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-6"
+                        data-aos="fade-up" data-aos-delay="400">
+                        {{ $title }}
+                    </h1>
 
-                @if($description)
-                    <p class="text-lg md:text-xl {{ $textColor }}/90 max-w-3xl {{ $centered ? 'mx-auto' : '' }} mb-8 leading-relaxed"
-                       data-aos="fade-up" data-aos-delay="600">
-                        {{ $description }}
-                    </p>
-                @endif
+                    @if($description)
+                        <p class="text-lg md:text-xl text-white/90 max-w-3xl {{ $centered ? 'mx-auto' : '' }} mb-8 leading-relaxed"
+                           data-aos="fade-up" data-aos-delay="600">
+                            {{ $description }}
+                        </p>
+                    @endif
 
-                @if($cta && $ctaUrl)
-                    <div data-aos="fade-up" data-aos-delay="800">
-                        <a href="{{ $ctaUrl }}"
-                           class="inline-flex items-center px-8 py-4 bg-white/15 backdrop-blur-md border border-white/30 text-white font-semibold text-lg rounded-xl hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                            </svg>
-                            {{ $cta }}
-                        </a>
-                    </div>
-                @endif
+                    @if($cta && $ctaUrl)
+                        <div data-aos="fade-up" data-aos-delay="800">
+                            <a href="{{ $ctaUrl }}"
+                               class="inline-flex items-center px-8 py-4 bg-white/15 backdrop-blur-md border border-white/30 text-white font-semibold text-lg rounded-xl hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                                {{ $cta }}
+                            </a>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

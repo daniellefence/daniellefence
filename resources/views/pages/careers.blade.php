@@ -2,38 +2,9 @@
     <x-slot name="title">Careers - Join Our Team | Danielle Fence & Outdoor Living</x-slot>
     <x-slot name="description">Join Central Florida's premier fencing company. Explore career opportunities with competitive benefits, growth potential, and a family-owned company with nearly 50 years of success.</x-slot>
 
-    <!-- Hero Section -->
-    <section class="relative bg-outdoor-primary pt-16 pb-20 sm:pt-24 sm:pb-28">
-        <!-- Decorative Background Elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute -top-40 -right-32 w-80 h-80 bg-white/5 rounded-full"></div>
-            <div class="absolute top-1/2 -left-32 w-64 h-64 bg-outdoor-secondary/10 rounded-full"></div>
-            <div class="absolute -bottom-20 right-1/4 w-48 h-48 bg-white/3 rounded-full"></div>
-        </div>
-
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="mb-6">
-                    <span class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold rounded-full shadow-lg">
-                        <i class="fa-solid fa-users mr-2"></i>
-                        Career Opportunities
-                    </span>
-                </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-                    Join Our Growing <span class="text-outdoor-secondary">Team</span>
-                </h1>
-                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-8">
-                    Build your career with Central Florida's premier fencing company. We're looking for dedicated professionals who share our commitment to quality and exceptional service.
-                </p>
-                <div class="flex justify-center">
-                    <a href="{{ route('apply') }}" class="inline-flex items-center justify-center px-8 py-4 bg-white/15 backdrop-blur-md border border-white/30 text-white font-semibold text-lg rounded-xl hover:bg-white/20 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl">
-                        <i class="fa-solid fa-file-user mr-2"></i>
-                        Apply Now
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <x-page-heading subheading="Build your career with Central Florida's premier fencing company. We're looking for dedicated professionals who share our commitment to quality and exceptional service.">
+        Join Our Growing Team
+    </x-page-heading>
 
     <!-- Why Work Here Section -->
     <section class="py-16 lg:py-24 bg-gray-50">

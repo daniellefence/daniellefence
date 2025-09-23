@@ -9,10 +9,7 @@
      @if($hasHeroImage) style="background-image: url('{{ $heroImageUrl }}')" @endif>
 
     @if($hasHeroImage)
-        <!-- Lighter overlay with gradient for good text readability -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/30"></div>
-        <!-- Subtle center overlay for text area -->
-        <div class="absolute inset-0 bg-black/5"></div>
+        <!-- No overlay on image - let it show clearly -->
     @else
         <!-- Decorative Background Elements for non-image heroes -->
         <div class="absolute inset-0 overflow-hidden">
@@ -24,12 +21,15 @@
 
     <div class="relative mx-auto max-w-7xl px-6 lg:px-8 py-16 {{ $hasHeroImage ? 'lg:py-24' : '' }}">
         <div class="mx-auto text-center">
-            <h1 class="text-4xl font-bold tracking-tight {{ $hasHeroImage ? 'text-white drop-shadow-2xl' : 'text-white' }} sm:text-6xl font-display">
-                {{ $heading ?? $slot }}
-            </h1>
-            @if(isset($subheading) && $subheading)
-                <p class="mt-6 text-lg {{ $hasHeroImage ? 'text-white drop-shadow-xl font-medium' : 'text-white/90 font-medium' }} max-w-3xl mx-auto">{{ $subheading }}</p>
-            @endif
+            <!-- Glassmorphism container for hero content -->
+            <div class="bg-black/40 backdrop-blur-md border border-white/20 rounded-2xl p-8 lg:p-12 shadow-2xl max-w-4xl mx-auto">
+                <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
+                    {{ $heading ?? $slot }}
+                </h1>
+                @if(isset($subheading) && $subheading)
+                    <p class="mt-6 text-lg text-white/90 font-medium max-w-3xl mx-auto leading-relaxed">{{ $subheading }}</p>
+                @endif
+            </div>
         </div>
     </div>
 </div>
