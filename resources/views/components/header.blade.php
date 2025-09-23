@@ -54,7 +54,11 @@
                     <img
                         class="h-16 sm:h-20 lg:h-24 xl:h-28 w-auto relative z-10"
                         src="{{Vite::asset('resources/images/logo.webp')}}"
-                        alt="Danielle Fence Logo">
+                        alt="Danielle Fence & Outdoor Living Logo"
+                        width="112"
+                        height="112"
+                        decoding="sync"
+                        fetchpriority="high">
                 </a>
             </div>
 

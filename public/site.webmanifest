@@ -1,14 +1,21 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Danielle Fence & Outdoor Living",
+    "short_name": "Danielle Fence",
+    "description": "Professional fencing, outdoor kitchens, and outdoor living solutions in Florida",
     "icons": [
         {
             "src": "/android-chrome-144x144.png",
             "sizes": "144x144",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ],
-    "theme_color": "#ffffff",
+    "theme_color": "#8e2a2a",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/",
+    "orientation": "portrait-primary",
+    "categories": ["business", "lifestyle"],
+    "lang": "en-US"
 }

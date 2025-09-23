@@ -9,27 +9,45 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: (id) => {
+                    // More aggressive chunking for better caching
                     if (id.includes('node_modules')) {
+                        if (id.includes('alpine')) return 'alpine';
+                        if (id.includes('aos')) return 'animations';
                         return 'vendor';
                     }
+                },
+                // Optimize chunk names for better caching
+                chunkFileNames: 'js/[name]-[hash].js',
+                entryFileNames: 'js/[name]-[hash].js',
+                assetFileNames: (assetInfo) => {
+                    const ext = assetInfo.name.split('.').pop();
+                    if (['css'].includes(ext)) {
+                        return 'css/[name]-[hash].[ext]';
+                    }
+                    if (['png', 'jpg', 'jpeg', 'webp', 'svg'].includes(ext)) {
+                        return 'images/[name]-[hash].[ext]';
+                    }
+                    return 'assets/[name]-[hash].[ext]';
                 }
             }
         },
-        target: 'es2015',
+        target: 'es2020',
         sourcemap: false,
         cssCodeSplit: true,
         reportCompressedSize: false,
-        chunkSizeWarningLimit: 1000,
-        // Optimize for production builds
-        terserOptions: {
-            compress: {
-                drop_console: true,
-                drop_debugger: true
-            }
+        chunkSizeWarningLimit: 500,
+        // Remove terser options for esbuild
+        esbuildOptions: {
+            drop: ['console', 'debugger'],
+            legalComments: 'none'
         },
-        // Increase build timeout
-        assetsInlineLimit: 4096,
-        emptyOutDir: true
+        assetsInlineLimit: 2048, // Inline smaller assets
+        emptyOutDir: true,
+        // Enable compression
+        cssTarget: 'chrome90',
+        modulePreload: {
+            polyfill: false
+        }
     },
     plugins: [
         // Only optimize images in development, not production

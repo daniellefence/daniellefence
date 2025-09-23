@@ -35,8 +35,16 @@
     <link rel="dns-prefetch" href="https://fonts.bunny.net">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://script.advertiserreports.com">
+    <link rel="dns-prefetch" href="https://kit.fontawesome.com">
+
+    <!-- Core Web Vitals Optimization -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="color-scheme" content="light">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <!-- Critical Resource Hints -->
+    <link rel="preload" href="https://fonts.bunny.net/inter/files/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.bunny.net/inter/files/inter-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800&family=playfair-display:400,500,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800&family=playfair-display:400,500,600,700&display=swap" rel="stylesheet"></noscript>
 
@@ -57,42 +65,45 @@
     <x-open-graph/>
     <x-schema-markup/>
 
-    <!-- FontAwesome Kit -->
-    <script src="https://kit.fontawesome.com/560f7d512e.js" crossorigin="anonymous"></script>
+    <!-- FontAwesome Kit - Defer loading -->
+    <script src="https://kit.fontawesome.com/560f7d512e.js" crossorigin="anonymous" async></script>
 
     @livewireStyles
     @stack('head')
     @stack('styles')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Suppress browser extension errors -->
+    <!-- Critical CSS for above-the-fold rendering -->
+    <x-critical-css />
+
+    <!-- Defer non-critical scripts -->
     <script>
-        // Suppress console errors from browser extensions
-        window.addEventListener('error', function(e) {
-            if (e.filename && e.filename.includes('chrome-extension://')) {
-                e.preventDefault();
-                return false;
-            }
-        });
+        // Suppress browser extension errors - deferred
+        window.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('error', function(e) {
+                if (e.filename && e.filename.includes('chrome-extension://')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
 
-        // Suppress unhandled promise rejections from extensions
-        window.addEventListener('unhandledrejection', function(e) {
-            if (e.reason && e.reason.message && e.reason.message.includes('chrome-extension://')) {
-                e.preventDefault();
-                return false;
-            }
-        });
+            window.addEventListener('unhandledrejection', function(e) {
+                if (e.reason && e.reason.message && e.reason.message.includes('chrome-extension://')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
 
-        // Override console.error to filter extension errors
-        const originalConsoleError = console.error;
-        console.error = function(...args) {
-            const message = args.join(' ');
-            if (!message.includes('chrome-extension://') &&
-                !message.includes('ERR_FILE_NOT_FOUND') &&
-                !message.includes('completion_list.html')) {
-                originalConsoleError.apply(console, args);
-            }
-        };
+            const originalConsoleError = console.error;
+            console.error = function(...args) {
+                const message = args.join(' ');
+                if (!message.includes('chrome-extension://') &&
+                    !message.includes('ERR_FILE_NOT_FOUND') &&
+                    !message.includes('completion_list.html')) {
+                    originalConsoleError.apply(console, args);
+                }
+            };
+        });
     </script>
 </head>
 <body class="font-sans relative antialiased ">
@@ -111,42 +122,95 @@
 <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider-extensions.min.js" crossorigin="anonymous" defer></script>
 
-<!-- Performance monitoring -->
+<!-- Optimized Performance Monitoring -->
 <script>
-    // Lazy load non-critical resources
-    document.addEventListener('DOMContentLoaded', function() {
-        // Intersection Observer for lazy loading images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
-        }
-    });
-
-    // Preload next page on hover
-    document.addEventListener('DOMContentLoaded', function() {
-        const links = document.querySelectorAll('a[href^="/"], a[href^="' + window.location.origin + '"]');
-        links.forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                if (!this.dataset.preloaded) {
-                    const linkTag = document.createElement('link');
-                    linkTag.rel = 'prefetch';
-                    linkTag.href = this.href;
-                    document.head.appendChild(linkTag);
-                    this.dataset.preloaded = 'true';
+    // Critical performance optimizations
+    (function() {
+        // Preload critical resources immediately
+        const preloadImportantAssets = () => {
+            // Preload hero images if they exist
+            const heroImages = document.querySelectorAll('.hero img, [data-hero] img');
+            heroImages.forEach(img => {
+                if (img.src && !img.src.includes('data:')) {
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.as = 'image';
+                    link.href = img.src;
+                    document.head.appendChild(link);
                 }
-            }, { once: true });
+            });
+        };
+
+        // Optimized lazy loading with reduced threshold
+        const initLazyLoading = () => {
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.classList.remove('lazy');
+                                imageObserver.unobserve(img);
+                            }
+                        }
+                    });
+                }, {
+                    rootMargin: '50px',
+                    threshold: 0.1
+                });
+
+                document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+            }
+        };
+
+        // Enhanced prefetching with priority
+        const initSmartPrefetch = () => {
+            const links = document.querySelectorAll('a[href^="/"], a[href^="' + window.location.origin + '"]');
+            links.forEach(link => {
+                const prefetchLink = () => {
+                    if (!link.dataset.preloaded) {
+                        const linkTag = document.createElement('link');
+                        linkTag.rel = 'prefetch';
+                        linkTag.href = link.href;
+                        document.head.appendChild(linkTag);
+                        link.dataset.preloaded = 'true';
+                    }
+                };
+
+                // Prefetch on hover with immediate execution
+                link.addEventListener('mouseenter', prefetchLink, { once: true });
+                // Also prefetch on touch for mobile
+                link.addEventListener('touchstart', prefetchLink, { once: true });
+            });
+        };
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                preloadImportantAssets();
+                initLazyLoading();
+                initSmartPrefetch();
+            });
+        } else {
+            preloadImportantAssets();
+            initLazyLoading();
+            initSmartPrefetch();
+        }
+    })();
+
+    // Service Worker Registration for Performance
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
         });
-    });
+    }
 </script>
 
 @stack('scripts')
