@@ -117,7 +117,7 @@ export default {
                 // Outdoor Color Scheme (Nature-Inspired Palette)
                 'outdoor': {
                     'primary': '#16a34a',      // Green-600
-                    'light': '#dcfce7',        // Green-100
+                    'light': '#bbf7d0',        // Green-200 (darker than previous dcfce7)
                     'sky': '#0ea5e9',          // Sky-500
                     'gold': '#eab308',         // Yellow-500
                     'cedar': '#8b5a3c',        // Custom cedar brown

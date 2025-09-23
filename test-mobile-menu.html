@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100vh;
+            background: white;
+            z-index: 9999;
+            border-left: 1px solid #ccc;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.show {
+            transform: translateX(0);
+        }
+        .backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.5);
+            z-index: 9998;
+        }
+        .btn {
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div x-data="{ showMobile: false }" x-init="console.log('Alpine loaded')">
+        <button
+            class="btn"
+            @click="console.log('Button clicked!'); showMobile = true; console.log('showMobile is now:', showMobile)">
+            Open Mobile Menu
+        </button>
+
+        <!-- Backdrop -->
+        <div x-show="showMobile"
+             @click="showMobile = false"
+             class="backdrop"></div>
+
+        <!-- Mobile Menu -->
+        <div x-show="showMobile"
+             @click.outside="showMobile = false"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="transform translate-x-full"
+             x-transition:enter-end="transform translate-x-0"
+             x-transition:leave="transition ease-in duration-300"
+             x-transition:leave-start="transform translate-x-0"
+             x-transition:leave-end="transform translate-x-full"
+             class="mobile-menu">
+            <div style="padding: 20px;">
+                <button @click="showMobile = false" style="float: right;">✕</button>
+                <h3>Mobile Menu</h3>
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

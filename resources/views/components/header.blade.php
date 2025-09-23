@@ -1,12 +1,10 @@
-<div x-data="{
-        showMobile:false
-    }">
+<div x-data="{ showMobile: false, showProducts: false, showServices: false, showCompany: false }">
     <div class="upper-header hidden lg:block sticky py-2 text-white top-0 z-30 bg-outdoor-mint backdrop-blur-md">
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                     <div class="flex items-center space-x-2 text-sm font-bold text-white">
-                        <i class="fad fa-phone w-4 h-4"></i>
+                        <i class="fa-solid fa-phone-volume w-4 h-4"></i>
                         <span>Call:</span>
                     </div>
                     <a href="tel:8634253182" class="text-sm font-bold text-white hover:text-outdoor-gold transition-all duration-200">(863) 425-3182</a>
@@ -26,7 +24,7 @@
                             </div>
                             <button type="submit"
                                     class="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-lg px-4 py-2 text-sm font-medium text-slate-700 bg-white hover:bg-gray-50 transition-all duration-200 border border-l-0 border-white/30 ring-0 shadow-sm hover:shadow-md">
-                                <i class="fad fa-search -ml-0.5 h-4 w-4 text-slate-700"></i>
+                                <i class="fa-solid fa-magnifying-glass -ml-0.5 h-4 w-4 text-slate-700"></i>
                                 Search
                             </button>
                         </div>
@@ -34,7 +32,7 @@
                 @endif
                 <div class="flex items-center gap-3">
                     <a href="{{route('request-a-quote')}}" class="inline-flex items-center px-5 py-2 bg-white text-black font-semibold rounded-full hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-2xl transform hover:-translate-y-0.5 text-sm">
-                        <i class="fad fa-clipboard w-4 h-4 mr-2"></i>
+                        <i class="fa-solid fa-file-invoice w-4 h-4 mr-2"></i>
                         Free Estimate
                     </a>
                 </div>
@@ -63,29 +61,25 @@
             <div class="flex gap-3 lg:hidden">
                 <a class="inline-flex items-center justify-center rounded-lg p-2.5 text-white bg-gradient-to-r from-outdoor-primary to-outdoor-primary/90 shadow-md hover:shadow-lg transition-all duration-200"
                    href="{{route('search')}}" aria-label="Search Danielle Fence & Outdoor Living">
-                    <i class="fad fa-search h-5 w-5 text-white"></i>
+                    <i class="fa-solid fa-magnifying-glass h-5 w-5 text-white"></i>
                 </a>
                 <button
-                    @click="showMobile = true"
-                    @keyup.escape.window="showMobile = true"
+                    @click="showMobile = !showMobile"
+                    @keyup.escape.window="showMobile = false"
                     type="button"
                     class="inline-flex items-center justify-center rounded-lg p-2.5 text-white bg-gradient-to-r from-outdoor-secondary to-outdoor-secondary/90 shadow-md hover:shadow-lg transition-all duration-200">
                     <span class="sr-only">Open main menu</span>
-                    <i class="fad fa-bars h-5 w-5"></i>
+                    <i class="fa-solid fa-bars h-5 w-5"></i>
                 </button>
             </div>
-            <div class="hidden lg:flex lg:items-center lg:gap-x-4" x-data="{
-                showProducts: false,
-                showServices: false,
-                showCompany: false
-            }">
+            <div class="hidden lg:flex lg:items-center lg:gap-x-4">
                 <!-- Products Dropdown -->
                 <div @click.away="showProducts=false" @keyup.window.escape="showProducts=false" class="relative">
                     <button @click="showProducts=!showProducts" type="button"
                             class="relative inline-flex items-center gap-x-1 px-4 py-2 text-sm font-semibold text-slate-800 hover:text-outdoor-primary transition-all duration-200 group rounded-lg bg-slate-50/70 hover:bg-outdoor-light/60 shadow-sm hover:shadow-md border border-slate-200/50 hover:border-outdoor-primary/30"
                             aria-expanded="false">
                         <span>Products</span>
-                        <i class="fad fa-chevron-down h-4 w-4 transition-transform duration-300" :class="showProducts ? 'rotate-180' : ''"></i>
+                        <i class="fa-solid fa-chevron-down h-4 w-4 transition-transform duration-300" :class="showProducts ? 'rotate-180' : ''"></i>
                         <span class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-outdoor-primary to-outdoor-primary/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full"></span>
                     </button>
                     <div x-show="showProducts" x-cloak
@@ -115,7 +109,7 @@
                             class="relative inline-flex items-center gap-x-1 px-4 py-2 text-sm font-semibold text-slate-800 hover:text-outdoor-primary transition-all duration-200 group rounded-lg bg-slate-50/70 hover:bg-outdoor-light/60 shadow-sm hover:shadow-md border border-slate-200/50 hover:border-outdoor-primary/30"
                             aria-expanded="false">
                         <span>Services</span>
-                        <i class="fad fa-chevron-down h-4 w-4 transition-transform duration-300" :class="showServices ? 'rotate-180' : ''"></i>
+                        <i class="fa-solid fa-chevron-down h-4 w-4 transition-transform duration-300" :class="showServices ? 'rotate-180' : ''"></i>
                         <span class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-outdoor-primary to-outdoor-primary/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full"></span>
                     </button>
                     <div x-show="showServices" x-cloak
@@ -137,14 +131,14 @@
                             <a aria-label="Specials" href="{{route('specials')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-dollar-sign w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-tags w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     Specials
                                 </div>
                             </a>
                             <a aria-label="Careers" href="{{route('careers')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-briefcase w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-user-tie w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     Careers
                                 </div>
                             </a>
@@ -158,7 +152,7 @@
                             class="relative inline-flex items-center gap-x-1 px-4 py-2 text-sm font-semibold text-slate-800 hover:text-outdoor-primary transition-all duration-200 group rounded-lg bg-slate-50/70 hover:bg-outdoor-light/60 shadow-sm hover:shadow-md border border-slate-200/50 hover:border-outdoor-primary/30"
                             aria-expanded="false">
                         <span>Company</span>
-                        <i class="fad fa-chevron-down h-4 w-4 transition-transform duration-300" :class="showCompany ? 'rotate-180' : ''"></i>
+                        <i class="fa-solid fa-chevron-down h-4 w-4 transition-transform duration-300" :class="showCompany ? 'rotate-180' : ''"></i>
                         <span class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-outdoor-primary to-outdoor-primary/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full"></span>
                     </button>
                     <div x-show="showCompany" x-cloak
@@ -173,63 +167,63 @@
                             <a aria-label="About Us" href="{{route('about-us')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-info-circle w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-circle-info w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     About Us
                                 </div>
                             </a>
                             <a aria-label="Why Danielle Fence" href="{{route('why-danielle-fence')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-check-circle w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-shield-check w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     Why Danielle Fence
                                 </div>
                             </a>
                             <a aria-label="Blog" href="{{route('blog')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-blog w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-newspaper w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     Blog
                                 </div>
                             </a>
                             <a aria-label="FAQ" href="{{route('faq')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-question-circle w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-circle-question w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     FAQ
                                 </div>
                             </a>
                             <a aria-label="Reviews" href="{{route('reviews')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-star w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-star w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     Reviews
                                 </div>
                             </a>
                             <a aria-label="Hardware Catalog" href="/hardware-catalog.pdf" target="_blank"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-file w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-shield-halved w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     Hardware Catalog
                                 </div>
                             </a>
                             <a aria-label="Showcase" href="/showcase.pdf" target="_blank"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-images w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-images w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     Showcase
                                 </div>
                             </a>
                             <a aria-label="Fire Features Catalogs" href="{{route('fire-feature-catalogs')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-fire w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-fire-flame-curved w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     Fire Feature Catalogs
                                 </div>
                             </a>
                             <a aria-label="The Pickett Pals!" href="{{route('pickett-pals')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
                                 <div class="font-medium text-slate-700 group-hover:text-outdoor-primary transition-colors duration-200 flex items-center">
-                                    <i class="fad fa-users w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
+                                    <i class="fa-solid fa-users w-4 h-4 mr-2 text-slate-400 group-hover:text-outdoor-primary"></i>
                                     The Pickett Pals!
                                 </div>
                             </a>
@@ -244,101 +238,191 @@
                 </a>
             </div>
             </div>
-        </nav>
-	 
-        <div x-data="{
-            showProducts: false,
-            showServices: false,
-            showCompany: false,
-        }"
-             class="lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
-            <!-- Background backdrop, show/hide based on slide-over state. -->
-            <div x-show="showMobile" x-cloak class="fixed inset-0 z-10"></div>
-            <div x-show="showMobile" x-cloak @click.outside="showMobile=false"
-                 class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gradient-to-br from-outdoor-primary to-outdoor-primary/95 backdrop-blur-sm px-6 py-6 sm:max-w-sm shadow-2xl">
-                <div class="flex items-center justify-between">
-                    <div class="text-white/90 text-sm">
-                        Call <a aria-label="Phone Number" href="tel:863-425-3182" class="font-semibold text-white hover:text-brand-accent transition-colors">(863) 425-3182</a>
+
+            <!-- Mobile menu, show/hide based on menu state. -->
+            <div class="lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+                <!-- Background backdrop -->
+                <div x-show="showMobile" x-cloak
+                     x-transition:enter="ease-out duration-300"
+                     x-transition:enter-start="opacity-0"
+                     x-transition:enter-end="opacity-100"
+                     x-transition:leave="ease-in duration-200"
+                     x-transition:leave-start="opacity-100"
+                     x-transition:leave-end="opacity-0"
+                     class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999]"></div>
+
+                <!-- Mobile menu panel -->
+                <div x-show="showMobile" @click.outside="showMobile=false" x-cloak
+                 x-transition:enter="transform transition ease-in-out duration-300"
+                 x-transition:enter-start="translate-x-full"
+                 x-transition:enter-end="translate-x-0"
+                 x-transition:leave="transform transition ease-in-out duration-300"
+                 x-transition:leave-start="translate-x-0"
+                 x-transition:leave-end="translate-x-full"
+                 class="fixed inset-y-0 right-0 z-[10000] w-full max-w-sm overflow-y-auto bg-white shadow-2xl border-l border-gray-200">
+                <!-- Header with close button -->
+                <div class="flex items-center justify-between p-6 border-b border-gray-200">
+                    <div class="flex items-center space-x-2">
+                        <img class="h-8 w-auto" src="{{Vite::asset('resources/images/logo.webp')}}" alt="Danielle Fence Logo">
+                        <span class="text-lg font-bold text-slate-800">Menu</span>
                     </div>
-                    <button @click="showMobile = false" type="button" class="rounded-lg p-2 text-white hover:bg-white/10 transition-all duration-200">
+                    <button @click="showMobile = false" type="button" class="rounded-lg p-2 text-slate-600 hover:bg-gray-100 transition-all duration-200">
                         <span class="sr-only">Close menu</span>
-                        <i class="fad fa-times h-6 w-6"></i>
+                        <i class="fa-solid fa-xmark h-6 w-6"></i>
                     </button>
                 </div>
-                <div class="mt-6 flow-root">
-                    <div class="-my-6 divide-y divide-white/10">
-                        <div class="space-y-3 py-6">
-                            <!-- Products Dropdown -->
-                            <div class="-mx-3">
-                                <button @click="showProducts = !showProducts" type="button"
-                                        class="flex w-full items-center justify-between rounded-lg py-3 pl-4 pr-3.5 text-base font-semibold leading-7 text-white hover:bg-white/10 transition-all duration-200">
+
+                <!-- Contact info -->
+                <div class="px-6 py-4 bg-outdoor-primary/10 border-b border-gray-200">
+                    <div class="text-sm text-slate-600">
+                        Call us: <a aria-label="Phone Number" href="tel:863-425-3182" class="font-semibold text-outdoor-primary hover:text-outdoor-primary/80 transition-colors">(863) 425-3182</a>
+                    </div>
+                </div>
+                <!-- Navigation -->
+                <div class="px-6 py-6">
+                    <div class="space-y-1">
+                        <!-- Products Dropdown -->
+                        <div>
+                            <button @click="showProducts = !showProducts" type="button"
+                                    class="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-semibold text-slate-800 hover:bg-gray-50 transition-all duration-200">
+                                <span class="flex items-center">
+                                    <i class="fa-solid fa-house-building w-5 h-5 mr-3 text-outdoor-primary"></i>
                                     Products
-                                    <i class="fad fa-chevron-down" :class="showProducts ? 'rotate-180 h-5 w-5 flex-none':'h-5 w-5 flex-none'"></i>
-                                </button>
-                                <div x-show="showProducts" x-cloak class="mt-2 space-y-2">
-                                    @foreach(\App\Services\CacheService::getProductCategories() as $productCategory)
-                                        <a aria-label="{{$productCategory->title}}" href="{{$productCategory->getRoute()}}"
-                                           class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">
-                                            {{$productCategory->title}}
-                                        </a>
-                                    @endforeach
+                                </span>
+                                <i class="fa-solid fa-chevron-down w-4 h-4 text-slate-500 transition-transform duration-200" :class="showProducts ? 'rotate-180' : ''"></i>
+                            </button>
+                            <div x-show="showProducts" x-cloak
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 -translate-y-1"
+                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 translate-y-0"
+                                 x-transition:leave-end="opacity-0 -translate-y-1"
+                                 class="ml-6 mt-2 space-y-1">
+                                @foreach(\App\Services\CacheService::getProductCategories() as $productCategory)
+                                    <a aria-label="{{$productCategory->title}}" href="{{$productCategory->getRoute()}}"
+                                       class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                        {{$productCategory->title}}
+                                    </a>
+                                @endforeach
                                 </div>
                             </div>
 
-                            <!-- Services Dropdown -->
-                            <div class="-mx-3">
-                                <button @click="showServices = !showServices" type="button"
-                                        class="flex w-full items-center justify-between rounded-lg py-3 pl-4 pr-3.5 text-base font-semibold leading-7 text-white hover:bg-white/10 transition-all duration-200">
+                        <!-- Services Dropdown -->
+                        <div>
+                            <button @click="showServices = !showServices" type="button"
+                                    class="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-semibold text-slate-800 hover:bg-gray-50 transition-all duration-200">
+                                <span class="flex items-center">
+                                    <i class="fa-solid fa-screwdriver-wrench w-5 h-5 mr-3 text-outdoor-primary"></i>
                                     Services
-                                    <i class="fad fa-chevron-down" :class="showServices ? 'rotate-180 h-5 w-5 flex-none':'h-5 w-5 flex-none'"></i>
-                                </button>
-                                <div x-show="showServices" x-cloak class="mt-2 space-y-2">
-                                    <a aria-label="Request a Quote" href="{{route('request-a-quote')}}"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">Request a Quote</a>
-                                    <a aria-label="Specials" href="{{route('specials')}}"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">Specials</a>
-                                    <a aria-label="Careers" href="{{route('careers')}}"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">Careers</a>
-                                </div>
+                                </span>
+                                <i class="fa-solid fa-chevron-down w-4 h-4 text-slate-500 transition-transform duration-200" :class="showServices ? 'rotate-180' : ''"></i>
+                            </button>
+                            <div x-show="showServices" x-cloak
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 -translate-y-1"
+                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 translate-y-0"
+                                 x-transition:leave-end="opacity-0 -translate-y-1"
+                                 class="ml-6 mt-2 space-y-1">
+                                <a aria-label="Request a Quote" href="{{route('request-a-quote')}}"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fa-solid fa-file-invoice w-4 h-4 mr-2"></i>
+                                    Request a Quote
+                                </a>
+                                <a aria-label="Specials" href="{{route('specials')}}"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fa-solid fa-percent w-4 h-4 mr-2"></i>
+                                    Specials
+                                </a>
+                                <a aria-label="Careers" href="{{route('careers')}}"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fa-solid fa-user-tie w-4 h-4 mr-2"></i>
+                                    Careers
+                                </a>
                             </div>
+                        </div>
 
-                            <!-- Company Dropdown -->
-                            <div class="-mx-3">
-                                <button @click="showCompany = !showCompany" type="button"
-                                        class="flex w-full items-center justify-between rounded-lg py-3 pl-4 pr-3.5 text-base font-semibold leading-7 text-white hover:bg-white/10 transition-all duration-200">
+                        <!-- Company Dropdown -->
+                        <div>
+                            <button @click="showCompany = !showCompany" type="button"
+                                    class="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-semibold text-slate-800 hover:bg-gray-50 transition-all duration-200">
+                                <span class="flex items-center">
+                                    <i class="fad fa-building w-5 h-5 mr-3 text-outdoor-primary"></i>
                                     Company
-                                    <i class="fad fa-chevron-down h-5 w-5 flex-none" :class="showCompany ? 'rotate-180':''"></i>
-                                </button>
-                                <div x-show="showCompany" x-cloak class="mt-2 space-y-2">
-                                    <a aria-label="About Us" href="{{route('about-us')}}"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">About Us</a>
-                                    <a aria-label="Why Danielle Fence" href="{{route('why-danielle-fence')}}"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">Why Danielle Fence</a>
-                                    <a aria-label="Blog" href="{{route('blog')}}"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">Blog</a>
-                                    <a aria-label="FAQ" href="{{route('faq')}}"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">FAQ</a>
-                                    <a aria-label="Reviews" href="{{route('reviews')}}"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">Reviews</a>
-                                    <a aria-label="Hardware Catalog" href="/hardware-catalog.pdf" target="_blank"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">Hardware Catalog</a>
-                                    <a aria-label="Showcase" href="/showcase.pdf" target="_blank"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">Showcase</a>
-                                    <a aria-label="Fire Features Catalogs" href="{{route('fire-feature-catalogs')}}"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">Fire Feature Catalogs</a>
-                                    <a aria-label="The Pickett Pals!" href="{{route('pickett-pals')}}"
-                                       class="block rounded-lg py-2.5 pl-8 pr-3 text-sm font-medium leading-6 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200">The Pickett Pals!</a>
-                                </div>
+                                </span>
+                                <i class="fa-solid fa-chevron-down w-4 h-4 text-slate-500 transition-transform duration-200" :class="showCompany ? 'rotate-180' : ''"></i>
+                            </button>
+                            <div x-show="showCompany" x-cloak
+                                 x-transition:enter="transition ease-out duration-200"
+                                 x-transition:enter-start="opacity-0 -translate-y-1"
+                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 x-transition:leave="transition ease-in duration-150"
+                                 x-transition:leave-start="opacity-100 translate-y-0"
+                                 x-transition:leave-end="opacity-0 -translate-y-1"
+                                 class="ml-6 mt-2 space-y-1">
+                                <a aria-label="About Us" href="{{route('about-us')}}"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fad fa-info-circle w-4 h-4 mr-2"></i>
+                                    About Us
+                                </a>
+                                <a aria-label="Why Danielle Fence" href="{{route('why-danielle-fence')}}"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fa-solid fa-shield-check w-4 h-4 mr-2"></i>
+                                    Why Danielle Fence
+                                </a>
+                                <a aria-label="Blog" href="{{route('blog')}}"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fad fa-blog w-4 h-4 mr-2"></i>
+                                    Blog
+                                </a>
+                                <a aria-label="FAQ" href="{{route('faq')}}"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fad fa-question-circle w-4 h-4 mr-2"></i>
+                                    FAQ
+                                </a>
+                                <a aria-label="Reviews" href="{{route('reviews')}}"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fa-solid fa-star w-4 h-4 mr-2"></i>
+                                    Reviews
+                                </a>
+                                <a aria-label="Hardware Catalog" href="/hardware-catalog.pdf" target="_blank"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fad fa-file w-4 h-4 mr-2"></i>
+                                    Hardware Catalog
+                                </a>
+                                <a aria-label="Showcase" href="/showcase.pdf" target="_blank"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fad fa-images w-4 h-4 mr-2"></i>
+                                    Showcase
+                                </a>
+                                <a aria-label="Fire Features Catalogs" href="{{route('fire-feature-catalogs')}}"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fad fa-fire w-4 h-4 mr-2"></i>
+                                    Fire Feature Catalogs
+                                </a>
+                                <a aria-label="The Pickett Pals!" href="{{route('pickett-pals')}}"
+                                   class="flex items-center rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
+                                    <i class="fa-solid fa-users w-4 h-4 mr-2"></i>
+                                    The Pickett Pals!
+                                </a>
                             </div>
+                        </div>
 
-                            <!-- Contact Us -->
+                        <!-- Contact Us -->
+                        <div class="border-t border-gray-200 pt-4 mt-4">
                             <a aria-label="Contact Us" href="{{route('contact')}}"
-                               class="-mx-3 block rounded-lg px-4 py-3 text-base font-semibold leading-7 text-white hover:bg-white/10 transition-all duration-200">Contact Us</a>
+                               class="flex items-center rounded-lg px-3 py-3 text-base font-semibold text-slate-800 hover:bg-gray-50 transition-all duration-200">
+                                <i class="fad fa-envelope w-5 h-5 mr-3 text-outdoor-primary"></i>
+                                Contact Us
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </nav>
     </header>
+
     <x-reviews-marquee />
 </div>

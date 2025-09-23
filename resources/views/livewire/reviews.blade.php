@@ -32,7 +32,7 @@
                 <!-- Reviews columns with enhanced backdrop -->
                 <div class="absolute inset-4 rounded-2xl bg-gradient-to-br from-white/30 to-gray-50/30 backdrop-blur-sm"></div>
             @if(isset($reviews[0]))
-                <div class="animate-marquee-vertical duration-30 space-y-8 py-4 relative z-10">
+                <div class="animate-marquee-vertical duration-45 space-y-8 py-4 relative z-10">
                     @foreach($reviews[0] as $review)
                         <figure
                             class="relative rounded-lg bg-white p-6 shadow-lg hover:shadow-xl transition-shadow duration-200"
@@ -108,7 +108,7 @@
 
             @endif
             @if(isset($reviews[1]))
-                <div class="animate-marquee-vertical duration-35 space-y-8 py-4 hidden md:block relative z-10">
+                <div class="animate-marquee-vertical duration-50 space-y-8 py-4 hidden md:block relative z-10">
                     @foreach($reviews[1] as $review)
                         <figure
                             class="relative rounded-lg bg-white p-6 shadow-lg hover:shadow-xl transition-shadow duration-200"

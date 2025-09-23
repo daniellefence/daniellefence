@@ -12,6 +12,15 @@ class Category extends Model
 
     protected $guarded = [];
 
+    protected $fillable = [
+        'key',
+        'title',
+        'description',
+        'image',
+        'order',
+        'parent_id'
+    ];
+
     public function photo()
     {
         return $this->hasOne(Photo::class);
@@ -63,5 +72,25 @@ class Category extends Model
             'parent' => 'category',
             'parent_id' => $this->id,
         ]);
+    }
+
+    public function getHeroImageUrl()
+    {
+        // Use the category image for hero section
+        if ($this->image) {
+            return asset('storage/' . $this->image);
+        }
+
+        // Fallback to photo if available
+        if ($this->photo) {
+            return asset('storage/' . $this->photo->path);
+        }
+
+        return null;
+    }
+
+    public function hasHeroImage()
+    {
+        return !empty($this->image) || !empty($this->photo);
     }
 }

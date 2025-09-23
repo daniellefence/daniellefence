@@ -8,11 +8,10 @@ return [
     'property_id' => env('ANALYTICS_PROPERTY_ID'),
 
     /*
-     * Path to the client secret json file. Take a look at the README of this package
-     * to learn how to get this file. You can also pass the credentials as an array
-     * instead of a file path.
+     * Service account credentials from environment variables only.
+     * All credentials must be stored in .env file - no JSON files used.
      */
-    'service_account_credentials_json' => storage_path('app/analytics/service-account-credentials.json'),
+    'service_account_credentials_json' => [],
 
     /*
      * The amount of minutes the Google API responses will be cached.

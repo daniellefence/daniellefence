@@ -1,12 +1,11 @@
-<!-- From Uiverse.io by SouravBandyopadhyay --> 
- <div class="hourglassBackground">
-      <div class="hourglassContainer">
-        <div class="hourglassCurves"></div>
-        <div class="hourglassCapTop"></div>
-        <div class="hourglassGlassTop"></div>
-        <div class="hourglassSand"></div>
-        <div class="hourglassSandStream"></div>
-        <div class="hourglassCapBottom"></div>
-        <div class="hourglassGlass"></div>
-      </div>
+<!-- Fence-themed loader for Danielle Fence -->
+<div class="fence-loader-container">
+    <div class="fence-loader">
+        <div class="fence-post"></div>
+        <div class="fence-post"></div>
+        <div class="fence-post"></div>
+        <div class="fence-rail top-rail"></div>
+        <div class="fence-rail bottom-rail"></div>
     </div>
+    <div class="loader-text">Loading...</div>
+</div>

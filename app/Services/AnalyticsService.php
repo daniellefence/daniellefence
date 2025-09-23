@@ -45,22 +45,36 @@ class AnalyticsService
     }
 
     /**
-     * Check if we have valid service account credentials
+     * Check if we have valid service account credentials from environment variables only
      */
     public function hasValidCredentials()
     {
-        // Check for service account JSON file
-        $credentialsPath = storage_path('app/analytics/service-account-credentials.json');
-        if (file_exists($credentialsPath)) {
-            return true;
+        // Only check for environment credentials - no file support
+        $credentialsJson = env('GOOGLE_SERVICE_ACCOUNT_CREDENTIALS');
+
+        // Check if credentials are provided and not empty
+        if (!$credentialsJson || empty(trim($credentialsJson))) {
+            return false;
         }
 
-        // Check for environment credentials
-        if (env('GOOGLE_APPLICATION_CREDENTIALS_JSON') || env('GOOGLE_APPLICATION_CREDENTIALS')) {
-            return true;
+        // Validate that it's proper JSON
+        $credentials = json_decode($credentialsJson, true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return false;
         }
 
-        return false;
+        // Check for required service account fields
+        $requiredFields = ['type', 'project_id', 'private_key', 'client_email'];
+
+        foreach ($requiredFields as $field) {
+            if (!isset($credentials[$field]) || empty($credentials[$field])) {
+                return false;
+            }
+        }
+
+        // Verify it's a service account
+        return $credentials['type'] === 'service_account';
     }
 
     /**
@@ -124,9 +138,10 @@ class AnalyticsService
         }
 
         if (!$hasCredentials) {
+            $debugInfo = $this->getCredentialsDebugInfo();
             return [
                 'status' => 'info',
-                'message' => "Property ID found ({$propertyId}) but service account credentials needed for API access."
+                'message' => "Property ID found ({$propertyId}) but service account credentials issue: {$debugInfo}"
             ];
         }
 
@@ -134,5 +149,46 @@ class AnalyticsService
             'status' => 'success',
             'message' => "Google Analytics fully configured with property {$propertyId}."
         ];
+    }
+
+    /**
+     * Get debug information about credentials
+     */
+    private function getCredentialsDebugInfo()
+    {
+        $credentialsJson = env('GOOGLE_SERVICE_ACCOUNT_CREDENTIALS');
+
+        if (!$credentialsJson) {
+            return 'GOOGLE_SERVICE_ACCOUNT_CREDENTIALS not set in .env file';
+        }
+
+        if (empty(trim($credentialsJson))) {
+            return 'GOOGLE_SERVICE_ACCOUNT_CREDENTIALS is empty';
+        }
+
+        $credentials = json_decode($credentialsJson, true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return 'Invalid JSON format: ' . json_last_error_msg();
+        }
+
+        $requiredFields = ['type', 'project_id', 'private_key', 'client_email'];
+        $missingFields = [];
+
+        foreach ($requiredFields as $field) {
+            if (!isset($credentials[$field]) || empty($credentials[$field])) {
+                $missingFields[] = $field;
+            }
+        }
+
+        if (!empty($missingFields)) {
+            return 'Missing required fields: ' . implode(', ', $missingFields);
+        }
+
+        if ($credentials['type'] !== 'service_account') {
+            return 'Invalid type: expected "service_account", got "' . ($credentials['type'] ?? 'null') . '"';
+        }
+
+        return 'Unknown credentials validation error';
     }
 }

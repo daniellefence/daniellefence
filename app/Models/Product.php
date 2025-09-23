@@ -50,4 +50,24 @@ class Product extends Model
     {
         return route('admin.products.product.edit', ['id' => $this->id]);
     }
+
+    public function getHeroImageUrl()
+    {
+        // Use the first product photo for hero section
+        if ($this->photos->count() > 0) {
+            return asset('storage/' . $this->photos->first()->path);
+        }
+
+        // Fallback to category image if available
+        if ($this->category && $this->category->image) {
+            return asset('storage/' . $this->category->image);
+        }
+
+        return null;
+    }
+
+    public function hasHeroImage()
+    {
+        return $this->photos->count() > 0 || ($this->category && $this->category->image);
+    }
 }

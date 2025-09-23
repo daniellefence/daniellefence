@@ -81,7 +81,7 @@
                 description="Over 5 million linear feet manufactured since 1976. Family-owned and operated with fences still standing after 35+ years."
                 aos="fade-up" delay="100">
                 <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fad fa-check-circle w-6 h-6 text-green-700"></i>
+                    <i class="fa-solid fa-shield-check w-6 h-6 text-green-700"></i>
                 </div>
             </x-modern-card>
 
@@ -90,7 +90,7 @@
                 description="60+ full-time professionals with 300+ years of collective experience. No subcontractors - only our trained experts."
                 aos="fade-up" delay="200">
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fad fa-users w-6 h-6 text-blue-700"></i>
+                    <i class="fa-solid fa-users w-6 h-6 text-blue-700"></i>
                 </div>
             </x-modern-card>
 
@@ -99,7 +99,7 @@
                 description="Made in USA materials that are lead-free, child/pet-friendly, and recyclable. Industry's best warranty with 97% customer satisfaction."
                 aos="fade-up" delay="300">
                 <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fad fa-star w-6 h-6 text-yellow-700"></i>
+                    <i class="fa-solid fa-star w-6 h-6 text-yellow-700"></i>
                 </div>
             </x-modern-card>
         </x-modern-grid>

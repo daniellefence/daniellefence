@@ -49,7 +49,7 @@
                 <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
                     <div class="flex flex-col">
                         <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                            <i class="fad fa-check-circle h-5 w-5 flex-none text-outdoor-primary"></i>
+                            <i class="fa-solid fa-shield-check h-5 w-5 flex-none text-outdoor-primary"></i>
                             Licensed & Insured
                         </dt>
                         <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
@@ -58,7 +58,7 @@
                     </div>
                     <div class="flex flex-col">
                         <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                            <i class="fad fa-star h-5 w-5 flex-none text-outdoor-primary"></i>
+                            <i class="fa-solid fa-star h-5 w-5 flex-none text-outdoor-primary"></i>
                             Premium Materials
                         </dt>
                         <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="flex flex-col">
                         <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                            <i class="fad fa-thumbs-up h-5 w-5 flex-none text-outdoor-primary"></i>
+                            <i class="fa-solid fa-thumbs-up h-5 w-5 flex-none text-outdoor-primary"></i>
                             Satisfaction Guarantee
                         </dt>
                         <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">

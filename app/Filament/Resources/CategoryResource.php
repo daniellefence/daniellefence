@@ -66,6 +66,25 @@ class CategoryResource extends Resource
                             ])
                             ->placeholder('Describe this category and its products')
                             ->helperText('This description may appear on category pages'),
+
+                        Forms\Components\FileUpload::make('hero_image')
+                            ->label('Hero Image')
+                            ->image()
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '21:9',
+                                '3:2',
+                            ])
+                            ->acceptedFileTypes(['image/jpeg', 'image/jpg', 'image/png', 'image/webp'])
+                            ->maxSize(5120) // 5MB max
+                            ->directory('categories/hero-images')
+                            ->visibility('public')
+                            ->columnSpanFull()
+                            ->helperText('📐 **Ideal Dimensions:** 1920x1080px (16:9 ratio) or 2560x1080px (21:9 ratio)
+📁 **File Format:** JPEG, PNG, or WebP
+📦 **File Size:** Maximum 5MB
+💡 **Tip:** Use high-quality images for best results on all screen sizes'),
                     ])
                     ->columns(2),
 
@@ -131,6 +150,16 @@ class CategoryResource extends Resource
                     ->badge()
                     ->color('warning')
                     ->sortable(),
+
+                Tables\Columns\IconColumn::make('hero_image')
+                    ->label('Hero Image')
+                    ->boolean()
+                    ->trueIcon('heroicon-o-photo')
+                    ->falseIcon('heroicon-o-x-mark')
+                    ->trueColor('success')
+                    ->falseColor('gray')
+                    ->sortable()
+                    ->getStateUsing(fn ($record) => !empty($record->hero_image)),
 
                 Tables\Columns\ToggleColumn::make('published')
                     ->label('Published')

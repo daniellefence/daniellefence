@@ -1,8 +1,8 @@
-<a href="{{ route('reviews') }}" class="block bg-outdoor-primary text-white py-3 overflow-hidden whitespace-nowrap hover:bg-outdoor-primary/90 transition-colors duration-300 cursor-pointer">
+<a href="{{ route('reviews') }}" class="block bg-outdoor-primary/90 text-white py-3 overflow-hidden whitespace-nowrap transition-colors duration-300 cursor-pointer">
     <div class="animate-marquee inline-block">
         @foreach(\App\Models\Review::where('hidden', false)->orderBy('order', 'asc')->get() as $review)
             <span class="inline-flex items-center mx-8">
-                <span class="text-outdoor-gold font-semibold">{{ $review->name }}</span>
+                <span class="text-white font-bold">{{ $review->name }}</span>
                 <div class="inline-flex items-center mx-3">
                     @for($i = 1; $i <= 5; $i++)
                         @if($i <= $review->stars)
@@ -19,7 +19,7 @@
         {{-- Duplicate content for seamless loop --}}
         @foreach(\App\Models\Review::where('hidden', false)->orderBy('order', 'asc')->get() as $review)
             <span class="inline-flex items-center mx-8">
-                <span class="text-outdoor-gold font-semibold">{{ $review->name }}</span>
+                <span class="text-white font-bold">{{ $review->name }}</span>
                 <div class="inline-flex items-center mx-3">
                     @for($i = 1; $i <= 5; $i++)
                         @if($i <= $review->stars)

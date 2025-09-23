@@ -12,6 +12,13 @@ class GoogleAnalyticsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Analytics::class, function ($app) {
+            // Only proceed if we have valid credentials
+            $credentials = $this->getServiceAccountCredentials();
+            if (empty($credentials)) {
+                // Return null or dummy instance when no credentials
+                return new Analytics(new BetaAnalyticsDataClient(), '');
+            }
+
             // Get settings from database
             $setting = new Setting();
             $analyticsCode = $setting->get('analytics');
@@ -27,7 +34,7 @@ class GoogleAnalyticsServiceProvider extends ServiceProvider
             try {
                 // Create analytics client using the property ID from database
                 $client = new BetaAnalyticsDataClient([
-                    'credentials' => $this->getServiceAccountCredentials(),
+                    'credentials' => $credentials,
                 ]);
 
                 return new Analytics($client, $propertyId);
@@ -71,30 +78,27 @@ class GoogleAnalyticsServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get service account credentials - try multiple sources
+     * Get service account credentials from environment variable only
      */
     private function getServiceAccountCredentials()
     {
-        // First try the default location
-        $credentialsPath = storage_path('app/analytics/service-account-credentials.json');
+        // Only use environment variable - no file support
+        $credentialsJson = env('GOOGLE_SERVICE_ACCOUNT_CREDENTIALS');
 
-        if (file_exists($credentialsPath)) {
-            return $credentialsPath;
+        // Check if credentials are provided and not empty
+        if (!empty($credentialsJson) && trim($credentialsJson) !== '') {
+            $credentials = json_decode($credentialsJson, true);
+
+            // Validate JSON and required fields
+            if ($credentials &&
+                json_last_error() === JSON_ERROR_NONE &&
+                isset($credentials['type']) &&
+                $credentials['type'] === 'service_account') {
+                return $credentials;
+            }
         }
 
-        // Try environment variable for credentials
-        $credentialsJson = env('GOOGLE_APPLICATION_CREDENTIALS_JSON');
-        if ($credentialsJson) {
-            return json_decode($credentialsJson, true);
-        }
-
-        // Try to use default Google Cloud credentials
-        $defaultCredentials = env('GOOGLE_APPLICATION_CREDENTIALS');
-        if ($defaultCredentials && file_exists($defaultCredentials)) {
-            return $defaultCredentials;
-        }
-
-        // For now, return empty array - widgets will show placeholder data
+        // Return empty array if no valid credentials - widgets will show placeholder data
         return [];
     }
 }

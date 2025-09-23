@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="min-h-screen relative section-slate-texture" style="background-image: url('{{ asset('images/fence.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+    <div class="min-h-screen relative section-slate-texture chat-background-image" style="background-image: url('{{ asset('images/fence.jpg') }}'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 grass-offset pt-32">
             <!-- Chat Interface -->
             <div class="rounded-2xl overflow-hidden aspect-video">
@@ -34,7 +34,7 @@
                             height='100%'
                             width='100%'
                             allow='clipboard-write *'
-                            style="border: none; min-height: 600px;"
+                            class="chat-iframe-border"
                             title="Chat with Grillbert">
                         </iframe>
                     </div>

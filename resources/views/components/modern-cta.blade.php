@@ -15,7 +15,6 @@
     @if($pattern)
         <!-- Background Pattern -->
         <div class="absolute inset-0 opacity-10">
-            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><circle cx="3" cy="3" r="3"/><circle cx="13" cy="13" r="1"/><circle cx="33" cy="5" r="4"/><circle cx="3" cy="23" r="4"/><circle cx="13" cy="27" r="1"/><circle cx="23" cy="15" r="2"/><circle cx="43" cy="15" r="2"/><circle cx="33" cy="23" r="4"/><circle cx="53" cy="25" r="2"/><circle cx="23" cy="35" r="4"/><circle cx="43" cy="35" r="4"/><circle cx="13" cy="43" r="2"/><circle cx="33" cy="43" r="1"/><circle cx="53" cy="43" r="2"/><circle cx="3" cy="53" r="1"/><circle cx="23" cy="53" r="1"/><circle cx="43" cy="53" r="1"/></g></g></svg>')"></div>
         </div>
     @endif
 
