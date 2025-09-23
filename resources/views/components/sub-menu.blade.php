@@ -16,7 +16,7 @@
                 break;
             }
 @endphp
-<x-page-heading>
+<x-page-heading :model="$model">
     <x-slot name="heading">{{$model->title}}
     </x-slot>
     <x-slot name="subheading">{!! $model->description !!}</x-slot>
