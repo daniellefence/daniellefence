@@ -73,8 +73,7 @@
     @stack('styles')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Critical CSS for above-the-fold rendering -->
-    <x-critical-css />
+    <!-- Removed critical CSS component that was overriding brand styles -->
 
     <!-- Defer non-critical scripts -->
     <script>
