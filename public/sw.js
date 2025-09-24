@@ -1,10 +1,9 @@
 // Service Worker for Performance Optimization
-const CACHE_NAME = 'danielle-fence-v1';
+const CACHE_NAME = 'danielle-fence-v2';
 const STATIC_CACHE_URLS = [
-  '/',
-  '/css/app.css',
-  '/js/app.js',
-  '/images/logo.webp'
+  '/'
+  // Don't pre-cache Vite assets as they have hashed names
+  // They will be cached on first request
 ];
 
 // Install event - cache critical resources
@@ -12,7 +11,20 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        return cache.addAll(STATIC_CACHE_URLS);
+        // Only cache URLs that actually exist
+        return Promise.allSettled(
+          STATIC_CACHE_URLS.map(url =>
+            fetch(url)
+              .then(response => {
+                if (response.ok) {
+                  return cache.put(url, response);
+                }
+              })
+              .catch(error => {
+                console.log(`Failed to cache ${url}:`, error);
+              })
+          )
+        );
       })
       .then(() => {
         return self.skipWaiting();
@@ -39,8 +51,11 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const { request } = event;
 
-  // Skip non-GET requests and chrome-extension requests
-  if (request.method !== 'GET' || request.url.includes('chrome-extension://')) {
+  // Skip non-GET requests, chrome-extension requests, and hot-reload requests
+  if (request.method !== 'GET' ||
+      request.url.includes('chrome-extension://') ||
+      request.url.includes('/@vite') ||
+      request.url.includes('hot-update')) {
     return;
   }
 

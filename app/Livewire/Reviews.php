@@ -15,7 +15,14 @@ class Reviews extends Component
 
     public function mount()
     {
-        $array = \App\Models\Review::with('photos')->where([['hidden', '==', 0]])->orderBy('order', 'asc')->take(30)->get()->toArray();
+        $array = \App\Models\Review::with('photos')
+            ->where([['hidden', '==', 0]])
+            ->whereNotNull('content')
+            ->where('content', '!=', '')
+            ->orderBy('order', 'asc')
+            ->take(30)
+            ->get()
+            ->toArray();
         $count = 10; // 10 reviews per column
         $this->reviews = array_chunk($array, $count);
     }

@@ -104,6 +104,22 @@ h2 {
 /* Hide until JS loads */
 [x-cloak] { display: none !important; }
 
+/* Marquee animations - critical for reviews section */
+@keyframes marquee {
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee var(--marquee-duration, 60s) linear infinite;
+    will-change: transform;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
 /* Essential responsive */
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
