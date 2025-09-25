@@ -1,4 +1,4 @@
-<x-admin-holder>
+<x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -48,4 +48,4 @@
 
     </x-authentication-card>
 
-</x-admin-holder>
+</x-guest-layout>
