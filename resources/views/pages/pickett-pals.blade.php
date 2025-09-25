@@ -79,7 +79,7 @@
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Dr. Fencestopher</h3>
                         <p class="text-sm text-slate-600 mb-3">The scientific vinyl fence genius with clipboard in hand, always calculating and measuring. The doomed voice of reason who tries preventing disasters with logic and calculations, but inevitably gets swept into the chaos anyway. Hosts "Testimonial Tuesday" segments!</p>
-                        <p class="text-xs text-slate-500 italic">Drummer • The scientist • "According to my calculations..."</p>
+                        <p class="text-xs text-slate-500 italic">Drummer • The scientist • "Actually, Technically, Basically..."</p>
                     </div>
                 </div>
 
