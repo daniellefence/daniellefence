@@ -119,6 +119,11 @@
             };
         });
     </script>
+
+    <!-- Google Analytics -->
+    @if(setting()->get('google_analytics_code'))
+        {!! setting()->get('google_analytics_code') !!}
+    @endif
 </head>
 <body class="font-sans relative antialiased ">
 <template>

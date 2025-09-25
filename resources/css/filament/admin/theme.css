@@ -13,22 +13,56 @@
     background-color: rgb(185, 28, 28) !important; /* Your primary-700 color */
 }
 
-/* Ensure login button specifically has proper contrast */
-.fi-login-panel .fi-btn {
+/* Ensure login button specifically has proper contrast - more specific selectors */
+.fi-login-panel .fi-btn,
+.fi-login-panel .fi-btn-primary,
+.fi-login-panel button[type="submit"],
+.fi-login-panel input[type="submit"],
+form .fi-btn-primary {
     background-color: rgb(142, 42, 42) !important;
     color: white !important;
     border: 1px solid rgb(142, 42, 42) !important;
 }
 
-.fi-login-panel .fi-btn:hover {
+.fi-login-panel .fi-btn:hover,
+.fi-login-panel .fi-btn-primary:hover,
+.fi-login-panel button[type="submit"]:hover,
+.fi-login-panel input[type="submit"]:hover,
+form .fi-btn-primary:hover {
     background-color: rgb(185, 28, 28) !important;
     border-color: rgb(185, 28, 28) !important;
+    color: white !important;
 }
 
-/* Fix any potential white text on white background issues */
-.fi-login-panel input[type="submit"],
-.fi-login-panel button[type="submit"] {
+/* Extra specific targeting for stubborn login buttons */
+[x-data*="login"] .fi-btn,
+[x-data*="login"] button[type="submit"],
+.fi-simple-page .fi-btn-primary {
     background-color: rgb(142, 42, 42) !important;
+    color: white !important;
+    border-color: rgb(142, 42, 42) !important;
+}
+
+/* Nuclear option - target any button that might be the login button */
+.fi-simple-page button,
+.fi-simple-page input[type="submit"],
+button[form="login"],
+form button[type="submit"]:not([class*="secondary"]):not([class*="outlined"]),
+.fi-login button:not([type="button"]),
+[data-turbo-submits-with] {
+    background-color: rgb(142, 42, 42) !important;
+    color: white !important;
+    border: 1px solid rgb(142, 42, 42) !important;
+}
+
+.fi-simple-page button:hover,
+.fi-simple-page input[type="submit"]:hover,
+button[form="login"]:hover,
+form button[type="submit"]:hover:not([class*="secondary"]):not([class*="outlined"]),
+.fi-login button:not([type="button"]):hover,
+[data-turbo-submits-with]:hover {
+    background-color: rgb(185, 28, 28) !important;
+    border-color: rgb(185, 28, 28) !important;
     color: white !important;
 }
 
@@ -42,6 +76,15 @@
 .fi-header-actions .fi-btn-primary:hover {
     background-color: rgb(185, 28, 28) !important;
     border-color: rgb(185, 28, 28) !important;
+}
+
+/* Make login page logo larger */
+.fi-logo img,
+.fi-simple-page .fi-logo img,
+.fi-authentication-card .fi-logo img {
+    height: 120px !important;
+    width: auto !important;
+    max-width: none !important;
 }
 
 /* Debug: Ensure widgets are visible */

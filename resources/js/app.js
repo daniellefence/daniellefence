@@ -1,7 +1,7 @@
 import './bootstrap';
 import AOS from 'aos';
 
-// Let Livewire handle Alpine.js completely
+// Let Livewire handle Alpine.js completely - don't start our own instance
 
 import 'livewire-sortable'
 

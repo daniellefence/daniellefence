@@ -5,6 +5,7 @@ use App\Http\Controllers\CityLandingController;
 use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Pulse\Facades\Pulse;
 
 // Sitemap route (outside middleware to ensure it's always accessible)
 Route::get('/sitemap.xml', function () {

@@ -19,25 +19,40 @@ class PulseMetricsWidget extends Widget
                 throw new \Exception('Pulse tables not found');
             }
 
-            // Get basic Pulse data or create mock data for display
-            $requests = collect([
-                (object) ['key' => ['method' => 'GET', 'path' => '/'], 'value' => 125],
-                (object) ['key' => ['method' => 'GET', 'path' => '/admin'], 'value' => 45],
-                (object) ['key' => ['method' => 'POST', 'path' => '/api/chatgpt-generate'], 'value' => 12],
-                (object) ['key' => ['method' => 'GET', 'path' => '/contact'], 'value' => 8],
-            ]);
+            // Get real Pulse data
+            $requests = collect();
+            $slowQueries = collect();
+            $exceptions = collect();
+            $queues = collect();
 
-            $slowQueries = collect([]);
-            $exceptions = collect([]);
-            $queues = collect([]);
-
-            // Try to get real Pulse data if available
+            // Get top routes from Pulse data
             try {
-                if (class_exists(\Laravel\Pulse\Pulse::class)) {
-                    // Pulse is available but might not have data yet
-                }
+                $routeData = Pulse::values('route_hits')
+                    ->take(10)
+                    ->map(function ($entry) {
+                        return (object) [
+                            'key' => ['method' => 'GET', 'path' => $entry->key],
+                            'value' => $entry->value
+                        ];
+                    });
+
+                $requests = $routeData->isNotEmpty() ? $routeData : collect([
+                    (object) ['key' => ['method' => 'GET', 'path' => '/'], 'value' => 0],
+                ]);
+
+                // Get traffic sources
+                $trafficSources = Pulse::values('traffic_sources')->take(5);
+
+                // Get total page views
+                $totalPageViews = Pulse::values('page_views', 'total')->first()?->value ?? 0;
+
             } catch (\Exception $e) {
-                // Pulse not properly configured, use mock data
+                // Fallback to empty data if Pulse queries fail
+                $requests = collect([
+                    (object) ['key' => ['method' => 'GET', 'path' => 'No data yet'], 'value' => 0],
+                ]);
+                $trafficSources = collect();
+                $totalPageViews = 0;
             }
 
             return [
@@ -45,6 +60,8 @@ class PulseMetricsWidget extends Widget
                 'slow_queries' => $slowQueries,
                 'exceptions' => $exceptions,
                 'queues' => $queues,
+                'traffic_sources' => $trafficSources ?? collect(),
+                'total_page_views' => $totalPageViews,
                 'pulse_enabled' => true,
             ];
         } catch (\Exception $e) {

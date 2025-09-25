@@ -19,7 +19,7 @@ class JobApplicationResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
-    protected static ?string $navigationGroup = 'Customer Management';
+    protected static ?string $navigationGroup = 'Customers & Reviews';
 
     protected static ?int $navigationSort = 4;
 

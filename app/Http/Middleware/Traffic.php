@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Laravel\Pulse\Facades\Pulse;
 use Symfony\Component\HttpFoundation\Response;
 
 class Traffic
@@ -23,6 +24,7 @@ class Traffic
             $ip = $_SERVER['REMOTE_ADDR'];
         }
 
+        // Create traditional traffic record
         \App\Models\Traffic::create([
             'user_agent' => $request->server('HTTP_USER_AGENT'),
             'method' => $request->server('REQUEST_METHOD'),
@@ -30,6 +32,18 @@ class Traffic
             'ip' => $ip,
             'route' => \Illuminate\Support\Facades\Route::currentRouteName(),
         ]);
+
+        // Record to Pulse for real-time analytics
+        $routeName = \Illuminate\Support\Facades\Route::currentRouteName() ?? $request->path();
+
+        Pulse::record('page_views', 'total', 1);
+        Pulse::record('route_hits', $routeName, 1);
+        Pulse::record('user_agents', substr($request->server('HTTP_USER_AGENT', 'Unknown'), 0, 100), 1);
+
+        if ($request->server('HTTP_REFERER')) {
+            $referer = parse_url($request->server('HTTP_REFERER'), PHP_URL_HOST) ?? 'direct';
+            Pulse::record('traffic_sources', $referer, 1);
+        }
 
         return $next($request);
     }

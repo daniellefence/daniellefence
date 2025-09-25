@@ -38,8 +38,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('end_permission', function () {
             return '<?php } ?>';
         });
-        Gate::define('viewPulse', function () {
-            return true;
+        Gate::define('viewPulse', function ($user) {
+            return $user && ($user->hasRole('SuperAdmin') || $user->hasRole('super_admin'));
         });
 
         // SuperAdmin bypasses all permission checks

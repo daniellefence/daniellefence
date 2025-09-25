@@ -19,7 +19,7 @@ class AvailableHeightResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-arrows-up-down';
 
-    protected static ?string $navigationGroup = 'Product Management';
+    protected static ?string $navigationGroup = 'DIY Configuration';
 
     protected static ?int $navigationSort = 4;
 

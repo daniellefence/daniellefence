@@ -19,7 +19,7 @@ class ReviewResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-star';
 
-    protected static ?string $navigationGroup = 'Customer Management';
+    protected static ?string $navigationGroup = 'Customers & Reviews';
 
     protected static ?int $navigationSort = 3;
 

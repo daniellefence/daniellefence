@@ -19,7 +19,7 @@ class QuoteRequestResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
 
-    protected static ?string $navigationGroup = 'Customer Management';
+    protected static ?string $navigationGroup = 'Customers & Reviews';
 
     protected static ?int $navigationSort = 2;
 

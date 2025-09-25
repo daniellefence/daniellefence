@@ -19,7 +19,7 @@ class KeywordResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-hashtag';
 
-    protected static ?string $navigationGroup = 'SEO & Marketing';
+    protected static ?string $navigationGroup = 'Marketing & SEO';
 
     protected static ?int $navigationSort = 4;
 

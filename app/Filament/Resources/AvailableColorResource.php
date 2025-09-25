@@ -19,7 +19,7 @@ class AvailableColorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-swatch';
 
-    protected static ?string $navigationGroup = 'Product Management';
+    protected static ?string $navigationGroup = 'DIY Configuration';
 
     protected static ?int $navigationSort = 3;
 

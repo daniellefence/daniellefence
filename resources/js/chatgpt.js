@@ -34,7 +34,7 @@ async function generateChatGPTContent(fieldName, prompt) {
 
             // Strategy 1: Use Filament's $getEditor() API (proper way)
             const richEditorComponent = document.querySelector('[x-data*="richEditorFormComponent"]');
-            if (richEditorComponent) {
+            if (richEditorComponent && richEditorComponent.nodeType === Node.ELEMENT_NODE) {
                 console.log('Found rich editor component:', richEditorComponent);
 
                 // Try to access Alpine's $getEditor function
@@ -89,7 +89,7 @@ async function generateChatGPTContent(fieldName, prompt) {
             if (!updated) {
                 console.log('Trying Livewire state update...');
                 const livewireComponent = document.querySelector('[wire\\:id]');
-                if (livewireComponent && window.Livewire) {
+                if (livewireComponent && livewireComponent.nodeType === Node.ELEMENT_NODE && window.Livewire) {
                     const componentId = livewireComponent.getAttribute('wire:id');
                     const component = window.Livewire.find(componentId);
                     if (component) {
@@ -101,10 +101,10 @@ async function generateChatGPTContent(fieldName, prompt) {
                             setTimeout(() => {
                                 // Try to find and update any TipTap editor
                                 const proseMirror = document.querySelector('.ProseMirror');
-                                if (proseMirror) {
+                                if (proseMirror && proseMirror.nodeType === Node.ELEMENT_NODE) {
                                     // Find parent Alpine component
                                     const alpineParent = proseMirror.closest('[x-data]');
-                                    if (alpineParent && alpineParent._x_dataStack) {
+                                    if (alpineParent && alpineParent.nodeType === Node.ELEMENT_NODE && alpineParent._x_dataStack) {
                                         const alpineData = alpineParent._x_dataStack[0];
                                         if (typeof alpineData.$getEditor === 'function') {
                                             const editor = alpineData.$getEditor();
@@ -149,16 +149,18 @@ async function generateChatGPTContent(fieldName, prompt) {
                 // Look for any TipTap editors on the page
                 const allEditors = document.querySelectorAll('.ProseMirror');
                 for (const editorEl of allEditors) {
-                    const alpineParent = editorEl.closest('[x-data]');
-                    if (alpineParent && alpineParent._x_dataStack) {
-                        const alpineData = alpineParent._x_dataStack[0];
-                        if (typeof alpineData.$getEditor === 'function') {
-                            const editor = alpineData.$getEditor();
-                            if (editor && editor.commands) {
-                                editor.chain().focus().setContent(data.content).run();
-                                updated = true;
-                                console.log('Updated via global editor search');
-                                break;
+                    if (editorEl && editorEl.nodeType === Node.ELEMENT_NODE) {
+                        const alpineParent = editorEl.closest('[x-data]');
+                        if (alpineParent && alpineParent.nodeType === Node.ELEMENT_NODE && alpineParent._x_dataStack) {
+                            const alpineData = alpineParent._x_dataStack[0];
+                            if (typeof alpineData.$getEditor === 'function') {
+                                const editor = alpineData.$getEditor();
+                                if (editor && editor.commands) {
+                                    editor.chain().focus().setContent(data.content).run();
+                                    updated = true;
+                                    console.log('Updated via global editor search');
+                                    break;
+                                }
                             }
                         }
                     }

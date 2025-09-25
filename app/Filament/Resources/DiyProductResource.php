@@ -19,7 +19,7 @@ class DiyProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
 
-    protected static ?string $navigationGroup = 'DIY Management';
+    protected static ?string $navigationGroup = 'DIY Configuration';
 
     protected static ?int $navigationSort = 2;
 

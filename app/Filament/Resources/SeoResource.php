@@ -19,7 +19,7 @@ class SeoResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-magnifying-glass';
 
-    protected static ?string $navigationGroup = 'SEO & Marketing';
+    protected static ?string $navigationGroup = 'Marketing & SEO';
 
     protected static ?int $navigationSort = 1;
 

@@ -19,7 +19,7 @@ class GoogleAnalytics extends Page implements HasForms
 
     protected static ?string $navigationIcon = 'heroicon-o-chart-pie';
 
-    protected static ?string $navigationGroup = 'Analytics';
+    protected static ?string $navigationGroup = 'Dashboard & Analytics';
 
     protected static ?int $navigationSort = 2;
 

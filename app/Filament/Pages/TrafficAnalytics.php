@@ -13,7 +13,7 @@ class TrafficAnalytics extends Page
 
     protected static ?string $slug = 'traffic-analytics';
 
-    protected static ?string $navigationGroup = 'Analytics';
+    protected static ?string $navigationGroup = 'Dashboard & Analytics';
 
     protected static ?string $title = 'Website Analytics';
 

@@ -22,7 +22,7 @@ class TrafficResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
 
-    protected static ?string $navigationGroup = 'Analytics';
+    protected static ?string $navigationGroup = 'Dashboard & Analytics';
 
     protected static ?int $navigationSort = 1;
 

@@ -1,53 +1,4 @@
 <x-app-layout>
-    <!-- Enhanced Services Section -->
-    <div class="relative pt-6 pb-4 overflow-hidden bg-outdoor-primary">
-        <!-- Transparent leaf texture -->
-        <div class="absolute inset-0 opacity-20">
-        </div>
-
-        <!-- Transparent tree ring texture -->
-        <div class="absolute inset-0 opacity-10">
-        </div>
-
-        <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
-
-            <!-- Enhanced services grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5">
-            @foreach(\App\Models\Category::whereNull('parent_id')->orderBy('order','asc')->get() as $category)
-                @if($category->photo()->count() > 0)
-                    <div class="group relative">
-                        <a aria-label="{{$category->title}}" class="block" href="{{$category->getRoute()}}">
-                            <!-- Card container with enhanced hover effects -->
-                            <div class="relative overflow-hidden rounded-2xl bg-white shadow-sm group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1">
-
-                                <!-- Image container with aspect ratio -->
-                                <div class="aspect-square overflow-hidden bg-gray-100">
-                                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                         src="{{asset('storage/'.$category->photo->path)}}"
-                                         alt="{{$category->title}} Photo"
-                                         loading="lazy"/>
-                                </div>
-
-                            </div>
-
-                            <!-- Enhanced title with better typography -->
-                            <div class="mt-3 text-center">
-                                <p class="text-sm font-semibold text-white group-hover:text-white transition-colors duration-200">
-                                    {{$category->title}}
-                                </p>
-                                <!-- Animated underline on hover -->
-                                <div class="h-0.5 w-0 group-hover:w-full mx-auto mt-2 bg-outdoor-gold transition-all duration-300"></div>
-                            </div>
-                        </a>
-                    </div>
-                @endif
-            @endforeach
-            </div>
-
-        </div>
-    </div>
-
-
     <div class="relative">
         <div class="hidden sm:block relative min-h-[600px] lg:min-h-[700px] overflow-hidden">
             <!-- Hero image as img element for faster LCP -->
@@ -123,6 +74,59 @@
                     Company<br>You Can Trust<br><span class="text-brand-primary">Since 1976</span></h1>
             </div>
         </div>
+
+        <!-- Reviews Marquee -->
+        <x-reviews-marquee />
+
+        <!-- Enhanced Services Section -->
+        <div class="relative pt-6 pb-4 overflow-hidden bg-outdoor-primary">
+            <!-- Transparent leaf texture -->
+            <div class="absolute inset-0 opacity-20">
+            </div>
+
+            <!-- Transparent tree ring texture -->
+            <div class="absolute inset-0 opacity-10">
+            </div>
+
+            <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+
+                <!-- Enhanced services grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5">
+                @foreach(\App\Models\Category::whereNull('parent_id')->orderBy('order','asc')->get() as $category)
+                    @if($category->photo()->count() > 0)
+                        <div class="group relative">
+                            <a aria-label="{{$category->title}}" class="block" href="{{$category->getRoute()}}">
+                                <!-- Card container with enhanced hover effects -->
+                                <div class="relative overflow-hidden rounded-2xl bg-white shadow-sm group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1">
+
+                                    <!-- Image container with aspect ratio -->
+                                    <div class="aspect-square overflow-hidden bg-gray-100">
+                                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                             src="{{asset('storage/'.$category->photo->path)}}"
+                                             alt="{{$category->title}} Photo"
+                                             loading="lazy"/>
+                                    </div>
+
+                                </div>
+
+                                <!-- Enhanced title with better typography -->
+                                <div class="mt-3 text-center">
+                                    <p class="text-sm font-semibold text-white group-hover:text-white transition-colors duration-200">
+                                        {{$category->title}}
+                                    </p>
+                                    <!-- Animated underline on hover -->
+                                    <div class="h-0.5 w-0 group-hover:w-full mx-auto mt-2 bg-outdoor-gold transition-all duration-300"></div>
+                                </div>
+                            </a>
+                        </div>
+                    @endif
+                @endforeach
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mission Statement -->
         <x-mission-statement></x-mission-statement>
 
         <!-- Trusted By Section -->

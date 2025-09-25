@@ -2,82 +2,50 @@
     <div class="upper-header hidden lg:block sticky py-2 text-white top-0 z-30 bg-outdoor-mint backdrop-blur-md">
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="flex items-center space-x-2 text-sm font-bold text-white">
-                        <i class="fa-solid fa-phone-volume w-4 h-4"></i>
-                        <span>Call:</span>
-                    </div>
-                    <a href="tel:8634253182" class="text-sm font-bold text-white hover:text-outdoor-gold transition-all duration-200">(863) 425-3182</a>
-                    <span class="text-white/60 text-sm font-bold">•</span>
-                    <a href="tel:8136816181" class="text-sm font-bold text-white hover:text-outdoor-gold transition-all duration-200">(813) 681-6181</a>
-                </div>
-                @if(!request()->routeIs("search"))
-                    <form method="get" action="{{route('search')}}" class="flex-0 w-full max-w-xl">
-                        @csrf
-                        <label class="sr-only block text-sm font-medium leading-6 text-gray-900">Search
-                            Everywhere</label>
-                        <div class="flex rounded-md shadow-sm">
-                            <div class="relative flex flex-grow items-stretch focus-within:z-10">
-                                <input type="text" name="q"
-                                       class="search-input block w-full rounded-none rounded-r-none rounded-l-lg py-2 px-4 text-slate-900 placeholder:text-slate-500 bg-white/95 backdrop-blur-sm border border-white/30 focus:border-outdoor-primary focus:ring-2 focus:ring-outdoor-primary/20 text-sm transition-all duration-200"
-                                       placeholder="Search products, services...">
-                            </div>
-                            <button type="submit"
-                                    class="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-lg px-4 py-2 text-sm font-medium text-slate-700 bg-white hover:bg-gray-50 transition-all duration-200 border border-l-0 border-white/30 ring-0 shadow-sm hover:shadow-md">
-                                <i class="fa-solid fa-magnifying-glass -ml-0.5 h-4 w-4 text-slate-700"></i>
-                                Search
-                            </button>
-                        </div>
-                    </form>
-                @endif
-                <div class="flex items-center gap-3">
-                    <a href="{{route('request-a-quote')}}" class="inline-flex items-center px-5 py-2 bg-white text-black font-semibold rounded-full hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-2xl transform hover:-translate-y-0.5 text-sm">
-                        <i class="fa-solid fa-file-invoice w-4 h-4 mr-2"></i>
-                        Free Estimate
-                    </a>
-                </div>
             </div>
         </div>
     </div>
 
     <header class="relative z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
-        <nav class="mx-auto max-w-7xl px-6 lg:px-8 py-6 flex items-center justify-between">
-            <!-- Logo on Left -->
-            <div class="relative" id="logo-holder">
-                <a aria-label="Danielle Fence Logo" href="{{route('home')}}" class="inline-block bg-danielle p-[14px] rounded-lg relative">
-                    <span class="sr-only">{{env('APP_NAME')}}</span>
-                    <!-- Screw circles in corners -->
-                    <div class="absolute top-[5px] left-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
-                    <div class="absolute top-[5px] right-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
-                    <div class="absolute bottom-[5px] left-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
-                    <div class="absolute bottom-[5px] right-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
-                    <img
-                        class="h-16 sm:h-20 lg:h-24 xl:h-28 w-auto relative z-10"
-                        src="{{Vite::asset('resources/images/logo.webp')}}"
-                        alt="Danielle Fence & Outdoor Living Logo"
-                        width="112"
-                        height="112"
-                        decoding="sync"
-                        fetchpriority="high">
-                </a>
-            </div>
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <!-- Main navigation row -->
+            <nav class="py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Logo on Left -->
+                    <div class="relative" id="logo-holder">
+                        <a aria-label="Danielle Fence Logo" href="{{route('home')}}" class="inline-block bg-danielle p-[14px] rounded-lg relative">
+                            <span class="sr-only">{{env('APP_NAME')}}</span>
+                            <!-- Screw circles in corners -->
+                            <div class="absolute top-[5px] left-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                            <div class="absolute top-[5px] right-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                            <div class="absolute bottom-[5px] left-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                            <div class="absolute bottom-[5px] right-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                            <img
+                                class="h-16 sm:h-20 lg:h-24 xl:h-28 w-auto relative z-10"
+                                src="{{Vite::asset('resources/images/logo.webp')}}"
+                                alt="Danielle Fence & Outdoor Living Logo"
+                                width="112"
+                                height="112"
+                                decoding="sync"
+                                fetchpriority="high">
+                        </a>
+                    </div>
 
             <!-- Navigation on Right -->
             <div class="flex gap-3 lg:hidden">
-                <a class="inline-flex items-center justify-center rounded-lg p-2.5 text-white bg-gradient-to-r from-outdoor-primary to-outdoor-primary/90 shadow-md hover:shadow-lg transition-all duration-200"
-                   href="{{route('search')}}" aria-label="Search Danielle Fence & Outdoor Living">
-                    <i class="fa-solid fa-magnifying-glass h-5 w-5 text-white"></i>
-                </a>
                 <button
                     @click="showMobile = !showMobile"
                     @keyup.escape.window="showMobile = false"
                     type="button"
-                    class="inline-flex items-center justify-center rounded-lg p-2.5 text-white bg-gradient-to-r from-outdoor-secondary to-outdoor-secondary/90 shadow-md hover:shadow-lg transition-all duration-200">
+                    class="flex items-center justify-center w-12 h-12 text-white bg-danielle hover:bg-danielle/90 shadow-lg hover:shadow-xl transition-all duration-200 border-2 border-white/20 rounded-lg">
                     <span class="sr-only">Open main menu</span>
-                    <i class="fa-solid fa-bars h-5 w-5"></i>
+                    <i class="fa-solid fa-bars text-white text-lg"></i>
                 </button>
             </div>
-            <div class="hidden lg:flex lg:items-center lg:gap-x-4">
+                    <!-- Desktop Navigation and Phone Numbers -->
+                    <div class="hidden lg:flex lg:flex-col lg:items-end lg:gap-y-4">
+                        <!-- Menu Items -->
+                        <div class="flex items-center gap-x-4">
                 <!-- Products Dropdown -->
                 <div @click.away="showProducts=false" @keyup.window.escape="showProducts=false" class="relative">
                     <button @click="showProducts=!showProducts" type="button"
@@ -241,55 +209,84 @@
                     Contact Us
                     <span class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-outdoor-primary to-outdoor-primary/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full"></span>
                 </a>
-            </div>
-            </div>
 
-            <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
-                <!-- Background backdrop -->
-                <div x-show="showMobile" x-cloak
-                     x-transition:enter="ease-out duration-300"
-                     x-transition:enter-start="opacity-0"
-                     x-transition:enter-end="opacity-100"
-                     x-transition:leave="ease-in duration-200"
-                     x-transition:leave-start="opacity-100"
-                     x-transition:leave-end="opacity-0"
-                     class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999]"></div>
+                            <!-- Free Estimate -->
+                            <a href="{{route('request-a-quote')}}" class="inline-flex items-center px-5 py-2 bg-outdoor-primary text-white font-semibold rounded-full hover:bg-outdoor-primary/90 transition-all duration-200 shadow-lg hover:shadow-2xl transform hover:-translate-y-0.5 text-sm">
+                                <i class="fa-solid fa-file-invoice w-4 h-4 mr-2"></i>
+                                Free Estimate
+                            </a>
+                        </div>
 
-                <!-- Mobile menu panel -->
-                <div x-show="showMobile" @click.outside="showMobile=false" x-cloak
-                 x-transition:enter="transform transition ease-in-out duration-300"
-                 x-transition:enter-start="translate-x-full"
-                 x-transition:enter-end="translate-x-0"
-                 x-transition:leave="transform transition ease-in-out duration-300"
-                 x-transition:leave-start="translate-x-0"
-                 x-transition:leave-end="translate-x-full"
-                 class="fixed inset-y-0 right-0 z-[10000] w-full max-w-sm overflow-y-auto bg-white shadow-2xl border-l border-gray-200">
-                <!-- Header with close button -->
-                <div class="flex items-center justify-between p-6 border-b border-gray-200">
-                    <div class="flex items-center space-x-2">
-                        <img class="h-8 w-auto" src="{{Vite::asset('resources/images/logo.webp')}}" alt="Danielle Fence Logo">
-                        <span class="text-lg font-bold text-slate-800">Menu</span>
+                        <!-- Phone Numbers -->
+                        <div class="flex items-center space-x-4 text-sm pt-4">
+                            <div class="flex items-center space-x-2 text-slate-600">
+                                <i class="fa-solid fa-phone-volume w-3.5 h-3.5 text-outdoor-primary"></i>
+                                <span class="font-medium">Call:</span>
+                            </div>
+                            <a href="tel:8634253182" class="font-semibold text-outdoor-primary hover:text-outdoor-primary/80 transition-all duration-200">(863) 425-3182</a>
+                            <span class="text-slate-300 font-bold">•</span>
+                            <a href="tel:8136816181" class="font-semibold text-outdoor-primary hover:text-outdoor-primary/80 transition-all duration-200">(813) 681-6181</a>
+                        </div>
                     </div>
-                    <button @click="showMobile = false" type="button" class="rounded-lg p-2 text-slate-600 hover:bg-gray-100 transition-all duration-200">
-                        <span class="sr-only">Close menu</span>
-                        <i class="fa-solid fa-xmark h-6 w-6"></i>
-                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+        <!-- Background backdrop -->
+        <div x-show="showMobile" x-cloak
+             x-transition:enter="ease-out duration-300"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
+             x-transition:leave="ease-in duration-200"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999]"></div>
+
+        <!-- Mobile menu panel -->
+        <div x-show="showMobile" @click.outside="showMobile=false" x-cloak
+         x-transition:enter="transform transition ease-in-out duration-300"
+         x-transition:enter-start="translate-x-full"
+         x-transition:enter-end="translate-x-0"
+         x-transition:leave="transform transition ease-in-out duration-300"
+         x-transition:leave-start="translate-x-0"
+         x-transition:leave-end="translate-x-full"
+         class="fixed inset-y-0 right-0 z-[9999] w-full max-w-sm overflow-y-auto bg-white shadow-2xl">
+                <!-- Header with close button -->
+                <div class="bg-danielle text-white p-6 shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <img class="h-8 w-auto bg-white rounded-lg p-1" src="{{Vite::asset('resources/images/logo.webp')}}" alt="Danielle Fence Logo">
+                            <span class="text-xl font-bold">Menu</span>
+                        </div>
+                        <button @click="showMobile = false" type="button" class="rounded-lg p-2 text-white hover:bg-white/20 transition-all duration-200">
+                            <span class="sr-only">Close menu</span>
+                            <i class="fa-solid fa-xmark h-5 w-5"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Contact info -->
-                <div class="px-6 py-4 bg-outdoor-primary/10 border-b border-gray-200">
-                    <div class="text-sm text-slate-600">
-                        Call us: <a aria-label="Phone Number" href="tel:863-425-3182" class="font-semibold text-outdoor-primary hover:text-outdoor-primary/80 transition-colors">(863) 425-3182</a>
+                <div class="px-6 py-4 bg-outdoor-mint/10 border-b border-gray-200">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-outdoor-primary rounded-full p-2">
+                            <i class="fa-solid fa-phone w-4 h-4 text-white"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-600 uppercase tracking-wide font-medium">Call us now</div>
+                            <a aria-label="Phone Number" href="tel:863-425-3182" class="text-lg font-bold text-outdoor-primary hover:text-outdoor-primary/80 transition-colors">(863) 425-3182</a>
+                        </div>
                     </div>
                 </div>
                 <!-- Navigation -->
                 <div class="px-6 py-6">
-                    <div class="space-y-1">
+                    <div class="space-y-2">
                         <!-- Products Dropdown -->
                         <div>
                             <button @click="showProducts = !showProducts" type="button"
-                                    class="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-semibold text-slate-800 hover:bg-gray-50 transition-all duration-200">
+                                    class="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-semibold text-slate-800 hover:bg-gray-50 transition-all duration-200">
                                 <span class="flex items-center">
                                     <i class="fa-solid fa-house-building w-5 h-5 mr-3 text-outdoor-primary"></i>
                                     Products
@@ -303,7 +300,7 @@
                                  x-transition:leave="transition ease-in duration-150"
                                  x-transition:leave-start="opacity-100 translate-y-0"
                                  x-transition:leave-end="opacity-0 -translate-y-1"
-                                 class="ml-6 mt-2 space-y-1">
+                                 class="ml-8 mt-2 space-y-1">
                                 @foreach(\App\Services\CacheService::getProductCategories() as $productCategory)
                                     <a aria-label="{{$productCategory->title}}" href="{{$productCategory->getRoute()}}"
                                        class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-outdoor-primary hover:bg-gray-50 transition-all duration-200">
@@ -316,7 +313,7 @@
                         <!-- Services Dropdown -->
                         <div>
                             <button @click="showServices = !showServices" type="button"
-                                    class="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-semibold text-slate-800 hover:bg-gray-50 transition-all duration-200">
+                                    class="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-semibold text-slate-800 hover:bg-gray-50 transition-all duration-200">
                                 <span class="flex items-center">
                                     <i class="fa-solid fa-screwdriver-wrench w-5 h-5 mr-3 text-outdoor-primary"></i>
                                     Services
@@ -426,8 +423,6 @@
                     </div>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </div>
 </div>
-
-<x-reviews-marquee />

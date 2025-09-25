@@ -19,7 +19,7 @@ class SpecialResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-gift';
 
-    protected static ?string $navigationGroup = 'Marketing & Promotions';
+    protected static ?string $navigationGroup = 'Marketing & SEO';
 
     protected static ?int $navigationSort = 5;
 

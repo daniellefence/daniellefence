@@ -28,45 +28,37 @@
                     </div>
                 </div>
 
-                <!-- Application Health -->
+                <!-- Traffic Sources -->
                 <div>
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                        🏥 Application Health
+                        🌐 Traffic Sources
                     </h3>
-                    <div class="space-y-3">
-                        <div class="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                            <div class="flex items-center">
-                                <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
-                                <span class="font-medium text-green-800 dark:text-green-200">
-                                    Pulse Monitoring Active
+                    <div class="space-y-2">
+                        @forelse($traffic_sources as $source)
+                            <div class="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800 rounded">
+                                <span class="text-sm text-gray-600 dark:text-gray-300">
+                                    {{ $source->key }}
+                                </span>
+                                <span class="text-xs text-gray-500">
+                                    {{ $source->value }} visits
                                 </span>
                             </div>
-                            <p class="text-sm text-green-600 dark:text-green-300 mt-1">
-                                Laravel Pulse is collecting application metrics
-                            </p>
+                        @empty
+                            <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-center">
+                                <p class="text-sm text-gray-500">No traffic source data yet</p>
+                            </div>
+                        @endforelse
+
+                        <div class="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium text-blue-800 dark:text-blue-200">
+                                    Total Page Views
+                                </span>
+                                <span class="text-lg font-bold text-blue-900 dark:text-blue-100">
+                                    {{ number_format($total_page_views) }}
+                                </span>
+                            </div>
                         </div>
-
-                        @if($exceptions->isNotEmpty())
-                            <div class="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
-                                    <span class="font-medium text-red-800 dark:text-red-200">
-                                        {{ $exceptions->count() }} Recent Exceptions
-                                    </span>
-                                </div>
-                            </div>
-                        @endif
-
-                        @if($slow_queries->isNotEmpty())
-                            <div class="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
-                                    <span class="font-medium text-yellow-800 dark:text-yellow-200">
-                                        {{ $slow_queries->count() }} Slow Queries Detected
-                                    </span>
-                                </div>
-                            </div>
-                        @endif
 
                         <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                             <p class="text-sm text-gray-500">Monitoring</p>

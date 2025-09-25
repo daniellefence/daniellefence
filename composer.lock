@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03eb1f520a3c83fcf8213c81c8ab01fd",
+    "content-hash": "20c28cce8ff1cd5d08a121cc5e1be36c",
     "packages": [
         {
             "name": "althinect/filament-spatie-roles-permissions",
@@ -188,87 +188,6 @@
                 "source": "https://github.com/Bacon/BaconQrCode/tree/v3.0.1"
             },
             "time": "2024-10-01T13:55:55+00:00"
-        },
-        {
-            "name": "bezhansalleh/filament-google-analytics",
-            "version": "2.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bezhanSalleh/filament-google-analytics.git",
-                "reference": "41578362fbee9bce9ec5300a05f76c10e0257641"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bezhanSalleh/filament-google-analytics/zipball/41578362fbee9bce9ec5300a05f76c10e0257641",
-                "reference": "41578362fbee9bce9ec5300a05f76c10e0257641",
-                "shasum": ""
-            },
-            "require": {
-                "filament/widgets": "^3.0",
-                "php": "^8.1",
-                "spatie/laravel-analytics": "^5.0",
-                "spatie/laravel-package-tools": "^1.9"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.2",
-                "nunomaduro/collision": "^7.0",
-                "orchestra/testbench": "^8.0",
-                "pestphp/pest": "^2.10",
-                "phpunit/phpunit": "^10.1",
-                "spatie/ray": "^1.40"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "aliases": {
-                        "FilamentGoogleAnalytics": "BezhanSalleh\\FilamentGoogleAnalytics\\Facades\\FilamentGoogleAnalytics"
-                    },
-                    "providers": [
-                        "BezhanSalleh\\FilamentGoogleAnalytics\\FilamentGoogleAnalyticsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "BezhanSalleh\\FilamentGoogleAnalytics\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bezhan Salleh",
-                    "email": "bezhan_salleh@yahoo.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Google Analytics integration with Filamentphp (FilamentAdmin)",
-            "homepage": "https://github.com/bezhansalleh/filament-google-analytics",
-            "keywords": [
-                "analytics",
-                "bezhanSalleh",
-                "filament-analytics",
-                "filament-google-analytics",
-                "filament-plugin",
-                "filamentadmin",
-                "google-analytics",
-                "laravel",
-                "livewire",
-                "php"
-            ],
-            "support": {
-                "issues": "https://github.com/bezhanSalleh/filament-google-analytics/issues",
-                "source": "https://github.com/bezhanSalleh/filament-google-analytics/tree/2.1.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/bezhanSalleh",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-08-19T05:01:59+00:00"
         },
         {
             "name": "bezhansalleh/filament-shield",
