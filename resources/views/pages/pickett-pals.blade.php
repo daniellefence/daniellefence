@@ -33,8 +33,8 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Grillbert</h3>
-                        <p class="text-sm text-slate-600 mb-3">An animated BBQ grill with big, expressive eyes. His round hood lifts to release smoke—and fire when excited!</p>
-                        <p class="text-xs text-slate-500 italic">Plays guitar</p>
+                        <p class="text-sm text-slate-600 mb-3">A living, red-and-silver BBQ grill who's the heart of the party. Sizzles when excited, puffs smoke when thinking, and his lid clanks like laughter. This enthusiastic grill on wheels loves rolling into adventures!</p>
+                        <p class="text-xs text-slate-500 italic">Lead guitarist • The enthusiast</p>
                     </div>
                 </div>
 
@@ -47,8 +47,8 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Flip Grillson</h3>
-                        <p class="text-sm text-slate-600 mb-3">A burger flipper with cowboy hat and mustache. Afraid to flip burgers—his hat might catch fire!</p>
-                        <p class="text-xs text-slate-500 italic">Plays banjo</p>
+                        <p class="text-sm text-slate-600 mb-3">The daredevil cowboy spatula who yells "Yee-haw!" before every adventure. Reckless and bold, he initiates most of the chaos with wild fence "durability tests" that never go as planned. Always ready for action!</p>
+                        <p class="text-xs text-slate-500 italic">Banjo player • The daredevil • "Hold yer horses!"</p>
                     </div>
                 </div>
 
@@ -61,8 +61,8 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Jimmy D. Pickett</h3>
-                        <p class="text-sm text-slate-600 mb-3">An animated bug with big eyes and expressive antennae. Polite, curious about the backyard world.</p>
-                        <p class="text-xs text-slate-500 italic">Often on Flip's hat • Plays banjo</p>
+                        <p class="text-sm text-slate-600 mb-3">The cautious bug perched on Flip's cowboy hat, serving as the voice of reason nobody listens to. Provides deadpan commentary and warnings with his catchphrase "I got a bad feeling about this" right before chaos ensues.</p>
+                        <p class="text-xs text-slate-500 italic">Banjo duo with Flip • The straight man • Professional worrier</p>
                     </div>
                 </div>
 
@@ -78,8 +78,8 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Dr. Fencestopher</h3>
-                        <p class="text-sm text-slate-600 mb-3">Vinyl fence character with lab coat and tie. Knowledgeable about all things fence-related.</p>
-                        <p class="text-xs text-slate-500 italic">Plays drums</p>
+                        <p class="text-sm text-slate-600 mb-3">The scientific vinyl fence genius with clipboard in hand, always calculating and measuring. The doomed voice of reason who tries preventing disasters with logic and calculations, but inevitably gets swept into the chaos anyway. Hosts "Testimonial Tuesday" segments!</p>
+                        <p class="text-xs text-slate-500 italic">Drummer • The scientist • "According to my calculations..."</p>
                     </div>
                 </div>
 
@@ -92,8 +92,8 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Noah Fence</h3>
-                        <p class="text-sm text-slate-600 mb-3">Host of "No Offense" - the fence industry's most trusted Q&A show. Noah provides expert advice on choosing contractors, materials, and designs.</p>
-                        <p class="text-xs text-slate-500 italic">The Fence Industry Expert</p>
+                        <p class="text-sm text-slate-600 mb-3">The zen master host of "No Offense" - providing calm, meditative wisdom about fencing and life. While others panic, Noah focuses on inner peace and staying grounded, offering philosophical insights between the chaos.</p>
+                        <p class="text-xs text-slate-500 italic">The philosopher • Master of inner peace • "Stay grounded"</p>
                     </div>
                 </div>
 
