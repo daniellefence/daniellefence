@@ -66,8 +66,27 @@
     <x-open-graph/>
     <x-schema-markup/>
 
-    <!-- FontAwesome Kit - Defer loading -->
-    <script src="https://kit.fontawesome.com/560f7d512e.js" crossorigin="anonymous" async></script>
+    <!-- FontAwesome Kit - Load only when needed for better performance -->
+    <script>
+        // Lazy load FontAwesome to reduce initial load time
+        const loadFontAwesome = () => {
+            if (!window.fontAwesomeLoaded) {
+                window.fontAwesomeLoaded = true;
+                const script = document.createElement('script');
+                script.src = 'https://kit.fontawesome.com/560f7d512e.js';
+                script.crossOrigin = 'anonymous';
+                script.defer = true;
+                document.head.appendChild(script);
+            }
+        };
+
+        // Load on interaction or after 2 seconds on mobile
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadFontAwesome, { timeout: 2000 });
+        } else {
+            setTimeout(loadFontAwesome, 2000);
+        }
+    </script>
 
     <!-- Critical CSS inlined for performance -->
     <style>
@@ -218,17 +237,9 @@
         }
     })();
 
-    // Service Worker Registration for Performance
+    // Service Worker Registration - Register immediately for faster caching
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
-                .then(registration => {
-                    console.log('SW registered: ', registration);
-                })
-                .catch(registrationError => {
-                    console.log('SW registration failed: ', registrationError);
-                });
-        });
+        navigator.serviceWorker.register('/sw.js').catch(e => console.error('SW registration failed:', e));
     }
 </script>
 

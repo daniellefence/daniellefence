@@ -5,8 +5,11 @@
             <img src="{{ Vite::asset('resources/images/home_hero.webp') }}"
                  alt="Danielle Fence & Outdoor Living - Central Florida's Premier Fence Company"
                  class="absolute inset-0 w-full h-full object-cover"
+                 width="1920"
+                 height="1080"
                  fetchpriority="high"
-                 decoding="async">
+                 decoding="sync"
+                 loading="eager">
             <div class="relative z-10 min-h-[600px] lg:min-h-[700px]">
                 <div class="max-w-[1920px] mx-auto flex">
                     <!-- Left column -->
@@ -57,10 +60,12 @@
                             <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] lg:border-l-[12px] lg:border-r-[12px] lg:border-t-[12px] 2xl:border-l-[14px] 2xl:border-r-[14px] 2xl:border-t-[14px] border-l-transparent border-r-transparent border-t-brand-light"></div>
                         </div>
 
-                        <!-- Video -->
+                        <!-- Video - Lazy loaded on mobile -->
                         <a href="{{ route('chat') }}" class="block w-5/6 lg:w-2/3 2xl:w-3/5 max-w-[500px] 2xl:max-w-[580px]">
-                            <video autoplay="" loop="" muted="" playsinline="" class="w-full h-auto rounded-2xl alpha-video hover:scale-105 transition-transform duration-300 cursor-pointer">
-                                <source src="{{Vite::asset('resources/videos/grillbert.webm')}}" type="video/webm">
+                            <video autoplay="" loop="" muted="" playsinline=""
+                                   class="w-full h-auto rounded-2xl alpha-video hover:scale-105 transition-transform duration-300 cursor-pointer"
+                                   poster="{{ Vite::asset('resources/images/Grilllbert.webp') }}"
+                                   preload="metadata">
                                 <source src="{{Vite::asset('resources/videos/grillbert.webm')}}" type="video/webm">
                             </video>
                         </a>

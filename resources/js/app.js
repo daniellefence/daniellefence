@@ -1,5 +1,9 @@
 import './bootstrap';
 import AOS from 'aos';
+import { initPerformanceOptimizations } from './performance';
+
+// Initialize performance optimizations immediately
+initPerformanceOptimizations();
 
 // Let Livewire handle Alpine.js completely - don't start our own instance
 

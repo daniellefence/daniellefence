@@ -1,11 +1,4 @@
 <div x-data="{ showMobile: false, showProducts: false, showServices: false, showCompany: false }">
-    <div class="upper-header hidden lg:block sticky py-2 text-white top-0 z-30 bg-outdoor-mint backdrop-blur-md">
-        <div class="container mx-auto px-6">
-            <div class="flex items-center justify-between">
-            </div>
-        </div>
-    </div>
-
     <header class="relative z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <!-- Main navigation row -->
@@ -22,12 +15,14 @@
                             <div class="absolute bottom-[5px] right-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
                             <img
                                 class="h-16 sm:h-20 lg:h-24 xl:h-28 w-auto relative z-10"
+                                style="aspect-ratio: 288/147; min-height: 64px;"
                                 src="{{Vite::asset('resources/images/logo.webp')}}"
                                 alt="Danielle Fence & Outdoor Living Logo"
-                                width="112"
-                                height="112"
+                                width="288"
+                                height="147"
                                 decoding="sync"
-                                fetchpriority="high">
+                                fetchpriority="high"
+                                loading="eager">
                         </a>
                     </div>
 
@@ -258,7 +253,7 @@
                 <div class="bg-danielle text-white p-6 shadow-lg">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-3">
-                            <img class="h-8 w-auto bg-white rounded-lg p-1" src="{{Vite::asset('resources/images/logo.webp')}}" alt="Danielle Fence Logo">
+                            <img class="h-8 w-auto bg-white rounded-lg p-1" style="aspect-ratio: 288/147;" src="{{Vite::asset('resources/images/logo.webp')}}" alt="Danielle Fence Logo" width="288" height="147">
                             <span class="text-xl font-bold">Menu</span>
                         </div>
                         <button @click="showMobile = false" type="button" class="rounded-lg p-2 text-white hover:bg-white/20 transition-all duration-200">

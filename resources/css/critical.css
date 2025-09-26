@@ -1,16 +1,22 @@
-/* Critical CSS - Above the fold styles only */
+/* Critical CSS - Optimized for Mobile Performance */
 
-/* Essential base styles */
+/* Essential base styles with mobile-first approach */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+}
+
 html, body {
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
     margin: 0;
     padding: 0;
     color: #5a5a5a;
     line-height: 1.5;
+    overscroll-behavior-y: none;
 }
 
 *, *::before, *::after {
@@ -36,14 +42,14 @@ html, body {
 .mb-4 { margin-bottom: 1rem; }
 .mt-8 { margin-top: 2rem; }
 
-/* Hero section specific styles */
+/* Hero section - Mobile optimized */
 .hero-bg {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
     position: relative;
-    /* Remove background-image from critical CSS to avoid loading */
+    contain: layout style;
 }
 
 .hero-overlay {
@@ -52,12 +58,15 @@ html, body {
     inset: 0;
 }
 
-/* Navigation styles */
+/* Navigation styles - Optimized */
 header {
     position: relative;
     z-index: 50;
-    background: #0ea5e9;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+    contain: layout style paint;
 }
 
 .nav-item {
@@ -98,31 +107,63 @@ h2 {
 .text-outdoor-primary { color: #16a34a; }
 .bg-outdoor-primary { background-color: #16a34a; }
 
-/* Animation optimization */
-.transition-all { transition: all 0.2s ease-in-out; }
+/* Animation optimization - Use transform instead of all */
+.transition-all {
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    will-change: transform, opacity;
+}
 
 /* Hide until JS loads */
 [x-cloak] { display: none !important; }
 
-/* Marquee animations - critical for reviews section */
+/* Marquee animations - GPU optimized */
 @keyframes marquee {
     to {
-        transform: translateY(-50%);
+        transform: translate3d(0, -50%, 0);
     }
 }
 
 .animate-marquee {
     animation: marquee var(--marquee-duration, 60s) linear infinite;
-    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 .animate-marquee:hover {
     animation-play-state: paused;
 }
 
-/* Essential responsive */
+/* Mobile-first responsive with performance hints */
 @media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
-    .container { padding: 0 0.5rem; }
+    h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+    h2 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    .container {
+        padding: 0 0.5rem;
+        contain: layout style;
+    }
+    /* Disable hover effects on mobile for better performance */
+    .nav-item:hover {
+        background-color: inherit;
+    }
+}
+
+/* Prevent layout shift */
+img, video {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: attr(width) / attr(height);
+}
+
+/* Font loading optimization */
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    src: local('Inter'), url('https://fonts.bunny.net/inter/files/inter-latin-400-normal.woff2') format('woff2');
 }
