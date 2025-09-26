@@ -1,0 +1,832 @@
+
+DANIELLE FENCE PRODUCT LINK TEST REPORT
+=======================================
+Test Date: 9/26/2025, 11:31:03 AM
+Base URL: https://newdaniellefence.test
+
+SUMMARY
+-------
+Total Products Tested: 204
+Successful Links: 204
+Failed Links: 0
+Success Rate: 100.00%
+
+
+DETAILED RESULTS
+--------------------------------------------------
+✅ Lakeland Vinyl Fence (Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/privacy-fence/lakeland-vinyl-fence
+   Status: SUCCESS (757ms)
+
+✅ Lakeland Horizontal Vinyl Fence (Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/privacy-fence/lakeland-horizontal-vinyl-fence
+   Status: SUCCESS (879ms)
+
+✅ Lakeland Convex Vinyl Fence (Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/privacy-fence/lakeland-convex-vinyl-fence
+   Status: SUCCESS (2154ms)
+
+✅ Lakeland Concave Vinyl Fence (Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/privacy-fence/lakeland-concave-vinyl-fence
+   Status: SUCCESS (2150ms)
+
+✅ Maxwell Vinyl Fence (Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/privacy-fence/maxwell-vinyl-fence
+   Status: SUCCESS (2145ms)
+
+✅ Horizontal Maxwell Vinyl Fence (Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/privacy-fence/horizontal-maxwell-vinyl-fence
+   Status: SUCCESS (970ms)
+
+✅ Windsor Vinyl Fence (Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/privacy-fence/windsor-vinyl-fence
+   Status: SUCCESS (1269ms)
+
+✅ Hollingsworth Vinyl Fence (Semi-Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/semi-privacy-fence/hollingsworth-vinyl-fence
+   Status: SUCCESS (891ms)
+
+✅ Montauk Vinyl Fence (Semi-Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/semi-privacy-fence/montauk-vinyl-fence
+   Status: SUCCESS (2146ms)
+
+✅ Heather Vinyl Fence (Semi-Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/semi-privacy-fence/heather-vinyl-fence
+   Status: SUCCESS (2146ms)
+
+✅ Lakeview Vinyl Fence (Semi-Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/semi-privacy-fence/lakeview-vinyl-fence
+   Status: SUCCESS (2141ms)
+
+✅ Oceanside Vinyl Fence (Semi-Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/semi-privacy-fence/oceanside-vinyl-fence
+   Status: SUCCESS (968ms)
+
+✅ Melbourne 2 Vinyl Fence (Semi-Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/semi-privacy-fence/melbourne-2-vinyl-fence
+   Status: SUCCESS (1268ms)
+
+✅ Melbourne Lattice Vinyl Fence (Semi-Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/semi-privacy-fence/melbourne-lattice-vinyl-fence
+   Status: SUCCESS (893ms)
+
+✅ Highland Vinyl Fence (Semi-Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/semi-privacy-fence/highland-vinyl-fence
+   Status: SUCCESS (2126ms)
+
+✅ Spirit Lake Vinyl Fence (Semi-Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/semi-privacy-fence/spirit-lake-vinyl-fence
+   Status: SUCCESS (2152ms)
+
+✅ Sacramento Vinyl Fence (Picket Fence)
+   URL: https://newdaniellefence.test/fencing/picket-fence/sacramento-vinyl-fence
+   Status: SUCCESS (2148ms)
+
+✅ Sundance Vinyl Fence (Picket Fence)
+   URL: https://newdaniellefence.test/fencing/picket-fence/sundance-vinyl-fence
+   Status: SUCCESS (976ms)
+
+✅ Dawson Vinyl Fence (Picket Fence)
+   URL: https://newdaniellefence.test/fencing/picket-fence/dawson-vinyl-fence
+   Status: SUCCESS (679ms)
+
+✅ Dartmouth Vinyl Fence (Picket Fence)
+   URL: https://newdaniellefence.test/fencing/picket-fence/dartmouth-vinyl-fence
+   Status: SUCCESS (1473ms)
+
+✅ 2-Rail Post & Rail Vinyl Fence (Post & Rail Fence)
+   URL: https://newdaniellefence.test/fencing/post-rail-fence/2-rail-post-rail-vinyl-fence
+   Status: SUCCESS (2148ms)
+
+✅ 3-Rail Post & Rail Vinyl Fence (Post & Rail Fence)
+   URL: https://newdaniellefence.test/fencing/post-rail-fence/3-rail-post-rail-vinyl-fence
+   Status: SUCCESS (2146ms)
+
+✅ 4-Rail Post & Rail Vinyl Fence (Post & Rail Fence)
+   URL: https://newdaniellefence.test/fencing/post-rail-fence/4-rail-post-rail-vinyl-fence
+   Status: SUCCESS (2131ms)
+
+✅ Crossbuck Post & Rail Vinyl Fence (Post & Rail Fence)
+   URL: https://newdaniellefence.test/fencing/post-rail-fence/crossbuck-post-rail-vinyl-fence
+   Status: SUCCESS (983ms)
+
+✅ Stockade Wood Fence (Wood Fence)
+   URL: https://newdaniellefence.test/fencing/wood-fence/stockade-wood-fence
+   Status: SUCCESS (2146ms)
+
+✅ Wood Board on Board Fence (Wood Fence)
+   URL: https://newdaniellefence.test/fencing/wood-fence/wood-board-on-board-fence
+   Status: SUCCESS (2135ms)
+
+✅ Picket Wood Fence (Wood Fence)
+   URL: https://newdaniellefence.test/fencing/wood-fence/picket-wood-fence
+   Status: SUCCESS (2123ms)
+
+✅ Shadowbox Wood Fence (Wood Fence)
+   URL: https://newdaniellefence.test/fencing/wood-fence/shadowbox-wood-fence
+   Status: SUCCESS (2152ms)
+
+✅ Custom Wood Fence (Wood Fence)
+   URL: https://newdaniellefence.test/fencing/wood-fence/custom-wood-fence
+   Status: SUCCESS (1127ms)
+
+✅ Avalon Aluminum Fence (Aluminum Fence)
+   URL: https://newdaniellefence.test/fencing/aluminum-fence/avalon-aluminum-fence
+   Status: SUCCESS (2127ms)
+
+✅ Viera Aluminum Fence (Aluminum Fence)
+   URL: https://newdaniellefence.test/fencing/aluminum-fence/viera-aluminum-fence
+   Status: SUCCESS (2123ms)
+
+✅ Capeview Aluminum Fence (Aluminum Fence)
+   URL: https://newdaniellefence.test/fencing/aluminum-fence/capeview-aluminum-fence
+   Status: SUCCESS (2151ms)
+
+✅ Bentley Aluminum Fence (Aluminum Fence)
+   URL: https://newdaniellefence.test/fencing/aluminum-fence/bentley-aluminum-fence
+   Status: SUCCESS (1981ms)
+
+✅ Hawthorne Aluminum Fence (Aluminum Fence)
+   URL: https://newdaniellefence.test/fencing/aluminum-fence/hawthorne-aluminum-fence
+   Status: SUCCESS (1041ms)
+
+✅ Fairmont Aluminum Fence (Aluminum Fence)
+   URL: https://newdaniellefence.test/fencing/aluminum-fence/fairmont-aluminum-fence
+   Status: SUCCESS (890ms)
+
+✅ Allegheny Bufftech Molded Fence (Allegheny & Sherwood Fence)
+   URL: https://newdaniellefence.test/fencing/allegheny-sherwood-fence/allegheny-bufftech-molded-fence
+   Status: SUCCESS (885ms)
+
+✅ Sherwood Bufftech Molded Fence (Allegheny & Sherwood Fence)
+   URL: https://newdaniellefence.test/fencing/allegheny-sherwood-fence/sherwood-bufftech-molded-fence
+   Status: SUCCESS (887ms)
+
+✅ Allegheny Bufftech Molded Gates (Allegheny & Sherwood Fence)
+   URL: https://newdaniellefence.test/fencing/allegheny-sherwood-fence/allegheny-bufftech-molded-gates
+   Status: SUCCESS (893ms)
+
+✅ Vinyl Gates (Gates)
+   URL: https://newdaniellefence.test/fencing/gates/vinyl-gates
+   Status: SUCCESS (884ms)
+
+✅ Aluminum Gates (Gates)
+   URL: https://newdaniellefence.test/fencing/gates/aluminum-gates
+   Status: SUCCESS (885ms)
+
+✅ Wood Gates (Gates)
+   URL: https://newdaniellefence.test/fencing/gates/wood-gates
+   Status: SUCCESS (881ms)
+
+✅ Allegheny Bufftech Molded Gates (Gates)
+   URL: https://newdaniellefence.test/fencing/gates/allegheny-bufftech-molded-gates
+   Status: SUCCESS (888ms)
+
+✅ Estate Gates (Gates)
+   URL: https://newdaniellefence.test/fencing/gates/estate-gates
+   Status: SUCCESS (885ms)
+
+✅ Security Aluminum Gates (Gates)
+   URL: https://newdaniellefence.test/fencing/gates/security-aluminum-gates
+   Status: SUCCESS (888ms)
+
+✅ Bufftech Chesterfield Certagrain Texture (Textured Vinyl Fence)
+   URL: https://newdaniellefence.test/fencing/textured-vinyl-fence/bufftech-chesterfield-certagrain-texture
+   Status: SUCCESS (887ms)
+
+✅ Bufftech Post & Rail Certagrain Texture (Textured Vinyl Fence)
+   URL: https://newdaniellefence.test/fencing/textured-vinyl-fence/bufftech-post-rail-certagrain-texture
+   Status: SUCCESS (897ms)
+
+✅ Metal Privacy Fence (Metal Privacy Fence)
+   URL: https://newdaniellefence.test/fencing/metal-privacy-fence/metal-privacy-fence
+   Status: SUCCESS (884ms)
+
+✅ Chain Link Fence (Chain Link Fence)
+   URL: https://newdaniellefence.test/fencing/chain-link-fence/chain-link-fence
+   Status: SUCCESS (891ms)
+
+✅ Aluminum Frame Outdoor Kitchens (Kitchen Styles)
+   URL: https://newdaniellefence.test/fencing/kitchen-styles/aluminum-frame-outdoor-kitchens
+   Status: SUCCESS (885ms)
+
+✅ NatureKast Outdoor Kitchen (Kitchen Styles)
+   URL: https://newdaniellefence.test/fencing/kitchen-styles/naturekast-outdoor-kitchen
+   Status: SUCCESS (886ms)
+
+✅ Premium Polymer Outdoor Kitchen Cabinets (Kitchen Styles)
+   URL: https://newdaniellefence.test/fencing/kitchen-styles/premium-polymer-outdoor-kitchen-cabinets
+   Status: SUCCESS (887ms)
+
+✅ Vertical Door (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/vertical-door
+   Status: SUCCESS (889ms)
+
+✅ Horizontal Door (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/horizontal-door
+   Status: SUCCESS (886ms)
+
+✅ Double Doors (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/double-doors
+   Status: SUCCESS (892ms)
+
+✅ Single Drawer & Trash Drawer (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/single-drawer-trash-drawer
+   Status: SUCCESS (886ms)
+
+✅ Door & Two Drawer Combo (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/door-two-drawer-combo
+   Status: SUCCESS (887ms)
+
+✅ Door & Three Drawer Combo (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/door-three-drawer-combo
+   Status: SUCCESS (888ms)
+
+✅ Two Drawer (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/two-drawer
+   Status: SUCCESS (885ms)
+
+✅ Three Drawer (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/three-drawer
+   Status: SUCCESS (888ms)
+
+✅ FireMagic Select Single Access Door (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/firemagic-select-single-access-door
+   Status: SUCCESS (891ms)
+
+✅ FireMagic Select Double Access Door (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/firemagic-select-double-access-door
+   Status: SUCCESS (888ms)
+
+✅ FireMagic Single Door with Dual Drawers (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/firemagic-single-door-with-dual-drawers
+   Status: SUCCESS (885ms)
+
+✅ FireMagic Select Masonry Drawer (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/firemagic-select-masonry-drawer
+   Status: SUCCESS (892ms)
+
+✅ FireMagic Select Single Drawer (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/firemagic-select-single-drawer
+   Status: SUCCESS (886ms)
+
+✅ FireMagic Select Double Drawer (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/firemagic-select-double-drawer
+   Status: SUCCESS (883ms)
+
+✅ FireMagic Select Triple Drawer (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/firemagic-select-triple-drawer
+   Status: SUCCESS (806ms)
+
+✅ FireMagic Select Electric Warming Drawer (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/firemagic-select-electric-warming-drawer
+   Status: SUCCESS (971ms)
+
+✅ Memphis Lower Drawers (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/memphis-lower-drawers
+   Status: SUCCESS (892ms)
+
+✅ Memphis Lower Doors (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/memphis-lower-doors
+   Status: SUCCESS (888ms)
+
+✅ Two Drawer Stack (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/two-drawer-stack
+   Status: SUCCESS (887ms)
+
+✅ Three Drawer Stack (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/three-drawer-stack
+   Status: SUCCESS (884ms)
+
+✅ Controller Drawer - Trash 15in. (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/controller-drawer-trash-15in
+   Status: SUCCESS (892ms)
+
+✅ Single Drawer and Trash Drawer 15in. (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/single-drawer-and-trash-drawer-15in
+   Status: SUCCESS (889ms)
+
+✅ Four Drawer Stack (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/four-drawer-stack
+   Status: SUCCESS (887ms)
+
+✅ Trash Drawer (Doors and Drawers)
+   URL: https://newdaniellefence.test/fencing/doors-and-drawers/trash-drawer
+   Status: SUCCESS (891ms)
+
+✅ The All New Gas Griddle (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/the-all-new-gas-griddle
+   Status: SUCCESS (887ms)
+
+✅ 36in. American Muscle Grill (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/36in-american-muscle-grill
+   Status: SUCCESS (884ms)
+
+✅ Echelon Diamond E790i Built-in Grill (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/echelon-diamond-e790i-built-in-grill
+   Status: SUCCESS (889ms)
+
+✅ FireMagic Echelon Diamond E660i Built-in Grill (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/firemagic-echelon-diamond-e660i-built-in-grill
+   Status: SUCCESS (891ms)
+
+✅ Summerset TRL Built-in Grill (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/summerset-trl-built-in-grill
+   Status: SUCCESS (889ms)
+
+✅ Summerset Sizzler Built-in Grill (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/summerset-sizzler-built-in-grill
+   Status: SUCCESS (884ms)
+
+✅ FireMagic Echelon Diamond Double Side Burner (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/firemagic-echelon-diamond-double-side-burner
+   Status: SUCCESS (876ms)
+
+✅ FireMagic Echelon Diamond Power Burner (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/firemagic-echelon-diamond-power-burner
+   Status: SUCCESS (884ms)
+
+✅ Summerset TRL Double Side Burner (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/summerset-trl-double-side-burner
+   Status: SUCCESS (882ms)
+
+✅ Summerset Sizzler Side Burners (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/summerset-sizzler-side-burners
+   Status: SUCCESS (882ms)
+
+✅ AOG NBL Built-in Grill (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/aog-nbl-built-in-grill
+   Status: SUCCESS (884ms)
+
+✅ FireMagic Aurora Built-in Grill (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/firemagic-aurora-built-in-grill
+   Status: SUCCESS (882ms)
+
+✅ Memphis Elite Built-in 304 SS Alloy (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/memphis-elite-built-in-304-ss-alloy
+   Status: SUCCESS (885ms)
+
+✅ Memphis Pro Built-in Grill (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/memphis-pro-built-in-grill
+   Status: SUCCESS (885ms)
+
+✅ FireMagic Echelon Diamond Stand Alone Grill (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/firemagic-echelon-diamond-stand-alone-grill
+   Status: SUCCESS (884ms)
+
+✅ Aurora Stand Alone Grill Cart (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/aurora-stand-alone-grill-cart
+   Status: SUCCESS (884ms)
+
+✅ Summerset Sizzler Grill Cart (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/summerset-sizzler-grill-cart
+   Status: SUCCESS (882ms)
+
+✅ Memphis Beale Street Grill Cart (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/memphis-beale-street-grill-cart
+   Status: SUCCESS (753ms)
+
+✅ Evo Professional Wheeled Cart Grill (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/evo-professional-wheeled-cart-grill
+   Status: SUCCESS (996ms)
+
+✅ Affinity 30G Classic Cooktop (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/affinity-30g-classic-cooktop
+   Status: SUCCESS (898ms)
+
+✅ Evo Professional Tabletop (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/evo-professional-tabletop
+   Status: SUCCESS (880ms)
+
+✅ Memphis Advantage Plus Grill Cart with WiFi (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/memphis-advantage-plus-grill-cart-with-wifi
+   Status: SUCCESS (706ms)
+
+✅ Memphis Pro Cart - 430 SS Alloy (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/memphis-pro-cart-430-ss-alloy
+   Status: SUCCESS (1070ms)
+
+✅ Memphis Elite Cart - 304 SS Alloy (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/memphis-elite-cart-304-ss-alloy
+   Status: SUCCESS (881ms)
+
+✅ AOG PCL Grill Cart (Grills and Burners)
+   URL: https://newdaniellefence.test/fencing/grills-and-burners/aog-pcl-grill-cart
+   Status: SUCCESS (882ms)
+
+✅ EVO Roasting Racks (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/evo-roasting-racks
+   Status: SUCCESS (883ms)
+
+✅ EVO Seasoned Cook Surface Cleaning Kit (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/evo-seasoned-cook-surface-cleaning-kit
+   Status: SUCCESS (881ms)
+
+✅ EVO Stainless Steel Covers (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/evo-stainless-steel-covers
+   Status: SUCCESS (885ms)
+
+✅ Beverage Center with Sink (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/beverage-center-with-sink
+   Status: SUCCESS (882ms)
+
+✅ Large Ice Chest (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/large-ice-chest
+   Status: SUCCESS (884ms)
+
+✅ Stainless Steel Drop-in Sink with Faucet (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/stainless-steel-drop-in-sink-with-faucet
+   Status: SUCCESS (883ms)
+
+✅ Summerset Refrigerator (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/summerset-refrigerator
+   Status: SUCCESS (883ms)
+
+✅ Refrigerator Door Sleeve Upgrade (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/refrigerator-door-sleeve-upgrade
+   Status: SUCCESS (886ms)
+
+✅ Island Vent (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/island-vent
+   Status: SUCCESS (884ms)
+
+✅ Trash Chute (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/trash-chute
+   Status: SUCCESS (883ms)
+
+✅ Buffet Warming Accessory (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/buffet-warming-accessory
+   Status: SUCCESS (884ms)
+
+✅ Automatic Three-hour Timer Shut Off Valve (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/automatic-three-hour-timer-shut-off-valve
+   Status: SUCCESS (886ms)
+
+✅ Automatic One-hour Timer Shut Off Valve (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/automatic-one-hour-timer-shut-off-valve
+   Status: SUCCESS (884ms)
+
+✅ Fire Magic Side Burner Cover (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/fire-magic-side-burner-cover
+   Status: SUCCESS (884ms)
+
+✅ 15in. Wok & Stainless Steel Cover (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/15in-wok-stainless-steel-cover
+   Status: SUCCESS (885ms)
+
+✅ Turkey Pot Frying Kit (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/turkey-pot-frying-kit
+   Status: SUCCESS (881ms)
+
+✅ Five-piece Grilling Tool Set (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/five-piece-grilling-tool-set
+   Status: SUCCESS (884ms)
+
+✅ Roasting Turkey Holder (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/roasting-turkey-holder
+   Status: SUCCESS (882ms)
+
+✅ Roasting Chicken Holder (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/roasting-chicken-holder
+   Status: SUCCESS (881ms)
+
+✅ Fire Magic Power Burner Cover (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/fire-magic-power-burner-cover
+   Status: SUCCESS (883ms)
+
+✅ Fire Magic Built-in Grill Cover (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/fire-magic-built-in-grill-cover
+   Status: SUCCESS (885ms)
+
+✅ Griddle (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/griddle
+   Status: SUCCESS (885ms)
+
+✅ Fire Magic's Power Vent Hood (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/fire-magics-power-vent-hood
+   Status: SUCCESS (885ms)
+
+✅ Summerset Stainless Steel Outdoor Refrigerator - 5.5 CFT (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/summerset-stainless-steel-outdoor-refrigerator-55-cft
+   Status: SUCCESS (885ms)
+
+✅ Summerset Sizzler Rotisserie Kit (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/summerset-sizzler-rotisserie-kit
+   Status: SUCCESS (884ms)
+
+✅ Summerset Stainless Steel Outdoor Refrigerator - 4.5 CFT (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/summerset-stainless-steel-outdoor-refrigerator-45-cft
+   Status: SUCCESS (885ms)
+
+✅ Built-in Bar Caddy (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/built-in-bar-caddy
+   Status: SUCCESS (887ms)
+
+✅ Aurora Style Built-in Beverage Center (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/aurora-style-built-in-beverage-center
+   Status: SUCCESS (707ms)
+
+✅ Fire Magic Outdoor Refrigerator (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/fire-magic-outdoor-refrigerator
+   Status: SUCCESS (1055ms)
+
+✅ Fire Magic Outdoor Kegerator (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/fire-magic-outdoor-kegerator
+   Status: SUCCESS (881ms)
+
+✅ Large Capacity Automatic Ice Maker (Grill Accessories)
+   URL: https://newdaniellefence.test/fencing/grill-accessories/large-capacity-automatic-ice-maker
+   Status: SUCCESS (883ms)
+
+✅ Etruscan Fire Urn (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/etruscan-fire-urn
+   Status: SUCCESS (884ms)
+
+✅ Cordova Fireplace-Vented (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/cordova-fireplace-vented
+   Status: SUCCESS (884ms)
+
+✅ Chica Fireplace-Vented (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/chica-fireplace-vented
+   Status: SUCCESS (887ms)
+
+✅ Amphora Fire Urn (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/amphora-fire-urn
+   Status: SUCCESS (889ms)
+
+✅ Mariposa Fireplace-Vented (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/mariposa-fireplace-vented
+   Status: SUCCESS (888ms)
+
+✅ Large Firefall with Finished Back (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/large-firefall-with-finished-back
+   Status: SUCCESS (887ms)
+
+✅ Brighton Collection (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/brighton-collection
+   Status: SUCCESS (887ms)
+
+✅ Contempo Rectangle Fireplace (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/contempo-rectangle-fireplace
+   Status: SUCCESS (890ms)
+
+✅ Phoenix Fireplace-Vented (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/phoenix-fireplace-vented
+   Status: SUCCESS (886ms)
+
+✅ Paige Fire Urn and Pedestal (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/paige-fire-urn-and-pedestal
+   Status: SUCCESS (889ms)
+
+✅ Bristol Collection (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/bristol-collection
+   Status: SUCCESS (889ms)
+
+✅ Small Firewall with Finished Back (Outdoor Fireplaces)
+   URL: https://newdaniellefence.test/fencing/outdoor-fireplaces/small-firewall-with-finished-back
+   Status: SUCCESS (887ms)
+
+✅ Fire Pit and Fire Place Screens (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/fire-pit-and-fire-place-screens
+   Status: SUCCESS (889ms)
+
+✅ Madrid 48in. Square Pit Fire Table (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/madrid-48in-square-pit-fire-table
+   Status: SUCCESS (888ms)
+
+✅ Naples 54in. Round Fire Pit Table (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/naples-54in-round-fire-pit-table
+   Status: SUCCESS (889ms)
+
+✅ Venice 42in. Square Fire Pit Table (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/venice-42in-square-fire-pit-table
+   Status: SUCCESS (888ms)
+
+✅ Rivera 48in. Round Fire Pit Table (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/rivera-48in-round-fire-pit-table
+   Status: SUCCESS (888ms)
+
+✅ Cosmopolitan Square Firetable (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/cosmopolitan-square-firetable
+   Status: SUCCESS (887ms)
+
+✅ Munich Wall Fire Pit (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/munich-wall-fire-pit
+   Status: SUCCESS (888ms)
+
+✅ Linear Outdoor Fire Pit (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/linear-outdoor-fire-pit
+   Status: SUCCESS (888ms)
+
+✅ Amphora Firetable with Concrete Top (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/amphora-firetable-with-concrete-top
+   Status: SUCCESS (890ms)
+
+✅ Chat Height Octagon Firetable w/ Concrete Top (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/chat-height-octagon-firetable-w-concrete-top
+   Status: SUCCESS (711ms)
+
+✅ Inverted Firetable w/ Concrete Top (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/inverted-firetable-w-concrete-top
+   Status: SUCCESS (1074ms)
+
+✅ Fiesta Firetable (Fire Pits & Fire Tables)
+   URL: https://newdaniellefence.test/fencing/fire-pits-fire-tables/fiesta-firetable
+   Status: SUCCESS (890ms)
+
+✅ Tempest Pillar Mount, Black (Tempest Torch)
+   URL: https://newdaniellefence.test/fencing/tempest-torch/tempest-pillar-mount-black
+   Status: SUCCESS (880ms)
+
+✅ Tempest Wall Mount, Black (Tempest Torch)
+   URL: https://newdaniellefence.test/fencing/tempest-torch/tempest-wall-mount-black
+   Status: SUCCESS (885ms)
+
+✅ Tempest In-Ground Post - 3in. x 93in. (Tempest Torch)
+   URL: https://newdaniellefence.test/fencing/tempest-torch/tempest-in-ground-post-3in-x-93in
+   Status: SUCCESS (885ms)
+
+✅ Tempest Deck Post - 3in. x 69in. (Tempest Torch)
+   URL: https://newdaniellefence.test/fencing/tempest-torch/tempest-deck-post-3in-x-69in
+   Status: SUCCESS (726ms)
+
+✅ Tempest Deck Mount (Tempest Torch)
+   URL: https://newdaniellefence.test/fencing/tempest-torch/tempest-deck-mount
+   Status: SUCCESS (1049ms)
+
+✅ Tempest Torch Head (Tempest Torch)
+   URL: https://newdaniellefence.test/fencing/tempest-torch/tempest-torch-head
+   Status: SUCCESS (886ms)
+
+✅ Tempest Post Cover, Square Black (Tempest Torch)
+   URL: https://newdaniellefence.test/fencing/tempest-torch/tempest-post-cover-square-black
+   Status: SUCCESS (882ms)
+
+✅ Aluminum Railing (Railings)
+   URL: https://newdaniellefence.test/fencing/railings/aluminum-railing
+   Status: SUCCESS (883ms)
+
+✅ New England Railing (Railings)
+   URL: https://newdaniellefence.test/fencing/railings/new-england-railing
+   Status: SUCCESS (886ms)
+
+✅ Belly Railing (Railings)
+   URL: https://newdaniellefence.test/fencing/railings/belly-railing
+   Status: SUCCESS (886ms)
+
+✅ Aztec Railing (Railings)
+   URL: https://newdaniellefence.test/fencing/railings/aztec-railing
+   Status: SUCCESS (885ms)
+
+✅ Sacremento Railing (Railings)
+   URL: https://newdaniellefence.test/fencing/railings/sacremento-railing
+   Status: SUCCESS (884ms)
+
+✅ Chain Railing (Railings)
+   URL: https://newdaniellefence.test/fencing/railings/chain-railing
+   Status: SUCCESS (882ms)
+
+✅ Spindle Railing (Railings)
+   URL: https://newdaniellefence.test/fencing/railings/spindle-railing
+   Status: SUCCESS (884ms)
+
+✅ Custom Accents (Railings)
+   URL: https://newdaniellefence.test/fencing/railings/custom-accents
+   Status: SUCCESS (885ms)
+
+✅ Appian Stone (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/appian-stone
+   Status: SUCCESS (888ms)
+
+✅ Subterra (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/subterra
+   Status: SUCCESS (885ms)
+
+✅ Mega-Arbel (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/mega-arbel
+   Status: SUCCESS (884ms)
+
+✅ Holland Stone (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/holland-stone
+   Status: SUCCESS (885ms)
+
+✅ Highland Stone (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/highland-stone
+   Status: SUCCESS (885ms)
+
+✅ Aqua Bric (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/aqua-bric
+   Status: SUCCESS (886ms)
+
+✅ Weston Stone (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/weston-stone
+   Status: SUCCESS (884ms)
+
+✅ Uni Eco-Stone (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/uni-eco-stone
+   Status: SUCCESS (883ms)
+
+✅ 4in. x 8in. Pavers (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/4in-x-8in-pavers
+   Status: SUCCESS (884ms)
+
+✅ Olde Towne (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/olde-towne
+   Status: SUCCESS (882ms)
+
+✅ Stonegate Wall Block (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/stonegate-wall-block
+   Status: SUCCESS (880ms)
+
+✅ Stonehurst (Pavers)
+   URL: https://newdaniellefence.test/fencing/pavers/stonehurst
+   Status: SUCCESS (885ms)
+
+✅ Screen Room with Insulated Roof (Screen Rooms)
+   URL: https://newdaniellefence.test/fencing/screen-rooms/screen-room-with-insulated-roof
+   Status: SUCCESS (882ms)
+
+✅ Screen Rooms (Screen Rooms)
+   URL: https://newdaniellefence.test/fencing/screen-rooms/screen-rooms
+   Status: SUCCESS (885ms)
+
+✅ Insulated Roof Systems (Pergolas)
+   URL: https://newdaniellefence.test/fencing/pergolas/insulated-roof-systems
+   Status: SUCCESS (889ms)
+
+✅ Aluminum Pergolas (Pergolas)
+   URL: https://newdaniellefence.test/fencing/pergolas/aluminum-pergolas
+   Status: SUCCESS (886ms)
+
+✅ Equinox Louvered Roof (Pergolas)
+   URL: https://newdaniellefence.test/fencing/pergolas/equinox-louvered-roof
+   Status: SUCCESS (888ms)
+
+✅ Vinyl Pergolas (Pergolas)
+   URL: https://newdaniellefence.test/fencing/pergolas/vinyl-pergolas
+   Status: SUCCESS (889ms)
+
+✅ Caprice Arbor (Arbors)
+   URL: https://newdaniellefence.test/fencing/arbors/caprice-arbor
+   Status: SUCCESS (889ms)
+
+✅ Morning Glory Arbor (Arbors)
+   URL: https://newdaniellefence.test/fencing/arbors/morning-glory-arbor
+   Status: SUCCESS (731ms)
+
+✅ Highlander Arbor (Arbors)
+   URL: https://newdaniellefence.test/fencing/arbors/highlander-arbor
+   Status: SUCCESS (1044ms)
+
+✅ Fairfield Arbor (Arbors)
+   URL: https://newdaniellefence.test/fencing/arbors/fairfield-arbor
+   Status: SUCCESS (889ms)
+
+✅ Day Lily Arbor (Arbors)
+   URL: https://newdaniellefence.test/fencing/arbors/day-lily-arbor
+   Status: SUCCESS (889ms)
+
+✅ Vesper Rose Arbor (Arbors)
+   URL: https://newdaniellefence.test/fencing/arbors/vesper-rose-arbor
+   Status: SUCCESS (893ms)
+
+✅ Riviera Arbor (Arbors)
+   URL: https://newdaniellefence.test/fencing/arbors/riviera-arbor
+   Status: SUCCESS (895ms)
+
+✅ Regal Arbor (Arbors)
+   URL: https://newdaniellefence.test/fencing/arbors/regal-arbor
+   Status: SUCCESS (877ms)
+
+✅ Oxford Arbor (Arbors)
+   URL: https://newdaniellefence.test/fencing/arbors/oxford-arbor
+   Status: SUCCESS (885ms)
+
+✅ Arched Arbor (Arbors)
+   URL: https://newdaniellefence.test/fencing/arbors/arched-arbor
+   Status: SUCCESS (888ms)
+
+✅ 7ft. Gazebo (Gazebos)
+   URL: https://newdaniellefence.test/fencing/gazebos/7ft-gazebo
+   Status: SUCCESS (887ms)
+
+✅ 10ft. Gazebo (Gazebos)
+   URL: https://newdaniellefence.test/fencing/gazebos/10ft-gazebo
+   Status: SUCCESS (881ms)
+
+✅ Victorian Gazebo (Gazebos)
+   URL: https://newdaniellefence.test/fencing/gazebos/victorian-gazebo
+   Status: SUCCESS (889ms)
+
+✅ Custom Solutions (Specialty Products)
+   URL: https://newdaniellefence.test/fencing/specialty-products/custom-solutions
+   Status: SUCCESS (882ms)
+
+✅ Commercial Specialty (Specialty Products)
+   URL: https://newdaniellefence.test/fencing/specialty-products/commercial-specialty
+   Status: SUCCESS (882ms)
+
+✅ Decorative Accents (Specialty Products)
+   URL: https://newdaniellefence.test/fencing/specialty-products/decorative-accents
+   Status: SUCCESS (883ms)
+

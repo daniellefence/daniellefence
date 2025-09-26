@@ -1,0 +1,1838 @@
+[
+    {
+        "id": 1,
+        "title": "Lakeland Vinyl Fence",
+        "category_id": 3,
+        "category_title": "Privacy Fence",
+        "category_slug": "privacy-fence",
+        "product_slug": "lakeland-vinyl-fence",
+        "url": "\/fencing\/privacy-fence\/lakeland-vinyl-fence"
+    },
+    {
+        "id": 2,
+        "title": "Lakeland Horizontal Vinyl Fence",
+        "category_id": 3,
+        "category_title": "Privacy Fence",
+        "category_slug": "privacy-fence",
+        "product_slug": "lakeland-horizontal-vinyl-fence",
+        "url": "\/fencing\/privacy-fence\/lakeland-horizontal-vinyl-fence"
+    },
+    {
+        "id": 3,
+        "title": "Lakeland Convex Vinyl Fence",
+        "category_id": 3,
+        "category_title": "Privacy Fence",
+        "category_slug": "privacy-fence",
+        "product_slug": "lakeland-convex-vinyl-fence",
+        "url": "\/fencing\/privacy-fence\/lakeland-convex-vinyl-fence"
+    },
+    {
+        "id": 4,
+        "title": "Lakeland Concave Vinyl Fence",
+        "category_id": 3,
+        "category_title": "Privacy Fence",
+        "category_slug": "privacy-fence",
+        "product_slug": "lakeland-concave-vinyl-fence",
+        "url": "\/fencing\/privacy-fence\/lakeland-concave-vinyl-fence"
+    },
+    {
+        "id": 5,
+        "title": "Maxwell Vinyl Fence",
+        "category_id": 3,
+        "category_title": "Privacy Fence",
+        "category_slug": "privacy-fence",
+        "product_slug": "maxwell-vinyl-fence",
+        "url": "\/fencing\/privacy-fence\/maxwell-vinyl-fence"
+    },
+    {
+        "id": 6,
+        "title": "Horizontal Maxwell Vinyl Fence",
+        "category_id": 3,
+        "category_title": "Privacy Fence",
+        "category_slug": "privacy-fence",
+        "product_slug": "horizontal-maxwell-vinyl-fence",
+        "url": "\/fencing\/privacy-fence\/horizontal-maxwell-vinyl-fence"
+    },
+    {
+        "id": 7,
+        "title": "Windsor Vinyl Fence",
+        "category_id": 3,
+        "category_title": "Privacy Fence",
+        "category_slug": "privacy-fence",
+        "product_slug": "windsor-vinyl-fence",
+        "url": "\/fencing\/privacy-fence\/windsor-vinyl-fence"
+    },
+    {
+        "id": 8,
+        "title": "Hollingsworth Vinyl Fence",
+        "category_id": 4,
+        "category_title": "Semi-Privacy Fence",
+        "category_slug": "semi-privacy-fence",
+        "product_slug": "hollingsworth-vinyl-fence",
+        "url": "\/fencing\/semi-privacy-fence\/hollingsworth-vinyl-fence"
+    },
+    {
+        "id": 9,
+        "title": "Montauk Vinyl Fence",
+        "category_id": 4,
+        "category_title": "Semi-Privacy Fence",
+        "category_slug": "semi-privacy-fence",
+        "product_slug": "montauk-vinyl-fence",
+        "url": "\/fencing\/semi-privacy-fence\/montauk-vinyl-fence"
+    },
+    {
+        "id": 10,
+        "title": "Heather Vinyl Fence",
+        "category_id": 4,
+        "category_title": "Semi-Privacy Fence",
+        "category_slug": "semi-privacy-fence",
+        "product_slug": "heather-vinyl-fence",
+        "url": "\/fencing\/semi-privacy-fence\/heather-vinyl-fence"
+    },
+    {
+        "id": 11,
+        "title": "Lakeview Vinyl Fence",
+        "category_id": 4,
+        "category_title": "Semi-Privacy Fence",
+        "category_slug": "semi-privacy-fence",
+        "product_slug": "lakeview-vinyl-fence",
+        "url": "\/fencing\/semi-privacy-fence\/lakeview-vinyl-fence"
+    },
+    {
+        "id": 12,
+        "title": "Oceanside Vinyl Fence",
+        "category_id": 4,
+        "category_title": "Semi-Privacy Fence",
+        "category_slug": "semi-privacy-fence",
+        "product_slug": "oceanside-vinyl-fence",
+        "url": "\/fencing\/semi-privacy-fence\/oceanside-vinyl-fence"
+    },
+    {
+        "id": 13,
+        "title": "Melbourne 2 Vinyl Fence",
+        "category_id": 4,
+        "category_title": "Semi-Privacy Fence",
+        "category_slug": "semi-privacy-fence",
+        "product_slug": "melbourne-2-vinyl-fence",
+        "url": "\/fencing\/semi-privacy-fence\/melbourne-2-vinyl-fence"
+    },
+    {
+        "id": 14,
+        "title": "Melbourne Lattice Vinyl Fence",
+        "category_id": 4,
+        "category_title": "Semi-Privacy Fence",
+        "category_slug": "semi-privacy-fence",
+        "product_slug": "melbourne-lattice-vinyl-fence",
+        "url": "\/fencing\/semi-privacy-fence\/melbourne-lattice-vinyl-fence"
+    },
+    {
+        "id": 15,
+        "title": "Highland Vinyl Fence",
+        "category_id": 4,
+        "category_title": "Semi-Privacy Fence",
+        "category_slug": "semi-privacy-fence",
+        "product_slug": "highland-vinyl-fence",
+        "url": "\/fencing\/semi-privacy-fence\/highland-vinyl-fence"
+    },
+    {
+        "id": 16,
+        "title": "Spirit Lake Vinyl Fence",
+        "category_id": 4,
+        "category_title": "Semi-Privacy Fence",
+        "category_slug": "semi-privacy-fence",
+        "product_slug": "spirit-lake-vinyl-fence",
+        "url": "\/fencing\/semi-privacy-fence\/spirit-lake-vinyl-fence"
+    },
+    {
+        "id": 17,
+        "title": "Sacramento Vinyl Fence",
+        "category_id": 5,
+        "category_title": "Picket Fence",
+        "category_slug": "picket-fence",
+        "product_slug": "sacramento-vinyl-fence",
+        "url": "\/fencing\/picket-fence\/sacramento-vinyl-fence"
+    },
+    {
+        "id": 18,
+        "title": "Sundance Vinyl Fence",
+        "category_id": 5,
+        "category_title": "Picket Fence",
+        "category_slug": "picket-fence",
+        "product_slug": "sundance-vinyl-fence",
+        "url": "\/fencing\/picket-fence\/sundance-vinyl-fence"
+    },
+    {
+        "id": 19,
+        "title": "Dawson Vinyl Fence",
+        "category_id": 5,
+        "category_title": "Picket Fence",
+        "category_slug": "picket-fence",
+        "product_slug": "dawson-vinyl-fence",
+        "url": "\/fencing\/picket-fence\/dawson-vinyl-fence"
+    },
+    {
+        "id": 20,
+        "title": "Dartmouth Vinyl Fence",
+        "category_id": 5,
+        "category_title": "Picket Fence",
+        "category_slug": "picket-fence",
+        "product_slug": "dartmouth-vinyl-fence",
+        "url": "\/fencing\/picket-fence\/dartmouth-vinyl-fence"
+    },
+    {
+        "id": 21,
+        "title": "2-Rail Post & Rail Vinyl Fence",
+        "category_id": 6,
+        "category_title": "Post & Rail Fence",
+        "category_slug": "post-rail-fence",
+        "product_slug": "2-rail-post-rail-vinyl-fence",
+        "url": "\/fencing\/post-rail-fence\/2-rail-post-rail-vinyl-fence"
+    },
+    {
+        "id": 22,
+        "title": "3-Rail Post & Rail Vinyl Fence",
+        "category_id": 6,
+        "category_title": "Post & Rail Fence",
+        "category_slug": "post-rail-fence",
+        "product_slug": "3-rail-post-rail-vinyl-fence",
+        "url": "\/fencing\/post-rail-fence\/3-rail-post-rail-vinyl-fence"
+    },
+    {
+        "id": 23,
+        "title": "4-Rail Post & Rail Vinyl Fence",
+        "category_id": 6,
+        "category_title": "Post & Rail Fence",
+        "category_slug": "post-rail-fence",
+        "product_slug": "4-rail-post-rail-vinyl-fence",
+        "url": "\/fencing\/post-rail-fence\/4-rail-post-rail-vinyl-fence"
+    },
+    {
+        "id": 24,
+        "title": "Crossbuck Post & Rail Vinyl Fence",
+        "category_id": 6,
+        "category_title": "Post & Rail Fence",
+        "category_slug": "post-rail-fence",
+        "product_slug": "crossbuck-post-rail-vinyl-fence",
+        "url": "\/fencing\/post-rail-fence\/crossbuck-post-rail-vinyl-fence"
+    },
+    {
+        "id": 25,
+        "title": "Stockade Wood Fence",
+        "category_id": 7,
+        "category_title": "Wood Fence",
+        "category_slug": "wood-fence",
+        "product_slug": "stockade-wood-fence",
+        "url": "\/fencing\/wood-fence\/stockade-wood-fence"
+    },
+    {
+        "id": 26,
+        "title": "Wood Board on Board Fence",
+        "category_id": 7,
+        "category_title": "Wood Fence",
+        "category_slug": "wood-fence",
+        "product_slug": "wood-board-on-board-fence",
+        "url": "\/fencing\/wood-fence\/wood-board-on-board-fence"
+    },
+    {
+        "id": 27,
+        "title": "Picket Wood Fence",
+        "category_id": 7,
+        "category_title": "Wood Fence",
+        "category_slug": "wood-fence",
+        "product_slug": "picket-wood-fence",
+        "url": "\/fencing\/wood-fence\/picket-wood-fence"
+    },
+    {
+        "id": 28,
+        "title": "Shadowbox Wood Fence",
+        "category_id": 7,
+        "category_title": "Wood Fence",
+        "category_slug": "wood-fence",
+        "product_slug": "shadowbox-wood-fence",
+        "url": "\/fencing\/wood-fence\/shadowbox-wood-fence"
+    },
+    {
+        "id": 29,
+        "title": "Custom Wood Fence",
+        "category_id": 7,
+        "category_title": "Wood Fence",
+        "category_slug": "wood-fence",
+        "product_slug": "custom-wood-fence",
+        "url": "\/fencing\/wood-fence\/custom-wood-fence"
+    },
+    {
+        "id": 30,
+        "title": "Avalon Aluminum Fence",
+        "category_id": 8,
+        "category_title": "Aluminum Fence",
+        "category_slug": "aluminum-fence",
+        "product_slug": "avalon-aluminum-fence",
+        "url": "\/fencing\/aluminum-fence\/avalon-aluminum-fence"
+    },
+    {
+        "id": 31,
+        "title": "Viera Aluminum Fence",
+        "category_id": 8,
+        "category_title": "Aluminum Fence",
+        "category_slug": "aluminum-fence",
+        "product_slug": "viera-aluminum-fence",
+        "url": "\/fencing\/aluminum-fence\/viera-aluminum-fence"
+    },
+    {
+        "id": 32,
+        "title": "Capeview Aluminum Fence",
+        "category_id": 8,
+        "category_title": "Aluminum Fence",
+        "category_slug": "aluminum-fence",
+        "product_slug": "capeview-aluminum-fence",
+        "url": "\/fencing\/aluminum-fence\/capeview-aluminum-fence"
+    },
+    {
+        "id": 33,
+        "title": "Bentley Aluminum Fence",
+        "category_id": 8,
+        "category_title": "Aluminum Fence",
+        "category_slug": "aluminum-fence",
+        "product_slug": "bentley-aluminum-fence",
+        "url": "\/fencing\/aluminum-fence\/bentley-aluminum-fence"
+    },
+    {
+        "id": 34,
+        "title": "Hawthorne Aluminum Fence",
+        "category_id": 8,
+        "category_title": "Aluminum Fence",
+        "category_slug": "aluminum-fence",
+        "product_slug": "hawthorne-aluminum-fence",
+        "url": "\/fencing\/aluminum-fence\/hawthorne-aluminum-fence"
+    },
+    {
+        "id": 35,
+        "title": "Fairmont Aluminum Fence",
+        "category_id": 8,
+        "category_title": "Aluminum Fence",
+        "category_slug": "aluminum-fence",
+        "product_slug": "fairmont-aluminum-fence",
+        "url": "\/fencing\/aluminum-fence\/fairmont-aluminum-fence"
+    },
+    {
+        "id": 36,
+        "title": "Allegheny Bufftech Molded Fence",
+        "category_id": 9,
+        "category_title": "Allegheny & Sherwood Fence",
+        "category_slug": "allegheny-sherwood-fence",
+        "product_slug": "allegheny-bufftech-molded-fence",
+        "url": "\/fencing\/allegheny-sherwood-fence\/allegheny-bufftech-molded-fence"
+    },
+    {
+        "id": 37,
+        "title": "Sherwood Bufftech Molded Fence",
+        "category_id": 9,
+        "category_title": "Allegheny & Sherwood Fence",
+        "category_slug": "allegheny-sherwood-fence",
+        "product_slug": "sherwood-bufftech-molded-fence",
+        "url": "\/fencing\/allegheny-sherwood-fence\/sherwood-bufftech-molded-fence"
+    },
+    {
+        "id": 38,
+        "title": "Allegheny Bufftech Molded Gates",
+        "category_id": 9,
+        "category_title": "Allegheny & Sherwood Fence",
+        "category_slug": "allegheny-sherwood-fence",
+        "product_slug": "allegheny-bufftech-molded-gates",
+        "url": "\/fencing\/allegheny-sherwood-fence\/allegheny-bufftech-molded-gates"
+    },
+    {
+        "id": 39,
+        "title": "Vinyl Gates",
+        "category_id": 10,
+        "category_title": "Gates",
+        "category_slug": "gates",
+        "product_slug": "vinyl-gates",
+        "url": "\/fencing\/gates\/vinyl-gates"
+    },
+    {
+        "id": 40,
+        "title": "Aluminum Gates",
+        "category_id": 10,
+        "category_title": "Gates",
+        "category_slug": "gates",
+        "product_slug": "aluminum-gates",
+        "url": "\/fencing\/gates\/aluminum-gates"
+    },
+    {
+        "id": 41,
+        "title": "Wood Gates",
+        "category_id": 10,
+        "category_title": "Gates",
+        "category_slug": "gates",
+        "product_slug": "wood-gates",
+        "url": "\/fencing\/gates\/wood-gates"
+    },
+    {
+        "id": 42,
+        "title": "Allegheny Bufftech Molded Gates",
+        "category_id": 10,
+        "category_title": "Gates",
+        "category_slug": "gates",
+        "product_slug": "allegheny-bufftech-molded-gates",
+        "url": "\/fencing\/gates\/allegheny-bufftech-molded-gates"
+    },
+    {
+        "id": 43,
+        "title": "Estate Gates",
+        "category_id": 10,
+        "category_title": "Gates",
+        "category_slug": "gates",
+        "product_slug": "estate-gates",
+        "url": "\/fencing\/gates\/estate-gates"
+    },
+    {
+        "id": 44,
+        "title": "Security Aluminum Gates",
+        "category_id": 10,
+        "category_title": "Gates",
+        "category_slug": "gates",
+        "product_slug": "security-aluminum-gates",
+        "url": "\/fencing\/gates\/security-aluminum-gates"
+    },
+    {
+        "id": 45,
+        "title": "Bufftech Chesterfield Certagrain Texture",
+        "category_id": 11,
+        "category_title": "Textured Vinyl Fence",
+        "category_slug": "textured-vinyl-fence",
+        "product_slug": "bufftech-chesterfield-certagrain-texture",
+        "url": "\/fencing\/textured-vinyl-fence\/bufftech-chesterfield-certagrain-texture"
+    },
+    {
+        "id": 46,
+        "title": "Bufftech Post & Rail Certagrain Texture",
+        "category_id": 11,
+        "category_title": "Textured Vinyl Fence",
+        "category_slug": "textured-vinyl-fence",
+        "product_slug": "bufftech-post-rail-certagrain-texture",
+        "url": "\/fencing\/textured-vinyl-fence\/bufftech-post-rail-certagrain-texture"
+    },
+    {
+        "id": 47,
+        "title": "Metal Privacy Fence",
+        "category_id": 12,
+        "category_title": "Metal Privacy Fence",
+        "category_slug": "metal-privacy-fence",
+        "product_slug": "metal-privacy-fence",
+        "url": "\/fencing\/metal-privacy-fence\/metal-privacy-fence"
+    },
+    {
+        "id": 48,
+        "title": "Chain Link Fence",
+        "category_id": 13,
+        "category_title": "Chain Link Fence",
+        "category_slug": "chain-link-fence",
+        "product_slug": "chain-link-fence",
+        "url": "\/fencing\/chain-link-fence\/chain-link-fence"
+    },
+    {
+        "id": 49,
+        "title": "Aluminum Frame Outdoor Kitchens",
+        "category_id": 15,
+        "category_title": "Kitchen Styles",
+        "category_slug": "kitchen-styles",
+        "product_slug": "aluminum-frame-outdoor-kitchens",
+        "url": "\/fencing\/kitchen-styles\/aluminum-frame-outdoor-kitchens"
+    },
+    {
+        "id": 50,
+        "title": "NatureKast Outdoor Kitchen",
+        "category_id": 15,
+        "category_title": "Kitchen Styles",
+        "category_slug": "kitchen-styles",
+        "product_slug": "naturekast-outdoor-kitchen",
+        "url": "\/fencing\/kitchen-styles\/naturekast-outdoor-kitchen"
+    },
+    {
+        "id": 51,
+        "title": "Premium Polymer Outdoor Kitchen Cabinets",
+        "category_id": 15,
+        "category_title": "Kitchen Styles",
+        "category_slug": "kitchen-styles",
+        "product_slug": "premium-polymer-outdoor-kitchen-cabinets",
+        "url": "\/fencing\/kitchen-styles\/premium-polymer-outdoor-kitchen-cabinets"
+    },
+    {
+        "id": 52,
+        "title": "Vertical Door",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "vertical-door",
+        "url": "\/fencing\/doors-and-drawers\/vertical-door"
+    },
+    {
+        "id": 53,
+        "title": "Horizontal Door",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "horizontal-door",
+        "url": "\/fencing\/doors-and-drawers\/horizontal-door"
+    },
+    {
+        "id": 54,
+        "title": "Double Doors",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "double-doors",
+        "url": "\/fencing\/doors-and-drawers\/double-doors"
+    },
+    {
+        "id": 55,
+        "title": "Single Drawer & Trash Drawer",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "single-drawer-trash-drawer",
+        "url": "\/fencing\/doors-and-drawers\/single-drawer-trash-drawer"
+    },
+    {
+        "id": 56,
+        "title": "Door & Two Drawer Combo",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "door-two-drawer-combo",
+        "url": "\/fencing\/doors-and-drawers\/door-two-drawer-combo"
+    },
+    {
+        "id": 57,
+        "title": "Door & Three Drawer Combo",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "door-three-drawer-combo",
+        "url": "\/fencing\/doors-and-drawers\/door-three-drawer-combo"
+    },
+    {
+        "id": 58,
+        "title": "Two Drawer",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "two-drawer",
+        "url": "\/fencing\/doors-and-drawers\/two-drawer"
+    },
+    {
+        "id": 59,
+        "title": "Three Drawer",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "three-drawer",
+        "url": "\/fencing\/doors-and-drawers\/three-drawer"
+    },
+    {
+        "id": 60,
+        "title": "FireMagic Select Single Access Door",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "firemagic-select-single-access-door",
+        "url": "\/fencing\/doors-and-drawers\/firemagic-select-single-access-door"
+    },
+    {
+        "id": 61,
+        "title": "FireMagic Select Double Access Door",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "firemagic-select-double-access-door",
+        "url": "\/fencing\/doors-and-drawers\/firemagic-select-double-access-door"
+    },
+    {
+        "id": 62,
+        "title": "FireMagic Single Door with Dual Drawers",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "firemagic-single-door-with-dual-drawers",
+        "url": "\/fencing\/doors-and-drawers\/firemagic-single-door-with-dual-drawers"
+    },
+    {
+        "id": 63,
+        "title": "FireMagic Select Masonry Drawer",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "firemagic-select-masonry-drawer",
+        "url": "\/fencing\/doors-and-drawers\/firemagic-select-masonry-drawer"
+    },
+    {
+        "id": 64,
+        "title": "FireMagic Select Single Drawer",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "firemagic-select-single-drawer",
+        "url": "\/fencing\/doors-and-drawers\/firemagic-select-single-drawer"
+    },
+    {
+        "id": 65,
+        "title": "FireMagic Select Double Drawer",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "firemagic-select-double-drawer",
+        "url": "\/fencing\/doors-and-drawers\/firemagic-select-double-drawer"
+    },
+    {
+        "id": 66,
+        "title": "FireMagic Select Triple Drawer",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "firemagic-select-triple-drawer",
+        "url": "\/fencing\/doors-and-drawers\/firemagic-select-triple-drawer"
+    },
+    {
+        "id": 67,
+        "title": "FireMagic Select Electric Warming Drawer",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "firemagic-select-electric-warming-drawer",
+        "url": "\/fencing\/doors-and-drawers\/firemagic-select-electric-warming-drawer"
+    },
+    {
+        "id": 68,
+        "title": "Memphis Lower Drawers",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "memphis-lower-drawers",
+        "url": "\/fencing\/doors-and-drawers\/memphis-lower-drawers"
+    },
+    {
+        "id": 69,
+        "title": "Memphis Lower Doors",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "memphis-lower-doors",
+        "url": "\/fencing\/doors-and-drawers\/memphis-lower-doors"
+    },
+    {
+        "id": 70,
+        "title": "Two Drawer Stack",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "two-drawer-stack",
+        "url": "\/fencing\/doors-and-drawers\/two-drawer-stack"
+    },
+    {
+        "id": 71,
+        "title": "Three Drawer Stack",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "three-drawer-stack",
+        "url": "\/fencing\/doors-and-drawers\/three-drawer-stack"
+    },
+    {
+        "id": 72,
+        "title": "Controller Drawer - Trash 15in.",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "controller-drawer-trash-15in",
+        "url": "\/fencing\/doors-and-drawers\/controller-drawer-trash-15in"
+    },
+    {
+        "id": 73,
+        "title": "Single Drawer and Trash Drawer 15in.",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "single-drawer-and-trash-drawer-15in",
+        "url": "\/fencing\/doors-and-drawers\/single-drawer-and-trash-drawer-15in"
+    },
+    {
+        "id": 74,
+        "title": "Four Drawer Stack",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "four-drawer-stack",
+        "url": "\/fencing\/doors-and-drawers\/four-drawer-stack"
+    },
+    {
+        "id": 75,
+        "title": "Trash Drawer",
+        "category_id": 16,
+        "category_title": "Doors and Drawers",
+        "category_slug": "doors-and-drawers",
+        "product_slug": "trash-drawer",
+        "url": "\/fencing\/doors-and-drawers\/trash-drawer"
+    },
+    {
+        "id": 76,
+        "title": "The All New Gas Griddle",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "the-all-new-gas-griddle",
+        "url": "\/fencing\/grills-and-burners\/the-all-new-gas-griddle"
+    },
+    {
+        "id": 77,
+        "title": "36in. American Muscle Grill",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "36in-american-muscle-grill",
+        "url": "\/fencing\/grills-and-burners\/36in-american-muscle-grill"
+    },
+    {
+        "id": 78,
+        "title": "Echelon Diamond E790i Built-in Grill",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "echelon-diamond-e790i-built-in-grill",
+        "url": "\/fencing\/grills-and-burners\/echelon-diamond-e790i-built-in-grill"
+    },
+    {
+        "id": 79,
+        "title": "FireMagic Echelon Diamond E660i Built-in Grill",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "firemagic-echelon-diamond-e660i-built-in-grill",
+        "url": "\/fencing\/grills-and-burners\/firemagic-echelon-diamond-e660i-built-in-grill"
+    },
+    {
+        "id": 80,
+        "title": "Summerset TRL Built-in Grill",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "summerset-trl-built-in-grill",
+        "url": "\/fencing\/grills-and-burners\/summerset-trl-built-in-grill"
+    },
+    {
+        "id": 81,
+        "title": "Summerset Sizzler Built-in Grill",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "summerset-sizzler-built-in-grill",
+        "url": "\/fencing\/grills-and-burners\/summerset-sizzler-built-in-grill"
+    },
+    {
+        "id": 82,
+        "title": "FireMagic Echelon Diamond Double Side Burner",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "firemagic-echelon-diamond-double-side-burner",
+        "url": "\/fencing\/grills-and-burners\/firemagic-echelon-diamond-double-side-burner"
+    },
+    {
+        "id": 83,
+        "title": "FireMagic Echelon Diamond Power Burner",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "firemagic-echelon-diamond-power-burner",
+        "url": "\/fencing\/grills-and-burners\/firemagic-echelon-diamond-power-burner"
+    },
+    {
+        "id": 84,
+        "title": "Summerset TRL Double Side Burner",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "summerset-trl-double-side-burner",
+        "url": "\/fencing\/grills-and-burners\/summerset-trl-double-side-burner"
+    },
+    {
+        "id": 85,
+        "title": "Summerset Sizzler Side Burners",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "summerset-sizzler-side-burners",
+        "url": "\/fencing\/grills-and-burners\/summerset-sizzler-side-burners"
+    },
+    {
+        "id": 86,
+        "title": "AOG NBL Built-in Grill",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "aog-nbl-built-in-grill",
+        "url": "\/fencing\/grills-and-burners\/aog-nbl-built-in-grill"
+    },
+    {
+        "id": 87,
+        "title": "FireMagic Aurora Built-in Grill",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "firemagic-aurora-built-in-grill",
+        "url": "\/fencing\/grills-and-burners\/firemagic-aurora-built-in-grill"
+    },
+    {
+        "id": 88,
+        "title": "Memphis Elite Built-in 304 SS Alloy",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "memphis-elite-built-in-304-ss-alloy",
+        "url": "\/fencing\/grills-and-burners\/memphis-elite-built-in-304-ss-alloy"
+    },
+    {
+        "id": 89,
+        "title": "Memphis Pro Built-in Grill",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "memphis-pro-built-in-grill",
+        "url": "\/fencing\/grills-and-burners\/memphis-pro-built-in-grill"
+    },
+    {
+        "id": 90,
+        "title": "FireMagic Echelon Diamond Stand Alone Grill",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "firemagic-echelon-diamond-stand-alone-grill",
+        "url": "\/fencing\/grills-and-burners\/firemagic-echelon-diamond-stand-alone-grill"
+    },
+    {
+        "id": 91,
+        "title": "Aurora Stand Alone Grill Cart",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "aurora-stand-alone-grill-cart",
+        "url": "\/fencing\/grills-and-burners\/aurora-stand-alone-grill-cart"
+    },
+    {
+        "id": 92,
+        "title": "Summerset Sizzler Grill Cart",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "summerset-sizzler-grill-cart",
+        "url": "\/fencing\/grills-and-burners\/summerset-sizzler-grill-cart"
+    },
+    {
+        "id": 93,
+        "title": "Memphis Beale Street Grill Cart",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "memphis-beale-street-grill-cart",
+        "url": "\/fencing\/grills-and-burners\/memphis-beale-street-grill-cart"
+    },
+    {
+        "id": 94,
+        "title": "Evo Professional Wheeled Cart Grill",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "evo-professional-wheeled-cart-grill",
+        "url": "\/fencing\/grills-and-burners\/evo-professional-wheeled-cart-grill"
+    },
+    {
+        "id": 95,
+        "title": "Affinity 30G Classic Cooktop",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "affinity-30g-classic-cooktop",
+        "url": "\/fencing\/grills-and-burners\/affinity-30g-classic-cooktop"
+    },
+    {
+        "id": 96,
+        "title": "Evo Professional Tabletop",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "evo-professional-tabletop",
+        "url": "\/fencing\/grills-and-burners\/evo-professional-tabletop"
+    },
+    {
+        "id": 97,
+        "title": "Memphis Advantage Plus Grill Cart with WiFi",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "memphis-advantage-plus-grill-cart-with-wifi",
+        "url": "\/fencing\/grills-and-burners\/memphis-advantage-plus-grill-cart-with-wifi"
+    },
+    {
+        "id": 98,
+        "title": "Memphis Pro Cart - 430 SS Alloy",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "memphis-pro-cart-430-ss-alloy",
+        "url": "\/fencing\/grills-and-burners\/memphis-pro-cart-430-ss-alloy"
+    },
+    {
+        "id": 99,
+        "title": "Memphis Elite Cart - 304 SS Alloy",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "memphis-elite-cart-304-ss-alloy",
+        "url": "\/fencing\/grills-and-burners\/memphis-elite-cart-304-ss-alloy"
+    },
+    {
+        "id": 100,
+        "title": "AOG PCL Grill Cart",
+        "category_id": 17,
+        "category_title": "Grills and Burners",
+        "category_slug": "grills-and-burners",
+        "product_slug": "aog-pcl-grill-cart",
+        "url": "\/fencing\/grills-and-burners\/aog-pcl-grill-cart"
+    },
+    {
+        "id": 101,
+        "title": "EVO Roasting Racks",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "evo-roasting-racks",
+        "url": "\/fencing\/grill-accessories\/evo-roasting-racks"
+    },
+    {
+        "id": 102,
+        "title": "EVO Seasoned Cook Surface Cleaning Kit",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "evo-seasoned-cook-surface-cleaning-kit",
+        "url": "\/fencing\/grill-accessories\/evo-seasoned-cook-surface-cleaning-kit"
+    },
+    {
+        "id": 103,
+        "title": "EVO Stainless Steel Covers",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "evo-stainless-steel-covers",
+        "url": "\/fencing\/grill-accessories\/evo-stainless-steel-covers"
+    },
+    {
+        "id": 104,
+        "title": "Beverage Center with Sink",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "beverage-center-with-sink",
+        "url": "\/fencing\/grill-accessories\/beverage-center-with-sink"
+    },
+    {
+        "id": 105,
+        "title": "Large Ice Chest",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "large-ice-chest",
+        "url": "\/fencing\/grill-accessories\/large-ice-chest"
+    },
+    {
+        "id": 106,
+        "title": "Stainless Steel Drop-in Sink with Faucet",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "stainless-steel-drop-in-sink-with-faucet",
+        "url": "\/fencing\/grill-accessories\/stainless-steel-drop-in-sink-with-faucet"
+    },
+    {
+        "id": 107,
+        "title": "Summerset Refrigerator",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "summerset-refrigerator",
+        "url": "\/fencing\/grill-accessories\/summerset-refrigerator"
+    },
+    {
+        "id": 108,
+        "title": "Refrigerator Door Sleeve Upgrade",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "refrigerator-door-sleeve-upgrade",
+        "url": "\/fencing\/grill-accessories\/refrigerator-door-sleeve-upgrade"
+    },
+    {
+        "id": 109,
+        "title": "Island Vent",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "island-vent",
+        "url": "\/fencing\/grill-accessories\/island-vent"
+    },
+    {
+        "id": 110,
+        "title": "Trash Chute",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "trash-chute",
+        "url": "\/fencing\/grill-accessories\/trash-chute"
+    },
+    {
+        "id": 111,
+        "title": "Buffet Warming Accessory",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "buffet-warming-accessory",
+        "url": "\/fencing\/grill-accessories\/buffet-warming-accessory"
+    },
+    {
+        "id": 112,
+        "title": "Automatic Three-hour Timer Shut Off Valve",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "automatic-three-hour-timer-shut-off-valve",
+        "url": "\/fencing\/grill-accessories\/automatic-three-hour-timer-shut-off-valve"
+    },
+    {
+        "id": 113,
+        "title": "Automatic One-hour Timer Shut Off Valve",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "automatic-one-hour-timer-shut-off-valve",
+        "url": "\/fencing\/grill-accessories\/automatic-one-hour-timer-shut-off-valve"
+    },
+    {
+        "id": 114,
+        "title": "Fire Magic Side Burner Cover",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "fire-magic-side-burner-cover",
+        "url": "\/fencing\/grill-accessories\/fire-magic-side-burner-cover"
+    },
+    {
+        "id": 115,
+        "title": "15in. Wok & Stainless Steel Cover",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "15in-wok-stainless-steel-cover",
+        "url": "\/fencing\/grill-accessories\/15in-wok-stainless-steel-cover"
+    },
+    {
+        "id": 116,
+        "title": "Turkey Pot Frying Kit",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "turkey-pot-frying-kit",
+        "url": "\/fencing\/grill-accessories\/turkey-pot-frying-kit"
+    },
+    {
+        "id": 117,
+        "title": "Five-piece Grilling Tool Set",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "five-piece-grilling-tool-set",
+        "url": "\/fencing\/grill-accessories\/five-piece-grilling-tool-set"
+    },
+    {
+        "id": 118,
+        "title": "Roasting Turkey Holder",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "roasting-turkey-holder",
+        "url": "\/fencing\/grill-accessories\/roasting-turkey-holder"
+    },
+    {
+        "id": 119,
+        "title": "Roasting Chicken Holder",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "roasting-chicken-holder",
+        "url": "\/fencing\/grill-accessories\/roasting-chicken-holder"
+    },
+    {
+        "id": 120,
+        "title": "Fire Magic Power Burner Cover",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "fire-magic-power-burner-cover",
+        "url": "\/fencing\/grill-accessories\/fire-magic-power-burner-cover"
+    },
+    {
+        "id": 121,
+        "title": "Fire Magic Built-in Grill Cover",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "fire-magic-built-in-grill-cover",
+        "url": "\/fencing\/grill-accessories\/fire-magic-built-in-grill-cover"
+    },
+    {
+        "id": 122,
+        "title": "Griddle",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "griddle",
+        "url": "\/fencing\/grill-accessories\/griddle"
+    },
+    {
+        "id": 123,
+        "title": "Fire Magic's Power Vent Hood",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "fire-magics-power-vent-hood",
+        "url": "\/fencing\/grill-accessories\/fire-magics-power-vent-hood"
+    },
+    {
+        "id": 124,
+        "title": "Summerset Stainless Steel Outdoor Refrigerator - 5.5 CFT",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "summerset-stainless-steel-outdoor-refrigerator-55-cft",
+        "url": "\/fencing\/grill-accessories\/summerset-stainless-steel-outdoor-refrigerator-55-cft"
+    },
+    {
+        "id": 125,
+        "title": "Summerset Sizzler Rotisserie Kit",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "summerset-sizzler-rotisserie-kit",
+        "url": "\/fencing\/grill-accessories\/summerset-sizzler-rotisserie-kit"
+    },
+    {
+        "id": 126,
+        "title": "Summerset Stainless Steel Outdoor Refrigerator - 4.5 CFT",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "summerset-stainless-steel-outdoor-refrigerator-45-cft",
+        "url": "\/fencing\/grill-accessories\/summerset-stainless-steel-outdoor-refrigerator-45-cft"
+    },
+    {
+        "id": 127,
+        "title": "Built-in Bar Caddy",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "built-in-bar-caddy",
+        "url": "\/fencing\/grill-accessories\/built-in-bar-caddy"
+    },
+    {
+        "id": 128,
+        "title": "Aurora Style Built-in Beverage Center",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "aurora-style-built-in-beverage-center",
+        "url": "\/fencing\/grill-accessories\/aurora-style-built-in-beverage-center"
+    },
+    {
+        "id": 129,
+        "title": "Fire Magic Outdoor Refrigerator",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "fire-magic-outdoor-refrigerator",
+        "url": "\/fencing\/grill-accessories\/fire-magic-outdoor-refrigerator"
+    },
+    {
+        "id": 130,
+        "title": "Fire Magic Outdoor Kegerator",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "fire-magic-outdoor-kegerator",
+        "url": "\/fencing\/grill-accessories\/fire-magic-outdoor-kegerator"
+    },
+    {
+        "id": 131,
+        "title": "Large Capacity Automatic Ice Maker",
+        "category_id": 18,
+        "category_title": "Grill Accessories",
+        "category_slug": "grill-accessories",
+        "product_slug": "large-capacity-automatic-ice-maker",
+        "url": "\/fencing\/grill-accessories\/large-capacity-automatic-ice-maker"
+    },
+    {
+        "id": 132,
+        "title": "Etruscan Fire Urn",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "etruscan-fire-urn",
+        "url": "\/fencing\/outdoor-fireplaces\/etruscan-fire-urn"
+    },
+    {
+        "id": 133,
+        "title": "Cordova Fireplace-Vented",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "cordova-fireplace-vented",
+        "url": "\/fencing\/outdoor-fireplaces\/cordova-fireplace-vented"
+    },
+    {
+        "id": 134,
+        "title": "Chica Fireplace-Vented",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "chica-fireplace-vented",
+        "url": "\/fencing\/outdoor-fireplaces\/chica-fireplace-vented"
+    },
+    {
+        "id": 135,
+        "title": "Amphora Fire Urn",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "amphora-fire-urn",
+        "url": "\/fencing\/outdoor-fireplaces\/amphora-fire-urn"
+    },
+    {
+        "id": 136,
+        "title": "Mariposa Fireplace-Vented",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "mariposa-fireplace-vented",
+        "url": "\/fencing\/outdoor-fireplaces\/mariposa-fireplace-vented"
+    },
+    {
+        "id": 137,
+        "title": "Large Firefall with Finished Back",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "large-firefall-with-finished-back",
+        "url": "\/fencing\/outdoor-fireplaces\/large-firefall-with-finished-back"
+    },
+    {
+        "id": 138,
+        "title": "Brighton Collection",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "brighton-collection",
+        "url": "\/fencing\/outdoor-fireplaces\/brighton-collection"
+    },
+    {
+        "id": 139,
+        "title": "Contempo Rectangle Fireplace",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "contempo-rectangle-fireplace",
+        "url": "\/fencing\/outdoor-fireplaces\/contempo-rectangle-fireplace"
+    },
+    {
+        "id": 140,
+        "title": "Phoenix Fireplace-Vented",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "phoenix-fireplace-vented",
+        "url": "\/fencing\/outdoor-fireplaces\/phoenix-fireplace-vented"
+    },
+    {
+        "id": 141,
+        "title": "Paige Fire Urn and Pedestal",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "paige-fire-urn-and-pedestal",
+        "url": "\/fencing\/outdoor-fireplaces\/paige-fire-urn-and-pedestal"
+    },
+    {
+        "id": 142,
+        "title": "Bristol Collection",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "bristol-collection",
+        "url": "\/fencing\/outdoor-fireplaces\/bristol-collection"
+    },
+    {
+        "id": 143,
+        "title": "Small Firewall with Finished Back",
+        "category_id": 20,
+        "category_title": "Outdoor Fireplaces",
+        "category_slug": "outdoor-fireplaces",
+        "product_slug": "small-firewall-with-finished-back",
+        "url": "\/fencing\/outdoor-fireplaces\/small-firewall-with-finished-back"
+    },
+    {
+        "id": 144,
+        "title": "Fire Pit and Fire Place Screens",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "fire-pit-and-fire-place-screens",
+        "url": "\/fencing\/fire-pits-fire-tables\/fire-pit-and-fire-place-screens"
+    },
+    {
+        "id": 145,
+        "title": "Madrid 48in. Square Pit Fire Table",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "madrid-48in-square-pit-fire-table",
+        "url": "\/fencing\/fire-pits-fire-tables\/madrid-48in-square-pit-fire-table"
+    },
+    {
+        "id": 146,
+        "title": "Naples 54in. Round Fire Pit Table",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "naples-54in-round-fire-pit-table",
+        "url": "\/fencing\/fire-pits-fire-tables\/naples-54in-round-fire-pit-table"
+    },
+    {
+        "id": 147,
+        "title": "Venice 42in. Square Fire Pit Table",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "venice-42in-square-fire-pit-table",
+        "url": "\/fencing\/fire-pits-fire-tables\/venice-42in-square-fire-pit-table"
+    },
+    {
+        "id": 148,
+        "title": "Rivera 48in. Round Fire Pit Table",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "rivera-48in-round-fire-pit-table",
+        "url": "\/fencing\/fire-pits-fire-tables\/rivera-48in-round-fire-pit-table"
+    },
+    {
+        "id": 149,
+        "title": "Cosmopolitan Square Firetable",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "cosmopolitan-square-firetable",
+        "url": "\/fencing\/fire-pits-fire-tables\/cosmopolitan-square-firetable"
+    },
+    {
+        "id": 150,
+        "title": "Munich Wall Fire Pit",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "munich-wall-fire-pit",
+        "url": "\/fencing\/fire-pits-fire-tables\/munich-wall-fire-pit"
+    },
+    {
+        "id": 151,
+        "title": "Linear Outdoor Fire Pit",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "linear-outdoor-fire-pit",
+        "url": "\/fencing\/fire-pits-fire-tables\/linear-outdoor-fire-pit"
+    },
+    {
+        "id": 152,
+        "title": "Amphora Firetable with Concrete Top",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "amphora-firetable-with-concrete-top",
+        "url": "\/fencing\/fire-pits-fire-tables\/amphora-firetable-with-concrete-top"
+    },
+    {
+        "id": 153,
+        "title": "Chat Height Octagon Firetable w\/ Concrete Top",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "chat-height-octagon-firetable-w-concrete-top",
+        "url": "\/fencing\/fire-pits-fire-tables\/chat-height-octagon-firetable-w-concrete-top"
+    },
+    {
+        "id": 154,
+        "title": "Inverted Firetable w\/ Concrete Top",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "inverted-firetable-w-concrete-top",
+        "url": "\/fencing\/fire-pits-fire-tables\/inverted-firetable-w-concrete-top"
+    },
+    {
+        "id": 155,
+        "title": "Fiesta Firetable",
+        "category_id": 21,
+        "category_title": "Fire Pits & Fire Tables",
+        "category_slug": "fire-pits-fire-tables",
+        "product_slug": "fiesta-firetable",
+        "url": "\/fencing\/fire-pits-fire-tables\/fiesta-firetable"
+    },
+    {
+        "id": 156,
+        "title": "Tempest Pillar Mount, Black",
+        "category_id": 22,
+        "category_title": "Tempest Torch",
+        "category_slug": "tempest-torch",
+        "product_slug": "tempest-pillar-mount-black",
+        "url": "\/fencing\/tempest-torch\/tempest-pillar-mount-black"
+    },
+    {
+        "id": 157,
+        "title": "Tempest Wall Mount, Black",
+        "category_id": 22,
+        "category_title": "Tempest Torch",
+        "category_slug": "tempest-torch",
+        "product_slug": "tempest-wall-mount-black",
+        "url": "\/fencing\/tempest-torch\/tempest-wall-mount-black"
+    },
+    {
+        "id": 158,
+        "title": "Tempest In-Ground Post - 3in. x 93in.",
+        "category_id": 22,
+        "category_title": "Tempest Torch",
+        "category_slug": "tempest-torch",
+        "product_slug": "tempest-in-ground-post-3in-x-93in",
+        "url": "\/fencing\/tempest-torch\/tempest-in-ground-post-3in-x-93in"
+    },
+    {
+        "id": 159,
+        "title": "Tempest Deck Post - 3in. x 69in.",
+        "category_id": 22,
+        "category_title": "Tempest Torch",
+        "category_slug": "tempest-torch",
+        "product_slug": "tempest-deck-post-3in-x-69in",
+        "url": "\/fencing\/tempest-torch\/tempest-deck-post-3in-x-69in"
+    },
+    {
+        "id": 160,
+        "title": "Tempest Deck Mount",
+        "category_id": 22,
+        "category_title": "Tempest Torch",
+        "category_slug": "tempest-torch",
+        "product_slug": "tempest-deck-mount",
+        "url": "\/fencing\/tempest-torch\/tempest-deck-mount"
+    },
+    {
+        "id": 161,
+        "title": "Tempest Torch Head",
+        "category_id": 22,
+        "category_title": "Tempest Torch",
+        "category_slug": "tempest-torch",
+        "product_slug": "tempest-torch-head",
+        "url": "\/fencing\/tempest-torch\/tempest-torch-head"
+    },
+    {
+        "id": 162,
+        "title": "Tempest Post Cover, Square Black",
+        "category_id": 22,
+        "category_title": "Tempest Torch",
+        "category_slug": "tempest-torch",
+        "product_slug": "tempest-post-cover-square-black",
+        "url": "\/fencing\/tempest-torch\/tempest-post-cover-square-black"
+    },
+    {
+        "id": 163,
+        "title": "Aluminum Railing",
+        "category_id": 24,
+        "category_title": "Railings",
+        "category_slug": "railings",
+        "product_slug": "aluminum-railing",
+        "url": "\/fencing\/railings\/aluminum-railing"
+    },
+    {
+        "id": 164,
+        "title": "New England Railing",
+        "category_id": 24,
+        "category_title": "Railings",
+        "category_slug": "railings",
+        "product_slug": "new-england-railing",
+        "url": "\/fencing\/railings\/new-england-railing"
+    },
+    {
+        "id": 165,
+        "title": "Belly Railing",
+        "category_id": 24,
+        "category_title": "Railings",
+        "category_slug": "railings",
+        "product_slug": "belly-railing",
+        "url": "\/fencing\/railings\/belly-railing"
+    },
+    {
+        "id": 166,
+        "title": "Aztec Railing",
+        "category_id": 24,
+        "category_title": "Railings",
+        "category_slug": "railings",
+        "product_slug": "aztec-railing",
+        "url": "\/fencing\/railings\/aztec-railing"
+    },
+    {
+        "id": 167,
+        "title": "Sacremento Railing",
+        "category_id": 24,
+        "category_title": "Railings",
+        "category_slug": "railings",
+        "product_slug": "sacremento-railing",
+        "url": "\/fencing\/railings\/sacremento-railing"
+    },
+    {
+        "id": 168,
+        "title": "Chain Railing",
+        "category_id": 24,
+        "category_title": "Railings",
+        "category_slug": "railings",
+        "product_slug": "chain-railing",
+        "url": "\/fencing\/railings\/chain-railing"
+    },
+    {
+        "id": 169,
+        "title": "Spindle Railing",
+        "category_id": 24,
+        "category_title": "Railings",
+        "category_slug": "railings",
+        "product_slug": "spindle-railing",
+        "url": "\/fencing\/railings\/spindle-railing"
+    },
+    {
+        "id": 170,
+        "title": "Custom Accents",
+        "category_id": 24,
+        "category_title": "Railings",
+        "category_slug": "railings",
+        "product_slug": "custom-accents",
+        "url": "\/fencing\/railings\/custom-accents"
+    },
+    {
+        "id": 171,
+        "title": "Appian Stone",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "appian-stone",
+        "url": "\/fencing\/pavers\/appian-stone"
+    },
+    {
+        "id": 172,
+        "title": "Subterra",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "subterra",
+        "url": "\/fencing\/pavers\/subterra"
+    },
+    {
+        "id": 173,
+        "title": "Mega-Arbel",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "mega-arbel",
+        "url": "\/fencing\/pavers\/mega-arbel"
+    },
+    {
+        "id": 174,
+        "title": "Holland Stone",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "holland-stone",
+        "url": "\/fencing\/pavers\/holland-stone"
+    },
+    {
+        "id": 175,
+        "title": "Highland Stone",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "highland-stone",
+        "url": "\/fencing\/pavers\/highland-stone"
+    },
+    {
+        "id": 176,
+        "title": "Aqua Bric",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "aqua-bric",
+        "url": "\/fencing\/pavers\/aqua-bric"
+    },
+    {
+        "id": 177,
+        "title": "Weston Stone",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "weston-stone",
+        "url": "\/fencing\/pavers\/weston-stone"
+    },
+    {
+        "id": 178,
+        "title": "Uni Eco-Stone",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "uni-eco-stone",
+        "url": "\/fencing\/pavers\/uni-eco-stone"
+    },
+    {
+        "id": 179,
+        "title": "4in. x 8in. Pavers",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "4in-x-8in-pavers",
+        "url": "\/fencing\/pavers\/4in-x-8in-pavers"
+    },
+    {
+        "id": 180,
+        "title": "Olde Towne",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "olde-towne",
+        "url": "\/fencing\/pavers\/olde-towne"
+    },
+    {
+        "id": 181,
+        "title": "Stonegate Wall Block",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "stonegate-wall-block",
+        "url": "\/fencing\/pavers\/stonegate-wall-block"
+    },
+    {
+        "id": 182,
+        "title": "Stonehurst",
+        "category_id": 25,
+        "category_title": "Pavers",
+        "category_slug": "pavers",
+        "product_slug": "stonehurst",
+        "url": "\/fencing\/pavers\/stonehurst"
+    },
+    {
+        "id": 183,
+        "title": "Screen Room with Insulated Roof",
+        "category_id": 27,
+        "category_title": "Screen Rooms",
+        "category_slug": "screen-rooms",
+        "product_slug": "screen-room-with-insulated-roof",
+        "url": "\/fencing\/screen-rooms\/screen-room-with-insulated-roof"
+    },
+    {
+        "id": 184,
+        "title": "Screen Rooms",
+        "category_id": 27,
+        "category_title": "Screen Rooms",
+        "category_slug": "screen-rooms",
+        "product_slug": "screen-rooms",
+        "url": "\/fencing\/screen-rooms\/screen-rooms"
+    },
+    {
+        "id": 185,
+        "title": "Insulated Roof Systems",
+        "category_id": 28,
+        "category_title": "Pergolas",
+        "category_slug": "pergolas",
+        "product_slug": "insulated-roof-systems",
+        "url": "\/fencing\/pergolas\/insulated-roof-systems"
+    },
+    {
+        "id": 186,
+        "title": "Aluminum Pergolas",
+        "category_id": 28,
+        "category_title": "Pergolas",
+        "category_slug": "pergolas",
+        "product_slug": "aluminum-pergolas",
+        "url": "\/fencing\/pergolas\/aluminum-pergolas"
+    },
+    {
+        "id": 187,
+        "title": "Equinox Louvered Roof",
+        "category_id": 28,
+        "category_title": "Pergolas",
+        "category_slug": "pergolas",
+        "product_slug": "equinox-louvered-roof",
+        "url": "\/fencing\/pergolas\/equinox-louvered-roof"
+    },
+    {
+        "id": 188,
+        "title": "Vinyl Pergolas",
+        "category_id": 28,
+        "category_title": "Pergolas",
+        "category_slug": "pergolas",
+        "product_slug": "vinyl-pergolas",
+        "url": "\/fencing\/pergolas\/vinyl-pergolas"
+    },
+    {
+        "id": 189,
+        "title": "Caprice Arbor",
+        "category_id": 29,
+        "category_title": "Arbors",
+        "category_slug": "arbors",
+        "product_slug": "caprice-arbor",
+        "url": "\/fencing\/arbors\/caprice-arbor"
+    },
+    {
+        "id": 190,
+        "title": "Morning Glory Arbor",
+        "category_id": 29,
+        "category_title": "Arbors",
+        "category_slug": "arbors",
+        "product_slug": "morning-glory-arbor",
+        "url": "\/fencing\/arbors\/morning-glory-arbor"
+    },
+    {
+        "id": 191,
+        "title": "Highlander Arbor",
+        "category_id": 29,
+        "category_title": "Arbors",
+        "category_slug": "arbors",
+        "product_slug": "highlander-arbor",
+        "url": "\/fencing\/arbors\/highlander-arbor"
+    },
+    {
+        "id": 192,
+        "title": "Fairfield Arbor",
+        "category_id": 29,
+        "category_title": "Arbors",
+        "category_slug": "arbors",
+        "product_slug": "fairfield-arbor",
+        "url": "\/fencing\/arbors\/fairfield-arbor"
+    },
+    {
+        "id": 193,
+        "title": "Day Lily Arbor",
+        "category_id": 29,
+        "category_title": "Arbors",
+        "category_slug": "arbors",
+        "product_slug": "day-lily-arbor",
+        "url": "\/fencing\/arbors\/day-lily-arbor"
+    },
+    {
+        "id": 194,
+        "title": "Vesper Rose Arbor",
+        "category_id": 29,
+        "category_title": "Arbors",
+        "category_slug": "arbors",
+        "product_slug": "vesper-rose-arbor",
+        "url": "\/fencing\/arbors\/vesper-rose-arbor"
+    },
+    {
+        "id": 195,
+        "title": "Riviera Arbor",
+        "category_id": 29,
+        "category_title": "Arbors",
+        "category_slug": "arbors",
+        "product_slug": "riviera-arbor",
+        "url": "\/fencing\/arbors\/riviera-arbor"
+    },
+    {
+        "id": 196,
+        "title": "Regal Arbor",
+        "category_id": 29,
+        "category_title": "Arbors",
+        "category_slug": "arbors",
+        "product_slug": "regal-arbor",
+        "url": "\/fencing\/arbors\/regal-arbor"
+    },
+    {
+        "id": 197,
+        "title": "Oxford Arbor",
+        "category_id": 29,
+        "category_title": "Arbors",
+        "category_slug": "arbors",
+        "product_slug": "oxford-arbor",
+        "url": "\/fencing\/arbors\/oxford-arbor"
+    },
+    {
+        "id": 198,
+        "title": "Arched Arbor",
+        "category_id": 29,
+        "category_title": "Arbors",
+        "category_slug": "arbors",
+        "product_slug": "arched-arbor",
+        "url": "\/fencing\/arbors\/arched-arbor"
+    },
+    {
+        "id": 199,
+        "title": "7ft. Gazebo",
+        "category_id": 30,
+        "category_title": "Gazebos",
+        "category_slug": "gazebos",
+        "product_slug": "7ft-gazebo",
+        "url": "\/fencing\/gazebos\/7ft-gazebo"
+    },
+    {
+        "id": 200,
+        "title": "10ft. Gazebo",
+        "category_id": 30,
+        "category_title": "Gazebos",
+        "category_slug": "gazebos",
+        "product_slug": "10ft-gazebo",
+        "url": "\/fencing\/gazebos\/10ft-gazebo"
+    },
+    {
+        "id": 201,
+        "title": "Victorian Gazebo",
+        "category_id": 30,
+        "category_title": "Gazebos",
+        "category_slug": "gazebos",
+        "product_slug": "victorian-gazebo",
+        "url": "\/fencing\/gazebos\/victorian-gazebo"
+    },
+    {
+        "id": 202,
+        "title": "Custom Solutions",
+        "category_id": 31,
+        "category_title": "Specialty Products",
+        "category_slug": "specialty-products",
+        "product_slug": "custom-solutions",
+        "url": "\/fencing\/specialty-products\/custom-solutions"
+    },
+    {
+        "id": 203,
+        "title": "Commercial Specialty",
+        "category_id": 31,
+        "category_title": "Specialty Products",
+        "category_slug": "specialty-products",
+        "product_slug": "commercial-specialty",
+        "url": "\/fencing\/specialty-products\/commercial-specialty"
+    },
+    {
+        "id": 204,
+        "title": "Decorative Accents",
+        "category_id": 31,
+        "category_title": "Specialty Products",
+        "category_slug": "specialty-products",
+        "product_slug": "decorative-accents",
+        "url": "\/fencing\/specialty-products\/decorative-accents"
+    }
+]

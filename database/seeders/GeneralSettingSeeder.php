@@ -75,17 +75,46 @@ class GeneralSettingSeeder extends Seeder
         'analytics' => [
             'label' => 'Google Analytics Code',
             'input_type' => 'textarea',
-            'value' => '<script async src="https://www.googletagmanager.com/gtag/js?id=G-NPZ232T5XF"></script>
-<script>
+            'value' => '<script>
+  // Defer Google Analytics loading until user interaction or after 3 seconds
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag(\'js\', new Date());
 
-  gtag(\'config\', \'G-NPZ232T5XF\');
+  let analyticsLoaded = false;
+  function loadAnalytics() {
+    if (analyticsLoaded) return;
+    analyticsLoaded = true;
+
+    // Load gtag script
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-NPZ232T5XF";
+    document.head.appendChild(script);
+
+    script.onload = function() {
+      gtag(\'js\', new Date());
+      gtag(\'config\', \'G-NPZ232T5XF\');
+    };
+  }
+
+  // Load on user interaction or after delay
+  const events = [\'mousedown\', \'mousemove\', \'keypress\', \'scroll\', \'touchstart\', \'click\'];
+  events.forEach(event => {
+    document.addEventListener(event, loadAnalytics, { once: true, passive: true });
+  });
+
+  // Fallback: load after 3 seconds
+  setTimeout(loadAnalytics, 3000);
 </script>
-     <script type="text/javascript">
-        !function(){function t(){var t=r("utm_content");if(t){var e=new Date;e.setDate(e.getDate()+30),document.cookie=t+";expires="+e.toGMTString()+";path=/"}else if(document.cookie)for(var o=document.cookie.split(/; */),n=0;n<o.length;n++)if(0===o[n].toLowerCase().trim().indexOf("utm_content=")){t=o[n];break}return t}function e(t){try{console.log(t)}catch(e){alert(t)}}function r(t){var e=top.location.search?top.location.search.substring(1):null;if(e)for(var r=e.split("&"),o=0;o<r.length;o++)if(0===r[o].toLowerCase().trim().indexOf(t+"="))return r[o];return null}var o="",n=r("mctest");if(n)e("dnr tag version: 20160125"),o="http://localhost:8080/rip/library/dnr/mcDnrTag.debug.js";else{var a=t(),c="";a&&(c=top.location.search?0<=top.location.search.indexOf("utm_content")?top.location.search:top.location.search+"&"+a:"?"+a,o="https://script.advertiserreports.com/redirector/dnr"+c)}if(o){var i=document.createElement("script");i.src=o,i.type="text/javascript",scriptTag=document.getElementsByTagName("script")[0],scriptTag.parentNode.appendChild(i)}}();
-    </script>',
+<script type="text/javascript">
+  // Defer advertiser reports script as well
+  function loadAdvertiserReports() {
+    function t(){var t=r("utm_content");if(t){var e=new Date;e.setDate(e.getDate()+30),document.cookie=t+";expires="+e.toGMTString()+";path=/"}else if(document.cookie)for(var o=document.cookie.split(/; */),n=0;n<o.length;n++)if(0===o[n].toLowerCase().trim().indexOf("utm_content=")){t=o[n];break}return t}function e(t){try{console.log(t)}catch(e){alert(t)}}function r(t){var e=top.location.search?top.location.search.substring(1):null;if(e)for(var r=e.split("&"),o=0;o<r.length;o++)if(0===r[o].toLowerCase().trim().indexOf(t+"="))return r[o];return null}var o="",n=r("mctest");if(n)e("dnr tag version: 20160125"),o="http://localhost:8080/rip/library/dnr/mcDnrTag.debug.js";else{var a=t(),c="";a&&(c=top.location.search?0<=top.location.search.indexOf("utm_content")?top.location.search:top.location.search+"&"+a:"?"+a,o="https://script.advertiserreports.com/redirector/dnr"+c)}if(o){var i=document.createElement("script");i.src=o,i.type="text/javascript",scriptTag=document.getElementsByTagName("script")[0],scriptTag.parentNode.appendChild(i)}
+  }
+
+  // Load advertiser reports after 5 seconds
+  setTimeout(loadAdvertiserReports, 5000);
+</script>',
         ],
     ];
 

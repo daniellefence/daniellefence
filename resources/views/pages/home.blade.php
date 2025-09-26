@@ -65,7 +65,8 @@
                             <video autoplay="" loop="" muted="" playsinline=""
                                    class="w-full h-auto rounded-2xl alpha-video hover:scale-105 transition-transform duration-300 cursor-pointer"
                                    poster="{{ Vite::asset('resources/images/Grilllbert.webp') }}"
-                                   preload="metadata">
+                                   preload="none"
+                                   loading="lazy">
                                 <source src="{{Vite::asset('resources/videos/grillbert.webm')}}" type="video/webm">
                             </video>
                         </a>

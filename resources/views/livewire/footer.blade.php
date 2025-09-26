@@ -29,7 +29,13 @@
                     </div>
                     <div class="mt-6">
                         <a href="https://www.bbb.org/us/fl/mulberry/profile/fence-contractors/danielle-fence-manufacturing-company-inc-0733-22003257/#sealclick" target="_blank" rel="nofollow" class="inline-block hover:opacity-80 transition-opacity">
-                            <img src="https://seal-centralflorida.bbb.org/seals/blue-seal-280-80-bbb-22003257.png" alt="BBB Accredited Business" class="h-12 w-auto" width="280" height="80" />
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='80'%3E%3C/svg%3E"
+                                 data-src="https://seal-centralflorida.bbb.org/seals/blue-seal-280-80-bbb-22003257.png"
+                                 alt="BBB Accredited Business"
+                                 class="h-12 w-auto lazy"
+                                 width="280"
+                                 height="80"
+                                 loading="lazy" />
                         </a>
                     </div>
                 </div>
@@ -78,7 +84,7 @@
                     <div class="mb-6">
                         <a href="{{ route('chat') }}" class="block">
                             <div class="max-w-32 rounded-xl overflow-hidden hover:scale-105 transition-transform cursor-pointer">
-                                <video autoplay loop muted playsinline class="w-full h-auto alpha-video">
+                                <video autoplay loop muted playsinline class="w-full h-auto alpha-video" preload="none" loading="lazy">
                                     <source src="{{ Vite::asset('resources/videos/grillbert.webm') }}" type="video/webm">
                                     Your browser does not support the video tag.
                                 </video>
