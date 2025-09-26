@@ -1,5 +1,5 @@
 <div x-data="{ showMobile: false, showProducts: false, showServices: false, showCompany: false }">
-    <header class="relative z-20 bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
+    <header class="relative z-[100] bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <!-- Main navigation row -->
             <nav class="py-4">
@@ -42,7 +42,7 @@
                         <!-- Menu Items -->
                         <div class="flex items-center gap-x-4">
                 <!-- Products Dropdown -->
-                <div @click.away="showProducts=false" @keyup.window.escape="showProducts=false" class="relative">
+                <div @click.away="showProducts=false" @keyup.window.escape="showProducts=false" class="relative z-[150]">
                     <button @click="showProducts=!showProducts" type="button"
                             class="relative inline-flex items-center gap-x-1 px-4 py-2 text-sm font-semibold text-slate-800 hover:text-outdoor-primary transition-all duration-200 group rounded-lg bg-slate-50/70 hover:bg-outdoor-light/60 shadow-sm hover:shadow-md border border-slate-200/50 hover:border-outdoor-primary/30"
                             aria-expanded="false">
@@ -57,7 +57,7 @@
                          x-transition:leave="transition ease-in duration-150"
                          x-transition:leave-start="opacity-100 translate-y-0"
                          x-transition:leave-end="opacity-0 -translate-y-1"
-                         class="absolute left-1/2 z-50 mt-2 flex w-screen max-w-max -translate-x-1/2 px-4">
+                         class="absolute left-1/2 z-[200] mt-2 flex w-screen max-w-max -translate-x-1/2 px-4">
                         <div class="w-screen max-w-sm flex-auto rounded-2xl bg-white/95 backdrop-blur-xl p-3 text-sm leading-6 shadow-2xl ring-1 ring-slate-900/5 border border-slate-200/20">
                             @foreach(\App\Services\CacheService::getProductCategories() as $productCategory)
                                 <a aria-label="{{$productCategory->title}}" href="{{$productCategory->getRoute()}}"
@@ -72,7 +72,7 @@
                 </div>
 
                 <!-- Services Dropdown -->
-                <div @click.away="showServices=false" @keyup.window.escape="showServices=false" class="relative">
+                <div @click.away="showServices=false" @keyup.window.escape="showServices=false" class="relative z-[150]">
                     <button @click="showServices=!showServices" type="button"
                             class="relative inline-flex items-center gap-x-1 px-4 py-2 text-sm font-semibold text-slate-800 hover:text-outdoor-primary transition-all duration-200 group rounded-lg bg-slate-50/70 hover:bg-outdoor-light/60 shadow-sm hover:shadow-md border border-slate-200/50 hover:border-outdoor-primary/30"
                             aria-expanded="false">
@@ -87,7 +87,7 @@
                          x-transition:leave="transition ease-in duration-150"
                          x-transition:leave-start="opacity-100 translate-y-0"
                          x-transition:leave-end="opacity-0 -translate-y-1"
-                         class="absolute left-1/2 z-50 mt-2 flex w-screen max-w-max -translate-x-1/2 px-4">
+                         class="absolute left-1/2 z-[200] mt-2 flex w-screen max-w-max -translate-x-1/2 px-4">
                         <div class="w-screen max-w-xs flex-auto rounded-2xl bg-white/95 backdrop-blur-xl p-3 text-sm leading-6 shadow-2xl ring-1 ring-slate-900/5 border border-slate-200/20">
                             <a aria-label="Request a Quote" href="{{route('request-a-quote')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">
@@ -115,7 +115,7 @@
                 </div>
 
                 <!-- Company Dropdown -->
-                <div @click.away="showCompany=false" @keyup.window.escape="showCompany=false" class="relative">
+                <div @click.away="showCompany=false" @keyup.window.escape="showCompany=false" class="relative z-[150]">
                     <button @click="showCompany=!showCompany" type="button"
                             class="relative inline-flex items-center gap-x-1 px-4 py-2 text-sm font-semibold text-slate-800 hover:text-outdoor-primary transition-all duration-200 group rounded-lg bg-slate-50/70 hover:bg-outdoor-light/60 shadow-sm hover:shadow-md border border-slate-200/50 hover:border-outdoor-primary/30"
                             aria-expanded="false">
@@ -130,7 +130,7 @@
                          x-transition:leave="transition ease-in duration-150"
                          x-transition:leave-start="opacity-100 translate-y-0"
                          x-transition:leave-end="opacity-0 -translate-y-1"
-                         class="absolute left-1/2 z-50 mt-2 flex w-screen max-w-max -translate-x-1/2 px-4">
+                         class="absolute left-1/2 z-[200] mt-2 flex w-screen max-w-max -translate-x-1/2 px-4">
                         <div class="w-screen max-w-xs flex-auto rounded-2xl bg-white/95 backdrop-blur-xl p-3 text-sm leading-6 shadow-2xl ring-1 ring-slate-900/5 border border-slate-200/20">
                             <a aria-label="About Us" href="{{route('about-us')}}"
                                class="relative block rounded-xl p-3 group hover:bg-gradient-to-r hover:from-brand-light hover:to-brand-light/80 transition-all duration-200 border border-transparent hover:border-outdoor-primary/20">

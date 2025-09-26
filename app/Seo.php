@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Blog;
 use App\Models\GeneralSetting;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
@@ -31,52 +32,111 @@ class Seo
 
     public function meta($type)
     {
-        $route = Route::currentRouteName();
-        $seo = \App\Models\Seo::where([
-            ['route', '=', $route],
-        ])->first();
+        try {
+            $route = Route::currentRouteName();
+            $seo = \App\Models\Seo::where([
+                ['route', '=', $route],
+            ])->first();
 
-        switch ($type) {
-            case 'title':
-                if ($seo) {
-                    return $this->defaultTitle().' | '.$seo->title;
-                }
-                if ($route == 'blog.read') {
-                    $blog = Blog::findOrFail(request('id'));
-
-                    return $this->defaultTitle().' | '.$blog->title;
-                }
-                break;
-            case 'description':
-                if ($seo) {
-                    return $seo->description;
-                }
-                if ($route == 'blog.read') {
-                    $blog = Blog::findOrFail(request('id'));
-
-                    return Str::limit($blog->content, 200);
-                }
-
-                return $this->defaultDescription();
-                break;
-            case 'keywords':
-                if ($seo) {
-                    return $this->defaultKeywords().', '.$seo->keywords;
-                }
-                if ($route == 'blog.read') {
-                    $blog = Blog::findOrFail(request('id'));
-                    if ($blog->keywords) {
-                        return $this->defaultKeywords().', '.$blog->keywords;
+            switch ($type) {
+                case 'title':
+                    if ($seo && !empty($seo->title)) {
+                        return $this->defaultTitle().' | '.$seo->title;
                     }
+                    if ($route == 'blog.read') {
+                        $blog = Blog::findOrFail(request('id'));
+                        return $this->defaultTitle().' | '.$blog->title;
+                    }
+                    // Handle product pages dynamically
+                    if ($route == 'product.slug') {
+                        $categorySlug = request()->route('category_slug');
+                        $productSlug = request()->route('product_slug');
+                        if ($categorySlug && $productSlug) {
+                            try {
+                                $product = $this->findProductBySlug($categorySlug, $productSlug);
+                                if ($product) {
+                                    return $this->defaultTitle().' | '.$product->title;
+                                }
+                            } catch (\Exception $e) {
+                                \Log::error("SEO: Error finding product for slugs {$categorySlug}/{$productSlug}: " . $e->getMessage());
+                            }
+                        }
+                    }
+                    return $this->defaultTitle();
 
+                case 'description':
+                    if ($seo && !empty($seo->description)) {
+                        return $seo->description;
+                    }
+                    if ($route == 'blog.read') {
+                        $blog = Blog::findOrFail(request('id'));
+                        return Str::limit($blog->content, 200);
+                    }
+                    // Handle product pages dynamically
+                    if ($route == 'product.slug') {
+                        $categorySlug = request()->route('category_slug');
+                        $productSlug = request()->route('product_slug');
+                        if ($categorySlug && $productSlug) {
+                            try {
+                                $product = $this->findProductBySlug($categorySlug, $productSlug);
+                                if ($product && !empty($product->description)) {
+                                    return Str::limit(strip_tags($product->description), 200);
+                                }
+                            } catch (\Exception $e) {
+                                \Log::error("SEO: Error finding product for slugs {$categorySlug}/{$productSlug}: " . $e->getMessage());
+                            }
+                        }
+                    }
+                    return $this->defaultDescription();
+
+                case 'keywords':
+                    if ($seo && !empty($seo->keywords)) {
+                        return $this->defaultKeywords().', '.$seo->keywords;
+                    }
+                    if ($route == 'blog.read') {
+                        $blog = Blog::findOrFail(request('id'));
+                        if ($blog->keywords) {
+                            return $this->defaultKeywords().', '.$blog->keywords;
+                        }
+                    }
+                    // Handle product pages dynamically
+                    if ($route == 'product.slug') {
+                        $categorySlug = request()->route('category_slug');
+                        $productSlug = request()->route('product_slug');
+                        if ($categorySlug && $productSlug) {
+                            try {
+                                $product = $this->findProductBySlug($categorySlug, $productSlug);
+                                if ($product) {
+                                    $category = $product->category;
+                                    $categoryKeywords = $category ? $category->title : '';
+                                    return $this->defaultKeywords().', '.$product->title.($categoryKeywords ? ', '.$categoryKeywords : '');
+                                }
+                            } catch (\Exception $e) {
+                                \Log::error("SEO: Error finding product for slugs {$categorySlug}/{$productSlug}: " . $e->getMessage());
+                            }
+                        }
+                    }
                     return $this->defaultKeywords();
-                }
 
-                return $this->defaultKeywords();
-                break;
+                default:
+                    // Return appropriate default for unknown types
+                    return $this->defaultTitle();
+            }
+        } catch (\Exception $e) {
+            // Log error but return safe defaults to prevent layout failures
+            \Log::error("SEO meta error for type '{$type}': " . $e->getMessage());
+
+            switch ($type) {
+                case 'title':
+                    return $this->defaultTitle();
+                case 'description':
+                    return $this->defaultDescription();
+                case 'keywords':
+                    return $this->defaultKeywords();
+                default:
+                    return $this->defaultTitle();
+            }
         }
-
-        return null;
     }
 
     public function defaultTitle()
@@ -122,5 +182,25 @@ class Seo
         } catch (\Exception $e) {
             return 'fence, fencing, outdoor living, vinyl fence, aluminum fence';
         }
+    }
+
+    /**
+     * Find a product by category and product slugs
+     */
+    private function findProductBySlug($categorySlug, $productSlug)
+    {
+        $categories = \App\Models\Category::all();
+        $category = $categories->first(function ($cat) use ($categorySlug) {
+            return Str::slug($cat->title) === $categorySlug;
+        });
+
+        if (!$category) {
+            return null;
+        }
+
+        $products = Product::where('category_id', $category->id)->get();
+        return $products->first(function ($prod) use ($productSlug) {
+            return Str::slug($prod->title) === $productSlug;
+        });
     }
 }

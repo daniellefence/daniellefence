@@ -6,9 +6,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- SEO Meta Tags -->
-    <title>{{ $pageTitle ?? seo()->meta('title') }}</title>
-    <meta name="description" content="{{ $pageDescription ?? seo()->meta('description') }}">
-    <meta name="keywords" content="{{ $pageKeywords ?? seo()->meta('keywords') }}">
+    <title>{{ $pageTitle ?? 'Danielle Fence & Outdoor Living' }}</title>
+    <meta name="description" content="{{ $pageDescription ?? 'Professional fencing and outdoor living solutions' }}">
+    <meta name="keywords" content="{{ $pageKeywords ?? 'fence, fencing, outdoor living' }}">
     <meta name="author" content="Danielle Fence & Outdoor Living">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="{{ config('app.url') }}">
@@ -65,7 +65,7 @@
 	
 
     <x-open-graph/>
-    <x-schema-markup/>
+    {{-- <x-schema-markup/> --}}
 
     <!-- FontAwesome Kit - Load only when needed for better performance -->
     <script>
