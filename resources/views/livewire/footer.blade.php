@@ -29,7 +29,7 @@
                     </div>
                     <div class="mt-6">
                         <a href="https://www.bbb.org/us/fl/mulberry/profile/fence-contractors/danielle-fence-manufacturing-company-inc-0733-22003257/#sealclick" target="_blank" rel="nofollow" class="inline-block hover:opacity-80 transition-opacity">
-                            <img src="https://seal-centralflorida.bbb.org/seals/blue-seal-280-80-bbb-22003257.png" alt="BBB Accredited Business" class="h-12 w-auto" />
+                            <img src="https://seal-centralflorida.bbb.org/seals/blue-seal-280-80-bbb-22003257.png" alt="BBB Accredited Business" class="h-12 w-auto" width="280" height="80" />
                         </a>
                     </div>
                 </div>

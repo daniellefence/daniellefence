@@ -43,6 +43,7 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <!-- Critical Resource Hints -->
+    <link rel="preconnect" href="https://seal-centralflorida.bbb.org" crossorigin>
     <link rel="preload" href="https://fonts.bunny.net/inter/files/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.bunny.net/inter/files/inter-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800&family=playfair-display:400,500,600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -50,7 +51,7 @@
 
     <!-- Preload critical images -->
     <link rel="preload" href="{{Vite::asset('resources/images/logo.webp')}}" as="image" type="image/webp">
-    <link rel="preload" href="{{Vite::asset('resources/images/home_hero.webp')}}" as="image" type="image/webp">
+    <link rel="preload" href="{{Vite::asset('resources/images/home_hero.webp')}}" as="image" type="image/webp" fetchpriority="high">
     <link rel="apple-touch-icon" sizes="144x144" href="{{ url('apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{url('favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{url('favicon-16x16.png')}}">

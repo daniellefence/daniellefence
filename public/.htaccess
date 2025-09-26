@@ -45,12 +45,23 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
     # Cache static assets for 1 year
     <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|svg|js|css|swf|woff|woff2)$">
         Header set Cache-Control "max-age=31536000, public, immutable"
+        Header unset ETag
+        Header unset Last-Modified
     </FilesMatch>
 
     # Cache videos for 1 year
     <FilesMatch "\.(webm|mp4)$">
         Header set Cache-Control "max-age=31536000, public"
+        Header unset ETag
     </FilesMatch>
+
+    # Cache storage uploads for 6 months (Laravel storage)
+    <Location "/storage">
+        <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg)$">
+            Header set Cache-Control "max-age=15552000, public"
+            Header unset ETag
+        </FilesMatch>
+    </Location>
 
     # Cache HTML for 1 hour
     <FilesMatch "\.(html|htm)$">
