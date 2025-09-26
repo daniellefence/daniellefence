@@ -24,14 +24,23 @@ class CacheStaticAssets
                 $response->headers->set('Cache-Control', 'public, max-age=31536000, immutable');
                 $response->headers->set('Expires', gmdate('D, d M Y H:i:s \G\M\T', time() + 31536000));
             }
-            // Cache for 1 day for other static assets
+            // Cache for 1 week for other static assets (longer than 1 day)
             else {
-                $response->headers->set('Cache-Control', 'public, max-age=86400');
-                $response->headers->set('Expires', gmdate('D, d M Y H:i:s \G\M\T', time() + 86400));
+                $response->headers->set('Cache-Control', 'public, max-age=604800');
+                $response->headers->set('Expires', gmdate('D, d M Y H:i:s \G\M\T', time() + 604800));
             }
 
             // Add ETag for better caching
             $response->headers->set('ETag', '"' . md5($response->getContent()) . '"');
+
+            // Add image optimization headers
+            if ($this->isImage($request)) {
+                $response->headers->set('Vary', 'Accept');
+                // Allow browsers to serve WebP when supported
+                if (str_contains($request->header('Accept', ''), 'image/webp')) {
+                    $response->headers->set('Content-Type', 'image/webp');
+                }
+            }
         }
 
         return $response;
@@ -53,7 +62,14 @@ class CacheStaticAssets
 
         // Build assets with hashes can be cached longer
         return str_starts_with($path, 'build/') ||
-               preg_match('/\.(woff|woff2|ttf|eot)$/i', $path) ||
+               str_starts_with($path, 'storage/') ||
+               preg_match('/\.(woff|woff2|ttf|eot|png|jpg|jpeg|gif|webp|svg|ico|mp4|webm)$/i', $path) ||
                preg_match('/-[a-f0-9]{8,}\.(css|js|png|jpg|jpeg|gif|webp|svg)$/i', $path);
+    }
+
+    private function isImage(Request $request): bool
+    {
+        $path = $request->path();
+        return preg_match('/\.(png|jpg|jpeg|gif|webp|svg|ico)$/i', $path);
     }
 }

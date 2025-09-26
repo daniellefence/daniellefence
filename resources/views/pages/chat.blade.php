@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="min-h-screen relative section-slate-texture chat-background-image" style="background-image: url('{{ asset('images/fence.jpg') }}'); background-size: cover; background-repeat: no-repeat; background-attachment: scroll; background-position: center;">
+    <div class="min-h-screen relative section-slate-texture chat-background-image" style="background-image: url('{{ asset('images/fence.webp') }}'); background-size: cover; background-repeat: no-repeat; background-attachment: scroll; background-position: center;">
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 grass-offset pt-20 sm:pt-32">
             <!-- Chat Interface -->
             <div class="rounded-2xl overflow-hidden">
