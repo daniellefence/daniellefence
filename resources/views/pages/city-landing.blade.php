@@ -93,7 +93,7 @@
                             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
-                            50+ Years Experience
+                            {{ date('Y') - 1976 }}+ Years Experience
                         </div>
                         <div class="flex items-center justify-center px-4 py-3 bg-orange-50 border border-orange-200 rounded-lg text-orange-700 font-medium">
                             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -295,7 +295,7 @@
             <!-- Statistics Grid -->
             <div class="grid grid-cols-2 gap-8 md:grid-cols-4 mb-16">
                 <div class="neo-pressed text-center group hover-bounce cursor-pointer p-4">
-                    <div class="text-5xl font-black text-yellow-400 mb-2 hover-elastic">50+</div>
+                    <div class="text-5xl font-black text-yellow-400 mb-2 hover-elastic">{{ date('Y') - 1976 }}+</div>
                     <div class="text-sm font-medium text-gray-300 uppercase tracking-wider">Years Experience</div>
                 </div>
                 <div class="neo-pressed text-center group hover-shake cursor-pointer p-4">

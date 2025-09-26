@@ -4,10 +4,6 @@
 
             <div class="mt-8 lg:col-span-7 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:mt-0">
                 <x-product-carousel :product="$product"></x-product-carousel>
-                <div class="my-8 text-center">
-                    <p class="text-gray-500">Share this product</p>
-                    {{-- <x-share-this/> --}}
-                </div>
             </div>
 
             <div class="mt-8 lg:col-span-5">

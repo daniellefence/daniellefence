@@ -49,7 +49,7 @@
                         </svg>
                     </div>
                     <div class="text-left">
-                        <div class="text-2xl font-bold text-white">50+</div>
+                        <div class="text-2xl font-bold text-white">{{ date('Y') - 1976 }}+</div>
                         <div class="text-xs text-amber-200">Years of Excellence</div>
                     </div>
                 </div>
