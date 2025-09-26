@@ -38,7 +38,7 @@
                                 <span class="text-2xl sm:text-3xl lg:text-3xl 2xl:text-4xl -mt-4">Fence Company</span>
                             </h1>
                             <p class="mx-auto mt-6 max-w-lg lg:max-w-xl 2xl:max-w-2xl text-lg lg:text-xl 2xl:text-2xl tracking-tight text-white font-medium animate-fade-in-up animate-delay-500 hero-text-shadow">
-                                Nearly 50 years of quality craftsmanship. From Disney World to your backyard - professional installation with premium American-made materials.
+                                {{ date('Y') - 1976 }}+ years of quality craftsmanship. From Disney World to your backyard - professional installation with premium American-made materials.
                             </p>
                             <div class="mt-10 animate-fade-in-up animate-delay-600">
                                 <a href="{{route('request-a-quote')}}" class="group block w-full text-center rounded-3xl py-4 px-12 lg:py-5 lg:px-14 2xl:py-6 2xl:px-16 text-lg lg:text-xl 2xl:text-2xl font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 bg-outdoor-primary text-white hover:bg-outdoor-primary/80 focus-visible:outline-outdoor-primary transform hover:scale-105 transition-transform duration-200">
@@ -135,7 +135,7 @@
         <x-mission-statement></x-mission-statement>
 
         <!-- Trusted By Section -->
-        <div class="relative py-16 bg-slate-50">
+        <div class="relative py-16 bg-white">
 
             <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="text-center mb-10">
@@ -145,64 +145,51 @@
                     </p>
                 </div>
 
-                <!-- Logo Grid - First Row -->
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 items-center mb-8">
+                <!-- Logo Grid -->
+                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-10">
                     <!-- Disney World -->
-                    <div class="flex justify-center items-center h-16">
+                    <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
                         <img src="{{ asset('images/trustedby/Walt_Disney_World_Resort_logo.svg') }}" alt="Walt Disney World" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
                     </div>
 
                     <!-- SeaWorld -->
-                    <div class="flex justify-center items-center h-16">
+                    <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
                         <img src="{{ asset('images/trustedby/swo_logo.webp') }}" alt="SeaWorld Orlando" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
                     </div>
 
-                    <!-- Universal Studios -->
-                    <div class="flex justify-center items-center h-16">
-                        <img src="{{ asset('images/trustedby/UOR_GlobeLogo_4C-768x445.jpg') }}" alt="Universal Orlando Resort" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
-                    </div>
-
                     <!-- LEGOLAND -->
-                    <div class="flex justify-center items-center h-16">
+                    <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
                         <img src="{{ asset('images/trustedby/LEGOLAND_Florida_Resort_Logo.jpg') }}" alt="LEGOLAND Florida" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
                     </div>
 
-                    <!-- Publix -->
-                    <div class="flex justify-center items-center h-16">
-                        <img src="{{ asset('images/trustedby/publix.png') }}" alt="Publix Supermarkets" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
-                    </div>
-
                     <!-- Wawa -->
-                    <div class="flex justify-center items-center h-16">
+                    <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
                         <img src="{{ asset('images/trustedby/wawa-logo-logo.png') }}" alt="Wawa" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
-                    </div>
-                </div>
-
-                <!-- Logo Grid - Second Row -->
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 items-center">
-                    <!-- Home Depot -->
-                    <div class="flex justify-center items-center h-16">
-                        <img src="{{ asset('images/trustedby/THD_logo.jpg') }}" alt="The Home Depot" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
-                    </div>
-
-                    <!-- Lowes -->
-                    <div class="flex justify-center items-center h-16">
-                        <img src="{{ asset('images/trustedby/Lowes_logo_pms_280.png') }}" alt="Lowe's Home Improvement" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
                     </div>
 
                     <!-- Polk County -->
-                    <div class="flex justify-center items-center h-16">
+                    <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
                         <img src="{{ asset('images/trustedby/Logo_of_Polk_County,_Florida.svg') }}" alt="Polk County" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
                     </div>
 
                     <!-- Polk County Schools -->
-                    <div class="flex justify-center items-center h-16">
+                    <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
                         <img src="{{ asset('images/trustedby/polkcountyschools.webp') }}" alt="Polk County Schools" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
                     </div>
 
                     <!-- City of Lakeland -->
-                    <div class="flex justify-center items-center h-16">
+                    <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
                         <img src="{{ asset('images/trustedby/lakeland.png') }}" alt="City of Lakeland" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                    </div>
+
+                    <!-- Bonnet Springs Park -->
+                    <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
+                        <img src="{{ asset('images/trustedby/bonnetsprings.png') }}" alt="Bonnet Springs Park" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                    </div>
+
+                    <!-- Bok Tower Gardens -->
+                    <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
+                        <img src="{{ asset('images/trustedby/boktower.webp') }}" alt="Bok Tower Gardens" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
                     </div>
                 </div>
 
@@ -224,8 +211,11 @@
                 <div class="mx-auto max-w-2xl text-center">
                     <h2 class="text-3xl font-bold text-gray-900">Why Choose Danielle Fence?</h2>
                     <p class="mt-4 text-lg text-gray-600">
-                        Nearly 50 years of proven excellence in Central Florida
+                        {{ date('Y') - 1976 }}+ years of proven excellence in Central Florida
                     </p>
+                    <div class="mt-6 inline-block px-6 py-3 bg-outdoor-primary text-white rounded-lg font-semibold">
+                        We specialize in new construction and fence replacements
+                    </div>
                 </div>
 
                 <div class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-8 lg:grid-cols-3">
@@ -245,7 +235,7 @@
                                 <i class="fa-solid fa-users h-6 w-6 text-white"></i>
                             </div>
                             <h3 class="mt-4 text-lg font-semibold text-gray-900">Dedicated Team</h3>
-                            <p class="mt-2 text-sm text-gray-600">60+ full-time professionals with 300+ years of collective experience. No subcontractors - only our trained experts.</p>
+                            <p class="mt-2 text-sm text-gray-600">60+ full-time professionals with 300+ years of collective experience. Every crew has a dedicated foreman on site with extensive training and experience.</p>
                         </div>
                     </div>
 

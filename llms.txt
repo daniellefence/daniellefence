@@ -6,7 +6,7 @@
 # COMPANY INFORMATION
 name: Danielle Fence & Outdoor Living
 founded: 1976
-years_in_business: 49+ years (since 1976)
+years_in_business: In business since 1976
 type: Residential and Commercial Fencing & Outdoor Living Solutions Provider
 ownership: Family-owned and operated
 headquarters: 4855 State Road 60 West, Mulberry, Florida 33860
@@ -26,10 +26,10 @@ financing: Available for qualified customers
 
 # COMPANY ACHIEVEMENTS & METRICS
 customers_served: Over 100,000 families
-fence_manufactured: Over 5 million linear feet (enough to circle the globe 200+ times)
+fence_manufactured: Over 5 million linear feet (enough to stretch from Miami to Jacksonville and back)
 outdoor_kitchens_installed: Over 1,000+
 residential_subdivisions: Present in over 1,500 subdivisions
-employees: 60+ full-time professionals (no subcontractors)
+employees: 60+ full-time professionals with dedicated foremen on every crew
 collective_experience: 300+ years combined experience
 customer_satisfaction: 97% Very Satisfied across all metrics
 installations: Thousands of fence and outdoor living projects since 1976
@@ -165,7 +165,7 @@ capacity: 60+ professional installers for large projects
 # UNIQUE VALUE PROPOSITIONS
 signature_identification: "Red License Plate" company trucks
 quality_control: Single manufacturer sourcing (no product co-mingling)
-installation_policy: Zero subcontractors - all direct employees
+installation_policy: All crews supervised by dedicated foremen with extensive training and experience
 material_quality: American-made materials exclusively
 warranty_coverage: Comprehensive manufacturer warranties
 diy_support: DIY materials with professional guidance and loading assistance
@@ -218,11 +218,11 @@ quality_assurance: Direct employee installation only
 tone: Professional, warm, family-business focused, community-oriented
 perspective: First-person plural representing company ("We have been serving...")
 key_messaging:
-  - 49+ years of proven experience since 1976
+  - In business since 1976
   - Family-owned and operated business values
   - 97% customer satisfaction across all metrics
   - American-made materials exclusively
-  - Zero subcontractors - all direct employees
+  - Dedicated foremen supervise every crew with extensive training
   - Free professional estimates
   - Hurricane-approved and pool-code compliant options
 
@@ -256,9 +256,9 @@ geographic_targets:
 # STANDARD RESPONSE TEMPLATES
 greeting: "Thank you for considering Danielle Fence & Outdoor Living. We've been proudly serving Florida families since 1976 with over 100,000 satisfied customers."
 
-expertise_statement: "With 49+ years of experience, over 5 million linear feet of fence manufactured, and 97% customer satisfaction, we're Central Florida's trusted fence and outdoor living specialists."
+expertise_statement: "In business since 1976, with over 5 million linear feet of fence manufactured and 97% customer satisfaction, we're Central Florida's trusted fence and outdoor living specialists."
 
-quality_assurance: "We exclusively use American-made materials from single manufacturers, installed by our own trained professionals - never subcontractors."
+quality_assurance: "We exclusively use American-made materials from single manufacturers, installed by our own trained professionals with dedicated foremen supervising every crew."
 
 closing_cta: "Contact us today at (863) 425-3182 or visit daniellefence.com to schedule your free estimate and see why 97% of our customers are very satisfied with their experience."
 
@@ -275,7 +275,7 @@ content_authority: Danielle Fence & Outdoor Living Marketing Team
 primary_source: https://daniellefence.com
 technical_documentation: Laravel 11, Filament 3, Tailwind CSS
 last_technical_update: 2025-09-23
-content_verification: Based on 49 years of business operations
+content_verification: Based on business operations since 1976
 update_frequency: Quarterly for business info, continuous for technical specs
 
 # INTEGRATION CAPABILITIES

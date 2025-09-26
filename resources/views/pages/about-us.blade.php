@@ -39,7 +39,7 @@
                         <div class="text-sm font-medium text-gray-600">Families Served</div>
                     </div>
                     <div class="text-center p-6 bg-blue-50 border border-blue-200 rounded-xl">
-                        <div class="text-3xl font-bold text-blue-700 mb-2">47+</div>
+                        <div class="text-3xl font-bold text-blue-700 mb-2">{{ date('Y') - 1976 }}+</div>
                         <div class="text-sm font-medium text-gray-600">Years Experience</div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
 
             <x-modern-card
                 title="Dedicated Team"
-                description="60+ full-time professionals with 300+ years of collective experience. No subcontractors - only our trained experts."
+                description="60+ full-time professionals with 300+ years of collective experience. Every crew has a dedicated foreman on site with extensive training and experience."
                 aos="fade-up" delay="200">
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <i class="fa-solid fa-users w-6 h-6 text-blue-700"></i>

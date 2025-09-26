@@ -3,7 +3,7 @@
     <x-modern-hero
         title="Why Choose Danielle Fence?"
         subtitle="The Difference is YOU • Since 1976"
-        description="Discover what makes us Central Florida's most trusted fencing company. Nearly 50 years of proven excellence, family values, and unmatched quality."
+        description="Discover what makes us Central Florida's most trusted fencing company. {{ date('Y') - 1976 }}+ years of proven excellence, family values, and unmatched quality."
         :background-image="asset('images/whychoose.webp')"
         cta="Get Your Free Quote"
         :cta-url="route('request-a-quote')"
@@ -23,14 +23,14 @@
                         <div>
                             <h3 class="text-xl font-bold text-brand-primary-900 mb-4">Proven, Time-tested Experience!</h3>
                             <p class="text-brand-neutral-700 leading-relaxed">
-                                In 1976, two teenage brothers began building a fence in their backyard. Over 40 years later, Danielle Fence has manufactured over 5 million linear feet of fencing. That's enough to circle the globe over 200 times! Now the largest fence manufacturer in Central Florida, the company is still owned and operated by the same family that founded the business. In fact, many of the original fences installed 35 years ago are still standing.
+                                In 1976, two teenage brothers began building a fence in their backyard. Over {{ date('Y') - 1976 }} years later, Danielle Fence has manufactured over 5 million linear feet of fencing. That's enough to stretch from Miami to Jacksonville and back again! Now the largest fence manufacturer in Central Florida, the company is still owned and operated by the same family that founded the business. In fact, many of the original fences installed 35 years ago are still standing.
                             </p>
                         </div>
 
                         <div>
                             <h3 class="text-xl font-bold text-brand-primary-900 mb-4">Our People Make the Difference</h3>
                             <p class="text-brand-neutral-700 leading-relaxed">
-                                Danielle Fence employs over 60 full-time, dedicated, and highly trained professionals. Everyone you meet with or speak to at Danielle Fence actually works for the company. We do not use sub-contracted labor! Our employees are highly experienced and incredibly committed to every customer, and every home improvement project. With over 300 years of collective experience, there is not a project that we cannot handle.
+                                Danielle Fence employs over 60 full-time, dedicated, and highly trained professionals. Everyone you meet with or speak to at Danielle Fence actually works for the company. Every crew has a dedicated foreman on site with extensive training and experience to ensure quality workmanship. Our employees are highly experienced and incredibly committed to every customer, and every home improvement project. With over 300 years of collective experience, there is not a project that we cannot handle.
                             </p>
                         </div>
 
@@ -125,7 +125,7 @@
                     <div class="text-sm font-medium text-brand-neutral-700">Linear Feet Manufactured</div>
                 </div>
                 <div class="text-center p-6 bg-brand-light-100 rounded-xl">
-                    <div class="text-4xl font-bold text-brand-primary-900 mb-2">47+</div>
+                    <div class="text-4xl font-bold text-brand-primary-900 mb-2">{{ date('Y') - 1976 }}+</div>
                     <div class="text-sm font-medium text-brand-neutral-700">Years Experience</div>
                 </div>
             </div>

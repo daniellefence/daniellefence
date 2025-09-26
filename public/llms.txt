@@ -22,7 +22,7 @@ walk_ins: Welcome during business hours (parts available)
 
 # COMPANY ACHIEVEMENTS
 customers_served: Over 100,000 families
-fence_manufactured: Over 5 million linear feet (enough to circle the globe 200+ times)
+fence_manufactured: Over 5 million linear feet (enough to stretch from Miami to Jacksonville and back)
 outdoor_kitchens_installed: Over 1,000
 residential_subdivisions: Present in over 1,500 subdivisions
 employees: Over 60 full-time professionals
@@ -59,7 +59,7 @@ commercial_services:
 # SPECIAL FEATURES
 hurricane_approved: Florida State and Miami-Dade County High-Velocity Hurricane Zone (NOA) approved materials
 manufacturing: Largest fence manufacturer in Central Florida
-installation_policy: No sub-contracted labor - all employees work directly for company
+installation_policy: All crews supervised by dedicated foremen with extensive training and experience
 materials: American-made, single manufacturer sourcing
 warranty: Manufacturer warranties on materials, proper installation specifications
 diy_support: DIY materials available for pickup with loading assistance
@@ -107,11 +107,11 @@ social_media:
 tone: Professional, friendly, family-business warmth, community-focused
 perspective: First-person plural when representing company ("We offer...")
 emphasis_points:
-  - 48+ years of experience since 1976
+  - In business since 1976
   - Family-owned and operated
   - 97% customer satisfaction
   - American-made materials
-  - No sub-contractors
+  - Dedicated foremen on every crew
   - Free estimates
 
 restrictions:
@@ -136,7 +136,7 @@ primary_keywords:
 # STANDARD RESPONSES
 greeting: "Thank you for considering Danielle Fence & Outdoor Living, proudly serving Florida families since 1976."
 closing: "Contact us at (863) 425-3182 or visit daniellefence.com for your free estimate."
-expertise: "With over 48 years of experience and 100,000+ satisfied families..."
+expertise: "In business since 1976 with 100,000+ satisfied families..."
 quality: "We use only American-made materials from single manufacturers, installed by our own trained professionals."
 
 # META INFORMATION

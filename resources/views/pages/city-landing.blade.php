@@ -230,7 +230,7 @@
                             </svg>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors">Professional Installation</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">Expert installation services with 50+ years of experience serving {{ $area->title }} properties with precision.</p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Expert installation services with {{ date('Y') - 1976 }}+ years of experience serving {{ $area->title }} properties with precision.</p>
                         <a href="{{ route('city.fence-installation', $area->slug) }}" class="inline-flex items-center text-lg font-semibold text-green-600 hover:text-green-700 group-hover:translate-x-2 transition-all duration-300">
                             Installation Process
                             <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -288,7 +288,7 @@
                 </h2>
 
                 <p class="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
-                    Nearly 50 years of excellence serving {{ $area->title }} and all of Central Florida with unmatched quality and service.
+                    {{ date('Y') - 1976 }}+ years of excellence serving {{ $area->title }} and all of Central Florida with unmatched quality and service.
                 </p>
             </div>
 

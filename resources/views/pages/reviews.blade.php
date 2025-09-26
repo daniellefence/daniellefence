@@ -17,7 +17,7 @@
     <!-- Trust CTA -->
     <x-modern-cta
         title="Join Thousands of Satisfied Customers"
-        description="Experience the quality and service that has made us Central Florida's most trusted fencing company for nearly 50 years."
+        description="Experience the quality and service that has made us Central Florida's most trusted fencing company for {{ date('Y') - 1976 }}+ years."
         button-text="Get Your Free Estimate"
         :button-url="route('request-a-quote')"
         secondary-text="Call (863) 425-3182"

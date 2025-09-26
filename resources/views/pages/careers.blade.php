@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="title">Careers - Join Our Team | Danielle Fence & Outdoor Living</x-slot>
-    <x-slot name="description">Join Central Florida's premier fencing company. Explore career opportunities with competitive benefits, growth potential, and a family-owned company with nearly 50 years of success.</x-slot>
+    <x-slot name="description">Join Central Florida's premier fencing company. Explore career opportunities with competitive benefits, growth potential, and a family-owned company with {{ date('Y') - 1976 }}+ years of success.</x-slot>
 
     <x-page-heading subheading="Build your career with Central Florida's premier fencing company. We're looking for dedicated professionals who share our commitment to quality and exceptional service.">
         Join Our Growing Team
@@ -14,7 +14,7 @@
                     Why Choose <span class="text-outdoor-primary">Danielle Fence?</span>
                 </h2>
                 <p class="text-xl text-slate-600 max-w-3xl mx-auto">
-                    Join a family-owned company with nearly 50 years of success, growth opportunities, and a commitment to excellence.
+                    Join a family-owned company with {{ date('Y') - 1976 }}+ years of success, growth opportunities, and a commitment to excellence.
                 </p>
             </div>
 
