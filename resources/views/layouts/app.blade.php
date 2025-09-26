@@ -242,7 +242,7 @@
 
     // Service Worker Registration - Register immediately for faster caching
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').catch(e => console.error('SW registration failed:', e));
+        navigator.serviceWorker.register('/sw.js').catch(e => {});
     }
 </script>
 

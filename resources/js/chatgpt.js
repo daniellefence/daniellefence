@@ -28,14 +28,12 @@ async function generateChatGPTContent(fieldName, prompt) {
 
         if (response.ok) {
             const data = await response.json();
-            console.log('ChatGPT response:', data);
 
             let updated = false;
 
             // Strategy 1: Use Filament's $getEditor() API (proper way)
             const richEditorComponent = document.querySelector('[x-data*="richEditorFormComponent"]');
             if (richEditorComponent && richEditorComponent.nodeType === Node.ELEMENT_NODE) {
-                console.log('Found rich editor component:', richEditorComponent);
 
                 // Try to access Alpine's $getEditor function
                 if (richEditorComponent._x_dataStack && richEditorComponent._x_dataStack[0]) {
@@ -43,18 +41,15 @@ async function generateChatGPTContent(fieldName, prompt) {
 
                     // Method 1: Direct $getEditor function call
                     if (typeof alpineData.$getEditor === 'function') {
-                        console.log('Using $getEditor() API');
                         const editor = alpineData.$getEditor();
                         if (editor && editor.commands) {
                             editor.chain().focus().setContent(data.content).run();
-                            console.log('Updated via Filament $getEditor API');
                             updated = true;
                         }
                     }
 
                     // Method 2: Update Alpine state and let Filament sync
                     if (!updated && alpineData.state !== undefined) {
-                        console.log('Updating Alpine state property');
                         alpineData.state = data.content;
 
                         // Trigger Alpine reactivity
@@ -64,30 +59,25 @@ async function generateChatGPTContent(fieldName, prompt) {
                         }));
 
                         updated = true;
-                        console.log('Updated via Alpine state property');
                     }
                 }
 
                 // Method 3: Use Alpine.js evaluate to call $getEditor
                 if (!updated) {
                     try {
-                        console.log('Trying Alpine evaluate with $getEditor');
                         const result = richEditorComponent._x_evaluate?.('$getEditor()?.chain().focus().setContent($content).run()', {
                             $content: data.content
                         });
                         if (result !== false) {
                             updated = true;
-                            console.log('Updated via Alpine evaluate');
                         }
                     } catch (e) {
-                        console.log('Alpine evaluate failed:', e.message);
                     }
                 }
             }
 
             // Strategy 2: Update Livewire state and trigger editor refresh
             if (!updated) {
-                console.log('Trying Livewire state update...');
                 const livewireComponent = document.querySelector('[wire\\:id]');
                 if (livewireComponent && livewireComponent.nodeType === Node.ELEMENT_NODE && window.Livewire) {
                     const componentId = livewireComponent.getAttribute('wire:id');
@@ -95,7 +85,6 @@ async function generateChatGPTContent(fieldName, prompt) {
                     if (component) {
                         try {
                             await component.set(`data.${fieldName}`, data.content);
-                            console.log('Updated Livewire state');
 
                             // Force editor to refresh after state update
                             setTimeout(() => {
@@ -111,7 +100,6 @@ async function generateChatGPTContent(fieldName, prompt) {
                                             if (editor && editor.commands) {
                                                 editor.chain().focus().setContent(data.content).run();
                                                 updated = true;
-                                                console.log('Updated TipTap editor after Livewire sync');
                                             }
                                         }
                                     }
@@ -123,7 +111,6 @@ async function generateChatGPTContent(fieldName, prompt) {
                                     proseMirror.dispatchEvent(new Event('input', { bubbles: true }));
                                     proseMirror.dispatchEvent(new Event('change', { bubbles: true }));
                                     updated = true;
-                                    console.log('Updated via direct DOM manipulation');
                                 }
 
                                 if (updated) {
@@ -144,7 +131,6 @@ async function generateChatGPTContent(fieldName, prompt) {
 
             // Strategy 3: Global TipTap editor search
             if (!updated) {
-                console.log('Trying global editor search...');
 
                 // Look for any TipTap editors on the page
                 const allEditors = document.querySelectorAll('.ProseMirror');
@@ -158,7 +144,6 @@ async function generateChatGPTContent(fieldName, prompt) {
                                 if (editor && editor.commands) {
                                     editor.chain().focus().setContent(data.content).run();
                                     updated = true;
-                                    console.log('Updated via global editor search');
                                     break;
                                 }
                             }
@@ -253,5 +238,4 @@ function showContentModal(content) {
 window.openChatGPTModal = openChatGPTModal;
 window.generateChatGPTContent = generateChatGPTContent;
 
-// Log that functions are loaded
-console.log('ChatGPT functions loaded:', { openChatGPTModal, generateChatGPTContent });
+// Functions loaded and available globally

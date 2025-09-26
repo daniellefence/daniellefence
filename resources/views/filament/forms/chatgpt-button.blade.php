@@ -38,7 +38,6 @@ async function generateChatGPTContent(fieldName, prompt) {
 
         if (response.ok) {
             const data = await response.json();
-            console.log('ChatGPT response:', data);
 
             // Multiple strategies to find and update the editor
             let updated = false;
@@ -48,12 +47,10 @@ async function generateChatGPTContent(fieldName, prompt) {
                                 document.querySelector(`[data-field-wrapper="${fieldName}"]`);
 
             if (fieldWrapper) {
-                console.log('Found field wrapper:', fieldWrapper);
 
                 // Look for TipTap editor
                 const proseMirror = fieldWrapper.querySelector('.ProseMirror');
                 if (proseMirror) {
-                    console.log('Found ProseMirror editor:', proseMirror);
 
                     // Try to get editor instance
                     if (proseMirror.__editor) {
@@ -75,7 +72,6 @@ async function generateChatGPTContent(fieldName, prompt) {
                     if (component) {
                         component.set(fieldName, data.content);
                         updated = true;
-                        console.log('Updated via Livewire:', fieldName, data.content);
                     }
                 }
             }
@@ -88,7 +84,6 @@ async function generateChatGPTContent(fieldName, prompt) {
                     if (alpineData && typeof alpineData[fieldName] !== 'undefined') {
                         alpineData[fieldName] = data.content;
                         updated = true;
-                        console.log('Updated via Alpine.js:', fieldName, data.content);
                     }
                 }
             }
@@ -96,7 +91,6 @@ async function generateChatGPTContent(fieldName, prompt) {
             if (updated) {
                 alert('Content generated successfully!');
             } else {
-                console.warn('Could not find editor to update. Field name:', fieldName);
                 alert('Content generated, but could not update editor automatically. Please paste manually: ' + data.content);
             }
         } else {
@@ -104,7 +98,6 @@ async function generateChatGPTContent(fieldName, prompt) {
             throw new Error(errorData.error || 'Failed to generate content');
         }
     } catch (error) {
-        console.error('ChatGPT error:', error);
         alert('Error generating content: ' + error.message);
     }
 }

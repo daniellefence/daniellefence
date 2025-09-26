@@ -113,12 +113,10 @@ export function optimizeJavaScript() {
 function initializeAnalytics() {
     // Check if analytics is already loaded by the deferred script
     if (window.gtag) {
-        console.log('Analytics already loaded');
         return;
     }
 
     // Analytics initialization moved to database seeder for better control
-    console.log('Analytics deferred loading active');
 }
 
 // Load social widgets when needed
@@ -207,15 +205,16 @@ export function addResourceHints() {
         document.head.appendChild(link);
     });
 
-    // Prefetch likely next pages
+    // Prefetch likely next pages - using actual valid routes
     const likelyPages = [
-        '/fencing',
         '/request-a-quote',
         '/contact',
         '/about-us'
     ];
 
-    // Only prefetch on good connections
+    // Prefetching disabled - caused 404 errors and unnecessary requests
+    // If you want to re-enable prefetching, uncomment the block below:
+    /*
     if (!isSaveData()) {
         setTimeout(() => {
             likelyPages.forEach(page => {
@@ -226,6 +225,7 @@ export function addResourceHints() {
             });
         }, 5000); // Wait 5 seconds after load
     }
+    */
 }
 
 // Initialize all optimizations

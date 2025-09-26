@@ -21,7 +21,7 @@ self.addEventListener('install', event => {
                 }
               })
               .catch(error => {
-                console.log(`Failed to cache ${url}:`, error);
+                // Failed to cache resource
               })
           )
         );
