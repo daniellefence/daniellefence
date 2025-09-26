@@ -1,5 +1,5 @@
 <div x-data="{ showMobile: false, showProducts: false, showServices: false, showCompany: false }">
-    <header class="relative z-[100] bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
+    <header class="relative z-[100] bg-white/80 backdrop-blur-xl border-t-2 border-b-2 border-t-outdoor-primary border-b-outdoor-primary">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <!-- Main navigation row -->
             <nav class="py-4">
