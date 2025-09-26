@@ -111,10 +111,14 @@ export function optimizeJavaScript() {
 
 // Initialize analytics when idle
 function initializeAnalytics() {
-    // Move analytics initialization here
+    // Check if analytics is already loaded by the deferred script
     if (window.gtag) {
-        console.log('Analytics initialized');
+        console.log('Analytics already loaded');
+        return;
     }
+
+    // Analytics initialization moved to database seeder for better control
+    console.log('Analytics deferred loading active');
 }
 
 // Load social widgets when needed
@@ -205,9 +209,10 @@ export function addResourceHints() {
 
     // Prefetch likely next pages
     const likelyPages = [
-        '/products',
+        '/fencing',
         '/request-a-quote',
-        '/contact'
+        '/contact',
+        '/about-us'
     ];
 
     // Only prefetch on good connections

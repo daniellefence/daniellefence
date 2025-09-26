@@ -51,7 +51,9 @@
 
     <!-- Preload critical images -->
     <link rel="preload" href="{{Vite::asset('resources/images/logo.webp')}}" as="image" type="image/webp">
+    @if(request()->routeIs('home'))
     <link rel="preload" href="{{Vite::asset('resources/images/home_hero.webp')}}" as="image" type="image/webp" fetchpriority="high">
+    @endif
     <link rel="apple-touch-icon" sizes="144x144" href="{{ url('apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{url('favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{url('favicon-16x16.png')}}">
