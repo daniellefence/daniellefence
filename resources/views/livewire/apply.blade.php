@@ -28,7 +28,8 @@
     </div>
     <div class="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
         <img class="aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
-             src="{{Vite::asset('resources/images/careers.jpg')}}" alt="Danielle Fence & Outdoor Living">
+             src="{{Vite::asset('resources/images/careers.jpg')}}" alt="Danielle Fence & Outdoor Living"
+             width="2432" height="1442" loading="lazy">
     </div>
 </div>
 </div>

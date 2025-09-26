@@ -50,7 +50,10 @@
                 <div class="relative">
                     <img src="{{Vite::asset('resources/images/about--photo.webp')}}"
                          alt="Danielle Fence Family Business"
-                         class="w-full h-auto rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                         class="w-full h-auto rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500"
+                         width="600"
+                         height="400"
+                         loading="lazy">
 
                     <!-- Floating Badge -->
                     <div class="absolute -top-4 -right-4 bg-outdoor-primary text-white px-6 py-3 rounded-full shadow-lg transform -rotate-12">

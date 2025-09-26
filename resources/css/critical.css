@@ -176,3 +176,14 @@ img, video {
     font-display: swap;
     src: local('Inter'), url('https://fonts.bunny.net/inter/files/inter-latin-400-normal.woff2') format('woff2');
 }
+
+/* FontAwesome font-display optimization */
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Pro';
+    font-display: swap;
+}

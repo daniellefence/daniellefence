@@ -26,7 +26,7 @@
                 </p>
             </div>
             <div class="flex items-center justify-center">
-                <img src="{{Vite::asset('resources/images/cards.webp')}}" alt="Accepted payment cards" class="max-w-lg w-full h-auto"/>
+                <img src="{{Vite::asset('resources/images/cards.webp')}}" alt="Accepted payment cards" class="max-w-lg w-full h-auto" width="512" height="256" loading="lazy"/>
             </div>
         </div>
     </x-modern-section>
@@ -84,7 +84,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-center" data-aos="fade-left" data-aos-delay="400">
                     <div class="bg-white rounded-2xl shadow-md p-8 border border-gray-100">
-                        <img src="{{Vite::asset('resources/images/one-main-financial_355x115.webp')}}" alt="OneMain Financial" class="max-w-full h-auto"/>
+                        <img src="{{Vite::asset('resources/images/one-main-financial_355x115.webp')}}" alt="OneMain Financial" class="max-w-full h-auto" width="355" height="115" loading="lazy"/>
                     </div>
                 </div>
             </div>

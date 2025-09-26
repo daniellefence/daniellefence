@@ -63,10 +63,14 @@
                         <!-- Video - Lazy loaded on mobile -->
                         <a href="{{ route('chat') }}" class="block w-5/6 lg:w-2/3 2xl:w-3/5 max-w-[500px] 2xl:max-w-[580px]">
                             <video autoplay="" loop="" muted="" playsinline=""
-                                   class="w-full h-auto rounded-2xl alpha-video hover:scale-105 transition-transform duration-300 cursor-pointer"
+                                   class="w-full h-auto rounded-2xl alpha-video hover:scale-105 transition-all duration-300 cursor-pointer opacity-0"
                                    poster="{{ Vite::asset('resources/images/Grilllbert.webp') }}"
                                    preload="none"
-                                   loading="lazy">
+                                   loading="lazy"
+                                   width="500"
+                                   height="500"
+                                   style="aspect-ratio: 1/1;"
+                                   onloadeddata="this.style.opacity=1; this.style.transition='opacity 1000ms ease-in-out';">
                                 <source src="{{Vite::asset('resources/videos/grillbert.webm')}}" type="video/webm">
                             </video>
                         </a>
@@ -150,47 +154,47 @@
                 <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-10">
                     <!-- Disney World -->
                     <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
-                        <img src="{{ asset('images/trustedby/Walt_Disney_World_Resort_logo.svg') }}" alt="Walt Disney World" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                        <img src="{{ asset('images/trustedby/Walt_Disney_World_Resort_logo.svg') }}" alt="Walt Disney World" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200" width="160" height="64" loading="lazy">
                     </div>
 
                     <!-- SeaWorld -->
                     <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
-                        <img src="{{ asset('images/trustedby/swo_logo.webp') }}" alt="SeaWorld Orlando" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                        <img src="{{ asset('images/trustedby/swo_logo.webp') }}" alt="SeaWorld Orlando" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200" width="160" height="64" loading="lazy">
                     </div>
 
                     <!-- LEGOLAND -->
                     <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
-                        <img src="{{ asset('images/trustedby/LEGOLAND_Florida_Resort_Logo.jpg') }}" alt="LEGOLAND Florida" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                        <img src="{{ asset('images/trustedby/LEGOLAND_Florida_Resort_Logo.jpg') }}" alt="LEGOLAND Florida" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200" width="160" height="64" loading="lazy">
                     </div>
 
                     <!-- Wawa -->
                     <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
-                        <img src="{{ asset('images/trustedby/wawa-logo-logo.png') }}" alt="Wawa" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                        <img src="{{ asset('images/trustedby/wawa-logo-logo.png') }}" alt="Wawa" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200" width="160" height="64" loading="lazy">
                     </div>
 
                     <!-- Polk County -->
                     <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
-                        <img src="{{ asset('images/trustedby/Logo_of_Polk_County,_Florida.svg') }}" alt="Polk County" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                        <img src="{{ asset('images/trustedby/Logo_of_Polk_County,_Florida.svg') }}" alt="Polk County" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200" width="160" height="64" loading="lazy">
                     </div>
 
                     <!-- Polk County Schools -->
                     <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
-                        <img src="{{ asset('images/trustedby/polkcountyschools.webp') }}" alt="Polk County Schools" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                        <img src="{{ asset('images/trustedby/polkcountyschools.webp') }}" alt="Polk County Schools" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200" width="160" height="64" loading="lazy">
                     </div>
 
                     <!-- City of Lakeland -->
                     <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
-                        <img src="{{ asset('images/trustedby/lakeland.png') }}" alt="City of Lakeland" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                        <img src="{{ asset('images/trustedby/lakeland.png') }}" alt="City of Lakeland" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200" width="160" height="64" loading="lazy">
                     </div>
 
                     <!-- Bonnet Springs Park -->
                     <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
-                        <img src="{{ asset('images/trustedby/bonnetsprings.png') }}" alt="Bonnet Springs Park" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                        <img src="{{ asset('images/trustedby/bonnetsprings.png') }}" alt="Bonnet Springs Park" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200" width="160" height="64" loading="lazy">
                     </div>
 
                     <!-- Bok Tower Gardens -->
                     <div class="flex justify-center items-center h-16 w-32 sm:w-36 md:w-40">
-                        <img src="{{ asset('images/trustedby/boktower.webp') }}" alt="Bok Tower Gardens" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200">
+                        <img src="{{ asset('images/trustedby/boktower.webp') }}" alt="Bok Tower Gardens" class="max-h-full w-auto object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-200" width="160" height="64" loading="lazy">
                     </div>
                 </div>
 

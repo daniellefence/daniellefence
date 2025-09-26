@@ -29,7 +29,8 @@
                     <div class="bg-white h-64 flex items-center justify-center pt-4">
                         <img src="{{Vite::asset('resources/images/profile-photos/grillbertwebp.webp')}}"
                              alt="Grillbert"
-                             class="h-48 w-auto object-contain">
+                             class="h-48 w-auto object-contain"
+                             width="300" height="192" loading="lazy">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Grillbert</h3>
@@ -43,7 +44,8 @@
                     <div class="bg-white h-64 flex items-center justify-center pt-4">
                         <img src="{{Vite::asset('resources/images/profile-photos/flip.webp')}}"
                              alt="Flip Grillson"
-                             class="h-48 w-auto object-contain">
+                             class="h-48 w-auto object-contain"
+                             width="300" height="192" loading="lazy">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Flip Grillson</h3>
@@ -57,7 +59,8 @@
                     <div class="bg-white h-64 flex items-center justify-center pt-4">
                         <img src="{{Vite::asset('resources/images/profile-photos/jimmy.webp')}}"
                              alt="Jimmy"
-                             class="h-48 w-auto object-contain">
+                             class="h-48 w-auto object-contain"
+                             width="300" height="192" loading="lazy">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Jimmy D. Pickett</h3>
@@ -74,7 +77,8 @@
                     <div class="bg-white h-64 flex items-center justify-center pt-4">
                         <img src="{{Vite::asset('resources/images/profile-photos/fencestopher.webp')}}"
                              alt="Dr. Fencestopher"
-                             class="h-48 w-auto object-contain">
+                             class="h-48 w-auto object-contain"
+                             width="300" height="192" loading="lazy">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Dr. Fencestopher</h3>
@@ -88,7 +92,8 @@
                     <div class="bg-white h-64 flex items-center justify-center pt-4">
                         <img src="{{Vite::asset('resources/images/profile-photos/noah.webp')}}"
                              alt="Noah Fence"
-                             class="h-48 w-auto object-contain">
+                             class="h-48 w-auto object-contain"
+                             width="300" height="192" loading="lazy">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Noah Fence</h3>

@@ -12,27 +12,27 @@
                 <button wire:click="setPaverType('basketweave')" type="button" class="{{ $paver_type == 'basketweave'? 'bg-success text-white':'bg-white hover:bg-success hover:bg-opacity-80 hover:text-white' }} group p-4 rounded-lg text-center border-2 border-transparent shadow">
                     <x-label class="{{ $paver_type == 'basketweave'? 'text-white':'group-hover:text-white' }}">Basketweave</x-label>
                     <img class="w-full mt-2" src="{{Vite::asset('resources/images/DF_Basketweave_Pattern.jpg')}}"
-                         alt="T-Pattern"/>
+                         alt="T-Pattern" width="300" height="200" loading="lazy"/>
                 </button>
                 <button wire:click="setPaverType('random-running-bond')" type="button" class="{{ $paver_type == 'random-running-bond'? 'bg-success text-white':'bg-white hover:bg-success hover:bg-opacity-80 hover:text-white' }} group p-4 rounded-lg text-center border-2 border-transparent shadow">
                     <x-label class="{{ $paver_type == 'random-running-bond'? 'text-white':'group-hover:text-white' }}">Random Running Bond</x-label>
                     <img class="w-full mt-2" src="{{Vite::asset('resources/images/DF_Random_Running_Bond_Pattern.jpg')}}"
-                         alt="Random Running Bond"/>
+                         alt="Random Running Bond" width="300" height="200" loading="lazy"/>
                 </button>
                 <button wire:click="setPaverType('herringbone-90')" type="button" class="{{ $paver_type == 'herringbone-90'? 'bg-success text-white':'bg-white hover:bg-success hover:bg-opacity-80 hover:text-white' }} group p-4 rounded-lg text-center border-2 border-transparent shadow">
                     <x-label class="{{ $paver_type == 'herringbone-90'? 'text-white':'group-hover:text-white' }}">Herringbone 90&deg;</x-label>
                     <img class="w-full mt-2" src="{{Vite::asset('resources/images/DF_Herringbone_90_Pattern.jpg')}}"
-                         alt="Herringbone 90&deg;"/>
+                         alt="Herringbone 90&deg;" width="300" height="200" loading="lazy"/>
                 </button>
                 <button wire:click="setPaverType('herringbone-47')" type="button" class="{{ $paver_type == 'herringbone-47'? 'bg-success text-white':'bg-white hover:bg-success hover:bg-opacity-80 hover:text-white' }} group p-4 rounded-lg text-center border-2 border-transparent shadow">
                     <x-label class="{{ $paver_type == 'herringbone-47'? 'text-white':'group-hover:text-white' }}">Herringbone 45&deg;</x-label>
                     <img class="w-full mt-2" src="{{Vite::asset('resources/images/DF_Herringbone_45_Pattern.jpg')}}"
-                         alt="Herringbone 48&deg;"/>
+                         alt="Herringbone 48&deg;" width="300" height="200" loading="lazy"/>
                 </button>
                 <button wire:click="setPaverType('t-pattern')" type="button" class="{{ $paver_type == 't-pattern'? 'bg-success text-white':'bg-white hover:bg-success hover:bg-opacity-80 hover:text-white' }} group p-4 rounded-lg text-center border-2 border-transparent shadow">
                     <x-label class="{{ $paver_type == 't-pattern'? 'text-white':'group-hover:text-white' }}">T Pattern</x-label>
                     <img class="w-full" src="{{Vite::asset('resources/images/DF_TPattern.jpg')}}"
-                         alt="Basketweave"/>
+                         alt="Basketweave" width="300" height="200" loading="lazy"/>
                 </button>
             </div>
 

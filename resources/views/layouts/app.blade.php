@@ -142,10 +142,7 @@
         });
     </script>
 
-    <!-- Google Analytics -->
-    @if(setting()->get('google_analytics_code'))
-        {!! setting()->get('google_analytics_code') !!}
-    @endif
+    <!-- Google Analytics loaded via GeneralSettingSeeder for optimal performance -->
 </head>
 <body class="font-sans relative antialiased ">
 <template>

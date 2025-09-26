@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\AddLoginAsToActivity;
+use App\Http\Middleware\CacheStaticAssets;
 use App\Http\Middleware\DeleteMiddleware;
 use App\Http\Middleware\HoneypotProtection;
 use App\Http\Middleware\RateLimitForms;
@@ -18,6 +19,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        // Apply cache headers globally to static assets
+        $middleware->append(CacheStaticAssets::class);
+
         $middleware->alias([
             'Traffic' => Traffic::class,
             'AddLoginAsToActivity' => AddLoginAsToActivity::class,

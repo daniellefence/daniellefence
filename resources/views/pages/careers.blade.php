@@ -159,7 +159,7 @@
                 </div>
 
                 <div class="mt-12 lg:mt-0">
-                    <img src="{{ Vite::asset('resources/images/careers.jpg') }}" alt="Danielle Fence team at work" class="w-full h-auto rounded-2xl shadow-xl">
+                    <img src="{{ Vite::asset('resources/images/careers.jpg') }}" alt="Danielle Fence team at work" class="w-full h-auto rounded-2xl shadow-xl" width="2432" height="1442" loading="lazy">
                 </div>
             </div>
         </div>

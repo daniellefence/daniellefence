@@ -70,7 +70,6 @@ export function preventLayoutShift() {
 export function optimizeThirdParty() {
     // Delay non-critical third-party scripts
     const delayedScripts = [
-        { src: 'https://www.googletagmanager.com/', delay: 3000 },
         { src: 'https://script.advertiserreports.com/', delay: 4000 }
     ];
 
