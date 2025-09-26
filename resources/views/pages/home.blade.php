@@ -64,7 +64,6 @@
                         <a href="{{ route('chat') }}" class="block w-5/6 lg:w-2/3 2xl:w-3/5 max-w-[500px] 2xl:max-w-[580px]">
                             <video autoplay="" loop="" muted="" playsinline=""
                                    class="w-full h-auto rounded-2xl alpha-video hover:scale-105 transition-all duration-300 cursor-pointer opacity-0"
-                                   poster="{{ Vite::asset('resources/images/Grilllbert.webp') }}"
                                    preload="none"
                                    loading="lazy"
                                    width="500"
