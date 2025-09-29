@@ -41,7 +41,7 @@
         </div>
 
             <!-- Visual accent elements -->
-            <div class="mt-6 flex items-center justify-center gap-6 lg:gap-8" data-aos="fade-up" data-aos-delay="300">
+            <div class="mt-6 flex items-center justify-center gap-3 md:gap-6 lg:gap-8 flex-wrap sm:flex-nowrap" data-aos="fade-up" data-aos-delay="300">
                 <div class="flex items-center gap-2">
                     <div class="h-12 w-12 rounded-lg bg-outdoor-gold/20 flex items-center justify-center">
                         <svg class="h-6 w-6 text-outdoor-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,8 +49,8 @@
                         </svg>
                     </div>
                     <div class="text-left">
-                        <div class="text-2xl font-bold text-white">{{ date('Y') - 1976 }}+</div>
-                        <div class="text-xs text-amber-200">Years of Excellence</div>
+                        <div class="text-xl sm:text-2xl font-bold text-white">{{ date('Y') - 1976 }}+</div>
+                        <div class="text-xs text-amber-200 whitespace-nowrap">Years of Excellence</div>
                     </div>
                 </div>
 
@@ -63,8 +63,8 @@
                         </svg>
                     </div>
                     <div class="text-left">
-                        <div class="text-2xl font-bold text-white">5M+</div>
-                        <div class="text-xs text-amber-200">Linear Feet Installed</div>
+                        <div class="text-xl sm:text-2xl font-bold text-white">5M+</div>
+                        <div class="text-xs text-amber-200 whitespace-nowrap">Linear Feet Installed</div>
                     </div>
                 </div>
 
@@ -77,8 +77,8 @@
                         </svg>
                     </div>
                     <div class="text-left">
-                        <div class="text-2xl font-bold text-white">1000s</div>
-                        <div class="text-xs text-amber-200">Happy Customers</div>
+                        <div class="text-xl sm:text-2xl font-bold text-white">1000s</div>
+                        <div class="text-xs text-amber-200 whitespace-nowrap">Happy Customers</div>
                     </div>
                 </div>
             </div>

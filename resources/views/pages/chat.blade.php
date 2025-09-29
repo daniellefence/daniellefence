@@ -14,9 +14,15 @@
 
                         <!-- Grillbert Video -->
                         <div class="relative max-w-xs sm:max-w-sm mx-auto">
-                            <div class="rounded-2xl overflow-hidden bg-transparent">
-                                <video autoplay loop muted playsinline class="w-full h-auto alpha-video opacity-0 transition-opacity duration-1000" onloadeddata="this.style.opacity=1">
-                                    <source src="{{ Vite::asset('resources/videos/grillbert.webm') }}" type="video/webm">
+                            <div class="rounded-2xl overflow-hidden bg-transparent alpha-video-container">
+                                <video autoplay loop muted playsinline class="w-full h-auto alpha-video opacity-0 transition-opacity duration-1000"
+                                       onloadeddata="this.style.opacity=1"
+                                       style="background: transparent;">
+                                    <!-- MP4 format for better Safari compatibility -->
+                                    @if(file_exists(resource_path('videos/grillbert.mp4')))
+                                        <source src="{{ Vite::asset('resources/videos/grillbert.mp4') }}" type="video/mp4">
+                                    @endif
+                                    <!-- WebM as fallback for other browsers -->
                                     <source src="{{ Vite::asset('resources/videos/grillbert.webm') }}" type="video/webm">
                                     Your browser does not support the video tag.
                                 </video>

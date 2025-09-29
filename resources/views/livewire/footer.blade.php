@@ -8,7 +8,7 @@
     <footer class="bg-success footer-content" aria-labelledby="footer-heading">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
 
-        <div class="mx-auto max-w-7xl px-6 lg:px-8 py-12">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 py-12 pb-16 sm:pb-12">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <div class="mb-6">

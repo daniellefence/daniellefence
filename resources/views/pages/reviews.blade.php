@@ -4,7 +4,7 @@
         title="Customer Reviews"
         subtitle="Real Stories • Verified Experiences"
         description="See what our customers say about their experience with Danielle Fence. Over 100,000 families served with 97% customer satisfaction."
-        :background-image="Vite::asset('resources/images/reviews-hero.webp')"
+        :background-image="asset('images/fence2.webp')"
         cta="Share Your Experience"
         :cta-url="route('request-a-quote')"
         />

@@ -4,7 +4,7 @@
         title="Frequently Asked Questions"
         subtitle="Expert Answers • Helpful Resources"
         description="Get answers to the most common questions about fencing, outdoor kitchens, installation processes, and our services."
-        :background-image="Vite::asset('resources/images/faq-hero.webp')"
+        :background-image="asset('images/fence.webp')"
         cta="Get Personal Help"
         :cta-url="route('contact')"
         />

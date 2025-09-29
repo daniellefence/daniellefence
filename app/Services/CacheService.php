@@ -12,16 +12,43 @@ use App\Models\Modifier;
 use App\Models\Seo;
 use Illuminate\Support\Facades\Cache;
 
+/**
+ * Service class for managing application-wide caching strategies.
+ *
+ * This service provides centralized caching for frequently accessed data such as
+ * product categories, service areas, SEO data, and pricing calculations. It implements
+ * different cache durations based on data volatility and includes cache invalidation methods.
+ *
+ * @package App\Services
+ * @author Shane Barron
+ */
 class CacheService
 {
     /**
-     * Cache duration in minutes
+     * Standard cache duration in minutes (1 hour).
+     *
+     * Used for frequently changing data like categories and areas we serve.
+     *
+     * @var int
      */
-    const CACHE_DURATION = 60; // 1 hour
-    const LONG_CACHE_DURATION = 1440; // 24 hours
+    const CACHE_DURATION = 60;
 
     /**
-     * Get cached areas we serve
+     * Long cache duration in minutes (24 hours).
+     *
+     * Used for relatively static data like colors, heights, and SEO data.
+     *
+     * @var int
+     */
+    const LONG_CACHE_DURATION = 1440;
+
+    /**
+     * Get cached list of areas the company serves.
+     *
+     * Returns a cached collection of published service areas ordered by
+     * sort order and title for display in forms and location validation.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public static function getAreasWeServe()
     {
@@ -34,7 +61,12 @@ class CacheService
     }
 
     /**
-     * Get cached product categories for header menu
+     * Get cached product categories for header menu navigation.
+     *
+     * Returns top-level product categories that are published and ordered
+     * for display in the main navigation menu.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public static function getProductCategories()
     {
@@ -47,7 +79,12 @@ class CacheService
     }
 
     /**
-     * Get cached blog categories
+     * Get cached blog categories for content organization.
+     *
+     * Returns published blog categories ordered by sort order and title
+     * for use in blog navigation and content filtering.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public static function getBlogCategories()
     {
@@ -201,7 +238,17 @@ class CacheService
     }
 
     /**
-     * Calculate price with modifiers (cached)
+     * Calculate price with modifiers applied (cached).
+     *
+     * Applies price modifiers to a base price using different adjustment types:
+     * - add: Add fixed amount
+     * - subtract: Subtract fixed amount
+     * - multiply: Multiply by factor
+     * - percentage: Add percentage of current price
+     *
+     * @param float $basePrice The base price before modifiers
+     * @param array $modifierIds Array of modifier IDs to apply
+     * @return float The calculated price with all modifiers applied (minimum 0)
      */
     public static function calculatePriceWithModifiers($basePrice, $modifierIds = [])
     {
@@ -212,6 +259,7 @@ class CacheService
         $modifiers = self::getModifiers($modifierIds);
         $totalPrice = $basePrice;
 
+        // Apply each modifier based on its adjustment type
         foreach ($modifiers as $modifier) {
             switch ($modifier->adjustment_type) {
                 case 'add':
@@ -229,11 +277,18 @@ class CacheService
             }
         }
 
-        return max(0, $totalPrice); // Ensure price doesn't go below 0
+        // Ensure price doesn't go below 0
+        return max(0, $totalPrice);
     }
 
     /**
-     * Validate service area (cached)
+     * Validate if a service area is supported (cached).
+     *
+     * Checks if the provided area name matches any of the published
+     * service areas. Used for form validation and service area verification.
+     *
+     * @param string|null $area The area name to validate
+     * @return bool True if the area is in the service list, false otherwise
      */
     public static function isServiceAreaValid($area)
     {

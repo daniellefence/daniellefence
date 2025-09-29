@@ -4,7 +4,7 @@
         title="Expert Insights & Tips"
         subtitle="Fencing • Outdoor Living • Design Ideas"
         description="Stay informed with the latest trends, maintenance tips, and design inspiration from Central Florida's fencing and outdoor living experts."
-        :background-image="asset('images/fence2.jpg')"
+        :background-image="asset('images/fence2.webp')"
         cta="Get Expert Advice"
         :cta-url="route('contact')"
         />

@@ -98,6 +98,61 @@ header {
     @apply bg-red-100 text-red-800;
 }
 
+/* Safari Video Transparency Fix for Grillbert */
+.alpha-video {
+    /* Force hardware acceleration */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+
+    /* Safari-specific background handling */
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+
+    /* Ensure proper rendering context */
+    isolation: isolate;
+    mix-blend-mode: normal;
+
+    /* Safari alpha channel support */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
+}
+
+/* Safari-specific video container fixes */
+@supports (-webkit-backdrop-filter: none) {
+    .alpha-video {
+        /* Force transparent background in Safari */
+        background: transparent !important;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    /* Parent container transparency for Safari */
+    .alpha-video-container {
+        background: transparent !important;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* WebM video format compatibility for Safari 14.1+ */
+video[type="video/webm"] {
+    /* Ensure proper codec handling */
+    -webkit-video-playable-inline: true;
+}
+
+/* Additional Safari mobile fixes */
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+        .alpha-video {
+            /* iOS Safari specific fixes */
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+    }
+}
+
 /* Admin tables */
 .admin-table th {
     @apply bg-gray-50 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
@@ -248,15 +303,15 @@ body {
 }
 
 .animate-marquee-vertical.duration-25{
-    animation: marquee-vertical 60s linear infinite;
+    animation: marquee-vertical 40s linear infinite;
 }
 
 .animate-marquee-vertical.duration-45{
-    animation: marquee-vertical 45s linear infinite;
+    animation: marquee-vertical 30s linear infinite;
 }
 
 .animate-marquee-vertical.duration-50{
-    animation: marquee-vertical 50s linear infinite;
+    animation: marquee-vertical 33s linear infinite;
 }
 
 .animate-marquee-vertical:hover {
