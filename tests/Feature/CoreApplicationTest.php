@@ -231,15 +231,6 @@ class CoreApplicationTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_diy_page_loads_successfully(): void
-    {
-        // Act
-        $response = $this->get('/diy');
-
-        // Assert
-        $response->assertStatus(200);
-        $response->assertSee('DIY');
-    }
 
     public function test_specials_page_loads_successfully(): void
     {

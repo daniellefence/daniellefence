@@ -2,106 +2,66 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class DiyProduct extends Model
+class DiyProduct extends Model implements HasMedia
 {
-    use HasFactory;
+    use SoftDeletes, InteractsWithMedia;
 
     protected $fillable = [
-        'diy_product_category_id',
+        'diy_category_id',
+        'product_id',
         'name',
         'description',
-        'slug',
         'base_price',
-        'default_photo_url',
-        'specifications',
-        'sort_order',
-        'is_active'
+        'is_best_seller',
+        'order',
     ];
 
     protected $casts = [
         'base_price' => 'decimal:2',
-        'is_active' => 'boolean',
+        'is_best_seller' => 'boolean',
+        'order' => 'integer',
     ];
 
-    // Relationships
-    public function category()
+    public function diyCategory(): BelongsTo
     {
-        return $this->belongsTo(DiyProductCategory::class, 'diy_product_category_id');
+        return $this->belongsTo(DiyCategory::class);
     }
 
-    public function modifiers()
+    public function product(): BelongsTo
     {
-        return $this->hasMany(Modifier::class);
+        return $this->belongsTo(Product::class);
     }
 
-    // Accessors & Mutators
-    public function setNameAttribute($value)
+    public function diyProductPhotos(): HasMany
     {
-        $this->attributes['name'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
+        return $this->hasMany(DiyProductPhoto::class)->orderBy('order');
     }
 
-    // Scopes
-    public function scopeActive($query)
+    public function diyProductModifiers(): HasMany
     {
-        return $query->where('is_active', true);
+        return $this->hasMany(DiyProductModifier::class);
     }
 
-    public function scopeOrdered($query)
+    public function defaultPhoto()
     {
-        return $query->orderBy('sort_order')->orderBy('name');
+        return $this->hasOne(DiyProductPhoto::class)->where('is_default', true);
     }
 
-    public function scopeByCategory($query, $categoryId)
+    public function relatedProducts(): BelongsToMany
     {
-        return $query->where('diy_product_category_id', $categoryId);
-    }
-
-    // Helper Methods
-    public function calculatePrice($colorId = null, $heightId = null, $spacingId = null)
-    {
-        $basePrice = $this->base_price;
-
-        $modifier = $this->modifiers()
-            ->where('available_color_id', $colorId)
-            ->where('available_height_id', $heightId)
-            ->where('available_spacing_id', $spacingId)
-            ->where('is_active', true)
-            ->first();
-
-        if ($modifier) {
-            if ($modifier->price_modification_type === 'percentage') {
-                return $basePrice + ($basePrice * ($modifier->price_modification_value / 100));
-            } else {
-                return $basePrice + $modifier->price_modification_value;
-            }
-        }
-
-        return $basePrice;
-    }
-
-    public function getAvailableColors()
-    {
-        return AvailableColor::whereHas('modifiers', function ($query) {
-            $query->where('diy_product_id', $this->id)->where('is_active', true);
-        })->where('is_active', true)->get();
-    }
-
-    public function getAvailableHeights()
-    {
-        return AvailableHeight::whereHas('modifiers', function ($query) {
-            $query->where('diy_product_id', $this->id)->where('is_active', true);
-        })->where('is_active', true)->get();
-    }
-
-    public function getAvailableSpacings()
-    {
-        return AvailableSpacing::whereHas('modifiers', function ($query) {
-            $query->where('diy_product_id', $this->id)->where('is_active', true);
-        })->where('is_active', true)->get();
+        return $this->belongsToMany(
+            DiyProduct::class,
+            'diy_product_related',
+            'diy_product_id',
+            'related_product_id'
+        )->withPivot('order')->orderBy('diy_product_related.order');
     }
 }

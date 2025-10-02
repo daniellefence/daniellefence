@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChatGPTController;
 use App\Http\Controllers\CityLandingController;
 use App\Http\Controllers\DeleteController;
+use App\Http\Controllers\DiyController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Pulse\Facades\Pulse;
@@ -34,7 +35,9 @@ Route::middleware(['Traffic'])->group(function () {
     Route::get('/contact', [PageController::class, 'contact'])->name('contact');
     Route::get('/cookie-policy', [PageController::class, 'cookiePolicy'])->name('cookie-policy');
     Route::get('/discounts-deals', [PageController::class, 'discountsDeals'])->name('discounts-deals');
-    Route::get('/diy', [PageController::class, 'diy'])->name('diy');
+    Route::get('/diy', [DiyController::class, 'index'])->name('diy');
+    Route::get('/diy/category/{id}', [DiyController::class, 'category'])->name('diy.category');
+    Route::get('/diy/product/{id}', [DiyController::class, 'product'])->name('diy.product');
     Route::get('/easy-fixes', [PageController::class, 'easyFixes'])->name('easy-fixes');
     Route::get('/faq', [PageController::class, 'faq'])->name('faq');
     Route::get('/disclaimer', [PageController::class, 'disclaimer'])->name('disclaimer');

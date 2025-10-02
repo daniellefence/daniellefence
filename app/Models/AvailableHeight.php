@@ -4,53 +4,32 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AvailableHeight extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'name',
-        'value_feet',
-        'value_inches',
-        'display_order',
-        'is_active'
+        'description',
+        'price_per_panel',
+        'order',
     ];
 
     protected $casts = [
-        'is_active' => 'boolean',
-        'value_feet' => 'integer',
-        'value_inches' => 'integer',
+        'price_per_panel' => 'decimal:2',
+        'order' => 'integer',
     ];
 
-    // Relationships
-    public function modifiers()
+    public function diyProductModifiers(): HasMany
     {
-        return $this->hasMany(Modifier::class);
-    }
-
-    // Accessors
-    public function getTotalInchesAttribute()
-    {
-        return ($this->value_feet * 12) + $this->value_inches;
-    }
-
-    public function getFormattedHeightAttribute()
-    {
-        if ($this->value_inches > 0) {
-            return $this->value_feet . "'" . $this->value_inches . '"';
-        }
-        return $this->value_feet . "'";
-    }
-
-    // Scopes
-    public function scopeActive($query)
-    {
-        return $query->where('is_active', true);
+        return $this->hasMany(DiyProductModifier::class);
     }
 
     public function scopeOrdered($query)
     {
-        return $query->orderBy('display_order')->orderBy('value_feet')->orderBy('value_inches');
+        return $query->orderBy('order')->orderBy('name');
     }
 }

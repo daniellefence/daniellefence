@@ -68,7 +68,6 @@ class AppServiceProvider extends ServiceProvider
             \App\Models\AreasWeServe::class,
             \App\Models\Category::class,
             \App\Models\Blogcategory::class,
-            \App\Models\DiyProductCategory::class,
             \App\Models\AvailableColor::class,
             \App\Models\AvailableHeight::class,
             \App\Models\Seo::class,

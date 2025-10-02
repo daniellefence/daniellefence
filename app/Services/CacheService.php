@@ -7,7 +7,6 @@ use App\Models\AvailableColor;
 use App\Models\AvailableHeight;
 use App\Models\Blogcategory;
 use App\Models\Category;
-use App\Models\DiyProductCategory;
 use App\Models\Modifier;
 use App\Models\Seo;
 use Illuminate\Support\Facades\Cache;
@@ -96,21 +95,9 @@ class CacheService
         });
     }
 
-    /**
-     * Get cached DIY product categories
-     */
-    public static function getDiyCategories()
-    {
-        return Cache::remember('diy_categories', self::CACHE_DURATION, function () {
-            return DiyProductCategory::where('is_active', true)
-                ->orderBy('sort_order')
-                ->orderBy('name')
-                ->get();
-        });
-    }
 
     /**
-     * Get cached available colors for DIY products
+     * Get cached available colors
      */
     public static function getAvailableColors()
     {
@@ -123,7 +110,7 @@ class CacheService
     }
 
     /**
-     * Get cached available heights for DIY products
+     * Get cached available heights
      */
     public static function getAvailableHeights()
     {
@@ -193,7 +180,6 @@ class CacheService
             'areas_we_serve',
             'product_categories_header',
             'blog_categories',
-            'diy_categories',
             'available_colors',
             'available_heights'
         ];
@@ -221,13 +207,10 @@ class CacheService
             case 'blog_categories':
                 Cache::forget('blog_categories');
                 break;
-            case 'diy_categories':
-                Cache::forget('diy_categories');
-                break;
-            case 'diy_colors':
+            case 'available_colors':
                 Cache::forget('available_colors');
                 break;
-            case 'diy_heights':
+            case 'available_heights':
                 Cache::forget('available_heights');
                 break;
             case 'seo':

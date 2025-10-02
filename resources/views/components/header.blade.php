@@ -114,6 +114,13 @@
                     </div>
                 </div>
 
+                <!-- DIY Link -->
+                <a aria-label="DIY Fence Catalog" href="{{route('diy')}}"
+                   class="relative inline-flex items-center gap-x-1 px-4 py-2 text-sm font-semibold text-slate-800 hover:text-outdoor-primary transition-all duration-200 group rounded-lg bg-slate-50/70 hover:bg-outdoor-light/60 shadow-sm hover:shadow-md border border-slate-200/50 hover:border-outdoor-primary/30">
+                    <span>DIY</span>
+                    <span class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-outdoor-primary to-outdoor-primary/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full"></span>
+                </a>
+
                 <!-- Company Dropdown -->
                 <div @click.away="showCompany=false" @keyup.window.escape="showCompany=false" class="relative z-[150]">
                     <button @click="showCompany=!showCompany" type="button"

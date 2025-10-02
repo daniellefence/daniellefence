@@ -17,7 +17,6 @@ class Seo
             'fence-gates' => 'Fence and Gates',
             'commercial' => 'Commercial',
             'discounts-deals' => 'Discounts and Deals',
-            'diy' => 'DIY',
             'about-us' => 'About Us',
             'contact' => 'Contact',
             'kitchens-grills' => 'Kitchens and Grills',

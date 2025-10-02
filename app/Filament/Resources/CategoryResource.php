@@ -39,13 +39,6 @@ class CategoryResource extends Resource
                             ->preload()
                             ->helperText('Choose a parent category to create a subcategory'),
 
-                        Forms\Components\TextInput::make('key')
-                            ->label('Category Key')
-                            ->maxLength(191)
-                            ->placeholder('e.g., fencing, gates')
-                            ->helperText('Unique identifier for this category (optional)')
-                            ->alphaDash(),
-
                         Forms\Components\TextInput::make('title')
                             ->label('Category Title')
                             ->required()
@@ -53,17 +46,9 @@ class CategoryResource extends Resource
                             ->placeholder('e.g., Residential Fencing, Commercial Gates')
                             ->helperText('The display name for this category'),
 
-                        Forms\Components\RichEditor::make('description')
+                        \App\Filament\Forms\Components\ChatGPTRichEditor::make('description')
                             ->label('Category Description')
                             ->columnSpanFull()
-                            ->toolbarButtons([
-                                'bold',
-                                'italic',
-                                'underline',
-                                'link',
-                                'bulletList',
-                                'orderedList',
-                            ])
                             ->placeholder('Describe this category and its products')
                             ->helperText('This description may appear on category pages'),
 
@@ -113,14 +98,9 @@ class CategoryResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->reorderable('order')
+            ->defaultSort('order', 'asc')
             ->columns([
-                Tables\Columns\TextColumn::make('order')
-                    ->label('Order')
-                    ->badge()
-                    ->color('primary')
-                    ->sortable()
-                    ->width('80px'),
-
                 Tables\Columns\TextColumn::make('title')
                     ->label('Category Title')
                     ->searchable()
@@ -181,7 +161,6 @@ class CategoryResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->defaultSort('order', 'asc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
                 Tables\Filters\TernaryFilter::make('published')
@@ -202,8 +181,6 @@ class CategoryResource extends Resource
                     ->color('info')
                     ->url(fn ($record) => $record->getRoute(), shouldOpenInNewTab: true)
                     ->visible(fn ($record) => $record->published),
-                Tables\Actions\ViewAction::make()
-                    ->color('info'),
                 Tables\Actions\EditAction::make()
                     ->color('warning'),
                 Tables\Actions\DeleteAction::make()
@@ -234,8 +211,7 @@ class CategoryResource extends Resource
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
-            ])
-            ->recordUrl(fn ($record) => null);
+            ]);
     }
 
     public static function getRelations(): array

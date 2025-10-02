@@ -2,6 +2,22 @@ import './bootstrap';
 import AOS from 'aos';
 import { initPerformanceOptimizations } from './performance';
 
+// Patch MutationObserver to prevent Filament errors
+const OriginalMutationObserver = window.MutationObserver;
+window.MutationObserver = function(callback) {
+    const observer = new OriginalMutationObserver(callback);
+    const originalObserve = observer.observe;
+
+    observer.observe = function(target, options) {
+        if (target && target.nodeType === Node.ELEMENT_NODE) {
+            return originalObserve.call(this, target, options);
+        }
+        console.warn('MutationObserver.observe called with invalid target, ignoring');
+    };
+
+    return observer;
+};
+
 // Initialize performance optimizations immediately
 initPerformanceOptimizations();
 

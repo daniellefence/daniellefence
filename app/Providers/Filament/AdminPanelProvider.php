@@ -74,8 +74,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationGroups([
                 'Dashboard & Analytics',
+                'DIY System',
                 'Products & Catalog',
-                'DIY Configuration',
                 'Content & Pages',
                 'Customers & Reviews',
                 'Human Resources',

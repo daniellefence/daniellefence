@@ -72,7 +72,6 @@ class Seeds
             'contact' => 'Contact',
             'cookie-policy' => 'Cookie Policy',
             'discounts-deals' => 'Discounts & Deals',
-            'diy' => 'DIY',
             'easy-fixes' => 'Easy Fixes',
             'faq' => 'FAQ',
             'disclaimer' => 'Disclaimer',

@@ -47,14 +47,11 @@ class CacheInvalidationObserver
             case 'Blogcategory':
                 CacheService::clearByType('blog_categories');
                 break;
-            case 'DiyProductCategory':
-                CacheService::clearByType('diy_categories');
-                break;
             case 'AvailableColor':
-                CacheService::clearByType('diy_colors');
+                CacheService::clearByType('available_colors');
                 break;
             case 'AvailableHeight':
-                CacheService::clearByType('diy_heights');
+                CacheService::clearByType('available_heights');
                 break;
             case 'Seo':
                 CacheService::clearByType('seo');

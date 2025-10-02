@@ -27,7 +27,7 @@ class PulseMetricsWidget extends Widget
 
             // Get top routes from Pulse data
             try {
-                $routeData = Pulse::values('route_hits')
+                $routeData = Pulse::values('route_hits', [])
                     ->take(10)
                     ->map(function ($entry) {
                         return (object) [
@@ -41,10 +41,10 @@ class PulseMetricsWidget extends Widget
                 ]);
 
                 // Get traffic sources
-                $trafficSources = Pulse::values('traffic_sources')->take(5);
+                $trafficSources = Pulse::values('traffic_sources', [])->take(5);
 
                 // Get total page views
-                $totalPageViews = Pulse::values('page_views', 'total')->first()?->value ?? 0;
+                $totalPageViews = Pulse::values('page_views', ['total'])->first()?->value ?? 0;
 
             } catch (\Exception $e) {
                 // Fallback to empty data if Pulse queries fail

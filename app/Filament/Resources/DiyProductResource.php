@@ -17,9 +17,9 @@ class DiyProductResource extends Resource
 {
     protected static ?string $model = DiyProduct::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
+    protected static ?string $navigationIcon = 'heroicon-o-cube';
 
-    protected static ?string $navigationGroup = 'DIY Configuration';
+    protected static ?string $navigationGroup = 'DIY System';
 
     protected static ?int $navigationSort = 2;
 
@@ -27,33 +27,45 @@ class DiyProductResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('diy_product_category_id')
-                    ->label('Category')
-                    ->relationship('diyProductCategory', 'name')
-                    ->required()
-                    ->searchable(),
+                Forms\Components\Select::make('diy_category_id')
+                    ->relationship('diyCategory', 'name')
+                    ->required(),
+                Forms\Components\Select::make('product_id')
+                    ->relationship('product', 'title')
+                    ->label('Related Product (for photo gallery)')
+                    ->searchable()
+                    ->preload()
+                    ->helperText('Select the product whose photos will be displayed in the gallery'),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(191),
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(191),
+                \Filament\Forms\Components\SpatieMediaLibraryFileUpload::make('photos')
+                    ->collection('product-photos')
+                    ->multiple()
+                    ->image()
+                    ->imageEditor()
+                    ->reorderable()
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('base_price')
                     ->required()
                     ->numeric()
                     ->default(0.00),
-                Forms\Components\TextInput::make('default_photo_url')
-                    ->maxLength(191),
-                Forms\Components\Textarea::make('specifications')
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('sort_order')
+                Forms\Components\Toggle::make('is_best_seller')
+                    ->label('Best Seller')
+                    ->helperText('Mark this product as a best seller'),
+                Forms\Components\TextInput::make('order')
                     ->required()
                     ->numeric()
                     ->default(0),
-                Forms\Components\Toggle::make('is_active')
-                    ->required(),
+                Forms\Components\Select::make('relatedProducts')
+                    ->relationship('relatedProducts', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->searchable()
+                    ->columnSpanFull()
+                    ->helperText('Select related products to display on the product page'),
             ]);
     }
 
@@ -61,29 +73,33 @@ class DiyProductResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('diyProductCategory.name')
-                    ->label('Category')
-                    ->sortable()
-                    ->searchable(),
+                \Filament\Tables\Columns\SpatieMediaLibraryImageColumn::make('photo')
+                    ->collection('product-photos')
+                    ->circular(),
+                Tables\Columns\TextColumn::make('diyCategory.name')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
+                Tables\Columns\IconColumn::make('is_best_seller')
+                    ->boolean()
+                    ->label('Best Seller')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('base_price')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('default_photo_url')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('sort_order')
+                Tables\Columns\TextColumn::make('order')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\IconColumn::make('is_active')
-                    ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

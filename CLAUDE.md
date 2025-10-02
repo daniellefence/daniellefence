@@ -43,6 +43,13 @@ This is a Laravel 11 application for Danielle Fence, a commercial and residentia
 - Access the application at: https://newdaniellefence.test
 - Admin panel: https://newdaniellefence.test/admin
 
+## Error Tracking
+
+**Flare Integration**: This project uses Flare for error tracking and monitoring.
+- When investigating errors, use the Flare MCP tool to access error data
+- Project name in Flare: **newdaniellefence**
+- Flare API key is configured in `.env` as `FLARE_KEY`
+
 ## Development Commands
 
 ### Backend (Laravel/PHP)

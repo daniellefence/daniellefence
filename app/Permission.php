@@ -239,16 +239,6 @@ class Permission
                     'delete' => 'User can delete an area we serve.',
                 ],
             ],
-            [
-                'category' => 'diy',
-                'label' => 'DIY System',
-                'actions' => [
-                    'create' => 'User can create DIY products and configurations.',
-                    'read' => 'User can view DIY admin pages.',
-                    'update' => 'User can update DIY products and configurations.',
-                    'delete' => 'User can delete DIY products and configurations.',
-                ],
-            ],
         ];
         usort($return, function ($item1, $item2) {
             return $item1['category'] <=> $item2['category'];

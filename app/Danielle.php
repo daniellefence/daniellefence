@@ -7,7 +7,6 @@ use App\Mail\ApplicationToUser;
 use App\Mail\ChristmasHours;
 use App\Mail\Contact;
 use App\Mail\ContactToUser;
-use App\Mail\DiyToUser;
 use App\Mail\FenceQuote;
 use App\Mail\FenceQuoteToUser;
 use App\Mail\Hurricane;
@@ -18,8 +17,6 @@ use App\Mail\QuoteLeadReport;
 use App\Mail\TrafficSourceReport;
 use App\Models\Blogcategory;
 use App\Models\Category;
-use App\Models\Diycategory;
-use App\Models\Diyproduct;
 use App\Models\Documentationcategory;
 use App\Models\QuoteRequest;
 use App\Models\Tag;
@@ -324,15 +321,6 @@ class Danielle
     public function sendMailBackup($type, $model)
     {
         switch ($type) {
-            case 'diy':
-                $recipients = setting()->get('fence_quote_recipient_emails');
-                $recipients = explode(',', $recipients);
-                foreach ($recipients as $recipient) {
-                    //                    Mail::to($recipient)->send(new \App\Mail\Diy($model));
-                }
-                // email user
-                Mail::to('sbarron@daniellefence.net')->send(new DiyToUser($model));
-                break;
 
             case 'general':
             case 'fence_quote':
@@ -415,15 +403,6 @@ class Danielle
         return $return;
     }
 
-    public function getDropdownDiyCategories()
-    {
-        $return = [];
-        foreach (Diycategory::orderBy('order', 'asc')->get() as $diyCategory) {
-            $return[$diyCategory->id] = $diyCategory->title;
-        }
-
-        return $return;
-    }
 
     public function tagsDropdown()
     {
@@ -642,65 +621,6 @@ class Danielle
         }
     }
 
-    public function otherColorOptions($id)
-    {
-        $colors = [];
-        $product = Diyproduct::find($id);
-        $modifiers = danielle()->unserialize($product->modifiers);
-        foreach ($modifiers as $key => $value) {
-            if ($value == 'hidden') {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public function withModifierTotal($c)
-    {
-        $product = Diyproduct::find($c['product']);
-        if ($product) {
-            $modifiers = danielle()->unserialize($product->modifiers);
-
-            $price = $product->price;
-            $total = $price;
-            if (isset($c['height'])) {
-                $height = $c['height']; // 6ft
-                $modifierText = 'heightModifier'.$c['height'];
-                if (isset($modifiers[$modifierText])) {
-                    $total += $modifiers[$modifierText];
-                }
-            }
-            if (isset($c['spacing'])) {
-                $spacing = $c['spacing'];
-                $modifierText = 'spacingModifier'.$c['spacing'];
-                if (isset($modifiers[$modifierText])) {
-                    $total += $modifiers[$modifierText];
-                }
-            }
-            if (isset($c['color'])) {
-                $color = $c['color'];
-                $modifierText = 'colorModifier'.$c['color'];
-                if (isset($modifiers[$modifierText])) {
-                    $total = $total + ($total * ($modifiers[$modifierText] / 100));
-                }
-            }
-
-            return $total;
-        }
-    }
-
-    public function calculateSubtotalFromCart($cart)
-    {
-        $total = 0;
-        if (is_array($cart)) {
-            foreach ($cart as $c) {
-                $total += $this->withModifierTotal($c) * $c['qty'];
-            }
-        }
-
-        return $total;
-    }
 
     /**
      * Get cached areas we serve
@@ -711,7 +631,7 @@ class Danielle
     }
 
     /**
-     * Get cached available colors for DIY products
+     * Get cached available colors
      */
     public static function getAvailableColors()
     {

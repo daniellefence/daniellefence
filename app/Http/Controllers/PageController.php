@@ -109,13 +109,6 @@ class PageController extends Controller
         return view('pages.specials.read');
     }
 
-    public function diy()
-    {
-        $diyProducts = \App\Models\DiyProduct::with('category')->where('is_active', true)->orderBy('sort_order')->get();
-        $diyCategories = \App\Services\CacheService::getDiyCategories();
-
-        return view('pages.diy.read', compact('diyProducts', 'diyCategories'));
-    }
 
     public function thanks()
     {

@@ -77,10 +77,6 @@ class RolePermissionSeeder extends Seeder
             'areasweserveRead',
             'areasweserveUpdate',
             'areasweserveDelete',
-            'diyCreate',
-            'diyRead',
-            'diyUpdate',
-            'diyDelete'
         ]);
 
         // Create SuperAdmin role
