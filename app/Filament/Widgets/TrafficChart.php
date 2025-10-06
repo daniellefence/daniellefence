@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class TrafficChart extends ChartWidget
 {
-    protected static ?string $heading = 'Website Traffic (Last 30 Days)';
+    protected ?string $heading = 'Website Traffic (Last 30 Days)';
 
     protected static ?int $sort = 2;
 

@@ -2,11 +2,25 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use App\Filament\Resources\BlogResource\Pages\ListBlogs;
+use App\Filament\Resources\BlogResource\Pages\CreateBlog;
+use App\Filament\Resources\BlogResource\Pages\ViewBlog;
+use App\Filament\Resources\BlogResource\Pages\EditBlog;
 use App\Filament\Resources\BlogResource\Pages;
 use App\Filament\Resources\BlogResource\RelationManagers;
 use App\Models\Blog;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,49 +31,49 @@ class BlogResource extends Resource
 {
     protected static ?string $model = Blog::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static ?string $navigationGroup = 'Content & Pages';
+    protected static string | \UnitEnum | null $navigationGroup = 'Content & Pages';
 
     protected static ?int $navigationSort = 1;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\Select::make('user_id')
+        return $schema
+            ->components([
+                Select::make('user_id')
                     ->label('Author')
                     ->relationship('user', 'name')
                     ->required()
                     ->searchable(),
-                Forms\Components\Select::make('blogcategory_id')
+                Select::make('blogcategory_id')
                     ->label('Category')
                     ->relationship('blogcategory', 'title')
                     ->required()
                     ->searchable(),
-                Forms\Components\TextInput::make('title')
+                TextInput::make('title')
                     ->required()
                     ->maxLength(191)
                     ->columnSpanFull(),
-                \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('content')
+                ChatGPTTiptapEditor::make('content')
                     ->required()
                     ->profile('default')
                     ->columnSpanFull(),
-                Forms\Components\Select::make('tags')
+                Select::make('tags')
                     ->label('Tags')
                     ->relationship('tags', 'name')
                     ->multiple()
                     ->preload()
                     ->createOptionForm([
-                        Forms\Components\TextInput::make('name')
+                        TextInput::make('name')
                             ->required()
                             ->maxLength(191),
                     ])
                     ->columnSpanFull(),
-                Forms\Components\Toggle::make('show_date')
+                Toggle::make('show_date')
                     ->label('Show publication date')
                     ->default(true),
-                Forms\Components\Toggle::make('published')
+                Toggle::make('published')
                     ->label('Published')
                     ->default(false),
             ]);
@@ -69,29 +83,29 @@ class BlogResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user.name')
+                TextColumn::make('user.name')
                     ->label('Author')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('blogcategory.title')
+                TextColumn::make('blogcategory.title')
                     ->label('Category')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('title')
+                TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\IconColumn::make('show_date')
+                IconColumn::make('show_date')
                     ->boolean(),
-                Tables\Columns\IconColumn::make('published')
+                IconColumn::make('published')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
+                TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -99,13 +113,13 @@ class BlogResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -120,10 +134,10 @@ class BlogResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBlogs::route('/'),
-            'create' => Pages\CreateBlog::route('/create'),
-            'view' => Pages\ViewBlog::route('/{record}'),
-            'edit' => Pages\EditBlog::route('/{record}/edit'),
+            'index' => ListBlogs::route('/'),
+            'create' => CreateBlog::route('/create'),
+            'view' => ViewBlog::route('/{record}'),
+            'edit' => EditBlog::route('/{record}/edit'),
         ];
     }
 }

@@ -2,6 +2,9 @@
 
 namespace App\Livewire;
 
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 use App\Models\GeneralSetting;
 use App\Models\QuoteRequest;
 use Illuminate\Support\Facades\Http;
@@ -147,8 +150,8 @@ class RequestAFenceQuote extends Component
      * Validates the form data, creates a quote request record, handles file attachments,
      * sends notification emails, and redirects to the thank you page.
      *
-     * @return \Illuminate\Http\RedirectResponse Redirects to thank you page
-     * @throws \Illuminate\Validation\ValidationException If validation fails
+     * @return RedirectResponse Redirects to thank you page
+     * @throws ValidationException If validation fails
      */
     public function submit()
     {
@@ -206,7 +209,7 @@ class RequestAFenceQuote extends Component
      * submission if the score is acceptable (>0.3).
      *
      * @param string $token The reCAPTCHA token from the frontend
-     * @return void|\Illuminate\Http\RedirectResponse
+     * @return void|RedirectResponse
      */
     public function updatedCaptcha($token)
     {
@@ -232,7 +235,7 @@ class RequestAFenceQuote extends Component
      * This method is used for lazy loading to improve page performance
      * by showing a loading indicator until the component is fully rendered.
      *
-     * @return \Illuminate\View\View The lazy loader placeholder view
+     * @return View The lazy loader placeholder view
      */
     public function placeholder()
     {
@@ -242,7 +245,7 @@ class RequestAFenceQuote extends Component
     /**
      * Render the fence quote request form component.
      *
-     * @return \Illuminate\View\View The component's view
+     * @return View The component's view
      */
     public function render()
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Route;
 use Closure;
 use Illuminate\Http\Request;
 use Laravel\Pulse\Facades\Pulse;
@@ -28,9 +29,9 @@ class Traffic
      * - Records real-time metrics to Laravel Pulse
      * - Tracks page views, route hits, user agents, and traffic sources
      *
-     * @param \Illuminate\Http\Request $request The incoming HTTP request
-     * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next The next middleware
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request The incoming HTTP request
+     * @param Closure(Request):Response $next The next middleware
+     * @return Response
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -49,11 +50,11 @@ class Traffic
             'method' => $request->server('REQUEST_METHOD'),
             'source' => $request->server('HTTP_REFERER'),
             'ip' => $ip,
-            'route' => \Illuminate\Support\Facades\Route::currentRouteName(),
+            'route' => Route::currentRouteName(),
         ]);
 
         // Record metrics to Laravel Pulse for real-time analytics
-        $routeName = \Illuminate\Support\Facades\Route::currentRouteName() ?? $request->path();
+        $routeName = Route::currentRouteName() ?? $request->path();
 
         // Track total page views
         Pulse::record('page_views', 'total', 1);

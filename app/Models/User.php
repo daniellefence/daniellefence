@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\DB;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -103,7 +104,7 @@ class User extends Authenticatable implements FilamentUser
 
     public function legacyPermissions()
     {
-        return \Illuminate\Support\Facades\DB::table('legacy_permissions')
+        return DB::table('legacy_permissions')
             ->where('user_id', $this->id)
             ->whereNull('deleted_at');
     }
@@ -119,7 +120,7 @@ class User extends Authenticatable implements FilamentUser
     {
         $permission = $this->legacyPermissions()->where('key', $key)->first();
         if (! $permission) {
-            \Illuminate\Support\Facades\DB::table('legacy_permissions')->insert([
+            DB::table('legacy_permissions')->insert([
                 'user_id' => $this->id,
                 'key' => $key,
                 'created_at' => now(),
@@ -130,7 +131,7 @@ class User extends Authenticatable implements FilamentUser
 
     public function deletePermission($key)
     {
-        \Illuminate\Support\Facades\DB::table('legacy_permissions')
+        DB::table('legacy_permissions')
             ->where('user_id', $this->id)
             ->where('key', $key)
             ->update(['deleted_at' => now()]);

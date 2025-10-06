@@ -1,56 +1,66 @@
 <?php
 
+use App\Danielle;
+use App\Toast;
+use App\Permission;
+use App\ProductMenu;
+use App\Products;
+use App\Seeds;
+use App\Activity;
+use App\Seo;
+use App\Setting;
+
 if (! function_exists('danielle')) {
     function danielle()
     {
-        return new \App\Danielle;
+        return new Danielle;
     }
 }
 if (! function_exists('toast')) {
     function toast()
     {
-        return new \App\Toast;
+        return new Toast;
     }
 }
 if (! function_exists('permission')) {
     function permission()
     {
-        return new \App\Permission;
+        return new Permission;
     }
 }
 if (! function_exists('productMenu')) {
     function productMenu()
     {
-        return new \App\ProductMenu;
+        return new ProductMenu;
     }
 }
 if (! function_exists('products')) {
     function products()
     {
-        return new \App\Products;
+        return new Products;
     }
 }
 if (! function_exists('seeds')) {
     function seeds()
     {
-        return new \App\Seeds;
+        return new Seeds;
     }
 }
 if (! function_exists('activity')) {
     function activity()
     {
-        return new \App\Activity;
+        return new Activity;
     }
 }
 if (! function_exists('seo')) {
     function seo()
     {
-        return new \App\Seo;
+        return new Seo;
     }
 }
 if (! function_exists('setting')) {
     function setting()
     {
-        return new \App\Setting;
+        return new Setting;
     }
 }

@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class QuoteRequestsChartWidget extends ChartWidget
 {
-    protected static ?string $heading = 'Quote Requests (Last 30 Days)';
+    protected ?string $heading = 'Quote Requests (Last 30 Days)';
 
     protected static ?int $sort = 3;
 

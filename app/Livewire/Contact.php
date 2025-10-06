@@ -2,6 +2,10 @@
 
 namespace App\Livewire;
 
+use Log;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\ValidationException;
 use App\Http\Requests\ContactFormRequest;
 use App\Models\GeneralSetting;
 use App\Services\CacheService;
@@ -120,7 +124,7 @@ class Contact extends Component
      * This method is used for lazy loading to improve page performance
      * by showing a loading indicator until the component is fully rendered.
      *
-     * @return \Illuminate\View\View The lazy loader placeholder view
+     * @return View The lazy loader placeholder view
      */
     public function placeholder()
     {
@@ -134,8 +138,8 @@ class Contact extends Component
      * honeypot spam detection, timing checks, enhanced validation,
      * service area verification, input sanitization, and email notifications.
      *
-     * @return void|\Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Validation\ValidationException If validation fails
+     * @return void|RedirectResponse
+     * @throws ValidationException If validation fails
      */
     public function send()
     {
@@ -149,7 +153,7 @@ class Contact extends Component
         // Honeypot check - bots often fill hidden fields
         if (!empty($this->website)) {
             // Log spam attempt and fake success to confuse bots
-            \Log::warning('Contact form honeypot triggered', [
+            Log::warning('Contact form honeypot triggered', [
                 'ip' => request()->ip(),
                 'website_field' => $this->website
             ]);
@@ -218,7 +222,7 @@ class Contact extends Component
      * submission if the score is acceptable (>0.3).
      *
      * @param string $token The reCAPTCHA token from the frontend
-     * @return void|\Illuminate\Http\RedirectResponse
+     * @return void|RedirectResponse
      */
     public function updatedCaptcha($token)
     {
@@ -243,7 +247,7 @@ class Contact extends Component
      *
      * Retrieves cached service areas for the dropdown and renders the form.
      *
-     * @return \Illuminate\View\View The component's view with service areas
+     * @return View The component's view with service areas
      */
     public function render()
     {

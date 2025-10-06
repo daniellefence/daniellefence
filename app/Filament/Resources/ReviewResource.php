@@ -2,11 +2,24 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use App\Filament\Resources\ReviewResource\Pages\ListReviews;
+use App\Filament\Resources\ReviewResource\Pages\CreateReview;
+use App\Filament\Resources\ReviewResource\Pages\ViewReview;
+use App\Filament\Resources\ReviewResource\Pages\EditReview;
 use App\Filament\Resources\ReviewResource\Pages;
 use App\Filament\Resources\ReviewResource\RelationManagers;
 use App\Models\Review;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,35 +30,35 @@ class ReviewResource extends Resource
 {
     protected static ?string $model = Review::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-star';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-star';
 
-    protected static ?string $navigationGroup = 'Customers & Reviews';
+    protected static string | \UnitEnum | null $navigationGroup = 'Customers & Reviews';
 
     protected static ?int $navigationSort = 3;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('stars')
+        return $schema
+            ->components([
+                TextInput::make('stars')
                     ->required()
                     ->numeric()
                     ->default(0),
-                Forms\Components\TextInput::make('order')
+                TextInput::make('order')
                     ->required()
                     ->numeric()
                     ->default(0),
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
                     ->maxLength(191),
-                \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('content')
+                ChatGPTTiptapEditor::make('content')
                     ->profile('default')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('google_review_id')
+                TextInput::make('google_review_id')
                     ->maxLength(191),
-                Forms\Components\Toggle::make('hidden')
+                Toggle::make('hidden')
                     ->required(),
-                Forms\Components\TextInput::make('date')
+                TextInput::make('date')
                     ->maxLength(191),
             ]);
     }
@@ -54,40 +67,40 @@ class ReviewResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('stars')
+                TextColumn::make('stars')
                     ->label('Rating')
                     ->formatStateUsing(fn ($state) => str_repeat('⭐', $state))
                     ->sortable(),
-                Tables\Columns\TextColumn::make('content')
+                TextColumn::make('content')
                     ->label('Review')
                     ->limit(100)
                     ->tooltip(function ($record) {
                         return $record->content;
                     }),
-                Tables\Columns\IconColumn::make('hidden')
+                IconColumn::make('hidden')
                     ->boolean()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('date')
+                TextColumn::make('date')
                     ->searchable()
                     ->sortable()
                     ->toggleable(),
-                Tables\Columns\TextColumn::make('order')
+                TextColumn::make('order')
                     ->label('Display Order')
                     ->numeric()
                     ->sortable()
                     ->toggleable(),
-                Tables\Columns\TextColumn::make('deleted_at')
+                TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -95,13 +108,13 @@ class ReviewResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -116,10 +129,10 @@ class ReviewResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListReviews::route('/'),
-            'create' => Pages\CreateReview::route('/create'),
-            'view' => Pages\ViewReview::route('/{record}'),
-            'edit' => Pages\EditReview::route('/{record}/edit'),
+            'index' => ListReviews::route('/'),
+            'create' => CreateReview::route('/create'),
+            'view' => ViewReview::route('/{record}'),
+            'edit' => EditReview::route('/{record}/edit'),
         ];
     }
 }

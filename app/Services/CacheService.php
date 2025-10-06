@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Database\Eloquent\Collection;
 use App\Models\AreasWeServe;
 use App\Models\AvailableColor;
 use App\Models\AvailableHeight;
@@ -47,7 +48,7 @@ class CacheService
      * Returns a cached collection of published service areas ordered by
      * sort order and title for display in forms and location validation.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public static function getAreasWeServe()
     {
@@ -65,7 +66,7 @@ class CacheService
      * Returns top-level product categories that are published and ordered
      * for display in the main navigation menu.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public static function getProductCategories()
     {
@@ -83,7 +84,7 @@ class CacheService
      * Returns published blog categories ordered by sort order and title
      * for use in blog navigation and content filtering.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public static function getBlogCategories()
     {

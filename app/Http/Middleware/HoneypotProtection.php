@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Log;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,9 +27,9 @@ class HoneypotProtection
      * 2. Timing checks - Forms submitted too quickly are likely automated
      * 3. Comprehensive logging - All suspicious activity is logged for analysis
      *
-     * @param \Illuminate\Http\Request $request The incoming HTTP request
-     * @param \Closure $next The next middleware in the pipeline
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request The incoming HTTP request
+     * @param Closure $next The next middleware in the pipeline
+     * @return Response
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -45,7 +46,7 @@ class HoneypotProtection
         foreach ($honeypotFields as $field) {
             if ($request->filled($field)) {
                 // Log the spam attempt with comprehensive details
-                \Log::warning('Honeypot field filled', [
+                Log::warning('Honeypot field filled', [
                     'ip' => $request->ip(),
                     'user_agent' => $request->userAgent(),
                     'field' => $field,
@@ -68,7 +69,7 @@ class HoneypotProtection
 
             // If submitted in less than 3 seconds, likely automated
             if ($timeDiff < 3) {
-                \Log::warning('Form submitted too quickly', [
+                Log::warning('Form submitted too quickly', [
                     'ip' => $request->ip(),
                     'time_diff' => $timeDiff,
                     'url' => $request->fullUrl()

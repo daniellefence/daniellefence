@@ -2,6 +2,10 @@
 
 namespace App;
 
+use Exception;
+use Log;
+use Schema;
+use App\Models\Category;
 use App\Models\Blog;
 use App\Models\GeneralSetting;
 use App\Models\Product;
@@ -56,8 +60,8 @@ class Seo
                                 if ($product) {
                                     return $this->defaultTitle().' | '.$product->title;
                                 }
-                            } catch (\Exception $e) {
-                                \Log::error("SEO: Error finding product for slugs {$categorySlug}/{$productSlug}: " . $e->getMessage());
+                            } catch (Exception $e) {
+                                Log::error("SEO: Error finding product for slugs {$categorySlug}/{$productSlug}: " . $e->getMessage());
                             }
                         }
                     }
@@ -81,8 +85,8 @@ class Seo
                                 if ($product && !empty($product->description)) {
                                     return Str::limit(strip_tags($product->description), 200);
                                 }
-                            } catch (\Exception $e) {
-                                \Log::error("SEO: Error finding product for slugs {$categorySlug}/{$productSlug}: " . $e->getMessage());
+                            } catch (Exception $e) {
+                                Log::error("SEO: Error finding product for slugs {$categorySlug}/{$productSlug}: " . $e->getMessage());
                             }
                         }
                     }
@@ -110,8 +114,8 @@ class Seo
                                     $categoryKeywords = $category ? $category->title : '';
                                     return $this->defaultKeywords().', '.$product->title.($categoryKeywords ? ', '.$categoryKeywords : '');
                                 }
-                            } catch (\Exception $e) {
-                                \Log::error("SEO: Error finding product for slugs {$categorySlug}/{$productSlug}: " . $e->getMessage());
+                            } catch (Exception $e) {
+                                Log::error("SEO: Error finding product for slugs {$categorySlug}/{$productSlug}: " . $e->getMessage());
                             }
                         }
                     }
@@ -121,9 +125,9 @@ class Seo
                     // Return appropriate default for unknown types
                     return $this->defaultTitle();
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Log error but return safe defaults to prevent layout failures
-            \Log::error("SEO meta error for type '{$type}': " . $e->getMessage());
+            Log::error("SEO meta error for type '{$type}': " . $e->getMessage());
 
             switch ($type) {
                 case 'title':
@@ -141,14 +145,14 @@ class Seo
     public function defaultTitle()
     {
         try {
-            if (!\Schema::hasTable('general_settings')) {
+            if (!Schema::hasTable('general_settings')) {
                 return 'Danielle Fence & Outdoor Living';
             }
             $setting = GeneralSetting::where([
                 ['key', '=', 'default_site_title'],
             ])->first();
             return $setting ? $setting->value : 'Danielle Fence & Outdoor Living';
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return 'Danielle Fence & Outdoor Living';
         }
     }
@@ -156,14 +160,14 @@ class Seo
     public function defaultDescription()
     {
         try {
-            if (!\Schema::hasTable('general_settings')) {
+            if (!Schema::hasTable('general_settings')) {
                 return 'Quality fencing and outdoor living solutions since 1976';
             }
             $setting = GeneralSetting::where([
                 ['key', '=', 'default_site_description'],
             ])->first();
             return $setting ? $setting->value : 'Quality fencing and outdoor living solutions since 1976';
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return 'Quality fencing and outdoor living solutions since 1976';
         }
     }
@@ -171,14 +175,14 @@ class Seo
     public function defaultKeywords()
     {
         try {
-            if (!\Schema::hasTable('general_settings')) {
+            if (!Schema::hasTable('general_settings')) {
                 return 'fence, fencing, outdoor living, vinyl fence, aluminum fence';
             }
             $setting = GeneralSetting::where([
                 ['key', '=', 'default_site_keywords'],
             ])->first();
             return $setting ? $setting->value : 'fence, fencing, outdoor living, vinyl fence, aluminum fence';
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return 'fence, fencing, outdoor living, vinyl fence, aluminum fence';
         }
     }
@@ -188,7 +192,7 @@ class Seo
      */
     private function findProductBySlug($categorySlug, $productSlug)
     {
-        $categories = \App\Models\Category::all();
+        $categories = Category::all();
         $category = $categories->first(function ($cat) use ($categorySlug) {
             return Str::slug($cat->title) === $categorySlug;
         });

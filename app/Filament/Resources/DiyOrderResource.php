@@ -2,11 +2,24 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use App\Filament\Resources\DiyOrderResource\Pages\ListDiyOrders;
+use App\Filament\Resources\DiyOrderResource\Pages\CreateDiyOrder;
+use App\Filament\Resources\DiyOrderResource\Pages\ViewDiyOrder;
+use App\Filament\Resources\DiyOrderResource\Pages\EditDiyOrder;
 use App\Filament\Resources\DiyOrderResource\Pages;
 use App\Filament\Resources\DiyOrderResource\RelationManagers;
 use App\Models\DiyOrder;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,41 +30,41 @@ class DiyOrderResource extends Resource
 {
     protected static ?string $model = DiyOrder::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-shopping-cart';
 
-    protected static ?string $navigationGroup = 'DIY System';
+    protected static string | \UnitEnum | null $navigationGroup = 'DIY System';
 
     protected static ?int $navigationSort = 6;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\Select::make('user_id')
+        return $schema
+            ->components([
+                Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required(),
-                Forms\Components\TextInput::make('order_number')
+                TextInput::make('order_number')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('subtotal')
+                TextInput::make('subtotal')
                     ->required()
                     ->numeric()
                     ->default(0.00),
-                Forms\Components\TextInput::make('tax_amount')
+                TextInput::make('tax_amount')
                     ->required()
                     ->numeric()
                     ->default(0.00),
-                Forms\Components\TextInput::make('total_amount')
+                TextInput::make('total_amount')
                     ->required()
                     ->numeric()
                     ->default(0.00),
-                Forms\Components\TextInput::make('status')
+                TextInput::make('status')
                     ->required()
                     ->maxLength(191)
                     ->default('pending'),
-                Forms\Components\Textarea::make('notes')
+                Textarea::make('notes')
                     ->columnSpanFull(),
-                Forms\Components\DateTimePicker::make('ordered_at'),
+                DateTimePicker::make('ordered_at'),
             ]);
     }
 
@@ -59,34 +72,34 @@ class DiyOrderResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user.name')
+                TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('order_number')
+                TextColumn::make('order_number')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('subtotal')
+                TextColumn::make('subtotal')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('tax_amount')
+                TextColumn::make('tax_amount')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('total_amount')
+                TextColumn::make('total_amount')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status')
+                TextColumn::make('status')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('ordered_at')
+                TextColumn::make('ordered_at')
                     ->dateTime()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
+                TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -94,13 +107,13 @@ class DiyOrderResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -115,10 +128,10 @@ class DiyOrderResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListDiyOrders::route('/'),
-            'create' => Pages\CreateDiyOrder::route('/create'),
-            'view' => Pages\ViewDiyOrder::route('/{record}'),
-            'edit' => Pages\EditDiyOrder::route('/{record}/edit'),
+            'index' => ListDiyOrders::route('/'),
+            'create' => CreateDiyOrder::route('/create'),
+            'view' => ViewDiyOrder::route('/{record}'),
+            'edit' => EditDiyOrder::route('/{record}/edit'),
         ];
     }
 }

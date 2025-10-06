@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Exception;
 use App\Models\Video;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
@@ -105,7 +106,7 @@ class SyncYouTubeVideos extends Command
 
             return 0;
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->error("Error syncing videos: {$e->getMessage()}");
 
             return 1;

@@ -2,6 +2,11 @@
 
 namespace App\Providers\Filament;
 
+use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+use App\Filament\Pages\ActivityDashboard;
+use App\Filament\Pages\TrafficAnalytics;
+use Filament\Widgets\AccountWidget;
+use Filament\Widgets\FilamentInfoWidget;
 use Filament\Http\Middleware\Authenticate;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -46,17 +51,17 @@ class AdminPanelProvider extends PanelProvider
                     950 => '#450a0a',
                 ],
             ])
-            ->plugin(\Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin::make())
+            ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
-                \App\Filament\Pages\ActivityDashboard::class,
-                \App\Filament\Pages\TrafficAnalytics::class,
+                ActivityDashboard::class,
+                TrafficAnalytics::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                AccountWidget::class,
+                FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

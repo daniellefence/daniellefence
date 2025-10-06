@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Exception;
 use App\Models\AreasWeServe;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
@@ -211,7 +212,7 @@ class GenerateCitySlugs extends Command
 
                 $area->save();
                 $updated++;
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $this->error("Error updating {$area->title}: " . $e->getMessage());
                 $errors++;
             }

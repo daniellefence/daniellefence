@@ -2,11 +2,22 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use App\Filament\Resources\GeneralSettingResource\Pages\ListGeneralSettings;
+use App\Filament\Resources\GeneralSettingResource\Pages\CreateGeneralSetting;
+use App\Filament\Resources\GeneralSettingResource\Pages\ViewGeneralSetting;
+use App\Filament\Resources\GeneralSettingResource\Pages\EditGeneralSetting;
 use App\Filament\Resources\GeneralSettingResource\Pages;
 use App\Filament\Resources\GeneralSettingResource\RelationManagers;
 use App\Models\GeneralSetting;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,22 +28,22 @@ class GeneralSettingResource extends Resource
 {
     protected static ?string $model = GeneralSetting::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-cog-6-tooth';
 
-    protected static ?string $navigationGroup = 'System & Users';
+    protected static string | \UnitEnum | null $navigationGroup = 'System & Users';
 
     protected static ?int $navigationSort = 3;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('key')
+        return $schema
+            ->components([
+                TextInput::make('key')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\Textarea::make('value')
+                Textarea::make('value')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('input_type')
+                Textarea::make('input_type')
                     ->columnSpanFull(),
             ]);
     }
@@ -41,13 +52,13 @@ class GeneralSettingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('key')
+                TextColumn::make('key')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -55,13 +66,13 @@ class GeneralSettingResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -76,10 +87,10 @@ class GeneralSettingResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListGeneralSettings::route('/'),
-            'create' => Pages\CreateGeneralSetting::route('/create'),
-            'view' => Pages\ViewGeneralSetting::route('/{record}'),
-            'edit' => Pages\EditGeneralSetting::route('/{record}/edit'),
+            'index' => ListGeneralSettings::route('/'),
+            'create' => CreateGeneralSetting::route('/create'),
+            'view' => ViewGeneralSetting::route('/{record}'),
+            'edit' => EditGeneralSetting::route('/{record}/edit'),
         ];
     }
 }

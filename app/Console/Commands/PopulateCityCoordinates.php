@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Exception;
 use App\Models\AreasWeServe;
 use Illuminate\Console\Command;
 
@@ -250,7 +251,7 @@ class PopulateCityCoordinates extends Command
                     $this->warn("No coordinates found for: {$area->title}");
                     $errors++;
                 }
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $this->error("Error updating {$area->title}: " . $e->getMessage());
                 $errors++;
             }

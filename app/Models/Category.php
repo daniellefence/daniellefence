@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -58,7 +59,7 @@ class Category extends Model
 
     public function getSlug()
     {
-        return \Illuminate\Support\Str::slug($this->title);
+        return Str::slug($this->title);
     }
 
     public function getLegacyRoute()

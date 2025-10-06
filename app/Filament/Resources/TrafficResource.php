@@ -2,11 +2,23 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\DatePicker;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use App\Filament\Resources\TrafficResource\Pages\ListTraffic;
+use App\Filament\Resources\TrafficResource\Pages\CreateTraffic;
+use App\Filament\Resources\TrafficResource\Pages\ViewTraffic;
+use App\Filament\Resources\TrafficResource\Pages\EditTraffic;
 use App\Filament\Resources\TrafficResource\Pages;
 use App\Filament\Resources\TrafficResource\RelationManagers;
 use App\Models\Traffic;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -20,25 +32,25 @@ class TrafficResource extends Resource
 {
     protected static ?string $model = Traffic::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-chart-bar';
 
-    protected static ?string $navigationGroup = 'Dashboard & Analytics';
+    protected static string | \UnitEnum | null $navigationGroup = 'Dashboard & Analytics';
 
     protected static ?int $navigationSort = 1;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('ip')
+        return $schema
+            ->components([
+                TextInput::make('ip')
                     ->maxLength(191),
-                Forms\Components\Textarea::make('user_agent')
+                Textarea::make('user_agent')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('method')
+                Textarea::make('method')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('source')
+                Textarea::make('source')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('route')
+                Textarea::make('route')
                     ->columnSpanFull(),
             ]);
     }
@@ -48,33 +60,33 @@ class TrafficResource extends Resource
         return $table
             ->defaultSort('created_at', 'desc')
             ->columns([
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label('Visit Time')
                     ->dateTime()
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('route')
+                TextColumn::make('route')
                     ->label('Page Visited')
                     ->searchable()
                     ->limit(50)
-                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                    ->tooltip(function (TextColumn $column): ?string {
                         $state = $column->getState();
                         return strlen($state) > 50 ? $state : null;
                     }),
-                Tables\Columns\TextColumn::make('source')
+                TextColumn::make('source')
                     ->label('Traffic Source')
                     ->searchable()
                     ->formatStateUsing(fn (string $state): string => empty($state) ? 'Direct' : $state)
                     ->limit(30)
-                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                    ->tooltip(function (TextColumn $column): ?string {
                         $state = $column->getState();
                         return strlen($state) > 30 ? $state : null;
                     }),
-                Tables\Columns\TextColumn::make('ip')
+                TextColumn::make('ip')
                     ->label('IP Address')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: false),
-                Tables\Columns\TextColumn::make('method')
+                TextColumn::make('method')
                     ->label('HTTP Method')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
@@ -85,7 +97,7 @@ class TrafficResource extends Resource
                         default => 'gray',
                     })
                     ->toggleable(),
-                Tables\Columns\TextColumn::make('user_agent')
+                TextColumn::make('user_agent')
                     ->label('Browser Info')
                     ->searchable()
                     ->limit(40)
@@ -101,10 +113,10 @@ class TrafficResource extends Resource
                         'DELETE' => 'DELETE',
                     ]),
                 Filter::make('created_at')
-                    ->form([
-                        Forms\Components\DatePicker::make('created_from')
+                    ->schema([
+                        DatePicker::make('created_from')
                             ->label('Visit Date From'),
-                        Forms\Components\DatePicker::make('created_until')
+                        DatePicker::make('created_until')
                             ->label('Visit Date To'),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
@@ -132,13 +144,13 @@ class TrafficResource extends Resource
                         ->whereYear('created_at', Carbon::now()->year))
                     ->toggle(),
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->paginated([10, 25, 50, 100])
@@ -155,10 +167,10 @@ class TrafficResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListTraffic::route('/'),
-            'create' => Pages\CreateTraffic::route('/create'),
-            'view' => Pages\ViewTraffic::route('/{record}'),
-            'edit' => Pages\EditTraffic::route('/{record}/edit'),
+            'index' => ListTraffic::route('/'),
+            'create' => CreateTraffic::route('/create'),
+            'view' => ViewTraffic::route('/{record}'),
+            'edit' => EditTraffic::route('/{record}/edit'),
         ];
     }
 }

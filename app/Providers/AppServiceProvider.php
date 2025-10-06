@@ -2,6 +2,17 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Video;
+use App\Models\Photo;
+use App\Models\QuoteRequest;
+use App\Models\AreasWeServe;
+use App\Models\Blogcategory;
+use App\Models\AvailableColor;
+use App\Models\AvailableHeight;
+use App\Models\Seo;
 use App\Observers\ActivityObserver;
 use App\Observers\CacheInvalidationObserver;
 use Illuminate\Support\Facades\Blade;
@@ -51,12 +62,12 @@ class AppServiceProvider extends ServiceProvider
 
         // Register ActivityObserver for all models except Activity
         $modelsToObserve = [
-            \App\Models\User::class,
-            \App\Models\Product::class,
-            \App\Models\Category::class,
-            \App\Models\Video::class,
-            \App\Models\Photo::class,
-            \App\Models\QuoteRequest::class,
+            User::class,
+            Product::class,
+            Category::class,
+            Video::class,
+            Photo::class,
+            QuoteRequest::class,
         ];
 
         foreach ($modelsToObserve as $model) {
@@ -65,12 +76,12 @@ class AppServiceProvider extends ServiceProvider
 
         // Register CacheInvalidationObserver for frequently cached models
         $cacheModelsToObserve = [
-            \App\Models\AreasWeServe::class,
-            \App\Models\Category::class,
-            \App\Models\Blogcategory::class,
-            \App\Models\AvailableColor::class,
-            \App\Models\AvailableHeight::class,
-            \App\Models\Seo::class,
+            AreasWeServe::class,
+            Category::class,
+            Blogcategory::class,
+            AvailableColor::class,
+            AvailableHeight::class,
+            Seo::class,
         ];
 
         foreach ($cacheModelsToObserve as $model) {

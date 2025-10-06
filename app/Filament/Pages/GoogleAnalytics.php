@@ -2,13 +2,14 @@
 
 namespace App\Filament\Pages;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Actions\Action;
 use Filament\Pages\Page;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Form;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
@@ -17,15 +18,15 @@ class GoogleAnalytics extends Page implements HasForms
 {
     use InteractsWithForms;
 
-    protected static ?string $navigationIcon = 'heroicon-o-chart-pie';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-chart-pie';
 
-    protected static ?string $navigationGroup = 'Dashboard & Analytics';
+    protected static string | \UnitEnum | null $navigationGroup = 'Dashboard & Analytics';
 
     protected static ?int $navigationSort = 2;
 
     protected static ?string $title = 'Google Analytics';
 
-    protected static string $view = 'filament.pages.google-analytics-enhanced';
+    protected string $view = 'filament.pages.google-analytics-enhanced';
 
     public ?array $data = [];
 
@@ -39,10 +40,10 @@ class GoogleAnalytics extends Page implements HasForms
         ]);
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
+        return $schema
+            ->components([
                 Section::make('Google Analytics Configuration')
                     ->description('Configure your Google Analytics and Google Tag Manager settings')
                     ->icon('heroicon-m-chart-bar')
@@ -103,7 +104,7 @@ class GoogleAnalytics extends Page implements HasForms
     protected function getFormActions(): array
     {
         return [
-            \Filament\Actions\Action::make('save')
+            Action::make('save')
                 ->label('Save Settings')
                 ->action('save')
                 ->color('primary'),

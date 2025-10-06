@@ -2,11 +2,22 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use App\Filament\Resources\AvailableSpacingResource\Pages\ListAvailableSpacings;
+use App\Filament\Resources\AvailableSpacingResource\Pages\CreateAvailableSpacing;
+use App\Filament\Resources\AvailableSpacingResource\Pages\EditAvailableSpacing;
 use App\Filament\Resources\AvailableSpacingResource\Pages;
 use App\Filament\Resources\AvailableSpacingResource\RelationManagers;
 use App\Models\AvailableSpacing;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,38 +28,38 @@ class AvailableSpacingResource extends Resource
 {
     protected static ?string $model = AvailableSpacing::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-arrows-right-left';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-arrows-right-left';
 
-    protected static ?string $navigationGroup = 'DIY System';
+    protected static string | \UnitEnum | null $navigationGroup = 'DIY System';
 
     protected static ?int $navigationSort = 5;
 
     protected static ?string $navigationLabel = 'Spacings';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
+        return $schema
+            ->components([
+                TextInput::make('name')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\Textarea::make('description')
+                Textarea::make('description')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('price_per_panel')
+                TextInput::make('price_per_panel')
                     ->required()
                     ->numeric()
                     ->default(0.00),
-                Forms\Components\TextInput::make('order')
+                TextInput::make('order')
                     ->required()
                     ->numeric()
                     ->default(0),
-                Forms\Components\TextInput::make('value_feet')
+                TextInput::make('value_feet')
                     ->numeric(),
-                Forms\Components\TextInput::make('display_order')
+                TextInput::make('display_order')
                     ->required()
                     ->numeric()
                     ->default(0),
-                Forms\Components\Toggle::make('is_active')
+                Toggle::make('is_active')
                     ->required(),
             ]);
     }
@@ -57,31 +68,31 @@ class AvailableSpacingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('price_per_panel')
+                TextColumn::make('price_per_panel')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('order')
+                TextColumn::make('order')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('value_feet')
+                TextColumn::make('value_feet')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('display_order')
+                TextColumn::make('display_order')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\IconColumn::make('is_active')
+                IconColumn::make('is_active')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
+                TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -89,12 +100,12 @@ class AvailableSpacingResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -109,9 +120,9 @@ class AvailableSpacingResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAvailableSpacings::route('/'),
-            'create' => Pages\CreateAvailableSpacing::route('/create'),
-            'edit' => Pages\EditAvailableSpacing::route('/{record}/edit'),
+            'index' => ListAvailableSpacings::route('/'),
+            'create' => CreateAvailableSpacing::route('/create'),
+            'edit' => EditAvailableSpacing::route('/{record}/edit'),
         ];
     }
 }

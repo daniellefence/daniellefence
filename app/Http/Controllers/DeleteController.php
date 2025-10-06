@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Seo;
 use App\Models\AreasWeServe;
 use App\Models\Blog;
 use App\Models\Blogcategory;
@@ -181,7 +182,7 @@ class DeleteController extends Controller
                 break;
             case 'seo':
                 if (permission()->check('seoDelete')) {
-                    $item = \App\Models\Seo::findOrFail($guid);
+                    $item = Seo::findOrFail($guid);
                     activity()->create($item, 'delete');
                     $item->delete();
                 }

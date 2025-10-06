@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Review;
 use Livewire\Component;
 
 class Reviews extends Component
@@ -15,7 +16,7 @@ class Reviews extends Component
 
     public function mount()
     {
-        $array = \App\Models\Review::with('photos')
+        $array = Review::with('photos')
             ->where([['hidden', '==', 0]])
             ->whereNotNull('content')
             ->where('content', '!=', '')

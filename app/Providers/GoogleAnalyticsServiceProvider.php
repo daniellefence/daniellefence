@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Exception;
+use Log;
 use App\Setting;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Analytics\Analytics;
@@ -38,9 +40,9 @@ class GoogleAnalyticsServiceProvider extends ServiceProvider
                 ]);
 
                 return new Analytics($client, $propertyId);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 // Log error and return dummy instance
-                \Log::warning('Google Analytics setup failed: ' . $e->getMessage());
+                Log::warning('Google Analytics setup failed: ' . $e->getMessage());
                 return new Analytics(new BetaAnalyticsDataClient(), '');
             }
         });

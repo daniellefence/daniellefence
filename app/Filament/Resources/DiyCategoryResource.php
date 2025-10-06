@@ -2,11 +2,24 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use App\Filament\Resources\DiyCategoryResource\Pages\ListDiyCategories;
+use App\Filament\Resources\DiyCategoryResource\Pages\CreateDiyCategory;
+use App\Filament\Resources\DiyCategoryResource\Pages\ViewDiyCategory;
+use App\Filament\Resources\DiyCategoryResource\Pages\EditDiyCategory;
 use App\Filament\Resources\DiyCategoryResource\Pages;
 use App\Filament\Resources\DiyCategoryResource\RelationManagers;
 use App\Models\DiyCategory;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,27 +30,27 @@ class DiyCategoryResource extends Resource
 {
     protected static ?string $model = DiyCategory::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-folder';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder';
 
-    protected static ?string $navigationGroup = 'DIY System';
+    protected static string | \UnitEnum | null $navigationGroup = 'DIY System';
 
     protected static ?int $navigationSort = 1;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
+        return $schema
+            ->components([
+                TextInput::make('name')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\Textarea::make('description')
+                Textarea::make('description')
                     ->columnSpanFull(),
-                \Filament\Forms\Components\SpatieMediaLibraryFileUpload::make('photo')
+                SpatieMediaLibraryFileUpload::make('photo')
                     ->collection('category-photos')
                     ->image()
                     ->imageEditor()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('order')
+                TextInput::make('order')
                     ->required()
                     ->numeric()
                     ->default(0),
@@ -48,23 +61,23 @@ class DiyCategoryResource extends Resource
     {
         return $table
             ->columns([
-                \Filament\Tables\Columns\SpatieMediaLibraryImageColumn::make('photo')
+                SpatieMediaLibraryImageColumn::make('photo')
                     ->collection('category-photos')
                     ->circular(),
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('order')
+                TextColumn::make('order')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
+                TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -72,13 +85,13 @@ class DiyCategoryResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -93,10 +106,10 @@ class DiyCategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListDiyCategories::route('/'),
-            'create' => Pages\CreateDiyCategory::route('/create'),
-            'view' => Pages\ViewDiyCategory::route('/{record}'),
-            'edit' => Pages\EditDiyCategory::route('/{record}/edit'),
+            'index' => ListDiyCategories::route('/'),
+            'create' => CreateDiyCategory::route('/create'),
+            'view' => ViewDiyCategory::route('/{record}'),
+            'edit' => EditDiyCategory::route('/{record}/edit'),
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,8 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $message
  * @property string|null $service_area
  * @property string|null $how_did_you_hear_about_us Marketing source tracking
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  */
 class Contact extends Model
 {

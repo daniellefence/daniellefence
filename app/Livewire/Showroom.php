@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\View\View;
 use Livewire\Component;
 
 /**
@@ -19,7 +20,7 @@ class Showroom extends Component
     /**
      * Render the showroom component.
      *
-     * @return \Illuminate\View\View The component's view
+     * @return View The component's view
      */
     public function render()
     {

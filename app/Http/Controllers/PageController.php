@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Log;
+use App\Seo;
+use Exception;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Str;
@@ -161,7 +164,7 @@ class PageController extends Controller
     public function productBySlug($category_slug, $product_slug)
     {
         // Add debugging logs
-        \Log::info("ProductBySlug called with category_slug: {$category_slug}, product_slug: {$product_slug}");
+        Log::info("ProductBySlug called with category_slug: {$category_slug}, product_slug: {$product_slug}");
 
         $categories = Category::all();
         $category = $categories->first(function ($cat) use ($category_slug) {
@@ -169,11 +172,11 @@ class PageController extends Controller
         });
 
         if (!$category) {
-            \Log::error("Category not found for slug: {$category_slug}");
+            Log::error("Category not found for slug: {$category_slug}");
             abort(404);
         }
 
-        \Log::info("Found category: {$category->title} (ID: {$category->id})");
+        Log::info("Found category: {$category->title} (ID: {$category->id})");
 
         $products = Product::where('category_id', $category->id)->get();
         $product = $products->first(function ($prod) use ($product_slug) {
@@ -181,27 +184,27 @@ class PageController extends Controller
         });
 
         if (!$product) {
-            \Log::error("Product not found for slug: {$product_slug} in category {$category->title}");
+            Log::error("Product not found for slug: {$product_slug} in category {$category->title}");
             abort(404);
         }
 
-        \Log::info("Found product: {$product->title} (ID: {$product->id})");
+        Log::info("Found product: {$product->title} (ID: {$product->id})");
 
         // Share SEO data with the view
-        $seo = new \App\Seo();
+        $seo = new Seo();
         view()->share('pageTitle', $seo->meta('title'));
         view()->share('pageDescription', $seo->meta('description'));
         view()->share('pageKeywords', $seo->meta('keywords'));
 
-        \Log::info("SEO data shared successfully");
+        Log::info("SEO data shared successfully");
 
         try {
-            \Log::info("About to render view: pages.product.read");
+            Log::info("About to render view: pages.product.read");
             $view = view('pages.product.read', ['product' => $product]);
-            \Log::info("View rendered successfully, returning response");
+            Log::info("View rendered successfully, returning response");
             return $view;
-        } catch (\Exception $e) {
-            \Log::error("Error rendering product view: " . $e->getMessage() . " in " . $e->getFile() . ":" . $e->getLine());
+        } catch (Exception $e) {
+            Log::error("Error rendering product view: " . $e->getMessage() . " in " . $e->getFile() . ":" . $e->getLine());
             abort(500, "Error rendering product page: " . $e->getMessage());
         }
     }

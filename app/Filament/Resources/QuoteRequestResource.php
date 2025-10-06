@@ -2,11 +2,22 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use App\Filament\Resources\QuoteRequestResource\Pages\ListQuoteRequests;
+use App\Filament\Resources\QuoteRequestResource\Pages\CreateQuoteRequest;
+use App\Filament\Resources\QuoteRequestResource\Pages\ViewQuoteRequest;
+use App\Filament\Resources\QuoteRequestResource\Pages\EditQuoteRequest;
 use App\Filament\Resources\QuoteRequestResource\Pages;
 use App\Filament\Resources\QuoteRequestResource\RelationManagers;
 use App\Models\QuoteRequest;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,80 +28,80 @@ class QuoteRequestResource extends Resource
 {
     protected static ?string $model = QuoteRequest::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-currency-dollar';
 
-    protected static ?string $navigationGroup = 'Customers & Reviews';
+    protected static string | \UnitEnum | null $navigationGroup = 'Customers & Reviews';
 
     protected static ?int $navigationSort = 2;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('fence_type')
+        return $schema
+            ->components([
+                TextInput::make('fence_type')
                     ->maxLength(191),
-                Forms\Components\TextInput::make('product_name')
+                TextInput::make('product_name')
                     ->maxLength(191),
-                Forms\Components\Textarea::make('design_options')
+                Textarea::make('design_options')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('size_of_area')
+                TextInput::make('size_of_area')
                     ->maxLength(191),
-                Forms\Components\TextInput::make('will_you_need_pavers')
+                TextInput::make('will_you_need_pavers')
                     ->maxLength(191),
-                Forms\Components\TextInput::make('will_you_need_a_screen_pergola_or_pavilion')
+                TextInput::make('will_you_need_a_screen_pergola_or_pavilion')
                     ->maxLength(191),
-                Forms\Components\Textarea::make('what_will_this_area_be_used_for')
+                Textarea::make('what_will_this_area_be_used_for')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('features')
+                Textarea::make('features')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('style_options')
+                TextInput::make('style_options')
                     ->maxLength(191),
-                Forms\Components\TextInput::make('how_many_gates')
+                TextInput::make('how_many_gates')
                     ->maxLength(191),
-                Forms\Components\Textarea::make('additional_comments')
+                Textarea::make('additional_comments')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('appliances')
+                Textarea::make('appliances')
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('counter_top')
+                TextInput::make('counter_top')
                     ->maxLength(191),
-                Forms\Components\TextInput::make('phone')
+                TextInput::make('phone')
                     ->tel()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('paver_type')
+                TextInput::make('paver_type')
                     ->maxLength(191),
-                Forms\Components\TextInput::make('color_options')
+                TextInput::make('color_options')
                     ->maxLength(191),
-                Forms\Components\TextInput::make('first_name')
+                TextInput::make('first_name')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('last_name')
+                TextInput::make('last_name')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('phone_number')
+                TextInput::make('phone_number')
                     ->tel()
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('email')
+                TextInput::make('email')
                     ->email()
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('address_line_one')
+                TextInput::make('address_line_one')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('address_line_two')
+                TextInput::make('address_line_two')
                     ->maxLength(191),
-                Forms\Components\TextInput::make('city')
+                TextInput::make('city')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('state')
+                TextInput::make('state')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('zip_code')
+                TextInput::make('zip_code')
                     ->required()
                     ->maxLength(191),
-                Forms\Components\TextInput::make('haul_away')
+                TextInput::make('haul_away')
                     ->maxLength(191),
-                Forms\Components\TextInput::make('fence_height')
+                TextInput::make('fence_height')
                     ->maxLength(191),
             ]);
     }
@@ -99,56 +110,56 @@ class QuoteRequestResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label('Customer')
                     ->getStateUsing(fn ($record) => $record->first_name . ' ' . $record->last_name)
                     ->searchable(['first_name', 'last_name'])
                     ->sortable(['first_name', 'last_name']),
-                Tables\Columns\TextColumn::make('email')
+                TextColumn::make('email')
                     ->searchable()
                     ->copyable()
                     ->icon('heroicon-m-envelope'),
-                Tables\Columns\TextColumn::make('phone_number')
+                TextColumn::make('phone_number')
                     ->label('Phone')
                     ->searchable()
                     ->copyable()
                     ->icon('heroicon-m-phone'),
-                Tables\Columns\TextColumn::make('fence_type')
+                TextColumn::make('fence_type')
                     ->label('Service Type')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('product_name')
+                TextColumn::make('product_name')
                     ->label('Product')
                     ->searchable()
                     ->toggleable(),
-                Tables\Columns\TextColumn::make('city')
+                TextColumn::make('city')
                     ->searchable()
                     ->toggleable(),
-                Tables\Columns\TextColumn::make('state')
+                TextColumn::make('state')
                     ->searchable()
                     ->toggleable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('haul_away')
+                TextColumn::make('haul_away')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('fence_height')
+                TextColumn::make('fence_height')
                     ->searchable(),
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -163,10 +174,10 @@ class QuoteRequestResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListQuoteRequests::route('/'),
-            'create' => Pages\CreateQuoteRequest::route('/create'),
-            'view' => Pages\ViewQuoteRequest::route('/{record}'),
-            'edit' => Pages\EditQuoteRequest::route('/{record}/edit'),
+            'index' => ListQuoteRequests::route('/'),
+            'create' => CreateQuoteRequest::route('/create'),
+            'view' => ViewQuoteRequest::route('/{record}'),
+            'edit' => EditQuoteRequest::route('/{record}/edit'),
         ];
     }
 }

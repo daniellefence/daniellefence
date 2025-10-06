@@ -2,11 +2,36 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Filters\TrashedFilter;
+use Filament\Tables\Filters\TernaryFilter;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Actions\Action;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\BulkAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\RestoreBulkAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\CreateAction;
+use App\Filament\Resources\CategoryResource\Pages\ListCategories;
+use App\Filament\Resources\CategoryResource\Pages\CreateCategory;
+use App\Filament\Resources\CategoryResource\Pages\ViewCategory;
+use App\Filament\Resources\CategoryResource\Pages\EditCategory;
 use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,21 +42,21 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-folder-open';
 
-    protected static ?string $navigationGroup = 'Products & Catalog';
+    protected static string | \UnitEnum | null $navigationGroup = 'Products & Catalog';
 
     protected static ?int $navigationSort = 1;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\Section::make('Category Information')
+        return $schema
+            ->components([
+                Section::make('Category Information')
                     ->description('Manage product categories and their hierarchy')
                     ->icon('heroicon-o-folder-open')
                     ->schema([
-                        Forms\Components\Select::make('parent_id')
+                        Select::make('parent_id')
                             ->label('Parent Category')
                             ->options(Category::whereNull('parent_id')->pluck('title', 'id'))
                             ->placeholder('Select parent category (leave empty for main category)')
@@ -39,21 +64,21 @@ class CategoryResource extends Resource
                             ->preload()
                             ->helperText('Choose a parent category to create a subcategory'),
 
-                        Forms\Components\TextInput::make('title')
+                        TextInput::make('title')
                             ->label('Category Title')
                             ->required()
                             ->maxLength(191)
                             ->placeholder('e.g., Residential Fencing, Commercial Gates')
                             ->helperText('The display name for this category'),
 
-                        \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('description')
+                        ChatGPTTiptapEditor::make('description')
                     ->profile('default')
                             ->label('Category Description')
                             ->columnSpanFull()
                             ->placeholder('Describe this category and its products')
                             ->helperText('This description may appear on category pages'),
 
-                        Forms\Components\FileUpload::make('hero_image')
+                        FileUpload::make('hero_image')
                             ->label('Hero Image')
                             ->image()
                             ->imageEditor()
@@ -74,11 +99,11 @@ class CategoryResource extends Resource
                     ])
                     ->columns(2),
 
-                Forms\Components\Section::make('Display Settings')
+                Section::make('Display Settings')
                     ->description('Control how this category appears on the website')
                     ->icon('heroicon-o-cog')
                     ->schema([
-                        Forms\Components\TextInput::make('order')
+                        TextInput::make('order')
                             ->label('Display Order')
                             ->required()
                             ->numeric()
@@ -86,7 +111,7 @@ class CategoryResource extends Resource
                             ->minValue(0)
                             ->helperText('Lower numbers appear first in category listings'),
 
-                        Forms\Components\Toggle::make('published')
+                        Toggle::make('published')
                             ->label('Published')
                             ->helperText('Show this category on the website')
                             ->default(true)
@@ -102,7 +127,7 @@ class CategoryResource extends Resource
             ->reorderable('order')
             ->defaultSort('order', 'asc')
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                TextColumn::make('title')
                     ->label('Category Title')
                     ->searchable()
                     ->sortable()
@@ -110,7 +135,7 @@ class CategoryResource extends Resource
                     ->icon('heroicon-o-folder-open')
                     ->description(fn ($record) => $record->key ? "Key: {$record->key}" : null),
 
-                Tables\Columns\TextColumn::make('parent.title')
+                TextColumn::make('parent.title')
                     ->label('Parent Category')
                     ->placeholder('Main Category')
                     ->badge()
@@ -118,21 +143,21 @@ class CategoryResource extends Resource
                     ->sortable()
                     ->toggleable(),
 
-                Tables\Columns\TextColumn::make('products_count')
+                TextColumn::make('products_count')
                     ->label('Products')
                     ->counts('products')
                     ->badge()
                     ->color('info')
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('children_count')
+                TextColumn::make('children_count')
                     ->label('Subcategories')
                     ->counts('children')
                     ->badge()
                     ->color('warning')
                     ->sortable(),
 
-                Tables\Columns\IconColumn::make('hero_image')
+                IconColumn::make('hero_image')
                     ->label('Hero Image')
                     ->boolean()
                     ->trueIcon('heroicon-o-photo')
@@ -142,7 +167,7 @@ class CategoryResource extends Resource
                     ->sortable()
                     ->getStateUsing(fn ($record) => !empty($record->hero_image)),
 
-                Tables\Columns\ToggleColumn::make('published')
+                ToggleColumn::make('published')
                     ->label('Published')
                     ->onIcon('heroicon-o-check-circle')
                     ->offIcon('heroicon-o-x-circle')
@@ -150,46 +175,46 @@ class CategoryResource extends Resource
                     ->offColor('danger')
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label('Created')
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label('Last Updated')
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                Tables\Filters\TrashedFilter::make(),
-                Tables\Filters\TernaryFilter::make('published')
+                TrashedFilter::make(),
+                TernaryFilter::make('published')
                     ->label('Publication Status')
                     ->boolean()
                     ->trueLabel('Published categories')
                     ->falseLabel('Unpublished categories')
                     ->native(false),
-                Tables\Filters\SelectFilter::make('parent_id')
+                SelectFilter::make('parent_id')
                     ->label('Parent Category')
                     ->options(Category::whereNull('parent_id')->pluck('title', 'id'))
                     ->placeholder('All categories'),
             ])
-            ->actions([
-                Tables\Actions\Action::make('view_website')
+            ->recordActions([
+                Action::make('view_website')
                     ->label('View')
                     ->icon('heroicon-o-eye')
                     ->color('info')
                     ->url(fn ($record) => $record->getRoute(), shouldOpenInNewTab: true)
                     ->visible(fn ($record) => $record->published),
-                Tables\Actions\EditAction::make()
+                EditAction::make()
                     ->color('warning'),
-                Tables\Actions\DeleteAction::make()
+                DeleteAction::make()
                     ->color('danger'),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\BulkAction::make('publish')
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    BulkAction::make('publish')
                         ->label('Publish Selected')
                         ->icon('heroicon-o-eye')
                         ->color('success')
@@ -197,7 +222,7 @@ class CategoryResource extends Resource
                             $records->each->update(['published' => true]);
                         })
                         ->requiresConfirmation(),
-                    Tables\Actions\BulkAction::make('unpublish')
+                    BulkAction::make('unpublish')
                         ->label('Unpublish Selected')
                         ->icon('heroicon-o-eye-slash')
                         ->color('warning')
@@ -205,13 +230,13 @@ class CategoryResource extends Resource
                             $records->each->update(['published' => false]);
                         })
                         ->requiresConfirmation(),
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    DeleteBulkAction::make(),
+                    RestoreBulkAction::make(),
+                    ForceDeleteBulkAction::make(),
                 ]),
             ])
             ->emptyStateActions([
-                Tables\Actions\CreateAction::make(),
+                CreateAction::make(),
             ]);
     }
 
@@ -225,10 +250,10 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'view' => Pages\ViewCategory::route('/{record}'),
-            'edit' => Pages\EditCategory::route('/{record}/edit'),
+            'index' => ListCategories::route('/'),
+            'create' => CreateCategory::route('/create'),
+            'view' => ViewCategory::route('/{record}'),
+            'edit' => EditCategory::route('/{record}/edit'),
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Filament\Widgets;
 
+use Filament\Tables\Columns\TextColumn;
+use Filament\Actions\Action;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
@@ -22,28 +24,28 @@ class RecentContactsWidget extends BaseWidget
                 Contact::query()->latest()->limit(5)
             )
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label('Name')
                     ->getStateUsing(fn ($record) => $record->first_name . ' ' . $record->last_name)
                     ->searchable(['first_name', 'last_name']),
-                Tables\Columns\TextColumn::make('email')
+                TextColumn::make('email')
                     ->icon('heroicon-m-envelope')
                     ->copyable(),
-                Tables\Columns\TextColumn::make('phone')
+                TextColumn::make('phone')
                     ->icon('heroicon-m-phone')
                     ->copyable(),
-                Tables\Columns\TextColumn::make('message')
+                TextColumn::make('message')
                     ->limit(50)
                     ->tooltip(function ($record) {
                         return $record->message;
                     }),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label('Received')
                     ->since()
                     ->sortable(),
             ])
-            ->actions([
-                Tables\Actions\Action::make('view')
+            ->recordActions([
+                Action::make('view')
                     ->url(fn (Contact $record): string => route('filament.admin.resources.contacts.view', $record))
                     ->icon('heroicon-m-eye'),
             ]);

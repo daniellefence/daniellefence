@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\TrafficResource\Pages;
 
+use Filament\Actions\Action;
+use Filament\Actions\CreateAction;
 use App\Filament\Resources\TrafficResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
@@ -13,13 +15,13 @@ class ListTraffic extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\Action::make('analytics')
+            Action::make('analytics')
                 ->label('View Analytics Dashboard')
                 ->icon('heroicon-o-chart-bar-square')
                 ->color('primary')
                 ->url('/admin/traffic-analytics')
                 ->button(),
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 }

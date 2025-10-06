@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -24,9 +26,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string|null $location Project location
  * @property bool $featured Whether this review is featured
  * @property bool $approved Whether this review is approved for display
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
  */
 class Review extends Model
 {
@@ -45,7 +47,7 @@ class Review extends Model
      *
      * Reviews can have multiple photos showing the completed project.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function photos()
     {

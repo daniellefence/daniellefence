@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Schema;
+use Exception;
 use App\Models\GeneralSetting;
 
 class Setting
@@ -9,7 +11,7 @@ class Setting
     public function get($key)
     {
         try {
-            if (!\Schema::hasTable('general_settings')) {
+            if (!Schema::hasTable('general_settings')) {
                 return null;
             }
             $setting = GeneralSetting::where([[
@@ -18,7 +20,7 @@ class Setting
             if ($setting) {
                 return $setting->value;
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return null;
         }
     }
@@ -26,7 +28,7 @@ class Setting
     public function set($key, $value, $input_type = false)
     {
         try {
-            if (!\Schema::hasTable('general_settings')) {
+            if (!Schema::hasTable('general_settings')) {
                 return false;
             }
             $setting = GeneralSetting::where([[
@@ -41,7 +43,7 @@ class Setting
             }
             $setting->value = $value;
             $setting->save();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
     }

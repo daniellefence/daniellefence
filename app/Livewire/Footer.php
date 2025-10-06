@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\View\View;
 use Livewire\Component;
 
 /**
@@ -43,7 +45,7 @@ class Footer extends Component
      * This method is used for lazy loading to improve page performance
      * by showing a loading indicator until the component is fully rendered.
      *
-     * @return \Illuminate\View\View The lazy loader placeholder view
+     * @return View The lazy loader placeholder view
      */
     public function placeholder()
     {
@@ -63,12 +65,12 @@ class Footer extends Component
     public function mount()
     {
         // Only show map on home page for location awareness
-        if (\Illuminate\Support\Facades\Route::currentRouteName() == 'home') {
+        if (Route::currentRouteName() == 'home') {
             $this->show_map = true;
         }
 
         // Minimize footer on showroom page to focus on products
-        if (\Illuminate\Support\Facades\Route::currentRouteName() == 'showroom') {
+        if (Route::currentRouteName() == 'showroom') {
             $this->show_mascot = false;
             $this->show_text = false;
         }
@@ -77,7 +79,7 @@ class Footer extends Component
     /**
      * Render the footer component.
      *
-     * @return \Illuminate\View\View The component's view
+     * @return View The component's view
      */
     public function render()
     {

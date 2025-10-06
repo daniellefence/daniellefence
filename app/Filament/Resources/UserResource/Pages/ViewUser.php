@@ -2,10 +2,19 @@
 
 namespace App\Filament\Resources\UserResource\Pages;
 
+use Filament\Actions\EditAction;
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Flex;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Group;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Support\Enums\TextSize;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Components\IconEntry;
 use App\Filament\Resources\UserResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
-use Filament\Infolists\Infolist;
 use Filament\Infolists\Components;
 
 class ViewUser extends ViewRecord
@@ -15,34 +24,34 @@ class ViewUser extends ViewRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\EditAction::make(),
+            EditAction::make(),
         ];
     }
 
-    public function infolist(Infolist $infolist): Infolist
+    public function infolist(Schema $schema): Schema
     {
         return $infolist
             ->schema([
-                Components\Section::make('User Profile')
+                Section::make('User Profile')
                     ->schema([
-                        Components\Split::make([
-                            Components\Grid::make(2)
+                        Flex::make([
+                            Grid::make(2)
                                 ->schema([
-                                    Components\Group::make([
-                                        Components\TextEntry::make('name')
+                                    Group::make([
+                                        TextEntry::make('name')
                                             ->label('Full Name')
-                                            ->size(Components\TextEntry\TextEntrySize::Large)
+                                            ->size(TextSize::Large)
                                             ->weight('bold'),
-                                        Components\TextEntry::make('email')
+                                        TextEntry::make('email')
                                             ->icon('heroicon-m-envelope')
                                             ->copyable(),
-                                        Components\TextEntry::make('title')
+                                        TextEntry::make('title')
                                             ->label('Job Title')
                                             ->placeholder('No title set')
                                             ->icon('heroicon-m-briefcase'),
                                     ]),
-                                    Components\Group::make([
-                                        Components\ImageEntry::make('profile_photo_path')
+                                    Group::make([
+                                        ImageEntry::make('profile_photo_path')
                                             ->label('Profile Photo')
                                             ->circular()
                                             ->size(120)
@@ -52,20 +61,20 @@ class ViewUser extends ViewRecord
                         ]),
                     ]),
 
-                Components\Section::make('Account Information')
+                Section::make('Account Information')
                     ->schema([
-                        Components\Grid::make(3)
+                        Grid::make(3)
                             ->schema([
-                                Components\TextEntry::make('created_at')
+                                TextEntry::make('created_at')
                                     ->label('Member Since')
                                     ->dateTime('M j, Y')
                                     ->icon('heroicon-m-calendar'),
-                                Components\IconEntry::make('email_verified_at')
+                                IconEntry::make('email_verified_at')
                                     ->label('Email Verified')
                                     ->boolean()
                                     ->getStateUsing(fn ($record) => !is_null($record->email_verified_at))
                                     ->icon(fn ($state): string => $state ? 'heroicon-o-check-circle' : 'heroicon-o-x-circle'),
-                                Components\IconEntry::make('two_factor_confirmed_at')
+                                IconEntry::make('two_factor_confirmed_at')
                                     ->label('Two-Factor Auth')
                                     ->boolean()
                                     ->getStateUsing(fn ($record) => !is_null($record->two_factor_confirmed_at))
@@ -73,23 +82,23 @@ class ViewUser extends ViewRecord
                             ]),
                     ])->collapsible(),
 
-                Components\Section::make('Security Details')
+                Section::make('Security Details')
                     ->schema([
-                        Components\Grid::make(2)
+                        Grid::make(2)
                             ->schema([
-                                Components\TextEntry::make('email_verified_at')
+                                TextEntry::make('email_verified_at')
                                     ->label('Email Verified At')
                                     ->dateTime()
                                     ->placeholder('Not verified'),
-                                Components\TextEntry::make('two_factor_confirmed_at')
+                                TextEntry::make('two_factor_confirmed_at')
                                     ->label('Two-Factor Enabled At')
                                     ->dateTime()
                                     ->placeholder('Not enabled'),
-                                Components\TextEntry::make('updated_at')
+                                TextEntry::make('updated_at')
                                     ->label('Last Updated')
                                     ->dateTime()
                                     ->since(),
-                                Components\TextEntry::make('deleted_at')
+                                TextEntry::make('deleted_at')
                                     ->label('Deleted At')
                                     ->dateTime()
                                     ->placeholder('Active')

@@ -2,13 +2,14 @@
 
 namespace App\Filament\Widgets;
 
+use Exception;
 use Filament\Widgets\Widget;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 
 class UptimeMonitorWidget extends Widget
 {
-    protected static string $view = 'filament.widgets.uptime-monitor';
+    protected string $view = 'filament.widgets.uptime-monitor';
 
     protected int | string | array $columnSpan = 'full';
 
@@ -33,7 +34,7 @@ class UptimeMonitorWidget extends Widget
                         'status_code' => $response->status(),
                         'checked_at' => now(),
                     ];
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     return [
                         'status' => 'down',
                         'response_time' => 0,
@@ -73,7 +74,7 @@ class UptimeMonitorWidget extends Widget
                 $percentage = round(($used / $total) * 100, 1);
                 return $percentage . '% used';
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Ignore errors
         }
 

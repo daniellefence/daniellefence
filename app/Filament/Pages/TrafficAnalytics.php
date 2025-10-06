@@ -2,18 +2,27 @@
 
 namespace App\Filament\Pages;
 
+use Filament\Actions\Action;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\PageViewsWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\VisitorsWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersOneDayWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersSevenDayWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersTwentyEightDayWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsDurationWidget;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\MostVisitedPagesWidget;
 use Filament\Actions;
 use Filament\Pages\Page;
 
 class TrafficAnalytics extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-chart-bar-square';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-chart-bar-square';
 
-    protected static string $view = 'filament.pages.traffic-analytics';
+    protected string $view = 'filament.pages.traffic-analytics';
 
     protected static ?string $slug = 'traffic-analytics';
 
-    protected static ?string $navigationGroup = 'Dashboard & Analytics';
+    protected static string | \UnitEnum | null $navigationGroup = 'Dashboard & Analytics';
 
     protected static ?string $title = 'Website Analytics';
 
@@ -24,7 +33,7 @@ class TrafficAnalytics extends Page
     protected function getHeaderActions(): array
     {
         return [
-            Actions\Action::make('traffic_list')
+            Action::make('traffic_list')
                 ->label('View Raw Traffic Log')
                 ->icon('heroicon-o-list-bullet')
                 ->color('gray')
@@ -37,14 +46,14 @@ class TrafficAnalytics extends Page
         // Only load Google Analytics widgets if credentials are configured
         if ($this->hasAnalyticsCredentials()) {
             return [
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\PageViewsWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\VisitorsWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersOneDayWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersSevenDayWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersTwentyEightDayWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsDurationWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\MostVisitedPagesWidget::class,
+                PageViewsWidget::class,
+                VisitorsWidget::class,
+                ActiveUsersOneDayWidget::class,
+                ActiveUsersSevenDayWidget::class,
+                ActiveUsersTwentyEightDayWidget::class,
+                SessionsWidget::class,
+                SessionsDurationWidget::class,
+                MostVisitedPagesWidget::class,
             ];
         }
 
@@ -61,10 +70,10 @@ class TrafficAnalytics extends Page
         // Only load Google Analytics widgets if credentials are configured
         if ($this->hasAnalyticsCredentials()) {
             return [
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\PageViewsWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\VisitorsWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsDurationWidget::class,
+                PageViewsWidget::class,
+                VisitorsWidget::class,
+                SessionsWidget::class,
+                SessionsDurationWidget::class,
             ];
         }
 
@@ -76,17 +85,17 @@ class TrafficAnalytics extends Page
         // Only load Google Analytics widgets if credentials are configured
         if ($this->hasAnalyticsCredentials()) {
             return [
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersOneDayWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersSevenDayWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersTwentyEightDayWidget::class,
-                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\MostVisitedPagesWidget::class,
+                ActiveUsersOneDayWidget::class,
+                ActiveUsersSevenDayWidget::class,
+                ActiveUsersTwentyEightDayWidget::class,
+                MostVisitedPagesWidget::class,
             ];
         }
 
         return [];
     }
 
-    public function getFooterWidgetsColumns(): int | array
+    public function getFooterWidgetsColumns(): int|array
     {
         return [
             'md' => 2,

@@ -20,7 +20,7 @@ class AnalyticsService
     /**
      * Setting instance for accessing database configuration.
      *
-     * @var \App\Setting
+     * @var Setting
      */
     private $setting;
 

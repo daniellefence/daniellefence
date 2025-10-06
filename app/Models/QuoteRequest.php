@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,8 +34,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $haul_away Whether to haul away old fence
  * @property string|null $additional_comments
  * @property string|null $quote_type Type of quote (fence, kitchen, paver, outdoor)
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  */
 class QuoteRequest extends Model
 {
@@ -52,7 +54,7 @@ class QuoteRequest extends Model
      * Attachments can include photos, plans, drawings, or other files
      * that help provide context for the quote request.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function attachments()
     {

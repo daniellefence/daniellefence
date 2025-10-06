@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\QuoteRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
@@ -27,7 +28,7 @@ class FenceQuote extends Mailable
     /**
      * Create a new fence quote email instance.
      *
-     * @param \App\Models\QuoteRequest $model The quote request model containing customer data
+     * @param QuoteRequest $model The quote request model containing customer data
      */
     public function __construct(public $model)
     {
@@ -40,7 +41,7 @@ class FenceQuote extends Mailable
      * Configures the email envelope with the company's from address and
      * a clear subject line indicating this is a fence quote request.
      *
-     * @return \Illuminate\Mail\Mailables\Envelope
+     * @return Envelope
      */
     public function envelope(): Envelope
     {
@@ -56,7 +57,7 @@ class FenceQuote extends Mailable
      * Specifies the Markdown template to use for rendering the email content.
      * The template displays customer information and fence specifications.
      *
-     * @return \Illuminate\Mail\Mailables\Content
+     * @return Content
      */
     public function content(): Content
     {
@@ -72,7 +73,7 @@ class FenceQuote extends Mailable
      * such as property photos, sketches, or property surveys that help
      * provide context for accurate quote preparation.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * @return array<int, Attachment>
      */
     public function attachments(): array
     {

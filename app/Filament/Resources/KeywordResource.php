@@ -2,11 +2,30 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Placeholder;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\TagsColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Actions\Action;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\CreateAction;
+use App\Filament\Resources\KeywordResource\Pages\ListKeywords;
+use App\Filament\Resources\KeywordResource\Pages\CreateKeyword;
+use App\Filament\Resources\KeywordResource\Pages\ViewKeyword;
+use App\Filament\Resources\KeywordResource\Pages\EditKeyword;
 use App\Filament\Resources\KeywordResource\Pages;
 use App\Filament\Resources\KeywordResource\RelationManagers;
 use App\Models\Keyword;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,21 +36,21 @@ class KeywordResource extends Resource
 {
     protected static ?string $model = Keyword::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-hashtag';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-hashtag';
 
-    protected static ?string $navigationGroup = 'Marketing & SEO';
+    protected static string | \UnitEnum | null $navigationGroup = 'Marketing & SEO';
 
     protected static ?int $navigationSort = 4;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\Section::make('Page Information')
+        return $schema
+            ->components([
+                Section::make('Page Information')
                     ->description('Specify which page these keywords apply to')
                     ->icon('heroicon-o-link')
                     ->schema([
-                        Forms\Components\TextInput::make('route')
+                        TextInput::make('route')
                             ->label('Page Route')
                             ->required()
                             ->maxLength(191)
@@ -41,11 +60,11 @@ class KeywordResource extends Resource
                     ])
                     ->columns(1),
 
-                Forms\Components\Section::make('SEO Keywords')
+                Section::make('SEO Keywords')
                     ->description('Manage keywords for search engine optimization')
                     ->icon('heroicon-o-hashtag')
                     ->schema([
-                        Forms\Components\TagsInput::make('keywords')
+                        TagsInput::make('keywords')
                             ->label('Keywords')
                             ->placeholder('Add keywords (press Enter after each)')
                             ->helperText('Add relevant keywords for this page. Press Enter after typing each keyword.')
@@ -54,11 +73,11 @@ class KeywordResource extends Resource
                     ])
                     ->columns(1),
 
-                Forms\Components\Section::make('Keyword Analysis')
+                Section::make('Keyword Analysis')
                     ->description('Review keyword effectiveness and suggestions')
                     ->icon('heroicon-o-chart-bar')
                     ->schema([
-                        Forms\Components\Placeholder::make('keyword_tips')
+                        Placeholder::make('keyword_tips')
                             ->label('SEO Tips')
                             ->content(
                                 '• Use 5-10 relevant keywords per page<br>' .
@@ -78,7 +97,7 @@ class KeywordResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('route')
+                TextColumn::make('route')
                     ->label('Page Route')
                     ->searchable()
                     ->sortable()
@@ -87,14 +106,14 @@ class KeywordResource extends Resource
                     ->color(fn ($state) => $state === '/' ? 'success' : 'primary')
                     ->weight('medium'),
 
-                Tables\Columns\TagsColumn::make('keywords')
+                TagsColumn::make('keywords')
                     ->label('Keywords')
                     ->searchable()
                     ->limit(5)
                     ->separator(',')
                     ->badge(),
 
-                Tables\Columns\TextColumn::make('keyword_count')
+                TextColumn::make('keyword_count')
                     ->label('Total Keywords')
                     ->state(function ($record) {
                         return count(array_filter(explode(',', $record->keywords ?? '')));
@@ -119,7 +138,7 @@ class KeywordResource extends Resource
                         }
                     }),
 
-                Tables\Columns\IconColumn::make('seo_status')
+                IconColumn::make('seo_status')
                     ->label('SEO Status')
                     ->boolean()
                     ->trueIcon('heroicon-o-check-circle')
@@ -141,13 +160,13 @@ class KeywordResource extends Resource
                         }
                     }),
 
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label('Created')
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label('Last Updated')
                     ->dateTime('M j, Y')
                     ->sortable()
@@ -155,7 +174,7 @@ class KeywordResource extends Resource
             ])
             ->defaultSort('route')
             ->filters([
-                Tables\Filters\SelectFilter::make('seo_quality')
+                SelectFilter::make('seo_quality')
                     ->label('SEO Quality')
                     ->options([
                         'good' => 'Good (5-10 keywords)',
@@ -175,26 +194,26 @@ class KeywordResource extends Resource
                         );
                     }),
             ])
-            ->actions([
-                Tables\Actions\Action::make('preview')
+            ->recordActions([
+                Action::make('preview')
                     ->label('Preview')
                     ->icon('heroicon-o-eye')
                     ->color('info')
                     ->url(fn ($record) => url($record->route), shouldOpenInNewTab: true),
-                Tables\Actions\ViewAction::make()
+                ViewAction::make()
                     ->color('info'),
-                Tables\Actions\EditAction::make()
+                EditAction::make()
                     ->color('warning'),
-                Tables\Actions\DeleteAction::make()
+                DeleteAction::make()
                     ->color('danger'),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->emptyStateActions([
-                Tables\Actions\CreateAction::make(),
+                CreateAction::make(),
             ]);
     }
 
@@ -208,10 +227,10 @@ class KeywordResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListKeywords::route('/'),
-            'create' => Pages\CreateKeyword::route('/create'),
-            'view' => Pages\ViewKeyword::route('/{record}'),
-            'edit' => Pages\EditKeyword::route('/{record}/edit'),
+            'index' => ListKeywords::route('/'),
+            'create' => CreateKeyword::route('/create'),
+            'view' => ViewKeyword::route('/{record}'),
+            'edit' => EditKeyword::route('/{record}/edit'),
         ];
     }
 }

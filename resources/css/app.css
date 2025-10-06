@@ -1,9 +1,9 @@
-@import 'typography.css';
-@import 'swipe.css';
-@import 'aos-minimal.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import './typography.css' layer(base);
+@import './swipe.css' layer(base);
+@import './aos-minimal.css' layer(base);
+@import 'tailwindcss';
+
+@config '../../tailwind.config.js';
 
 /* Hide scrollbar utility */
 .scrollbar-hide {
@@ -79,7 +79,7 @@ header {
 
 /* Enhanced focus states for admin */
 .admin-focus {
-    @apply focus:ring-2 focus:ring-outdoor-primary focus:ring-offset-2 focus:outline-none;
+    @apply focus:ring-2 focus:ring-outdoor-primary focus:ring-offset-2 focus:outline-hidden;
 }
 
 /* Loading states */
@@ -190,7 +190,7 @@ video[type="video/webm"] {
 .admin-form input[type="password"],
 .admin-form textarea,
 .admin-form select {
-    @apply block w-full border-gray-300 rounded-md shadow-sm focus:ring-outdoor-primary focus:border-outdoor-primary sm:text-sm;
+    @apply block w-full border-gray-300 rounded-md shadow-xs focus:ring-outdoor-primary focus:border-outdoor-primary sm:text-sm;
 }
 
 .admin-form .form-help {
@@ -340,7 +340,7 @@ body {
     animation:fade-in 1s linear forwards
 }
 input[type='checkbox'] {
-    @apply h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-outdoor-primary;
+    @apply h-4 w-4 rounded-sm border-gray-300 text-indigo-600 focus:ring-outdoor-primary;
 }
 label {
     @apply text-base font-semibold text-gray-900;
@@ -359,14 +359,14 @@ footer {
     --tw-ring-shadow:0 0 #000 !important;
 }
 .search-input:focus {
-    @apply ring-0 ring-offset-0 shadow-none !important;
+    @apply ring-0! ring-offset-0! shadow-none!;
     --tw-ring-shadow:0 0 #000 !important;
 }
 .search-input-without-button {
     --tw-ring-shadow:0 0 #000 !important;
 }
 .search-input-without-button:focus {
-    @apply ring-0 ring-offset-0 shadow-none !important;
+    @apply ring-0! ring-offset-0! shadow-none!;
     --tw-ring-shadow:0 0 #000 !important;
 }
 

@@ -2,7 +2,7 @@
 
 namespace App\Filament\Forms\Components;
 
-use FilamentTiptapEditor\TiptapEditor;
+use CanyonGBS\FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\HtmlString;
 
 class ChatGPTTiptapEditor extends TiptapEditor

@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -24,10 +28,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $user_id Author's user ID
  * @property int $blogcategory_id Category ID
  * @property bool $published
- * @property \Carbon\Carbon|null $published_at
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
+ * @property Carbon|null $published_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
  */
 class Blog extends Model
 {
@@ -44,7 +48,7 @@ class Blog extends Model
     /**
      * Get the user (author) who created this blog post.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function user()
     {
@@ -54,7 +58,7 @@ class Blog extends Model
     /**
      * Get the featured photo associated with this blog post.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
     public function photo()
     {
@@ -64,7 +68,7 @@ class Blog extends Model
     /**
      * Get the category this blog post belongs to.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function blogcategory()
     {
@@ -74,7 +78,7 @@ class Blog extends Model
     /**
      * Get all tags associated with this blog post via polymorphic relationship.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     * @return MorphToMany
      */
     public function tags()
     {

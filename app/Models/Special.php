@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,14 +23,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $terms_conditions
  * @property string|null $discount_amount
  * @property string|null $discount_type (percentage, dollar, etc.)
- * @property \Carbon\Carbon|null $start_date
- * @property \Carbon\Carbon|null $end_date
+ * @property Carbon|null $start_date
+ * @property Carbon|null $end_date
  * @property bool $active
  * @property bool $featured
  * @property int|null $usage_limit
  * @property int $usage_count
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  */
 class Special extends Model
 {
@@ -46,7 +48,7 @@ class Special extends Model
      *
      * Special offers can have multiple promotional photos and images.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function photos()
     {

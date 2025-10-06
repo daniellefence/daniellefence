@@ -2,11 +2,31 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\TextInput;
+use Filament\Actions\Action;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Placeholder;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\TagsColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\CreateAction;
+use App\Filament\Resources\SeoResource\Pages\ListSeos;
+use App\Filament\Resources\SeoResource\Pages\CreateSeo;
+use App\Filament\Resources\SeoResource\Pages\ViewSeo;
+use App\Filament\Resources\SeoResource\Pages\EditSeo;
 use App\Filament\Resources\SeoResource\Pages;
 use App\Filament\Resources\SeoResource\RelationManagers;
 use App\Models\Seo;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,21 +37,21 @@ class SeoResource extends Resource
 {
     protected static ?string $model = Seo::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-magnifying-glass';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-magnifying-glass';
 
-    protected static ?string $navigationGroup = 'Marketing & SEO';
+    protected static string | \UnitEnum | null $navigationGroup = 'Marketing & SEO';
 
     protected static ?int $navigationSort = 1;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\Section::make('Page Information')
+        return $schema
+            ->components([
+                Section::make('Page Information')
                     ->description('Specify which page this SEO configuration applies to')
                     ->icon('heroicon-o-link')
                     ->schema([
-                        Forms\Components\TextInput::make('route')
+                        TextInput::make('route')
                             ->label('Page Route')
                             ->required()
                             ->maxLength(191)
@@ -41,11 +61,11 @@ class SeoResource extends Resource
                     ])
                     ->columns(1),
 
-                Forms\Components\Section::make('SEO Meta Tags')
+                Section::make('SEO Meta Tags')
                     ->description('Configure SEO metadata for search engines')
                     ->icon('heroicon-o-magnifying-glass')
                     ->schema([
-                        Forms\Components\TextInput::make('title')
+                        TextInput::make('title')
                             ->label('Meta Title')
                             ->maxLength(60)
                             ->placeholder('Page title that appears in search results')
@@ -60,13 +80,13 @@ class SeoResource extends Resource
                                 }
                             })
                             ->suffixActions([
-                                Forms\Components\Actions\Action::make('title_count')
+                                Action::make('title_count')
                                     ->label(fn ($get) => strlen($get('title') ?? '') . '/60')
                                     ->disabled()
                                     ->color(fn ($get) => strlen($get('title') ?? '') > 60 ? 'danger' : 'success'),
                             ]),
 
-                        Forms\Components\Textarea::make('description')
+                        Textarea::make('description')
                             ->label('Meta Description')
                             ->maxLength(160)
                             ->rows(3)
@@ -83,13 +103,13 @@ class SeoResource extends Resource
                             })
                             ->columnSpanFull(),
 
-                        Forms\Components\Select::make('tags')
+                        Select::make('tags')
                             ->label('Tags')
                             ->relationship('tags', 'name')
                             ->multiple()
                             ->preload()
                             ->createOptionForm([
-                                Forms\Components\TextInput::make('name')
+                                TextInput::make('name')
                                     ->required()
                                     ->maxLength(191),
                             ])
@@ -98,11 +118,11 @@ class SeoResource extends Resource
                     ])
                     ->columns(2),
 
-                Forms\Components\Section::make('SEO Preview')
+                Section::make('SEO Preview')
                     ->description('Preview how this page might appear in search results')
                     ->icon('heroicon-o-eye')
                     ->schema([
-                        Forms\Components\Placeholder::make('search_preview')
+                        Placeholder::make('search_preview')
                             ->label('')
                             ->content(function ($get) {
                                 $title = $get('title') ?: 'Page Title';
@@ -126,7 +146,7 @@ class SeoResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('route')
+                TextColumn::make('route')
                     ->label('Page Route')
                     ->searchable()
                     ->sortable()
@@ -135,12 +155,12 @@ class SeoResource extends Resource
                     ->color(fn ($state) => $state === '/' ? 'success' : 'primary')
                     ->weight('medium'),
 
-                Tables\Columns\TextColumn::make('title')
+                TextColumn::make('title')
                     ->label('Meta Title')
                     ->searchable()
                     ->sortable()
                     ->limit(50)
-                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                    ->tooltip(function (TextColumn $column): ?string {
                         $state = $column->getState();
                         if (strlen($state) <= 50) {
                             return null;
@@ -152,10 +172,10 @@ class SeoResource extends Resource
                         'Length: ' . strlen($record->title ?? '') . '/60 chars'
                     ),
 
-                Tables\Columns\TextColumn::make('description')
+                TextColumn::make('description')
                     ->label('Meta Description')
                     ->limit(60)
-                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                    ->tooltip(function (TextColumn $column): ?string {
                         $state = $column->getState();
                         if (strlen($state) <= 60) {
                             return null;
@@ -167,12 +187,12 @@ class SeoResource extends Resource
                         'Length: ' . strlen($record->description ?? '') . '/160 chars'
                     ),
 
-                Tables\Columns\TagsColumn::make('keywords')
+                TagsColumn::make('keywords')
                     ->label('Keywords')
                     ->limit(3)
                     ->separator(','),
 
-                Tables\Columns\IconColumn::make('seo_status')
+                IconColumn::make('seo_status')
                     ->label('SEO Status')
                     ->boolean()
                     ->trueIcon('heroicon-o-check-circle')
@@ -193,7 +213,7 @@ class SeoResource extends Resource
                         return 'SEO optimized';
                     }),
 
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label('Last Updated')
                     ->dateTime('M j, Y')
                     ->sortable()
@@ -201,7 +221,7 @@ class SeoResource extends Resource
             ])
             ->defaultSort('route')
             ->filters([
-                Tables\Filters\SelectFilter::make('seo_status')
+                SelectFilter::make('seo_status')
                     ->label('SEO Status')
                     ->options([
                         'optimized' => 'Optimized',
@@ -228,26 +248,26 @@ class SeoResource extends Resource
                         );
                     }),
             ])
-            ->actions([
-                Tables\Actions\Action::make('preview')
+            ->recordActions([
+                Action::make('preview')
                     ->label('Preview')
                     ->icon('heroicon-o-eye')
                     ->color('info')
                     ->url(fn ($record) => url($record->route), shouldOpenInNewTab: true),
-                Tables\Actions\ViewAction::make()
+                ViewAction::make()
                     ->color('info'),
-                Tables\Actions\EditAction::make()
+                EditAction::make()
                     ->color('warning'),
-                Tables\Actions\DeleteAction::make()
+                DeleteAction::make()
                     ->color('danger'),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ])
             ->emptyStateActions([
-                Tables\Actions\CreateAction::make(),
+                CreateAction::make(),
             ]);
     }
 
@@ -261,10 +281,10 @@ class SeoResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSeos::route('/'),
-            'create' => Pages\CreateSeo::route('/create'),
-            'view' => Pages\ViewSeo::route('/{record}'),
-            'edit' => Pages\EditSeo::route('/{record}/edit'),
+            'index' => ListSeos::route('/'),
+            'create' => CreateSeo::route('/create'),
+            'view' => ViewSeo::route('/{record}'),
+            'edit' => EditSeo::route('/{record}/edit'),
         ];
     }
 }

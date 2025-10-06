@@ -11,7 +11,7 @@ use App\Models\Faq;
 
 class SystemStatsWidget extends Widget
 {
-    protected static string $view = 'filament.widgets.system-stats';
+    protected string $view = 'filament.widgets.system-stats';
 
     protected static ?int $sort = 4;
 

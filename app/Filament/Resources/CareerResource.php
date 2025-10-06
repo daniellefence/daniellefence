@@ -2,11 +2,37 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\Select;
+use App\Models\User;
+use Filament\Forms\Components\TextInput;
+use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Filters\TrashedFilter;
+use Filament\Tables\Filters\TernaryFilter;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Actions\Action;
+use Filament\Actions\ViewAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\BulkAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\RestoreBulkAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\CreateAction;
+use App\Filament\Resources\CareerResource\Pages\ListCareers;
+use App\Filament\Resources\CareerResource\Pages\CreateCareer;
+use App\Filament\Resources\CareerResource\Pages\ViewCareer;
+use App\Filament\Resources\CareerResource\Pages\EditCareer;
 use App\Filament\Resources\CareerResource\Pages;
 use App\Filament\Resources\CareerResource\RelationManagers;
 use App\Models\Career;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -17,36 +43,36 @@ class CareerResource extends Resource
 {
     protected static ?string $model = Career::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-briefcase';
 
-    protected static ?string $navigationGroup = 'Human Resources';
+    protected static string | \UnitEnum | null $navigationGroup = 'Human Resources';
 
     protected static ?int $navigationSort = 6;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\Section::make('Job Posting Information')
+        return $schema
+            ->components([
+                Section::make('Job Posting Information')
                     ->description('Manage career opportunities and job postings')
                     ->icon('heroicon-o-briefcase')
                     ->schema([
-                        Forms\Components\Select::make('user_id')
+                        Select::make('user_id')
                             ->label('Posted By')
-                            ->options(\App\Models\User::pluck('name', 'id'))
+                            ->options(User::pluck('name', 'id'))
                             ->required()
                             ->searchable()
                             ->preload()
                             ->helperText('The user who created this job posting'),
 
-                        Forms\Components\TextInput::make('title')
+                        TextInput::make('title')
                             ->label('Job Title')
                             ->required()
                             ->maxLength(191)
                             ->placeholder('e.g., Fence Installer, Project Manager')
                             ->helperText('The title of the job position'),
 
-                        \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('content')
+                        ChatGPTTiptapEditor::make('content')
                     ->profile('default')
                             ->label('Job Description')
                             ->required()
@@ -66,11 +92,11 @@ class CareerResource extends Resource
                     ])
                     ->columns(2),
 
-                Forms\Components\Section::make('Display Settings')
+                Section::make('Display Settings')
                     ->description('Control how this job posting appears on the website')
                     ->icon('heroicon-o-cog')
                     ->schema([
-                        Forms\Components\TextInput::make('order')
+                        TextInput::make('order')
                             ->label('Display Order')
                             ->required()
                             ->numeric()
@@ -78,13 +104,13 @@ class CareerResource extends Resource
                             ->minValue(0)
                             ->helperText('Lower numbers appear first in job listings'),
 
-                        Forms\Components\Toggle::make('published')
+                        Toggle::make('published')
                             ->label('Published')
                             ->helperText('Show this job posting on the careers page')
                             ->default(true)
                             ->inline(false),
 
-                        Forms\Components\Toggle::make('hidden')
+                        Toggle::make('hidden')
                             ->label('Hidden')
                             ->helperText('Hide this job posting (overrides published status)')
                             ->default(false)
@@ -98,27 +124,27 @@ class CareerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('order')
+                TextColumn::make('order')
                     ->label('Order')
                     ->badge()
                     ->color('primary')
                     ->sortable()
                     ->width('80px'),
 
-                Tables\Columns\TextColumn::make('title')
+                TextColumn::make('title')
                     ->label('Job Title')
                     ->searchable()
                     ->sortable()
                     ->weight('medium')
                     ->icon('heroicon-o-briefcase'),
 
-                Tables\Columns\TextColumn::make('user.name')
+                TextColumn::make('user.name')
                     ->label('Posted By')
                     ->sortable()
                     ->badge()
                     ->color('gray'),
 
-                Tables\Columns\IconColumn::make('status')
+                IconColumn::make('status')
                     ->label('Status')
                     ->state(function ($record) {
                         if ($record->hidden) {
@@ -138,7 +164,7 @@ class CareerResource extends Resource
                         return $record->published ? 'Published' : 'Unpublished';
                     }),
 
-                Tables\Columns\ToggleColumn::make('published')
+                ToggleColumn::make('published')
                     ->label('Published')
                     ->onIcon('heroicon-o-check-circle')
                     ->offIcon('heroicon-o-x-circle')
@@ -147,7 +173,7 @@ class CareerResource extends Resource
                     ->sortable()
                     ->disabled(fn ($record) => $record->hidden),
 
-                Tables\Columns\ToggleColumn::make('hidden')
+                ToggleColumn::make('hidden')
                     ->label('Hidden')
                     ->onIcon('heroicon-o-eye-slash')
                     ->offIcon('heroicon-o-eye')
@@ -155,11 +181,11 @@ class CareerResource extends Resource
                     ->offColor('success')
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('content')
+                TextColumn::make('content')
                     ->label('Description Preview')
                     ->html()
                     ->limit(50)
-                    ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
+                    ->tooltip(function (TextColumn $column): ?string {
                         $state = strip_tags($column->getState());
                         if (strlen($state) <= 50) {
                             return null;
@@ -168,13 +194,13 @@ class CareerResource extends Resource
                     })
                     ->toggleable(isToggledHiddenByDefault: true),
 
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label('Posted Date')
                     ->dateTime('M j, Y')
                     ->sortable()
                     ->toggleable(),
 
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label('Last Updated')
                     ->dateTime('M j, Y')
                     ->sortable()
@@ -182,26 +208,26 @@ class CareerResource extends Resource
             ])
             ->defaultSort('order', 'asc')
             ->filters([
-                Tables\Filters\TrashedFilter::make(),
-                Tables\Filters\TernaryFilter::make('published')
+                TrashedFilter::make(),
+                TernaryFilter::make('published')
                     ->label('Publication Status')
                     ->boolean()
                     ->trueLabel('Published jobs')
                     ->falseLabel('Unpublished jobs')
                     ->native(false),
-                Tables\Filters\TernaryFilter::make('hidden')
+                TernaryFilter::make('hidden')
                     ->label('Visibility')
                     ->boolean()
                     ->trueLabel('Hidden jobs')
                     ->falseLabel('Visible jobs')
                     ->native(false),
-                Tables\Filters\SelectFilter::make('user_id')
+                SelectFilter::make('user_id')
                     ->label('Posted By')
-                    ->options(\App\Models\User::pluck('name', 'id'))
+                    ->options(User::pluck('name', 'id'))
                     ->placeholder('All Users'),
             ])
-            ->actions([
-                Tables\Actions\Action::make('toggle_published')
+            ->recordActions([
+                Action::make('toggle_published')
                     ->label(fn ($record) => $record->published ? 'Unpublish' : 'Publish')
                     ->icon(fn ($record) => $record->published ? 'heroicon-o-eye-slash' : 'heroicon-o-eye')
                     ->color(fn ($record) => $record->published ? 'warning' : 'success')
@@ -210,16 +236,16 @@ class CareerResource extends Resource
                     })
                     ->requiresConfirmation()
                     ->visible(fn ($record) => !$record->hidden),
-                Tables\Actions\ViewAction::make()
+                ViewAction::make()
                     ->color('info'),
-                Tables\Actions\EditAction::make()
+                EditAction::make()
                     ->color('warning'),
-                Tables\Actions\DeleteAction::make()
+                DeleteAction::make()
                     ->color('danger'),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\BulkAction::make('publish')
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    BulkAction::make('publish')
                         ->label('Publish Selected')
                         ->icon('heroicon-o-eye')
                         ->color('success')
@@ -227,7 +253,7 @@ class CareerResource extends Resource
                             $records->each->update(['published' => true]);
                         })
                         ->requiresConfirmation(),
-                    Tables\Actions\BulkAction::make('unpublish')
+                    BulkAction::make('unpublish')
                         ->label('Unpublish Selected')
                         ->icon('heroicon-o-eye-slash')
                         ->color('warning')
@@ -235,13 +261,13 @@ class CareerResource extends Resource
                             $records->each->update(['published' => false]);
                         })
                         ->requiresConfirmation(),
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    DeleteBulkAction::make(),
+                    RestoreBulkAction::make(),
+                    ForceDeleteBulkAction::make(),
                 ]),
             ])
             ->emptyStateActions([
-                Tables\Actions\CreateAction::make(),
+                CreateAction::make(),
             ])
             ->recordUrl(fn ($record) => null);
     }
@@ -256,10 +282,10 @@ class CareerResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCareers::route('/'),
-            'create' => Pages\CreateCareer::route('/create'),
-            'view' => Pages\ViewCareer::route('/{record}'),
-            'edit' => Pages\EditCareer::route('/{record}/edit'),
+            'index' => ListCareers::route('/'),
+            'create' => CreateCareer::route('/create'),
+            'view' => ViewCareer::route('/{record}'),
+            'edit' => EditCareer::route('/{record}/edit'),
         ];
     }
 }

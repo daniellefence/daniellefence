@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\QuoteRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
@@ -27,7 +28,7 @@ class OutdoorKitchenQuote extends Mailable
     /**
      * Create a new outdoor kitchen quote email instance.
      *
-     * @param \App\Models\QuoteRequest $model The quote request model containing customer data and kitchen specs
+     * @param QuoteRequest $model The quote request model containing customer data and kitchen specs
      */
     public function __construct(public $model)
     {
@@ -40,7 +41,7 @@ class OutdoorKitchenQuote extends Mailable
      * Configures the email envelope with the company's from address and
      * a clear subject line indicating this is an outdoor kitchen quote request.
      *
-     * @return \Illuminate\Mail\Mailables\Envelope
+     * @return Envelope
      */
     public function envelope(): Envelope
     {
@@ -56,7 +57,7 @@ class OutdoorKitchenQuote extends Mailable
      * Specifies the Markdown template to use for rendering the email content.
      * The template displays customer information and outdoor kitchen specifications.
      *
-     * @return \Illuminate\Mail\Mailables\Content
+     * @return Content
      */
     public function content(): Content
     {
@@ -72,7 +73,7 @@ class OutdoorKitchenQuote extends Mailable
      * such as property photos, design inspiration images, or space measurements that help
      * provide context for accurate outdoor kitchen quote preparation.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * @return array<int, Attachment>
      */
     public function attachments(): array
     {

@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
@@ -46,7 +47,7 @@ class Contact extends Mailable
      * Configures the email envelope with the company's from address and
      * a clear subject line indicating this is a general contact request.
      *
-     * @return \Illuminate\Mail\Mailables\Envelope
+     * @return Envelope
      */
     public function envelope(): Envelope
     {
@@ -62,7 +63,7 @@ class Contact extends Mailable
      * Specifies the Markdown template to use for rendering the email content.
      * The template displays customer information and their inquiry message.
      *
-     * @return \Illuminate\Mail\Mailables\Content
+     * @return Content
      */
     public function content(): Content
     {
@@ -77,7 +78,7 @@ class Contact extends Mailable
      * Contact form submissions typically do not include file attachments.
      * This method returns an empty array as contacts are text-based inquiries.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * @return array<int, Attachment>
      */
     public function attachments(): array
     {

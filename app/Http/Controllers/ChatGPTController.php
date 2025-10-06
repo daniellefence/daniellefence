@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
@@ -63,9 +64,9 @@ class ChatGPTController extends Controller
                     'content' => $formattedContent
                 ]);
             } else {
-                throw new \Exception('ChatGPT API error: ' . $response->body());
+                throw new Exception('ChatGPT API error: ' . $response->body());
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json([
                 'success' => false,
                 'error' => 'Failed to generate content: ' . $e->getMessage()
@@ -121,7 +122,7 @@ class ChatGPTController extends Controller
                     'error' => 'Failed to generate content from OpenAI'
                 ], 500);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json([
                 'error' => 'Error connecting to OpenAI: ' . $e->getMessage()
             ], 500);
