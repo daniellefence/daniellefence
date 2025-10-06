@@ -33,17 +33,34 @@ class ProductResource extends Resource
                     ->label('Category')
                     ->relationship('category', 'title')
                     ->searchable(),
-                Forms\Components\Select::make('subcategory_id')
-                    ->label('Subcategory')
-                    ->relationship('subcategory', 'title')
-                    ->searchable(),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(191),
-                \App\Filament\Forms\Components\ChatGPTRichEditor::make('description')
+                \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('description')
+                    ->profile('default')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('keywords')
+                Forms\Components\Select::make('tags')
+                    ->label('Tags')
+                    ->relationship('tags', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(191),
+                    ])
                     ->columnSpanFull(),
+                Forms\Components\FileUpload::make('photos')
+                    ->label('Product Photos')
+                    ->multiple()
+                    ->image()
+                    ->reorderable()
+                    ->maxFiles(10)
+                    ->disk('public')
+                    ->directory('products')
+                    ->columnSpanFull()
+                    ->helperText('Upload product photos (max 10 images)')
+                    ->hiddenOn('view'),
                 Forms\Components\TextInput::make('order')
                     ->required()
                     ->numeric()
@@ -68,6 +85,10 @@ class ProductResource extends Resource
                     ->toggleable(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('photos_count')
+                    ->counts('photos')
+                    ->label('Photos')
+                    ->badge(),
                 Tables\Columns\TextColumn::make('order')
                     ->numeric()
                     ->sortable(),

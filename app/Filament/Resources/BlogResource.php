@@ -41,12 +41,20 @@ class BlogResource extends Resource
                     ->required()
                     ->maxLength(191)
                     ->columnSpanFull(),
-                \App\Filament\Forms\Components\ChatGPTRichEditor::make('content')
+                \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('content')
                     ->required()
+                    ->profile('default')
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('keywords')
-                    ->label('SEO Keywords')
-                    ->placeholder('Enter keywords separated by commas')
+                Forms\Components\Select::make('tags')
+                    ->label('Tags')
+                    ->relationship('tags', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(191),
+                    ])
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('show_date')
                     ->label('Show publication date')

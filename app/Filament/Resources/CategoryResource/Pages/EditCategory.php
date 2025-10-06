@@ -10,8 +10,6 @@ class EditCategory extends EditRecord
 {
     protected static string $resource = CategoryResource::class;
 
-    // Add public property for ChatGPTRichEditor compatibility
-    public $description = '';
 
     protected function getHeaderActions(): array
     {

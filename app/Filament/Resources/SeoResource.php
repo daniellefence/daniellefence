@@ -83,10 +83,17 @@ class SeoResource extends Resource
                             })
                             ->columnSpanFull(),
 
-                        Forms\Components\TagsInput::make('keywords')
-                            ->label('Meta Keywords')
-                            ->placeholder('Add keywords (press Enter after each)')
-                            ->helperText('Add relevant keywords for this page. Press Enter after typing each keyword.')
+                        Forms\Components\Select::make('tags')
+                            ->label('Tags')
+                            ->relationship('tags', 'name')
+                            ->multiple()
+                            ->preload()
+                            ->createOptionForm([
+                                Forms\Components\TextInput::make('name')
+                                    ->required()
+                                    ->maxLength(191),
+                            ])
+                            ->helperText('Add relevant tags for this page. You can create new tags or select existing ones.')
                             ->columnSpanFull(),
                     ])
                     ->columns(2),

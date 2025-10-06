@@ -101,8 +101,7 @@
 
                 <!-- Enhanced services grid -->
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5">
-                @foreach(\App\Models\Category::whereNull('parent_id')->orderBy('order','asc')->get() as $category)
-                    @if($category->photo()->count() > 0)
+                @foreach($categories as $category)
                         <div class="group relative">
                             <a aria-label="{{$category->title}}" class="block" href="{{$category->getRoute()}}">
                                 <!-- Card container with enhanced hover effects -->
@@ -128,7 +127,6 @@
                                 </div>
                             </a>
                         </div>
-                    @endif
                 @endforeach
                 </div>
 

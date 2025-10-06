@@ -19,7 +19,7 @@
                             >
                         </a>
                     </div>
-                    @if($photo->keywords && $photo->keywords->count() > 0)
+                    @if($photo->tags && $photo->tags->count() > 0)
                         <div class="px-4 pb-4">
                             <livewire:keyword-tags wire:key="photo_keyword_tags{{ $photo->id }}" :model="$photo"/>
                         </div>

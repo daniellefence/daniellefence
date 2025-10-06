@@ -57,17 +57,10 @@ class SpecialResource extends Resource
                     ->description('Configure the specifics of this promotion')
                     ->icon('heroicon-o-tag')
                     ->schema([
-                        Forms\Components\RichEditor::make('content')
+                        \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('content')
                             ->label('Offer Description')
+                            ->profile('default')
                             ->columnSpanFull()
-                            ->toolbarButtons([
-                                'bold',
-                                'italic',
-                                'underline',
-                                'link',
-                                'bulletList',
-                                'orderedList',
-                            ])
                             ->placeholder('Detailed description of the special offer')
                             ->helperText('Full details about what is included in this offer'),
 

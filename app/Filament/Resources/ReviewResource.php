@@ -38,7 +38,8 @@ class ReviewResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(191),
-                \App\Filament\Forms\Components\ChatGPTRichEditor::make('content')
+                \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('content')
+                    ->profile('default')
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('google_review_id')
                     ->maxLength(191),

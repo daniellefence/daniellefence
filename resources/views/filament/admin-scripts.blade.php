@@ -29,67 +29,79 @@ async function generateChatGPTContent(fieldName, prompt) {
 
         if (response.ok) {
             const data = await response.json();
-
-            // Multiple strategies to find and update the editor
             let updated = false;
 
-            // Strategy 1: Find by field name using Alpine.js directive
-            const fieldWrapper = document.querySelector(`[x-data][x-data*="${fieldName}"]`) ||
-                                document.querySelector(`[data-field-wrapper="${fieldName}"]`);
+            // Wait for DOM to be ready
+            await new Promise(resolve => setTimeout(resolve, 200));
 
-            if (fieldWrapper) {
+            // Strategy 1: Find the TipTap editor using the ProseMirror class
+            const allEditors = document.querySelectorAll('.ProseMirror');
 
-                // Look for TipTap editor
-                const proseMirror = fieldWrapper.querySelector('.ProseMirror');
-                if (proseMirror) {
+            for (let editorElement of allEditors) {
+                try {
+                    // Try to find the Alpine component
+                    let alpineEl = editorElement.closest('[x-data]');
 
-                    // Try to get editor instance
-                    if (proseMirror.__editor) {
-                        proseMirror.__editor.commands.setContent(data.content);
-                        updated = true;
-                    } else if (window.editor) {
-                        window.editor.commands.setContent(data.content);
-                        updated = true;
+                    if (alpineEl && window.Alpine) {
+                        // Get Alpine data
+                        const alpineData = window.Alpine.$data(alpineEl);
+
+                        if (alpineData && alpineData.editor && typeof alpineData.editor.commands !== 'undefined') {
+                            // Update via TipTap editor commands
+                            alpineData.editor.commands.setContent(data.content);
+
+                            // Also update the state if it exists
+                            if (typeof alpineData.state !== 'undefined') {
+                                alpineData.state = data.content;
+                            }
+
+                            updated = true;
+                            break;
+                        }
                     }
+                } catch (e) {
+                    console.log('Editor update attempt failed:', e);
+                    continue;
                 }
             }
 
-            // Strategy 2: Use Livewire to update the field directly
+            // Strategy 2: Try using Livewire's wire:model
             if (!updated) {
-                const livewireComponent = document.querySelector('[wire\\:id]');
-                if (livewireComponent && window.Livewire) {
-                    const componentId = livewireComponent.getAttribute('wire:id');
-                    const component = window.Livewire.find(componentId);
-                    if (component) {
-                        component.set(fieldName, data.content);
-                        updated = true;
-                    }
-                }
-            }
+                try {
+                    // Find the form element
+                    const formElement = document.querySelector('form');
+                    if (formElement && window.Livewire) {
+                        const livewireComponent = window.Livewire.find(formElement.closest('[wire\\:id]')?.getAttribute('wire:id'));
 
-            // Strategy 3: Try Alpine.js if available
-            if (!updated && window.Alpine) {
-                const alpineComponent = document.querySelector(`[x-data]`);
-                if (alpineComponent && alpineComponent._x_dataStack) {
-                    const alpineData = alpineComponent._x_dataStack[0];
-                    if (alpineData && typeof alpineData[fieldName] !== 'undefined') {
-                        alpineData[fieldName] = data.content;
-                        updated = true;
+                        if (livewireComponent && livewireComponent.set) {
+                            livewireComponent.set('data.' + fieldName, data.content);
+                            updated = true;
+                        }
                     }
+                } catch (e) {
+                    console.log('Livewire update failed:', e);
                 }
             }
 
             if (updated) {
-                alert('Content generated successfully!');
+                // Show success message
+                alert('✅ Content generated successfully!');
             } else {
-                alert('Content generated, but could not update editor automatically. Please paste manually: ' + data.content);
+                // Fallback: copy to clipboard
+                const textContent = data.content.replace(/<[^>]*>/g, '');
+                navigator.clipboard.writeText(textContent).then(() => {
+                    alert('📋 Content copied to clipboard! Paste it into the editor (Ctrl/Cmd+V)');
+                }).catch(() => {
+                    alert('⚠️ Content generated but could not update editor automatically. Please copy manually:\n\n' + textContent.substring(0, 200) + '...');
+                });
             }
         } else {
             const errorData = await response.json();
             throw new Error(errorData.error || 'Failed to generate content');
         }
     } catch (error) {
-        alert('Error generating content: ' + error.message);
+        alert('❌ Error: ' + error.message);
+        console.error('ChatGPT Error:', error);
     }
 }
 

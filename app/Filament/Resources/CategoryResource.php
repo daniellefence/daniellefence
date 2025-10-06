@@ -46,7 +46,8 @@ class CategoryResource extends Resource
                             ->placeholder('e.g., Residential Fencing, Commercial Gates')
                             ->helperText('The display name for this category'),
 
-                        \App\Filament\Forms\Components\ChatGPTRichEditor::make('description')
+                        \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('description')
+                    ->profile('default')
                             ->label('Category Description')
                             ->columnSpanFull()
                             ->placeholder('Describe this category and its products')

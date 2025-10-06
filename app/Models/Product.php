@@ -13,6 +13,10 @@ class Product extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'photos' => 'array',
+    ];
+
     public function photos()
     {
         return $this->hasMany(Photo::class);
@@ -26,6 +30,11 @@ class Product extends Model
     public function pip()
     {
         return $this->hasOne(Pip::class);
+    }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 
     public function getRoute()

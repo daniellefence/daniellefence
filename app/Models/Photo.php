@@ -22,4 +22,9 @@ class Photo extends Model
     {
         return $this->belongsTo(Special::class);
     }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

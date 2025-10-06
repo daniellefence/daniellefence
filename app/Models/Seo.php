@@ -10,4 +10,9 @@ class Seo extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

@@ -6,16 +6,17 @@
     "license": "MIT",
     "require": {
         "althinect/filament-spatie-roles-permissions": "^2.3",
+        "awcodes/filament-tiptap-editor": "^3.5",
         "bezhansalleh/filament-shield": "^3.9",
         "filament/filament": "^3.0",
         "filament/spatie-laravel-media-library-plugin": "^3.2",
         "gaarf/xml-to-php-array": "^1.0",
-        "laravel/framework": "^11.0",
+        "laravel/framework": "^12.0",
         "laravel/jetstream": "^5.0",
         "laravel/pulse": "^1.2",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "livewire/livewire": "^3.4",
+        "livewire/livewire": "^3.5",
         "spatie/flare-client-php": "^1.10",
         "spatie/laravel-analytics": "^5.6",
         "spatie/laravel-flare": "^1.1",
@@ -30,7 +31,7 @@
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
-        "phpunit/phpunit": "^10.5",
+        "phpunit/phpunit": "^11.0",
         "symfony/var-dumper": "^7.3"
     },
     "autoload": {

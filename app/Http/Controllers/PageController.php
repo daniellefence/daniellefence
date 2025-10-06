@@ -10,7 +10,15 @@ class PageController extends Controller
 {
     public function home()
     {
-        return view('pages.home');
+        $categories = cache()->remember('homepage_categories', 3600, function() {
+            return Category::with('photo')
+                ->whereNull('parent_id')
+                ->whereHas('photo')
+                ->orderBy('order', 'asc')
+                ->get();
+        });
+
+        return view('pages.home', compact('categories'));
     }
 
 

@@ -76,7 +76,8 @@ class AreasWeServeResource extends Resource
                     ->description('Unique content about fencing services in this area')
                     ->icon('heroicon-o-document-text')
                     ->schema([
-                        \App\Filament\Forms\Components\ChatGPTRichEditor::make('services_content')
+                        \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('services_content')
+                    ->profile('default')
                             ->columnSpanFull(),
                     ])
                     ->columns(1),

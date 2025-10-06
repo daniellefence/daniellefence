@@ -46,7 +46,8 @@ class CareerResource extends Resource
                             ->placeholder('e.g., Fence Installer, Project Manager')
                             ->helperText('The title of the job position'),
 
-                        \App\Filament\Forms\Components\ChatGPTRichEditor::make('content')
+                        \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('content')
+                    ->profile('default')
                             ->label('Job Description')
                             ->required()
                             ->columnSpanFull()

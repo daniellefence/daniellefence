@@ -72,6 +72,16 @@ class Blog extends Model
     }
 
     /**
+     * Get all tags associated with this blog post via polymorphic relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    /**
      * Generate SEO-friendly URL for this blog post.
      *
      * Creates a route with category and title for better SEO and user experience.

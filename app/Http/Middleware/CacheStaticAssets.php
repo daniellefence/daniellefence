@@ -17,6 +17,11 @@ class CacheStaticAssets
     {
         $response = $next($request);
 
+        // Return early if response is null or not a Response object
+        if (!$response instanceof Response) {
+            return $response;
+        }
+
         // Only apply caching to static assets
         if ($this->isStaticAsset($request)) {
             // Cache for 1 year for images, fonts, and build assets

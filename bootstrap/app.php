@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\AddLoginAsToActivity;
+use App\Http\Middleware\Admin2Auth;
 use App\Http\Middleware\CacheStaticAssets;
 use App\Http\Middleware\DeleteMiddleware;
 use App\Http\Middleware\HoneypotProtection;

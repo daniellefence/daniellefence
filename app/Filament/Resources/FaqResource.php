@@ -38,7 +38,8 @@ class FaqResource extends Resource
                             ->columnSpanFull()
                             ->placeholder('Enter the frequently asked question'),
 
-                        \App\Filament\Forms\Components\ChatGPTRichEditor::make('answer')
+                        \App\Filament\Forms\Components\ChatGPTTiptapEditor::make('answer')
+                    ->profile('default')
                             ->label('Answer')
                             ->required()
                             ->columnSpanFull()

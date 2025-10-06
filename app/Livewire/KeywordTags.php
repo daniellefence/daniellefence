@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class KeywordTags extends Component
 {
-    public $keywords = [];
+    public $tags = [];
 
     public $count = 0;
 
@@ -24,11 +24,17 @@ class KeywordTags extends Component
     public function mount($model, $clickable = false)
     {
         if (is_array($model)) {
-            $this->keywords = $model;
+            $this->tags = $model;
             $this->clickable = false;
         } else {
-            $this->keywords = danielle()->parseKeywords($model);
-            $this->clickable = true;
+            // Load tags from the model's tags relationship
+            if (method_exists($model, 'tags')) {
+                $this->tags = $model->tags->pluck('name')->toArray();
+                $this->clickable = true;
+            } else {
+                $this->tags = [];
+                $this->clickable = false;
+            }
         }
     }
 
