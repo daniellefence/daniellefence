@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. Before considering any task complete, check the browser console and Laravel logs for errors—catching issues early keeps the workflow smooth.
 
 ## Development Philosophy
 
@@ -304,11 +304,13 @@ The application includes a comprehensive ChatGPT integration for rich text edito
 
 ### ChatGPTRichEditor Component
 
-Use the `ChatGPTRichEditor` component instead of the standard `RichEditor` for any content field that would benefit from AI-generated content:
+**Always use** the `ChatGPTRichEditor` component for content fields in Filament resources. This component extends Filament's `RichEditor` and includes ChatGPT integration.
 
 ```php
 // In Filament Resource form schema
-\App\Filament\Forms\Components\ChatGPTRichEditor::make('content')
+use App\Filament\Forms\Components\ChatGPTRichEditor;
+
+ChatGPTRichEditor::make('content')
     ->required()
     ->columnSpanFull(),
 ```
@@ -317,18 +319,18 @@ Use the `ChatGPTRichEditor` component instead of the standard `RichEditor` for a
 
 The ChatGPT integration consists of:
 
-1. **Custom Form Component**: `ChatGPTRichEditor` extends Filament's `RichEditor`
-2. **API Integration**: Uses OpenAI's GPT-3.5-turbo model via `/api/chatgpt-generate` endpoint
-3. **JavaScript Functions**: Global functions for editor interaction and content generation
-4. **Admin Panel Integration**: Scripts loaded via Filament render hooks
+1. **Custom Form Component**: `App\Filament\Forms\Components\ChatGPTRichEditor` (extends Filament's `RichEditor`)
+2. **API Controller**: `App\Http\Controllers\ChatGPTController` - Handles OpenAI API integration
+3. **API Endpoint**: `/api/chatgpt-generate` - POST endpoint for content generation
+4. **JavaScript Integration**: `resources/views/filament/admin-scripts.blade.php` - Global functions for editor interaction
+5. **OpenAI Model**: Uses GPT-3.5-turbo for professional content generation
 
 ### File Structure
 
 ```
-app/Filament/Forms/Components/ChatGPTRichEditor.php - Custom editor component
-app/Http/Controllers/ChatGPTController.php - API controller
-resources/views/filament/admin-scripts.blade.php - Admin panel JavaScript
-resources/js/chatgpt.js - Standalone JavaScript functions
+app/Filament/Forms/Components/ChatGPTRichEditor.php - Custom RichEditor component with ChatGPT integration
+app/Http/Controllers/ChatGPTController.php - API controller for OpenAI integration
+resources/views/filament/admin-scripts.blade.php - JavaScript functions (openChatGPTModal, generateChatGPTContent)
 ```
 
 ### Configuration
@@ -338,27 +340,69 @@ Requires `OPENAI_API_KEY` in `.env` file:
 OPENAI_API_KEY=sk-your-api-key-here
 ```
 
-### Usage Pattern
+The API key is stored in `config/services.php` under `services.openai.api_key`.
 
-The ChatGPT button appears above rich text editors with the following features:
-- Prompts user for content description
-- Generates professional content using OpenAI API
-- Automatically populates the editor with formatted HTML
-- Provides error handling and user feedback
-- Supports multiple editor instances on the same page
+### How It Works
+
+1. **Button Display**: A "Generate with ChatGPT" button appears near the rich text editor
+2. **User Prompt**: When clicked, prompts user for content description
+3. **API Request**: Sends prompt to `/api/chatgpt-generate` with tone and length parameters
+4. **Content Generation**: OpenAI generates professional, HTML-formatted content
+5. **Editor Update**: Automatically populates the editor using TipTap/Alpine.js commands
+6. **Fallback**: If auto-update fails, copies content to clipboard
+
+### JavaScript Functions
+
+**`openChatGPTModal(fieldName)`**
+- Displays prompt dialog for user input
+- Passes field name and prompt to generation function
+
+**`generateChatGPTContent(fieldName, prompt)`**
+- Makes POST request to `/api/chatgpt-generate`
+- Attempts multiple strategies to update the editor:
+  1. TipTap editor commands via Alpine.js
+  2. Livewire wire:model updates
+  3. Clipboard fallback if both fail
+
+### API Response Format
+
+```json
+{
+    "success": true,
+    "content": "<p>Generated HTML content...</p>"
+}
+```
 
 ### Error Handling
 
 The integration includes comprehensive error handling:
-- API key validation
-- Network error handling
-- Editor update fallback strategies
-- User-friendly error messages
+- API key validation (returns 500 if missing)
+- Network error handling with user-friendly alerts
+- Editor update fallback strategies (TipTap → Livewire → Clipboard)
+- Console logging for debugging
 
 ### Troubleshooting
 
-If the ChatGPT button doesn't work:
-1. Check browser console for JavaScript errors
-2. Verify OPENAI_API_KEY is set in environment
-3. Ensure admin-scripts.blade.php is loading properly
-4. Check that the field name is being passed correctly to the JavaScript function
+If the ChatGPT button doesn't appear or work:
+1. Verify you're using `ChatGPTRichEditor` (not `RichEditor`)
+2. Check browser console for JavaScript errors
+3. Verify `OPENAI_API_KEY` is set in `.env`
+4. Ensure `admin-scripts.blade.php` is loaded in Filament panel
+5. Check `/api/chatgpt-generate` route exists in `routes/api.php`
+6. Test API directly: `curl -X POST https://newdaniellefence.test/api/chatgpt-generate -H "Content-Type: application/json" -d '{"prompt":"test"}'`
+
+### Content Generation Settings
+
+**Tone Options**: professional, friendly, technical, marketing, casual
+**Length Options**: short, medium, long
+**Default Model**: gpt-3.5-turbo
+**Max Tokens**: 1000
+**Temperature**: 0.7 (balanced creativity)
+
+### System Prompt
+
+The ChatGPT system prompt is configured for Danielle Fence content:
+```
+You are a professional content writer for Danielle Fence, a fencing and outdoor living company.
+Write clear, engaging, and informative content that helps customers understand products and services.
+```

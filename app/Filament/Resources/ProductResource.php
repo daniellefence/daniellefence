@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
-use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use App\Filament\Forms\Components\ChatGPTRichEditor;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Actions\ViewAction;
@@ -49,8 +49,7 @@ class ProductResource extends Resource
                 TextInput::make('title')
                     ->required()
                     ->maxLength(191),
-                ChatGPTTiptapEditor::make('description')
-                    ->profile('default')
+                ChatGPTRichEditor::make('description')
                     ->columnSpanFull(),
                 Select::make('tags')
                     ->label('Tags')
@@ -74,10 +73,6 @@ class ProductResource extends Resource
                     ->columnSpanFull()
                     ->helperText('Upload product photos (max 10 images)')
                     ->hiddenOn('view'),
-                TextInput::make('order')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
             ]);
     }
 
@@ -118,6 +113,8 @@ class ProductResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->reorderable('order')
+            ->defaultSort('order', 'asc')
             ->filters([
                 //
             ])

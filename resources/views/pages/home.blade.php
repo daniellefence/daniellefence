@@ -104,17 +104,12 @@
                 @foreach($categories as $category)
                         <div class="group relative">
                             <a aria-label="{{$category->title}}" class="block" href="{{$category->getRoute()}}">
-                                <!-- Card container with enhanced hover effects -->
-                                <div class="relative overflow-hidden rounded-2xl bg-white shadow-sm group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1">
-
-                                    <!-- Image container with aspect ratio -->
-                                    <div class="aspect-square overflow-hidden bg-gray-100">
-                                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                             src="{{asset('storage/'.$category->photo->path)}}"
-                                             alt="{{$category->title}} Photo"
-                                             loading="lazy"/>
-                                    </div>
-
+                                <!-- Image container -->
+                                <div class="relative overflow-hidden rounded-2xl shadow-sm group-hover:shadow-xl transition-all duration-300 transform group-hover:-translate-y-1">
+                                    <img class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"
+                                         src="{{asset('storage/'.$category->photo->path)}}"
+                                         alt="{{$category->title}} Photo"
+                                         loading="lazy"/>
                                 </div>
 
                                 <!-- Enhanced title with better typography -->

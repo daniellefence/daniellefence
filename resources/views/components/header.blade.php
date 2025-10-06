@@ -14,7 +14,7 @@
                             <div class="absolute bottom-[5px] left-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
                             <div class="absolute bottom-[5px] right-[5px] w-2 h-2 bg-white rounded-full shadow-sm"></div>
                             <img
-                                class="h-16 sm:h-20 lg:h-24 xl:h-28 w-auto relative z-10"
+                                class="h-16 sm:h-20 md:h-16 lg:h-24 xl:h-28 w-auto relative z-10"
                                 style="aspect-ratio: 288/147; min-height: 64px;"
                                 src="{{Vite::asset('resources/images/logo.webp')}}"
                                 alt="Danielle Fence & Outdoor Living Logo"
@@ -26,8 +26,8 @@
                         </a>
                     </div>
 
-            <!-- Navigation on Right -->
-            <div class="flex gap-3 lg:hidden">
+            <!-- Mobile Hamburger Menu -->
+            <div class="lg:hidden">
                 <button
                     @click="showMobile = !showMobile"
                     @keyup.escape.window="showMobile = false"
@@ -208,14 +208,16 @@
 
                 <!-- Contact Us -->
                 <a aria-label="Contact Us" href="{{route('contact')}}" class="relative px-4 py-2 text-sm font-semibold text-slate-800 hover:text-outdoor-primary transition-all duration-200 group rounded-lg bg-slate-50/70 hover:bg-outdoor-light/60 shadow-sm hover:shadow-md border border-slate-200/50 hover:border-outdoor-primary/30">
-                    Contact Us
+                    <span class="md:hidden lg:inline">Contact Us</span>
+                    <span class="hidden md:inline lg:hidden">Contact</span>
                     <span class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-outdoor-primary to-outdoor-primary/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-full"></span>
                 </a>
 
                             <!-- Free Estimate -->
                             <a href="{{route('request-a-quote')}}" class="inline-flex items-center px-5 py-2 bg-outdoor-primary text-white font-semibold rounded-full hover:bg-outdoor-primary/90 transition-all duration-200 shadow-lg hover:shadow-2xl transform hover:-translate-y-0.5 text-sm">
                                 <i class="fa-solid fa-file-invoice w-4 h-4 mr-2"></i>
-                                Free Estimate
+                                <span class="md:hidden lg:inline">Free Estimate</span>
+                                <span class="hidden md:inline lg:hidden">Estimate</span>
                             </a>
                         </div>
 

@@ -18,8 +18,10 @@ class Category extends Model
         'title',
         'description',
         'image',
+        'hero_image',
         'order',
-        'parent_id'
+        'parent_id',
+        'published'
     ];
 
     public function photo()
@@ -77,9 +79,9 @@ class Category extends Model
 
     public function getHeroImageUrl()
     {
-        // Use the category image for hero section
-        if ($this->image) {
-            return asset('storage/' . $this->image);
+        // Use the hero_image for hero section
+        if ($this->hero_image) {
+            return asset('storage/' . $this->hero_image);
         }
 
         // Fallback to photo if available
@@ -92,6 +94,6 @@ class Category extends Model
 
     public function hasHeroImage()
     {
-        return !empty($this->image) || !empty($this->photo);
+        return !empty($this->hero_image) || !empty($this->photo);
     }
 }

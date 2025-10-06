@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
-use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use App\Filament\Forms\Components\ChatGPTRichEditor;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Actions\ViewAction;
@@ -55,8 +55,7 @@ class FaqResource extends Resource
                             ->columnSpanFull()
                             ->placeholder('Enter the frequently asked question'),
 
-                        ChatGPTTiptapEditor::make('answer')
-                    ->profile('default')
+                        ChatGPTRichEditor::make('answer')
                             ->label('Answer')
                             ->required()
                             ->columnSpanFull()

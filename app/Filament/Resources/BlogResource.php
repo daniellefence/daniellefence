@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use App\Filament\Forms\Components\ChatGPTRichEditor;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
@@ -55,9 +55,8 @@ class BlogResource extends Resource
                     ->required()
                     ->maxLength(191)
                     ->columnSpanFull(),
-                ChatGPTTiptapEditor::make('content')
+                ChatGPTRichEditor::make('content')
                     ->required()
-                    ->profile('default')
                     ->columnSpanFull(),
                 Select::make('tags')
                     ->label('Tags')

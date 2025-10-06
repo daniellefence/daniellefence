@@ -6,7 +6,7 @@ use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use App\Filament\Forms\Components\ChatGPTRichEditor;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
@@ -51,6 +51,7 @@ class CategoryResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema
+            ->columns(1)
             ->components([
                 Section::make('Category Information')
                     ->description('Manage product categories and their hierarchy')
@@ -71,10 +72,8 @@ class CategoryResource extends Resource
                             ->placeholder('e.g., Residential Fencing, Commercial Gates')
                             ->helperText('The display name for this category'),
 
-                        ChatGPTTiptapEditor::make('description')
-                    ->profile('default')
+                        ChatGPTRichEditor::make('description')
                             ->label('Category Description')
-                            ->columnSpanFull()
                             ->placeholder('Describe this category and its products')
                             ->helperText('This description may appear on category pages'),
 
@@ -91,33 +90,24 @@ class CategoryResource extends Resource
                             ->maxSize(5120) // 5MB max
                             ->directory('categories/hero-images')
                             ->visibility('public')
-                            ->columnSpanFull()
                             ->helperText('📐 **Ideal Dimensions:** 1920x1080px (16:9 ratio) or 2560x1080px (21:9 ratio)
 📁 **File Format:** JPEG, PNG, or WebP
 📦 **File Size:** Maximum 5MB
 💡 **Tip:** Use high-quality images for best results on all screen sizes'),
                     ])
-                    ->columns(2),
+                    ->columns(1),
 
                 Section::make('Display Settings')
                     ->description('Control how this category appears on the website')
                     ->icon('heroicon-o-cog')
                     ->schema([
-                        TextInput::make('order')
-                            ->label('Display Order')
-                            ->required()
-                            ->numeric()
-                            ->default(0)
-                            ->minValue(0)
-                            ->helperText('Lower numbers appear first in category listings'),
-
                         Toggle::make('published')
                             ->label('Published')
                             ->helperText('Show this category on the website')
                             ->default(true)
                             ->inline(false),
                     ])
-                    ->columns(2),
+                    ->columns(1),
             ]);
     }
 

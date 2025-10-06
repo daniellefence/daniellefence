@@ -7,7 +7,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
 use App\Models\User;
 use Filament\Forms\Components\TextInput;
-use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use App\Filament\Forms\Components\ChatGPTRichEditor;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
@@ -72,8 +72,7 @@ class CareerResource extends Resource
                             ->placeholder('e.g., Fence Installer, Project Manager')
                             ->helperText('The title of the job position'),
 
-                        ChatGPTTiptapEditor::make('content')
-                    ->profile('default')
+                        ChatGPTRichEditor::make('content')
                             ->label('Job Description')
                             ->required()
                             ->columnSpanFull()

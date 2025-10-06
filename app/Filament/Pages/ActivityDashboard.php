@@ -24,11 +24,12 @@ class ActivityDashboard extends Dashboard
     {
         return [
             StatsOverviewWidget::class,
-            UptimeMonitorWidget::class,
             RecentContactsWidget::class,
             QuoteRequestsChartWidget::class,
             SystemStatsWidget::class,
-            PulseMetricsWidget::class,
+            // Temporarily disabled due to performance issues
+            // UptimeMonitorWidget::class,
+            // PulseMetricsWidget::class,
         ];
     }
 

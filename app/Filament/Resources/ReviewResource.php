@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
-use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use App\Filament\Forms\Components\ChatGPTRichEditor;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
@@ -51,8 +51,7 @@ class ReviewResource extends Resource
                 TextInput::make('name')
                     ->required()
                     ->maxLength(191),
-                ChatGPTTiptapEditor::make('content')
-                    ->profile('default')
+                ChatGPTRichEditor::make('content')
                     ->columnSpanFull(),
                 TextInput::make('google_review_id')
                     ->maxLength(191),

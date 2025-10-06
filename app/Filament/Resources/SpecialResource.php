@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
-use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use App\Filament\Forms\Components\ChatGPTRichEditor;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Actions\ViewAction;
@@ -72,9 +72,8 @@ class SpecialResource extends Resource
                     ->description('Configure the specifics of this promotion')
                     ->icon('heroicon-o-tag')
                     ->schema([
-                        ChatGPTTiptapEditor::make('content')
+                        ChatGPTRichEditor::make('content')
                             ->label('Offer Description')
-                            ->profile('default')
                             ->columnSpanFull()
                             ->placeholder('Detailed description of the special offer')
                             ->helperText('Full details about what is included in this offer'),

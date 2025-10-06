@@ -6,7 +6,7 @@ use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
-use App\Filament\Forms\Components\ChatGPTTiptapEditor;
+use App\Filament\Forms\Components\ChatGPTRichEditor;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -96,8 +96,7 @@ class AreasWeServeResource extends Resource
                     ->description('Unique content about fencing services in this area')
                     ->icon('heroicon-o-document-text')
                     ->schema([
-                        ChatGPTTiptapEditor::make('services_content')
-                    ->profile('default')
+                        ChatGPTRichEditor::make('services_content')
                             ->columnSpanFull(),
                     ])
                     ->columns(1),
