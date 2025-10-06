@@ -51,7 +51,7 @@ header {
 
 
 .item-holder {
-    @apply flex justify-between gap-x-6 py-5 p-2 rounded-lg border-2 border-gray-400 mb-2 border-opacity-50 bg-white;
+    @apply flex justify-between gap-x-6 py-5 p-2 rounded-lg border-2 border-gray-400/50 mb-2 bg-white;
 }
 
 /* Admin Interface Enhancements */
