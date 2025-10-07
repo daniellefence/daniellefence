@@ -67,11 +67,10 @@ class ProductResource extends Resource
                     ->multiple()
                     ->image()
                     ->reorderable()
-                    ->maxFiles(10)
                     ->disk('public')
                     ->directory('products')
                     ->columnSpanFull()
-                    ->helperText('Upload product photos (max 10 images)')
+                    ->helperText('Upload product photos')
                     ->hiddenOn('view'),
             ]);
     }
