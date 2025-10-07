@@ -20,12 +20,18 @@ class ChatGPTRichEditor extends RichEditor
 
         // Add hint with closure that evaluates after initialization
         $this->hint(function () {
-            // Only add ChatGPT button if not disabled (view pages disable it)
-            if ($this->isDisabled()) {
+            // Check if component is properly initialized and not disabled
+            try {
+                if (!isset($this->container) || $this->isDisabled()) {
+                    return null;
+                }
+
+                $fieldName = $this->getName();
+            } catch (\Throwable $e) {
+                // If component not fully initialized, don't show button
                 return null;
             }
 
-            $fieldName = $this->getName();
             return new HtmlString('
                 <button
                     type="button"
