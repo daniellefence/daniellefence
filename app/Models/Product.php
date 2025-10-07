@@ -18,7 +18,7 @@ class Product extends Model
         'photos' => 'array',
     ];
 
-    public function photos()
+    public function photoRecords()
     {
         return $this->hasMany(Photo::class);
     }
@@ -63,9 +63,14 @@ class Product extends Model
 
     public function getHeroImageUrl()
     {
-        // Use the first product photo for hero section
-        if ($this->photos->count() > 0) {
-            return asset('storage/' . $this->photos->first()->path);
+        // First check JSON photos column (new system)
+        if (!empty($this->photos) && is_array($this->photos)) {
+            return asset('storage/' . $this->photos[0]);
+        }
+
+        // Fallback to photo records (legacy system)
+        if ($this->photoRecords()->count() > 0) {
+            return asset('storage/' . $this->photoRecords->first()->path);
         }
 
         // Fallback to category image if available
@@ -78,6 +83,8 @@ class Product extends Model
 
     public function hasHeroImage()
     {
-        return $this->photos->count() > 0 || ($this->category && $this->category->image);
+        return (!empty($this->photos) && is_array($this->photos))
+            || $this->photoRecords()->count() > 0
+            || ($this->category && $this->category->image);
     }
 }

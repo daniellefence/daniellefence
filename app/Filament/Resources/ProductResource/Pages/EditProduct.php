@@ -23,19 +23,24 @@ class EditProduct extends EditRecord
 
     protected function mutateFormDataBeforeFill(array $data): array
     {
-        // Load existing photos for the form
-        $data['photos'] = $this->record->photos()->orderBy('order')->pluck('path')->toArray();
+        // Load existing photos from JSON column (new system)
+        // If JSON column is empty, try loading from photo records (legacy system)
+        if (empty($data['photos']) || !is_array($data['photos'])) {
+            $data['photos'] = $this->record->photoRecords()->orderBy('order')->pluck('path')->toArray();
+        }
 
         return $data;
     }
 
     protected function afterSave(): void
     {
-        // Delete all existing photos
-        $this->record->photos()->delete();
-
-        // Create new photos from uploaded files
+        // The photos are now stored in the JSON column automatically by Filament
+        // We can optionally sync to photo records for backwards compatibility
         if ($this->data['photos'] ?? null) {
+            // Delete existing photo records
+            $this->record->photoRecords()->delete();
+
+            // Create new photo records from the JSON data
             $order = 0;
             foreach ($this->data['photos'] as $photoPath) {
                 Photo::create([
@@ -44,6 +49,9 @@ class EditProduct extends EditRecord
                     'order' => $order++,
                 ]);
             }
+        } else {
+            // If no photos, delete all photo records
+            $this->record->photoRecords()->delete();
         }
     }
 }
