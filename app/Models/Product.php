@@ -23,6 +23,15 @@ class Product extends Model
         return $this->hasMany(Photo::class);
     }
 
+    /**
+     * Alias for photoRecords() for backward compatibility.
+     * This ensures consistency with Category and Special models.
+     */
+    public function photos()
+    {
+        return $this->photoRecords();
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
