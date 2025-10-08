@@ -93,7 +93,7 @@ class ProductResource extends Resource
                 TextColumn::make('title')
                     ->searchable(),
                 TextColumn::make('photos_count')
-                    ->counts('photos')
+                    ->counts('photoRecords')
                     ->label('Photos')
                     ->badge(),
                 TextColumn::make('order')
