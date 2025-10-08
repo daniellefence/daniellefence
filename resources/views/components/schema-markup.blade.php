@@ -96,8 +96,8 @@ $currentRoute = \Illuminate\Support\Facades\Route::currentRouteName();
           "manufacturer": {
             "@id": "{{ url('/') }}#organization"
           },
-          @if($product->photos()->count() > 0)
-          "image": "{{ url($product->photos()->first()->path) }}",
+          @if($product->photoRecords()->count() > 0)
+          "image": "{{ url($product->photoRecords()->first()->path) }}",
           @endif
           "url": "{{ url()->current() }}",
           @if($product->price)

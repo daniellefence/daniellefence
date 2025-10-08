@@ -111,7 +111,7 @@ class ProductSeeder extends Seeder
         $files = glob('resources/images/default_slides/'.$key.'/*.*');
         foreach ($files as $file) {
             $path = Storage::disk('public')->putFile($file);
-            $productModel->photos()->create([
+            $productModel->photoRecords()->create([
                 'title' => $productModel->title,
                 'path' => $path,
             ]);

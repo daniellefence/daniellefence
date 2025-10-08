@@ -35,7 +35,7 @@
 
 @if($product)
     @php
-        $ogImage = $product->photos()->count() > 0 ? url($product->photos()->first()->path) : Vite::asset('resources/images/logo.webp');
+        $ogImage = $product->photoRecords()->count() > 0 ? url($product->photoRecords()->first()->path) : Vite::asset('resources/images/logo.webp');
     @endphp
     <meta property="og:image" content="{{ $ogImage }}">
     <meta property="twitter:image" content="{{ $ogImage }}">

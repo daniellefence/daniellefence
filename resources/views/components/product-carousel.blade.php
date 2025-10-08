@@ -1,7 +1,7 @@
-@if($product->photos->count() > 0)
+@if($product->photoRecords->count() > 0)
 <div class="swiffy-slider slider-item-show1 slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein">
     <ul class="slider-container">
-        @foreach($product->photos()->orderBy('order','asc')->get() as $photo)
+        @foreach($product->photoRecords()->orderBy('order','asc')->get() as $photo)
             <li class="slide-visible">
                 <div class="bg-white rounded-lg overflow-hidden">
                     @if($photo->title)
@@ -33,7 +33,7 @@
     <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next image"></button>
 
     <div class="slider-indicators">
-        @foreach($product->photos as $photo)
+        @foreach($product->photoRecords as $photo)
             <button class="{{ $loop->first ? 'active' : '' }}" aria-label="Go to image {{ $loop->iteration }}"></button>
         @endforeach
     </div>
