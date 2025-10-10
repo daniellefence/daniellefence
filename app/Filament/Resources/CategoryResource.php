@@ -11,6 +11,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Filters\TernaryFilter;
@@ -156,15 +157,13 @@ class CategoryResource extends Resource
                     ->color('warning')
                     ->sortable(),
 
-                IconColumn::make('hero_image')
+                ImageColumn::make('hero_image')
                     ->label('Hero Image')
-                    ->boolean()
-                    ->trueIcon('heroicon-o-photo')
-                    ->falseIcon('heroicon-o-x-mark')
-                    ->trueColor('success')
-                    ->falseColor('gray')
-                    ->sortable()
-                    ->getStateUsing(fn ($record) => !empty($record->hero_image)),
+                    ->disk('public')
+                    ->width(80)
+                    ->height(50)
+                    ->defaultImageUrl(url('/images/no-image.png'))
+                    ->sortable(),
 
                 ToggleColumn::make('published')
                     ->label('Published')
