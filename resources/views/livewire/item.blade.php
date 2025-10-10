@@ -4,9 +4,11 @@
             // Get image URL based on item type
             $imageUrl = null;
 
-            // For Categories, use getHeroImageUrl() method which checks hero_image first
-            if ($item instanceof App\Models\Category && method_exists($item, 'getHeroImageUrl')) {
-                $imageUrl = $item->getHeroImageUrl();
+            // For Categories, ONLY use hero_image field (not photo fallback)
+            if ($item instanceof App\Models\Category) {
+                if ($item->hero_image) {
+                    $imageUrl = asset('storage/' . $item->hero_image);
+                }
             }
             // For Products, use first photo
             elseif (method_exists($item, 'photos') && $item->photos()->count() > 0) {
