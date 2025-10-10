@@ -59,7 +59,16 @@ class CategoryResource extends Resource
                     ->schema([
                         Select::make('parent_id')
                             ->label('Parent Category')
-                            ->options(Category::whereNull('parent_id')->pluck('title', 'id'))
+                            ->options(function ($record) {
+                                $query = Category::query();
+
+                                // Exclude the current category to prevent circular reference
+                                if ($record) {
+                                    $query->where('id', '!=', $record->id);
+                                }
+
+                                return $query->orderBy('title')->pluck('title', 'id');
+                            })
                             ->placeholder('Select parent category (leave empty for main category)')
                             ->searchable()
                             ->preload()
@@ -187,7 +196,7 @@ class CategoryResource extends Resource
                     ->native(false),
                 SelectFilter::make('parent_id')
                     ->label('Parent Category')
-                    ->options(Category::whereNull('parent_id')->pluck('title', 'id'))
+                    ->options(Category::orderBy('title')->pluck('title', 'id'))
                     ->placeholder('All categories'),
             ])
             ->recordActions([
