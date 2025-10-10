@@ -1,11 +1,15 @@
 <div>
     <a href="{{$item->getRoute()}}" class="group flex flex-col text-sm gap-y-8">
         @php
-            // Check if item is a Category with hero_image
+            // Get image URL based on item type
             $imageUrl = null;
-            if ($item instanceof App\Models\Category && $item->hero_image) {
-                $imageUrl = asset('storage/' . $item->hero_image);
-            } elseif (method_exists($item, 'photos') && $item->photos()->count() > 0) {
+
+            // For Categories, use getHeroImageUrl() method which checks hero_image first
+            if ($item instanceof App\Models\Category && method_exists($item, 'getHeroImageUrl')) {
+                $imageUrl = $item->getHeroImageUrl();
+            }
+            // For Products, use first photo
+            elseif (method_exists($item, 'photos') && $item->photos()->count() > 0) {
                 $imageUrl = asset('storage/' . $item->photos()->orderBy('order','asc')->first()->path);
             }
         @endphp
