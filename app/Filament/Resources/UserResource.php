@@ -5,11 +5,9 @@ namespace App\Filament\Resources;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Actions\ViewAction;
@@ -58,15 +56,6 @@ class UserResource extends Resource
                             ->maxLength(191),
                     ])->columns(2),
 
-                Section::make('Profile Picture')
-                    ->schema([
-                        FileUpload::make('profile_photo_path')
-                            ->label('Profile Photo')
-                            ->image()
-                            ->disk('public')
-                            ->directory('profile-photos'),
-                    ])->collapsible(),
-
                 Section::make('Authentication')
                     ->schema([
                         TextInput::make('password')
@@ -109,11 +98,6 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('profile_photo_path')
-                    ->label('Photo')
-                    ->circular()
-                    ->defaultImageUrl(fn($record) => 'https://ui-avatars.com/api/?name='.urlencode($record->name).'&color=7F9CF5&background=EBF4FF')
-                    ->size(50),
                 TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
